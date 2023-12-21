@@ -15,5 +15,5 @@ namespace AsteroidsGame
 	const int SM_ASTEROIDS = 2;
 	const float DEGTORAD = 0.017453f;
 	const float LASER_COOLDOWN = 0.2f;
-	const int COUNTER = 1000;
+	const int COUNTER = 1;
 }
