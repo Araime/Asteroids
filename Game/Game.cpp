@@ -63,7 +63,7 @@ namespace AsteroidsGame
 
 	void CheckCollisionAsteroidAndLaser(Game& game, Entity* first_obj, Entity* second_obj)
 	{
-		if (first_obj->name == "asteroid" && second_obj->name == "laser")
+		if (first_obj->name == "asteroid" && second_obj->name == "laser" && second_obj->isAlive)
 		{
 			if (IsCollide(first_obj, second_obj))
 			{
