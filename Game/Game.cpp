@@ -48,44 +48,6 @@ namespace AsteroidsGame
 		game.entities.push_back(laser);
 	}
 
-	void HandlePlayerInput(Game& game, const float& currentTime, float& lastTime)
-	{
-		if (!game.player->isDestroyed)
-		{
-			// handle rotation
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-			{
-				game.player->angle += 3.f;
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-			{
-				game.player->angle -= 3.f;
-			}
-
-			// make shot
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-			{
-				// check if enough time has passed
-				if (currentTime - lastTime > LASER_COOLDOWN)
-				{
-					MakeShot(game);
-
-					lastTime = currentTime;
-				}
-			}
-
-			// check if ship is accelerated
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			{
-				game.player->isAccelerating = true;
-			}
-			else
-			{
-				game.player->isAccelerating = false;
-			}
-		}
-	}
-
 	void CheckAllCollisions(Game& game, const float& currentTime, float& lastTime)
 	{
 		for (auto& first_obj : game.entities)
