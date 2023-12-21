@@ -65,7 +65,7 @@ namespace AsteroidsGame
 			{
 				if (currentTime - lastTime > COUNTER)
 				{
-					game.player->destroy_cooldown -= 1;
+					game.player->destroy_cooldown -= COUNTER;
 					lastTime = currentTime;
 				}
 			}
