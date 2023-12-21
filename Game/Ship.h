@@ -12,6 +12,7 @@ namespace AsteroidsGame
 	public:
 		bool isAccelerating = false;
 		bool isDestroyed = false;
+		int destroy_cooldown = 0;
 
 		Ship()
 		{
@@ -66,5 +67,7 @@ namespace AsteroidsGame
 
 	void HandlePlayerInput(Game& game, const float& currentTime, float& lastTime);
 
-	void UpdateShip(Game& game, const float& currentTime, float& lastTime);
+	void UpdateShipSprite(Game& game);
+
+	void RestartPlayer(Game& game, const float& currentTime, float& lastTime);
 }

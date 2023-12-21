@@ -41,7 +41,7 @@ namespace AsteroidsGame
 		}
 	}
 
-	void UpdateShip(Game& game, const float& currentTime, float& lastTime)
+	void UpdateShipSprite(Game& game)
 	{
 		if (!game.player->isDestroyed)
 		{
@@ -55,12 +55,27 @@ namespace AsteroidsGame
 				game.player->anim = game.sShip;
 			}
 		}
-		else if(currentTime - lastTime > DESTROY_COLLDOWN)
+	}
+
+	void RestartPlayer(Game& game, const float& currentTime, float& lastTime)
+	{
+		if (game.player->isDestroyed)
 		{
-			game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
-			game.player->dx = 0;
-			game.player->dy = 0;
-			game.player->isDestroyed = false;
+			if (game.player->destroy_cooldown > 0)
+			{
+				if (currentTime - lastTime > COUNTER)
+				{
+					game.player->destroy_cooldown -= 1;
+					lastTime = currentTime;
+				}
+			}
+			if (game.player->destroy_cooldown == 0)
+			{
+				game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
+				game.player->dx = 0;
+				game.player->dy = 0;
+				game.player->isDestroyed = false;
+			}
 		}
 	}
 }

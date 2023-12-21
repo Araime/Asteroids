@@ -22,7 +22,7 @@ namespace AsteroidsGame
 		GameState gameState = GameState::Game;
 
 		// set ateroid num
-		int asteroid_num = 12;
+		int asteroids_num = 12;
 
 		// init BG
 		sf::Texture bgTexture;

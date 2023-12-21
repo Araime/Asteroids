@@ -31,7 +31,7 @@ namespace AsteroidsGame
 		game.sFlyingShip.SetAnimation(game.shipTexture, 40, 40, 40, 40, 1, 0.f);
 
 		// create asteroids
-		for (int i = 0; i < game.asteroid_num; i++)
+		for (int i = 0; i < game.asteroids_num; i++)
 		{
 			CreateAsteroid(game);
 		}
@@ -91,6 +91,7 @@ namespace AsteroidsGame
 					CreateExplosionAnimation(game, first_obj, game.sShipExplosion);
 
 					game.player->isDestroyed = true;
+					game.player->destroy_cooldown = 3;
 					lastTime = currentTime;
 				}
 			}
@@ -176,7 +177,9 @@ namespace AsteroidsGame
 	{
 		HandlePlayerInput(game, currentTime, lastTime);
 
-		UpdateShip(game, currentTime, lastTime);
+		UpdateShipSprite(game);
+
+		RestartPlayer(game, currentTime, lastTime);
 
 		CheckAllCollisions(game, currentTime, lastTime);
 
