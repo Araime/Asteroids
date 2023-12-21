@@ -62,6 +62,11 @@ namespace AsteroidsGame
 
 	void CheckAllCollisions(Game& game, const float& currentTime, float& lastTime);
 
+	void CheckCollisionAsteroidAndLaser(Game& game, Entity* first_obj, Entity* second_obj);
+
+	void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj,
+										 const float& currentTime, float& lastTime);
+
 	void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation);
 
 	void CreateSmallAsteroids(Game& game, Entity* first_obj);

@@ -54,38 +54,44 @@ namespace AsteroidsGame
 		{
 			for (auto& second_obj : game.entities)
 			{
-				// check collision asteroid and laser
-				if (first_obj->name == "asteroid" && second_obj->name == "laser")
+				CheckCollisionAsteroidAndLaser(game, first_obj, second_obj);
+
+				CheckCollisionPlayerAndAsteroid(game, first_obj, second_obj, currentTime, lastTime);
+			}
+		}
+	}
+
+	void CheckCollisionAsteroidAndLaser(Game& game, Entity* first_obj, Entity* second_obj)
+	{
+		if (first_obj->name == "asteroid" && second_obj->name == "laser")
+		{
+			if (IsCollide(first_obj, second_obj))
+			{
+				second_obj->isAlive = false;
+				first_obj->isAlive = false;
+
+				CreateExplosionAnimation(game, first_obj, game.sAsteroidExplosion);
+
+				CreateSmallAsteroids(game, first_obj);
+			}
+		}
+	}
+
+	void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj,
+										 const float& currentTime, float& lastTime)
+	{
+		if (!game.player->isDestroyed)
+		{
+			if (first_obj->name == "player" && second_obj->name == "asteroid")
+			{
+				if (IsCollide(first_obj, second_obj))
 				{
-					if (IsCollide(first_obj, second_obj))
-					{
-						second_obj->isAlive = false;
-						first_obj->isAlive = false;
+					second_obj->isAlive = false;
 
-						// create asteroid explosion animation
-						CreateExplosionAnimation(game, first_obj, game.sAsteroidExplosion);
+					CreateExplosionAnimation(game, first_obj, game.sShipExplosion);
 
-						CreateSmallAsteroids(game, first_obj);
-					}
-				}
-
-				// check collision player and asteroid
-				if (!game.player->isDestroyed)
-				{
-					if (first_obj->name == "player" && second_obj->name == "asteroid")
-					{
-						if (IsCollide(first_obj, second_obj))
-						{
-							second_obj->isAlive = false;
-
-							// create ship explosion animation
-							CreateExplosionAnimation(game, first_obj, game.sShipExplosion);
-
-							// restart player ship
-							game.player->isDestroyed = true;
-							lastTime = currentTime;
-						}
-					}
+					game.player->isDestroyed = true;
+					lastTime = currentTime;
 				}
 			}
 		}
