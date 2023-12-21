@@ -64,5 +64,5 @@ namespace AsteroidsGame
 		}
 	};
 
-	void UpdateShipSprite(Game& game);
+	void UpdateShip(Game& game, const float& currentTime, float& lastTime);
 }

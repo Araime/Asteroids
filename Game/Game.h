@@ -60,7 +60,7 @@ namespace AsteroidsGame
 
 	void HandlePlayerInput(Game& game, const float& currentTime, float& lastTime);
 
-	void CheckAllCollisions(Game& game);
+	void CheckAllCollisions(Game& game, const float& currentTime, float& lastTime);
 
 	void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation);
 

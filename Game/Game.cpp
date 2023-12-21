@@ -86,7 +86,7 @@ namespace AsteroidsGame
 		}
 	}
 
-	void CheckAllCollisions(Game& game)
+	void CheckAllCollisions(Game& game, const float& currentTime, float& lastTime)
 	{
 		for (auto& first_obj : game.entities)
 		{
@@ -120,9 +120,8 @@ namespace AsteroidsGame
 							CreateExplosionAnimation(game, first_obj, game.sShipExplosion);
 
 							// restart player ship
-							game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
-							game.player->dx = 0;
-							game.player->dy = 0;
+							game.player->isDestroyed = true;
+							lastTime = currentTime;
 						}
 					}
 				}
@@ -209,9 +208,9 @@ namespace AsteroidsGame
 	{
 		HandlePlayerInput(game, currentTime, lastTime);
 
-		UpdateShipSprite(game);
+		UpdateShip(game, currentTime, lastTime);
 
-		CheckAllCollisions(game);
+		CheckAllCollisions(game, currentTime, lastTime);
 
 		CheckÑompletedAnimations(game);
 
@@ -226,6 +225,10 @@ namespace AsteroidsGame
 
 		for (auto& entity : game.entities)
 		{
+			if (entity->name == "player" && game.player->isDestroyed)
+			{
+				continue;
+			}
 			entity->Draw(window);
 		}
 
