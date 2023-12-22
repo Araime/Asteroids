@@ -44,8 +44,8 @@ namespace AsteroidsGame
 		game.sShipExplosion.SetAnimation(game.explosionTexture2, 0, 0, 256, 256, 48, 0.5f);
 		game.sRock.SetAnimation(game.rockTexture, 0, 0, 64, 64, 16, 0.2f);
 		game.sRockSmall.SetAnimation(game.smallRockTexture, 0, 0, 64, 64, 16, 0.2f);
-		game.sShip.SetAnimation(game.shipTexture, 40, 0, 40, 40, 1, 0.f);
-		game.sFlyingShip.SetAnimation(game.shipTexture, 40, 40, 40, 40, 1, 0.f);
+		game.sShip.SetAnimation(game.shipTexture, 40, 0, 40, 39, 1, 0.f);
+		game.sFlyingShip.SetAnimation(game.shipTexture, 40, 86, 40, 40, 1, 0.f);
 
 		// init sounds
 		game.timerSnd.buffer.loadFromFile(SND_PATH + "magnet_start.wav");
