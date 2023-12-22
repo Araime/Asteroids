@@ -50,15 +50,15 @@ int main()
 		{
 		case GameState::Menu:
 		{
+			DrawMainMenu(game, window);
 			break;
 		}
 		case GameState::Game:
 		{
 			HanldeWindowEvents(window);
-
 			UpdateGame(game, window, currentrTime, lastTime);
-
 			DrawGame(game, window);
+			break;
 		}
 		case GameState::GameOver:
 		{

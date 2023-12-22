@@ -18,12 +18,12 @@ namespace AsteroidsGame
 		game.text.setPosition(COOLDOWN_X_COORD, COOLDOWN_Y_COORD);
 
 		// load game textures
-		game.shipTexture.loadFromFile(IMG_PATH + "spaceship.png");
-		game.explosionTexture1.loadFromFile(IMG_PATH + "type_B.png");
-		game.explosionTexture2.loadFromFile(IMG_PATH + "type_C.png");
-		game.rockTexture.loadFromFile(IMG_PATH + "rock.png");
-		game.smallRockTexture.loadFromFile(IMG_PATH + "rock_small.png");
-		game.laserTexture.loadFromFile(IMG_PATH + "fire_blue.png");
+		assert(game.shipTexture.loadFromFile(IMG_PATH + "spaceship.png"));
+		assert(game.explosionTexture1.loadFromFile(IMG_PATH + "type_B.png"));
+		assert(game.explosionTexture2.loadFromFile(IMG_PATH + "type_C.png"));
+		assert(game.rockTexture.loadFromFile(IMG_PATH + "rock.png"));
+		assert(game.smallRockTexture.loadFromFile(IMG_PATH + "rock_small.png"));
+		assert(game.laserTexture.loadFromFile(IMG_PATH + "fire_blue.png"));
 
 		// load bg's textures
 		assert(game.levelTexture.loadFromFile(IMG_PATH + "background2.jpg"));
@@ -37,6 +37,15 @@ namespace AsteroidsGame
 		// init BG's sprites
 		InitBG(game.menuBG, game.menuTexture);
 		InitBG(game.levelBG, game.levelTexture);
+
+		// init all objects of animations
+		game.sLaser.SetAnimation(game.laserTexture, 0, 0, 32, 64, 16, 0.8f);
+		game.sAsteroidExplosion.SetAnimation(game.explosionTexture1, 0, 0, 192, 192, 64, 1.2f);
+		game.sShipExplosion.SetAnimation(game.explosionTexture2, 0, 0, 256, 256, 48, 0.5f);
+		game.sRock.SetAnimation(game.rockTexture, 0, 0, 64, 64, 16, 0.2f);
+		game.sRockSmall.SetAnimation(game.smallRockTexture, 0, 0, 64, 64, 16, 0.2f);
+		game.sShip.SetAnimation(game.shipTexture, 40, 0, 40, 40, 1, 0.f);
+		game.sFlyingShip.SetAnimation(game.shipTexture, 40, 40, 40, 40, 1, 0.f);
 
 		// init sounds
 		game.timerSnd.buffer.loadFromFile(SND_PATH + "magnet_start.wav");
@@ -62,17 +71,30 @@ namespace AsteroidsGame
 		game.laserSndArray[1] = game.laserSnd2;
 		game.laserSndArray[2] = game.laserSnd3;
 
-		// init music
+		// init music and play
+		game.gameMusic.music.openFromFile(SND_PATH + "enchanted tiki 86.ogg");
+		game.gameMusic.music.setVolume(50.f);
+		game.gameMusic.music.play();	
 
+		// update past time
+		game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
+	}
 
-		// init all objects of animations
-		game.sLaser.SetAnimation(game.laserTexture, 0, 0, 32, 64, 16, 0.8f);
-		game.sAsteroidExplosion.SetAnimation(game.explosionTexture1, 0, 0, 192, 192, 64, 1.2f);
-		game.sShipExplosion.SetAnimation(game.explosionTexture2, 0, 0, 256, 256, 48, 0.5f);
-		game.sRock.SetAnimation(game.rockTexture, 0, 0, 64, 64, 16, 0.2f);
-		game.sRockSmall.SetAnimation(game.smallRockTexture, 0, 0, 64, 64, 16, 0.2f);
-		game.sShip.SetAnimation(game.shipTexture, 40, 0, 40, 40, 1, 0.f);
-		game.sFlyingShip.SetAnimation(game.shipTexture, 40, 40, 40, 40, 1, 0.f);
+	void DrawMainMenu(Game& game, sf::RenderWindow& window)
+	{
+		window.clear();
+
+		window.draw(game.menuBG.sprite);
+
+		window.display();
+
+		HandlePlayerInput(game);
+	}
+
+	void RestartGame(Game& game)
+	{
+		// clear entities list
+		game.entities.clear();
 
 		// create asteroids
 		for (int i = 0; i < game.asteroids_num; i++)
@@ -83,6 +105,12 @@ namespace AsteroidsGame
 		// init player ship
 		game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
 		game.entities.push_back(game.player);
+
+		game.gameMusic.music.openFromFile(SND_PATH + "through space.ogg");
+		game.gameMusic.music.setVolume(75);
+		game.gameMusic.music.play();
+
+		game.gameState = GameState::Game;
 	}
 
 	void MakeShot(Game& game)
@@ -227,7 +255,7 @@ namespace AsteroidsGame
 
 	void UpdateGame(Game& game, sf::RenderWindow& window, const float& currentTime, float& lastTime)
 	{
-		HandlePlayerInput(game, currentTime, lastTime);
+		HandlePlayerInput(game);
 
 		UpdateShipSprite(game);
 

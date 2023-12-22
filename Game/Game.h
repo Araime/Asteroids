@@ -21,14 +21,19 @@ namespace AsteroidsGame
 
 	struct Game
 	{
-		GameState gameState = GameState::Game;
+		GameState gameState = GameState::Menu;
 
 		// set ateroid num
 		int asteroids_num = 12;
 
-		// init cooldown timer and text
+		// create cooldown timer value and text
 		int destroy_cooldown = 3;
 		std::string cooldownText = "Get Ready\n\t\t\t";
+
+		// create game timers
+		sf::Clock gameTimer;
+		float newTime = 0.f;
+		float pastTime = 0.f;
 
 		// create font
 		sf::Font font;
@@ -80,6 +85,10 @@ namespace AsteroidsGame
 	};
 
 	void InitGame(Game& game);
+
+	void DrawMainMenu(Game& game, sf::RenderWindow& window);
+
+	void RestartGame(Game& game);
 
 	void MakeShot(Game& game);
 

@@ -3,41 +3,65 @@
 
 namespace AsteroidsGame
 {
-	void HandlePlayerInput(Game& game, const float& currentTime, float& lastTime)
+	void HandlePlayerInput(Game& game)
 	{
-		if (!game.player->isDestroyed)
+		switch (game.gameState)
 		{
-			// handle rotation
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		case GameState::Menu:
+		{
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 			{
-				game.player->angle += 3.f;
+				RestartGame(game);
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			break;
+		}
+		case GameState::Game:
+		{
+			if (!game.player->isDestroyed)
 			{
-				game.player->angle -= 3.f;
-			}
+				// update current time
+				game.newTime = game.gameTimer.getElapsedTime().asSeconds();
 
-			// make shot
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-			{
-				// check if enough time has passed
-				if (currentTime - lastTime > LASER_COOLDOWN)
+				// handle rotation
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 				{
-					MakeShot(game);
+					game.player->angle += 3.f;
+				}
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+				{
+					game.player->angle -= 3.f;
+				}
 
-					lastTime = currentTime;
+				// make shot
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+				{
+					// check if enough time has passed
+					if (game.newTime - game.pastTime > LASER_COOLDOWN)
+					{
+						MakeShot(game);
+
+						game.pastTime = game.newTime;
+					}
+				}
+
+				// check if ship is accelerated
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+				{
+					game.player->isAccelerating = true;
+				}
+				else
+				{
+					game.player->isAccelerating = false;
 				}
 			}
-
-			// check if ship is accelerated
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			{
-				game.player->isAccelerating = true;
-			}
-			else
-			{
-				game.player->isAccelerating = false;
-			}
+			break;
+		}
+		case GameState::GameOver:
+		{
+			break;
+		}
+		default:
+			break;
 		}
 	}
 
