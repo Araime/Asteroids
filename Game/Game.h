@@ -24,6 +24,10 @@ namespace AsteroidsGame
 		// set ateroid num
 		int asteroids_num = 12;
 
+		// init cooldown timer and text
+		int destroy_cooldown = 3;
+		std::string cooldownText = "GET READY ";
+
 		// create font
 		sf::Font font;
 		

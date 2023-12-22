@@ -61,19 +61,19 @@ namespace AsteroidsGame
 	{
 		if (game.player->isDestroyed)
 		{
-			if (game.player->destroy_cooldown > 0)
+			if (game.destroy_cooldown > 0)
 			{
 				if (currentTime - lastTime > COUNTER)
 				{
-					game.player->destroy_cooldown -= COUNTER;
+					game.destroy_cooldown -= COUNTER;
 
 					// update game text
-					game.text.setString(COOLDOWN_TEXT + std::to_string(game.player->destroy_cooldown));
+					game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
 
 					lastTime = currentTime;
 				}
 			}
-			if (game.player->destroy_cooldown == 0)
+			if (game.destroy_cooldown == 0)
 			{
 				game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
 				game.player->dx = 0;

@@ -12,7 +12,8 @@ namespace AsteroidsGame
 		game.text.setFont(game.font);
 		game.text.setCharacterSize(CHAR_SIZE);
 		game.text.setFillColor(sf::Color::Green);
-		game.text.setString(COOLDOWN_TEXT);
+		game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
+		game.text.setPosition(COOLDOWN_X_COORD, COOLDOWN_Y_COORD);
 
 		// load all textures
 		game.shipTexture.loadFromFile(IMG_PATH + "spaceship.png");
@@ -101,8 +102,8 @@ namespace AsteroidsGame
 					CreateExplosionAnimation(game, first_obj, game.sShipExplosion);
 
 					game.player->isDestroyed = true;
-					game.player->destroy_cooldown = 3;
-					game.text.setString(COOLDOWN_TEXT + std::to_string(game.player->destroy_cooldown));
+					game.destroy_cooldown = 3;
+					game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
 					lastTime = currentTime;
 				}
 			}

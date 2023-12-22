@@ -12,7 +12,6 @@ namespace AsteroidsGame
 	public:
 		bool isAccelerating = false;
 		bool isDestroyed = false;
-		int destroy_cooldown = 0;
 
 		Ship()
 		{
