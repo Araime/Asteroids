@@ -26,7 +26,7 @@ namespace AsteroidsGame
 
 		// init cooldown timer and text
 		int destroy_cooldown = 3;
-		std::string cooldownText = "GET READY ";
+		std::string cooldownText = "Get Ready\n\t\t\t";
 
 		// create font
 		sf::Font font;

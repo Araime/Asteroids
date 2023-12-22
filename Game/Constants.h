@@ -16,7 +16,7 @@ namespace AsteroidsGame
 	const float DEGTORAD = 0.017453f;
 	const float LASER_COOLDOWN = 0.2f;
 	const int COUNTER = 1;
-	const float COOLDOWN_X_COORD = 450.f;
-	const float COOLDOWN_Y_COORD = 300.f;
-	const int CHAR_SIZE = 40;
+	const float COOLDOWN_X_COORD = 500.f;
+	const float COOLDOWN_Y_COORD = 320.f;
+	const int CHAR_SIZE = 55;
 }
