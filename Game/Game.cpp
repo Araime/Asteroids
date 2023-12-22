@@ -38,6 +38,10 @@ namespace AsteroidsGame
 		InitBG(game.menuBG, game.menuTexture);
 		InitBG(game.levelBG, game.levelTexture);
 
+		// init title name
+		assert(game.tTitle.loadFromFile(IMG_PATH + "title.png"));
+		game.sTitle.setTexture(game.tTitle);
+
 		// init all objects of animations
 		game.sLaser.SetAnimation(game.laserTexture, 0, 0, 32, 64, 16, 0.8f);
 		game.sAsteroidExplosion.SetAnimation(game.explosionTexture1, 0, 0, 192, 192, 64, 1.2f);
@@ -238,7 +242,7 @@ namespace AsteroidsGame
 
 	void RandomGenerateNewAsteroid(Game& game)
 	{
-		if (rand() % 150 == 0)
+		if (rand() % 175 == 0)
 		{
 			CreateAsteroid(game);
 		}

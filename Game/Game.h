@@ -47,6 +47,10 @@ namespace AsteroidsGame
 		sf::Texture menuTexture;
 		sf::Texture levelTexture;
 
+		// create title name
+		sf::Texture tTitle;
+		sf::Sprite sTitle;
+
 		// create sounds and music
 		Sound timerSnd;
 		Sound laserSnd1;
