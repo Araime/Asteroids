@@ -19,4 +19,5 @@ namespace AsteroidsGame
 	const float COOLDOWN_X_COORD = 500.f;
 	const float COOLDOWN_Y_COORD = 320.f;
 	const int CHAR_SIZE = 55;
+	const int LASER_SND_QTY = 4;
 }

@@ -53,5 +53,8 @@
     <ClInclude Include="Game\Math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Sound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

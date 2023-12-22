@@ -66,6 +66,7 @@ namespace AsteroidsGame
 				if (currentTime - lastTime > COUNTER)
 				{
 					game.destroy_cooldown -= COUNTER;
+					game.timerSnd.sound.play();
 
 					// update game text
 					game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));

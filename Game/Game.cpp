@@ -32,6 +32,31 @@ namespace AsteroidsGame
 		// init BG sprite
 		game.sBG.setTexture(game.bgTexture);
 
+		// init sounds
+		game.timerSnd.buffer.loadFromFile(SND_PATH + "magnet_start.wav");
+		game.timerSnd.sound.setBuffer(game.timerSnd.buffer);
+
+		game.laserSnd1.buffer.loadFromFile(SND_PATH + "laser1.wav");
+		game.laserSnd1.sound.setBuffer(game.laserSnd1.buffer);
+
+		game.laserSnd2.buffer.loadFromFile(SND_PATH + "laser2.wav");
+		game.laserSnd2.sound.setBuffer(game.laserSnd2.buffer);
+
+		game.laserSnd3.buffer.loadFromFile(SND_PATH + "laser3.wav");
+		game.laserSnd3.sound.setBuffer(game.laserSnd3.buffer);
+
+		game.laserSnd4.buffer.loadFromFile(SND_PATH + "laser4.wav");
+		game.laserSnd4.sound.setBuffer(game.laserSnd4.buffer);
+
+		// init laser snd array
+		game.laserSndArray[0] = game.laserSnd1;
+		game.laserSndArray[1] = game.laserSnd2;
+		game.laserSndArray[2] = game.laserSnd3;
+		game.laserSndArray[3] = game.laserSnd4;
+
+		// init music
+
+
 		// init all objects of animations
 		game.sLaser.SetAnimation(game.laserTexture, 0, 0, 32, 64, 16, 0.8f);
 		game.sAsteroidExplosion.SetAnimation(game.explosionTexture1, 0, 0, 192, 192, 64, 1.2f);
@@ -58,6 +83,8 @@ namespace AsteroidsGame
 		laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
 						 game.player->angle + float(rand() % 6 - 3), 10.f);
 		game.entities.push_back(laser);
+
+		game.laserSndArray[rand() % LASER_SND_QTY].sound.play();
 	}
 
 	void CheckAllCollisions(Game& game, const float& currentTime, float& lastTime)

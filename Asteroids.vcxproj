@@ -33,6 +33,7 @@
     <ClInclude Include="Game\Laser.h" />
     <ClInclude Include="Game\Math.h" />
     <ClInclude Include="Game\Ship.h" />
+    <ClInclude Include="Game\Sound.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

@@ -7,6 +7,7 @@
 #include "Asteroid.h"
 #include "Ship.h"
 #include "Math.h"
+#include "Sound.h"
 
 namespace AsteroidsGame
 {
@@ -36,6 +37,16 @@ namespace AsteroidsGame
 
 		// create BG
 		sf::Texture bgTexture;
+
+		// create sounds and music
+		Sound timerSnd;
+		Sound laserSnd1;
+		Sound laserSnd2;
+		Sound laserSnd3;
+		Sound laserSnd4;
+
+		// create laser snd array
+		Sound laserSndArray[LASER_SND_QTY];
 
 		// create game textures
 		sf::Texture shipTexture;
