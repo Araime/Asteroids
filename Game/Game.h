@@ -46,6 +46,8 @@ namespace AsteroidsGame
 		Sound asteroidExplSnd;
 		Sound shipExplSnd;
 
+		Music gameMusic;
+
 		// create laser snd array
 		Sound laserSndArray[LASER_SND_QTY];
 
