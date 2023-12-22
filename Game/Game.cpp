@@ -45,6 +45,12 @@ namespace AsteroidsGame
 		game.laserSnd3.buffer.loadFromFile(SND_PATH + "laser3.wav");
 		game.laserSnd3.sound.setBuffer(game.laserSnd3.buffer);
 
+		game.asteroidExplSnd.buffer.loadFromFile(SND_PATH + "boom2.wav");
+		game.asteroidExplSnd.sound.setBuffer(game.asteroidExplSnd.buffer);
+
+		game.shipExplSnd.buffer.loadFromFile(SND_PATH + "boom9.wav");
+		game.shipExplSnd.sound.setBuffer(game.shipExplSnd.buffer);
+
 		// init laser snd array
 		game.laserSndArray[0] = game.laserSnd1;
 		game.laserSndArray[1] = game.laserSnd2;
@@ -107,6 +113,8 @@ namespace AsteroidsGame
 
 				CreateExplosionAnimation(game, first_obj, game.sAsteroidExplosion);
 
+				game.asteroidExplSnd.sound.play();
+
 				CreateSmallAsteroids(game, first_obj);
 			}
 		}
@@ -124,6 +132,8 @@ namespace AsteroidsGame
 					second_obj->isAlive = false;
 
 					CreateExplosionAnimation(game, first_obj, game.sShipExplosion);
+
+					game.shipExplSnd.sound.play();
 
 					game.player->isDestroyed = true;
 					game.destroy_cooldown = 3;
