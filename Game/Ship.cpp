@@ -66,6 +66,10 @@ namespace AsteroidsGame
 				if (currentTime - lastTime > COUNTER)
 				{
 					game.player->destroy_cooldown -= COUNTER;
+
+					// update game text
+					game.text.setString(COOLDOWN_TEXT + std::to_string(game.player->destroy_cooldown));
+
 					lastTime = currentTime;
 				}
 			}

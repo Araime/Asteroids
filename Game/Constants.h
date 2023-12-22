@@ -18,5 +18,6 @@ namespace AsteroidsGame
 	const int COUNTER = 1;
 	const float COOLDOWN_X_COORD = 300.f;
 	const float COOLDOWN_Y_COORD = 150.f;
+	const int CHAR_SIZE = 40;
 	const std::string COOLDOWN_TEXT = "GET READY ";
 }

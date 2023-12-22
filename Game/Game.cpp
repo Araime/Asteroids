@@ -5,6 +5,15 @@ namespace AsteroidsGame
 {
 	void InitGame(Game& game)
 	{
+		// init font
+		game.font.loadFromFile(FONT_PATH + "Boomboom.otf");
+
+		// init game text
+		game.text.setFont(game.font);
+		game.text.setCharacterSize(CHAR_SIZE);
+		game.text.setFillColor(sf::Color::Green);
+		game.text.setString(COOLDOWN_TEXT);
+
 		// load all textures
 		game.shipTexture.loadFromFile(IMG_PATH + "spaceship.png");
 		game.bgTexture.loadFromFile(IMG_PATH + "background2.jpg");
@@ -36,6 +45,7 @@ namespace AsteroidsGame
 			CreateAsteroid(game);
 		}
 
+		// init player ship
 		game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
 		game.entities.push_back(game.player);
 	}
@@ -92,6 +102,7 @@ namespace AsteroidsGame
 
 					game.player->isDestroyed = true;
 					game.player->destroy_cooldown = 3;
+					game.text.setString(COOLDOWN_TEXT + std::to_string(game.player->destroy_cooldown));
 					lastTime = currentTime;
 				}
 			}
@@ -190,6 +201,14 @@ namespace AsteroidsGame
 		UpdateEntities(game);
 	}
 
+	void DrawText(Game& game, sf::RenderWindow& window)
+	{
+		if (game.player->isDestroyed)
+		{
+			window.draw(game.text);
+		}
+	}
+
 	void DrawGame(Game& game, sf::RenderWindow& window)
 	{
 		window.draw(game.sBG);
@@ -202,6 +221,8 @@ namespace AsteroidsGame
 			}
 			entity->Draw(window);
 		}
+
+		DrawText(game, window);
 
 		window.display();
 	}

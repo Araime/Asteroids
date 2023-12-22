@@ -28,7 +28,7 @@ namespace AsteroidsGame
 		sf::Font font;
 		
 		// create text
-		sf::String Text;
+		sf::Text text;
 
 		// create BG
 		sf::Texture bgTexture;
@@ -86,6 +86,8 @@ namespace AsteroidsGame
 	void Check—ompletedAnimations(Game& game);
 
 	void UpdateGame(Game& game, sf::RenderWindow& window, const float& currentTime, float& lastTime);
+
+	void DrawText(Game& game, sf::RenderWindow& window);
 
 	void DrawGame(Game& game, sf::RenderWindow& window);
 }
