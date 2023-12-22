@@ -41,6 +41,7 @@ namespace AsteroidsGame
 		// init title name
 		assert(game.tTitle.loadFromFile(IMG_PATH + "title.png"));
 		game.sTitle.setTexture(game.tTitle);
+		game.sTitle.setPosition(TITLE_X_COORD, TITLE_Y_COORD);
 
 		// init all objects of animations
 		game.sLaser.SetAnimation(game.laserTexture, 0, 0, 32, 64, 16, 0.8f);
@@ -91,6 +92,7 @@ namespace AsteroidsGame
 		window.clear();
 
 		window.draw(game.menuBG.sprite);
+		window.draw(game.sTitle);
 
 		window.display();
 
