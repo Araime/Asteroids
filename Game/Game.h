@@ -24,10 +24,16 @@ namespace AsteroidsGame
 		// set ateroid num
 		int asteroids_num = 12;
 
-		// init BG
+		// create font
+		sf::Font font;
+		
+		// create text
+		sf::String Text;
+
+		// create BG
 		sf::Texture bgTexture;
 
-		// init game textures
+		// create game textures
 		sf::Texture shipTexture;
 		sf::Texture laserTexture;
 		sf::Texture rockTexture;
@@ -35,7 +41,7 @@ namespace AsteroidsGame
 		sf::Texture explosionTexture1;
 		sf::Texture explosionTexture2;
 
-		// init all objects of animations
+		// create all objects of animations
 		Animation sLaser;
 		Animation sAsteroidExplosion;
 		Animation sShipExplosion;
@@ -44,13 +50,13 @@ namespace AsteroidsGame
 		Animation sShip;
 		Animation sFlyingShip;
 
-		// init BG sprite
+		// create BG sprite
 		sf::Sprite sBG;
 
 		// create list of all objects
 		std::list<Entity*> entities;
 
-		// init player ship
+		// create player ship
 		Ship* player = new Ship;
 	};
 
