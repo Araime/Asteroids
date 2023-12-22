@@ -82,6 +82,8 @@ namespace AsteroidsGame
 
 	void DrawMainMenu(Game& game, sf::RenderWindow& window)
 	{
+		game.menuBG.sprite.rotate(-0.2f);
+
 		window.clear();
 
 		window.draw(game.menuBG.sprite);
