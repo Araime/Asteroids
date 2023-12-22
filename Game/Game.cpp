@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Constants.h"
+#include <cassert>
 
 namespace AsteroidsGame
 {
@@ -16,21 +17,26 @@ namespace AsteroidsGame
 		game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
 		game.text.setPosition(COOLDOWN_X_COORD, COOLDOWN_Y_COORD);
 
-		// load all textures
+		// load game textures
 		game.shipTexture.loadFromFile(IMG_PATH + "spaceship.png");
-		game.bgTexture.loadFromFile(IMG_PATH + "background2.jpg");
 		game.explosionTexture1.loadFromFile(IMG_PATH + "type_B.png");
 		game.explosionTexture2.loadFromFile(IMG_PATH + "type_C.png");
 		game.rockTexture.loadFromFile(IMG_PATH + "rock.png");
 		game.smallRockTexture.loadFromFile(IMG_PATH + "rock_small.png");
 		game.laserTexture.loadFromFile(IMG_PATH + "fire_blue.png");
 
+		// load bg's textures
+		assert(game.levelTexture.loadFromFile(IMG_PATH + "background2.jpg"));
+		assert(game.menuTexture.loadFromFile(IMG_PATH + "5438849.jpg"));
+
 		// enable smooth filter
 		game.shipTexture.setSmooth(true);
-		game.bgTexture.setSmooth(true);
+		game.levelTexture.setSmooth(true);
+		game.menuTexture.setSmooth(true);
 
-		// init BG sprite
-		game.sBG.setTexture(game.bgTexture);
+		// init BG's sprites
+		InitBG(game.menuBG, game.menuTexture);
+		InitBG(game.levelBG, game.levelTexture);
 
 		// init sounds
 		game.timerSnd.buffer.loadFromFile(SND_PATH + "magnet_start.wav");
@@ -246,7 +252,9 @@ namespace AsteroidsGame
 
 	void DrawGame(Game& game, sf::RenderWindow& window)
 	{
-		window.draw(game.sBG);
+		window.clear();
+
+		window.draw(game.levelBG.sprite);
 
 		for (auto& entity : game.entities)
 		{

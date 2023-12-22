@@ -8,6 +8,7 @@
 #include "Ship.h"
 #include "Math.h"
 #include "Sound.h"
+#include "Background.h"
 
 namespace AsteroidsGame
 {
@@ -35,8 +36,11 @@ namespace AsteroidsGame
 		// create text
 		sf::Text text;
 
-		// create BG
-		sf::Texture bgTexture;
+		// create BG's
+		BG menuBG;
+		BG levelBG;
+		sf::Texture menuTexture;
+		sf::Texture levelTexture;
 
 		// create sounds and music
 		Sound timerSnd;
@@ -67,9 +71,6 @@ namespace AsteroidsGame
 		Animation sRockSmall;
 		Animation sShip;
 		Animation sFlyingShip;
-
-		// create BG sprite
-		sf::Sprite sBG;
 
 		// create list of all objects
 		std::list<Entity*> entities;
