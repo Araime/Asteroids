@@ -123,7 +123,7 @@ namespace AsteroidsGame
 		game.laserSndArray[rand() % LASER_SND_QTY].sound.play();
 	}
 
-	void CheckAllCollisions(Game& game, const float& currentTime, float& lastTime)
+	void CheckAllCollisions(Game& game)
 	{
 		for (auto& first_obj : game.entities)
 		{
@@ -131,7 +131,7 @@ namespace AsteroidsGame
 			{
 				CheckCollisionAsteroidAndLaser(game, first_obj, second_obj);
 
-				CheckCollisionPlayerAndAsteroid(game, first_obj, second_obj, currentTime, lastTime);
+				CheckCollisionPlayerAndAsteroid(game, first_obj, second_obj);
 			}
 		}
 	}
@@ -154,8 +154,7 @@ namespace AsteroidsGame
 		}
 	}
 
-	void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj,
-										 const float& currentTime, float& lastTime)
+	void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj)
 	{
 		if (!game.player->isDestroyed)
 		{
@@ -172,7 +171,7 @@ namespace AsteroidsGame
 					game.player->isDestroyed = true;
 					game.destroy_cooldown = 3;
 					game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
-					lastTime = currentTime;
+					game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
 				}
 			}
 		}
@@ -259,9 +258,9 @@ namespace AsteroidsGame
 
 		UpdateShipSprite(game);
 
-		RestartPlayer(game, currentTime, lastTime);
+		RestartPlayer(game);
 
-		CheckAllCollisions(game, currentTime, lastTime);
+		CheckAllCollisions(game);
 
 		Check—ompletedAnimations(game);
 

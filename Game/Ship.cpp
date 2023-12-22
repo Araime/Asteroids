@@ -81,13 +81,16 @@ namespace AsteroidsGame
 		}
 	}
 
-	void RestartPlayer(Game& game, const float& currentTime, float& lastTime)
+	void RestartPlayer(Game& game)
 	{
 		if (game.player->isDestroyed)
 		{
+			// update current time
+			game.newTime = game.gameTimer.getElapsedTime().asSeconds();
+
 			if (game.destroy_cooldown > 0)
 			{
-				if (currentTime - lastTime > COUNTER)
+				if (game.newTime - game.pastTime > COUNTER)
 				{
 					game.destroy_cooldown -= COUNTER;
 					game.timerSnd.sound.play();
@@ -95,7 +98,7 @@ namespace AsteroidsGame
 					// update game text
 					game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
 
-					lastTime = currentTime;
+					game.pastTime = game.newTime;
 				}
 			}
 			if (game.destroy_cooldown == 0)

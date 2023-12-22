@@ -92,14 +92,11 @@ namespace AsteroidsGame
 
 	void MakeShot(Game& game);
 
-	void HandlePlayerInput(Game& game, const float& currentTime, float& lastTime);
-
-	void CheckAllCollisions(Game& game, const float& currentTime, float& lastTime);
+	void CheckAllCollisions(Game& game);
 
 	void CheckCollisionAsteroidAndLaser(Game& game, Entity* first_obj, Entity* second_obj);
 
-	void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj,
-										 const float& currentTime, float& lastTime);
+	void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj);
 
 	void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation);
 
