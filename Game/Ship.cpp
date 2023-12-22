@@ -92,17 +92,20 @@ namespace AsteroidsGame
 			{
 				if (game.newTime - game.pastTime > COUNTER)
 				{
+					// update cooldown counter
 					game.destroy_cooldown -= COUNTER;
 					game.timerSnd.sound.play();
 
 					// update game text
 					game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
 
+					// update past time
 					game.pastTime = game.newTime;
 				}
 			}
 			if (game.destroy_cooldown == 0)
 			{
+				// ressurect the player
 				game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
 				game.player->dx = 0;
 				game.player->dy = 0;

@@ -106,6 +106,7 @@ namespace AsteroidsGame
 		game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
 		game.entities.push_back(game.player);
 
+		// change music and play
 		game.gameMusic.music.openFromFile(SND_PATH + "through space.ogg");
 		game.gameMusic.music.setVolume(75);
 		game.gameMusic.music.play();
@@ -115,11 +116,13 @@ namespace AsteroidsGame
 
 	void MakeShot(Game& game)
 	{
+		// create new laser
 		Laser* laser = new Laser();
 		laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
 						 game.player->angle + float(rand() % 6 - 3), 10.f);
 		game.entities.push_back(laser);
 
+		// play random laser sound
 		game.laserSndArray[rand() % LASER_SND_QTY].sound.play();
 	}
 
@@ -130,7 +133,6 @@ namespace AsteroidsGame
 			for (auto& second_obj : game.entities)
 			{
 				CheckCollisionAsteroidAndLaser(game, first_obj, second_obj);
-
 				CheckCollisionPlayerAndAsteroid(game, first_obj, second_obj);
 			}
 		}
@@ -147,6 +149,7 @@ namespace AsteroidsGame
 
 				CreateExplosionAnimation(game, first_obj, game.sAsteroidExplosion);
 
+				// play explosion sound
 				game.asteroidExplSnd.sound.play();
 
 				CreateSmallAsteroids(game, first_obj);
@@ -166,11 +169,16 @@ namespace AsteroidsGame
 
 					CreateExplosionAnimation(game, first_obj, game.sShipExplosion);
 
+					// play explosion sound
 					game.shipExplSnd.sound.play();
 
 					game.player->isDestroyed = true;
+
+					// update cooldown ressurection time
 					game.destroy_cooldown = 3;
 					game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
+
+					// update past time
 					game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
 				}
 			}
@@ -179,6 +187,7 @@ namespace AsteroidsGame
 
 	void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation)
 	{
+		// create new explosion
 		Entity* explosion = new Entity();
 		explosion->SetParams(expl_animation, first_obj->xcor, first_obj->ycor);
 		explosion->name = "explosion";
@@ -189,11 +198,13 @@ namespace AsteroidsGame
 	{
 		for (int i = 0; i < SM_ASTEROIDS; i++)
 		{
+			// check that the exploded asteroid is not small
 			if (first_obj->rad == 15)
 			{
 				continue;
 			}
 
+			// create small asteroids
 			Asteroid* sm_asteroid = new Asteroid();
 			sm_asteroid->SetParams(game.sRockSmall, first_obj->xcor, first_obj->ycor, float(rand() % 360), 15.f);
 			game.entities.push_back(sm_asteroid);
@@ -202,7 +213,7 @@ namespace AsteroidsGame
 
 	void CheckÑompletedAnimations(Game& game)
 	{
-		// delete completed animations
+		// turn off completed explosions animations
 		for (auto entity : game.entities)
 		{
 			if (entity->name == "explosion")
@@ -217,6 +228,7 @@ namespace AsteroidsGame
 
 	void CreateAsteroid(Game& game)
 	{
+		// create big asteroid
 		Asteroid* asteroid = new Asteroid();
 		asteroid->SetParams(game.sRock, 0.f, float(rand() % HEIGHT), float(rand() % 360), 25.f);
 		game.entities.push_back(asteroid);
@@ -239,7 +251,7 @@ namespace AsteroidsGame
 			entity->Update();
 			entity->anim.Update();
 
-			// delete dead objects
+			// delete dead objects from entities
 			if (!entity->isAlive)
 			{
 				i = game.entities.erase(i);
@@ -285,6 +297,7 @@ namespace AsteroidsGame
 
 		for (auto& entity : game.entities)
 		{
+			// check if player is destroyed
 			if (entity->name == "player" && game.player->isDestroyed)
 			{
 				continue;
