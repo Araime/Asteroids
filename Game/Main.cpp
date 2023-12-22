@@ -46,6 +46,8 @@ int main()
 		// get current time
 		const float currentrTime = gameClock.getElapsedTime().asSeconds();
 
+		HanldeWindowEvents(window);
+
 		switch (game.gameState)
 		{
 		case GameState::Menu:
@@ -55,7 +57,6 @@ int main()
 		}
 		case GameState::Game:
 		{
-			HanldeWindowEvents(window);
 			UpdateGame(game, window, currentrTime, lastTime);
 			DrawGame(game, window);
 			break;
