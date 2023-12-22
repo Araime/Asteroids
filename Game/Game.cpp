@@ -45,14 +45,10 @@ namespace AsteroidsGame
 		game.laserSnd3.buffer.loadFromFile(SND_PATH + "laser3.wav");
 		game.laserSnd3.sound.setBuffer(game.laserSnd3.buffer);
 
-		game.laserSnd4.buffer.loadFromFile(SND_PATH + "laser4.wav");
-		game.laserSnd4.sound.setBuffer(game.laserSnd4.buffer);
-
 		// init laser snd array
 		game.laserSndArray[0] = game.laserSnd1;
 		game.laserSndArray[1] = game.laserSnd2;
 		game.laserSndArray[2] = game.laserSnd3;
-		game.laserSndArray[3] = game.laserSnd4;
 
 		// init music
 

@@ -43,7 +43,6 @@ namespace AsteroidsGame
 		Sound laserSnd1;
 		Sound laserSnd2;
 		Sound laserSnd3;
-		Sound laserSnd4;
 
 		// create laser snd array
 		Sound laserSndArray[LASER_SND_QTY];
