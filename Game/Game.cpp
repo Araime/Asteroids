@@ -12,7 +12,7 @@ namespace AsteroidsGame
 		game.text.setFont(game.font);
 		game.text.setCharacterSize(CHAR_SIZE);
 		game.text.setStyle(sf::Text::Bold);
-		game.text.setFillColor(sf::Color::Green);
+		game.text.setFillColor(sf::Color::Cyan);
 		game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
 		game.text.setPosition(COOLDOWN_X_COORD, COOLDOWN_Y_COORD);
 
