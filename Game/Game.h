@@ -44,12 +44,16 @@ namespace AsteroidsGame
 		// create BG's
 		BG menuBG;
 		BG levelBG;
+		BG gameOverBG;
 		sf::Texture menuTexture;
 		sf::Texture levelTexture;
+		sf::Texture gameOverTexture;
 
-		// create title name
+		// create screen texts
 		sf::Texture tTitle;
+		sf::Texture tGameOver;
 		sf::Sprite sTitle;
+		sf::Sprite sGameOver;
 
 		// create sounds and music
 		Sound timerSnd;
@@ -119,4 +123,6 @@ namespace AsteroidsGame
 	void DrawText(Game& game, sf::RenderWindow& window);
 
 	void DrawGame(Game& game, sf::RenderWindow& window);
+
+	void DrawGameOver(Game& game, sf::RenderWindow& window);
 }

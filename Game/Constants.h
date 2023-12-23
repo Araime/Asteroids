@@ -22,5 +22,5 @@ namespace AsteroidsGame
 	const int LASER_SND_QTY = 3;
 	const float TITLE_X_COORD = 370;
 	const float TITLE_Y_COORD = 300;
-	const float GAME_OVER_COOLDOWN = 3.f;
+	const float GAME_OVER_COOLDOWN = 7.f;
 }

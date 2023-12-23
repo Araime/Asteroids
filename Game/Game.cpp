@@ -28,20 +28,26 @@ namespace AsteroidsGame
 		// load bg's textures
 		assert(game.levelTexture.loadFromFile(IMG_PATH + "background2.jpg"));
 		assert(game.menuTexture.loadFromFile(IMG_PATH + "5438849.jpg"));
+		assert(game.gameOverTexture.loadFromFile(IMG_PATH + "night-sky-glows.jpg"));
 
 		// enable smooth filter
 		game.shipTexture.setSmooth(true);
 		game.levelTexture.setSmooth(true);
 		game.menuTexture.setSmooth(true);
+		game.gameOverTexture.setSmooth(true);
 
 		// init BG's sprites
 		InitBG(game.menuBG, game.menuTexture);
 		InitBG(game.levelBG, game.levelTexture);
+		InitBG(game.gameOverBG, game.gameOverTexture);
 
-		// init title name
+		// init screen texts
 		assert(game.tTitle.loadFromFile(IMG_PATH + "title.png"));
 		game.sTitle.setTexture(game.tTitle);
 		game.sTitle.setPosition(TITLE_X_COORD, TITLE_Y_COORD);
+		assert(game.tGameOver.loadFromFile(IMG_PATH + "gameover.png"));
+		game.sGameOver.setTexture(game.tGameOver);
+		game.sGameOver.setPosition(TITLE_X_COORD, TITLE_Y_COORD);
 
 		// init all objects of animations
 		game.sLaser.SetAnimation(game.laserTexture, 0, 0, 32, 64, 16, 0.8f);
@@ -78,8 +84,11 @@ namespace AsteroidsGame
 
 		// init music and play
 		game.gameMusic.music.openFromFile(SND_PATH + "enchanted tiki 86.ogg");
-		game.gameMusic.music.setVolume(50.f);
-		game.gameMusic.music.play();	
+		game.gameMusic.music.setVolume(60.f);
+		game.gameMusic.music.play();
+
+		// add player ship to list of entities
+		game.entities.push_back(game.player);
 
 		// update past time
 		game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
@@ -105,8 +114,15 @@ namespace AsteroidsGame
 		for (auto i = game.entities.begin(); i != game.entities.end();)
 		{
 			Entity* entity = *i;
-			i = game.entities.erase(i);
-			delete entity;
+			if (entity->name != "player")
+			{
+				i = game.entities.erase(i);
+				delete entity;
+			}
+			else
+			{
+				i++;
+			}
 		}
 
 		// create asteroids
@@ -115,10 +131,11 @@ namespace AsteroidsGame
 			CreateAsteroid(game);
 		}
 
-		// init player ship
+		// restart player ship
 		game.player->lives = 3;
 		game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
-		game.entities.push_back(game.player);
+		game.player->dx = 0;
+		game.player->dy = 0;
 
 		// change music and play
 		game.gameMusic.music.openFromFile(SND_PATH + "through space.ogg");
@@ -201,6 +218,11 @@ namespace AsteroidsGame
 					else
 					{
 						game.gameState = GameState::GameOver;
+
+						// change music and play
+						game.gameMusic.music.openFromFile(SND_PATH + "space.ogg");
+						game.gameMusic.music.setVolume(80);
+						game.gameMusic.music.play();
 					}
 
 					// update past time
@@ -333,5 +355,29 @@ namespace AsteroidsGame
 		DrawText(game, window);
 
 		window.display();
+	}
+
+	void DrawGameOver(Game& game, sf::RenderWindow& window)
+	{
+		game.newTime = game.gameTimer.getElapsedTime().asSeconds();
+
+		window.clear();
+
+		window.draw(game.gameOverBG.sprite);
+		window.draw(game.sGameOver);
+
+		window.display();
+
+		if (game.newTime - game.pastTime > GAME_OVER_COOLDOWN)
+		{
+			game.gameState = GameState::Menu;
+
+			// change music and play
+			game.gameMusic.music.openFromFile(SND_PATH + "enchanted tiki 86.ogg");
+			game.gameMusic.music.setVolume(60.f);
+			game.gameMusic.music.play();
+
+			game.pastTime = game.newTime;
+		}
 	}
 }

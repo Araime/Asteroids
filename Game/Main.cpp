@@ -63,6 +63,7 @@ int main()
 		}
 		case GameState::GameOver:
 		{
+			DrawGameOver(game, window);
 			break;
 		}
 		default:
