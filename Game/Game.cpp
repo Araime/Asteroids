@@ -102,7 +102,12 @@ namespace AsteroidsGame
 	void RestartGame(Game& game)
 	{
 		// clear entities list
-		game.entities.clear();
+		for (auto i = game.entities.begin(); i != game.entities.end();)
+		{
+			Entity* entity = *i;
+			i = game.entities.erase(i);
+			delete entity;
+		}
 
 		// create asteroids
 		for (int i = 0; i < game.asteroids_num; i++)
@@ -111,6 +116,7 @@ namespace AsteroidsGame
 		}
 
 		// init player ship
+		game.player->lives = 3;
 		game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
 		game.entities.push_back(game.player);
 
@@ -180,11 +186,22 @@ namespace AsteroidsGame
 					// play explosion sound
 					game.shipExplSnd.sound.play();
 
-					game.player->isDestroyed = true;
+					// change player lifes
+					game.player->lives--;
 
-					// update cooldown ressurection time
-					game.destroy_cooldown = 3;
-					game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
+					// check if lifes is over
+					if (game.player->lives)
+					{
+						game.player->isDestroyed = true;
+
+						// update cooldown ressurection time
+						game.destroy_cooldown = 3;
+						game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
+					}
+					else
+					{
+						game.gameState = GameState::GameOver;
+					}
 
 					// update past time
 					game.pastTime = game.gameTimer.getElapsedTime().asSeconds();

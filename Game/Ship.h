@@ -12,6 +12,7 @@ namespace AsteroidsGame
 	public:
 		bool isAccelerating = false;
 		bool isDestroyed = false;
+		int lives = 3;
 
 		Ship()
 		{
