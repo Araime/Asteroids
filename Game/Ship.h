@@ -12,7 +12,8 @@ namespace AsteroidsGame
 	public:
 		bool isAccelerating = false;
 		bool isDestroyed = false;
-		int lives = 3;
+		int ships = 3;
+		float health = 100.f;
 
 		Ship()
 		{
@@ -68,6 +69,8 @@ namespace AsteroidsGame
 	void HandlePlayerInput(Game& game);
 
 	void UpdateShipSprite(Game& game);
+
+	void TakeDamage(Game& game, const float damage);
 
 	void RestartPlayer(Game& game);
 }

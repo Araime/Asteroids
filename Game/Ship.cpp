@@ -81,6 +81,16 @@ namespace AsteroidsGame
 		}
 	}
 
+	void TakeDamage(Game& game, const float damage)
+	{
+		game.player->health -= damage;
+
+		if (game.player->health < 0.f)
+		{
+			game.player->health = 0.f;
+		}
+	}
+
 	void RestartPlayer(Game& game)
 	{
 		if (game.player->isDestroyed)
@@ -109,6 +119,7 @@ namespace AsteroidsGame
 				game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
 				game.player->dx = 0;
 				game.player->dy = 0;
+				game.player->health = 100.f;
 				game.player->isDestroyed = false;
 			}
 		}

@@ -148,7 +148,8 @@ namespace AsteroidsGame
 		}
 
 		// restart player ship
-		game.player->lives = 3;
+		game.player->ships = 3;
+		game.player->health = 100.f;
 		game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
 		game.player->dx = 0;
 		game.player->dy = 0;
@@ -212,20 +213,28 @@ namespace AsteroidsGame
 			{
 				if (IsCollide(first_obj, second_obj))
 				{
-					second_obj->isAlive = false;
+					TakeDamage(game, second_obj->rad);
 
-					CreateExplosionAnimation(game, first_obj, game.sShipExplosion);
+					if (!game.player->health)
+					{
+						CreateExplosionAnimation(game, first_obj, game.sShipExplosion);
 
-					// play explosion sound
-					game.shipExplSnd.sound.play();
+						game.shipExplSnd.sound.play();
+						game.player->ships--;
 
-					// change player lifes
-					game.player->lives--;
+						// update past time
+						game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
+					}
+					else
+					{
+						second_obj->isAlive = false;
 
+						CreateExplosionAnimation(game, second_obj, game.sAsteroidExplosion);
+
+						game.asteroidExplSnd.sound.play();
+					}
+					
 					CheckGameOver(game);
-
-					// update past time
-					game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
 				}
 			}
 		}
@@ -243,7 +252,7 @@ namespace AsteroidsGame
 	void CheckGameOver(Game& game)
 	{
 		// check if life is over
-		if (game.player->lives)
+		if (game.player->ships)
 		{
 			game.player->isDestroyed = true;
 
