@@ -73,6 +73,7 @@ namespace AsteroidsGame
 
 		game.asteroidExplSnd.buffer.loadFromFile(SND_PATH + "boom2.wav");
 		game.asteroidExplSnd.sound.setBuffer(game.asteroidExplSnd.buffer);
+		game.asteroidExplSnd.sound.setVolume(70.f);
 
 		game.shipExplSnd.buffer.loadFromFile(SND_PATH + "boom9.wav");
 		game.shipExplSnd.sound.setBuffer(game.shipExplSnd.buffer);
