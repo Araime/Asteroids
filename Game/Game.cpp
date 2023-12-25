@@ -207,24 +207,7 @@ namespace AsteroidsGame
 					// change player lifes
 					game.player->lives--;
 
-					// check if lifes is over
-					if (game.player->lives)
-					{
-						game.player->isDestroyed = true;
-
-						// update cooldown ressurection time
-						game.destroy_cooldown = 3;
-						game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
-					}
-					else
-					{
-						game.gameState = GameState::GameOver;
-
-						// change music and play
-						game.gameMusic.music.openFromFile(SND_PATH + "space.ogg");
-						game.gameMusic.music.setVolume(80);
-						game.gameMusic.music.play();
-					}
+					CheckGameOver(game);
 
 					// update past time
 					game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
@@ -240,6 +223,28 @@ namespace AsteroidsGame
 		explosion->SetParams(expl_animation, first_obj->xcor, first_obj->ycor);
 		explosion->name = "explosion";
 		game.entities.push_back(explosion);
+	}
+
+	void CheckGameOver(Game& game)
+	{
+		// check if life is over
+		if (game.player->lives)
+		{
+			game.player->isDestroyed = true;
+
+			// update cooldown ressurection time
+			game.destroy_cooldown = 3;
+			game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
+		}
+		else
+		{
+			game.gameState = GameState::GameOver;
+
+			// change music and play
+			game.gameMusic.music.openFromFile(SND_PATH + "space.ogg");
+			game.gameMusic.music.setVolume(80);
+			game.gameMusic.music.play();
+		}
 	}
 
 	void CreateSmallAsteroids(Game& game, Entity* first_obj)

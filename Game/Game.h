@@ -108,6 +108,8 @@ namespace AsteroidsGame
 
 	void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation);
 
+	void CheckGameOver(Game& game);
+
 	void CreateSmallAsteroids(Game& game, Entity* first_obj);
 
 	void CreateAsteroid(Game& game);
