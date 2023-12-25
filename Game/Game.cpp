@@ -91,6 +91,21 @@ namespace AsteroidsGame
 		// add player ship to list of entities
 		game.entities.push_back(game.player);
 
+		// init health bar
+		game.healthBar.setSize(sf::Vector2f(100.f, 15.f));
+		game.healthBar.setFillColor(sf::Color::Transparent);
+		game.healthBar.setOutlineThickness(2.f);
+		game.healthBar.setOutlineColor(sf::Color::White);
+		game.healthBar.setPosition(30.f, 750.f);
+
+		game.greenLine.setSize(sf::Vector2f(100.f, 15.f));
+		game.greenLine.setFillColor(sf::Color::Green);
+		game.greenLine.setPosition(30.f, 750.f);
+
+		game.redLine.setSize(sf::Vector2f(100.f, 15.f));
+		game.redLine.setFillColor(sf::Color::Red);
+		game.redLine.setPosition(30.f, 750.f);
+
 		// update past time
 		game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
 	}
@@ -360,6 +375,9 @@ namespace AsteroidsGame
 
 		DrawText(game, window);
 
+		window.draw(game.redLine);
+		window.draw(game.greenLine);
+		window.draw(game.healthBar);
 		window.display();
 	}
 

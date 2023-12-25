@@ -90,6 +90,11 @@ namespace AsteroidsGame
 
 		// create player ship
 		Ship* player = new Ship;
+
+		// create health bar
+		sf::RectangleShape healthBar;
+		sf::RectangleShape greenLine;
+		sf::RectangleShape redLine;
 	};
 
 	void InitGame(Game& game);
