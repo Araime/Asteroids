@@ -219,9 +219,6 @@ namespace AsteroidsGame
 					{
 						CreateExplosionAnimation(game, first_obj, game.sShipExplosion);
 
-						game.shipExplSnd.sound.play();
-						game.player->ships--;
-
 						// update past time
 						game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
 					}
@@ -254,8 +251,6 @@ namespace AsteroidsGame
 		// check if life is over
 		if (game.player->ships)
 		{
-			game.player->isDestroyed = true;
-
 			// update cooldown ressurection time
 			game.destroy_cooldown = 3;
 			game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));

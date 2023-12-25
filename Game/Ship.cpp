@@ -89,6 +89,13 @@ namespace AsteroidsGame
 		{
 			game.player->health = 0.f;
 		}
+
+		if (game.player->health == 0.f)
+		{
+			game.player->isDestroyed = true;
+			game.player->ships--;
+			game.shipExplSnd.sound.play();
+		}
 	}
 
 	void RestartPlayer(Game& game)
