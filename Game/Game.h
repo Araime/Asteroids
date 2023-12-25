@@ -113,6 +113,8 @@ namespace AsteroidsGame
 
 	void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation);
 
+	void UpdateHealhBar(Game& game, const float health);
+
 	void CheckGameOver(Game& game);
 
 	void CreateSmallAsteroids(Game& game, Entity* first_obj);

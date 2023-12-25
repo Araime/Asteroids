@@ -153,6 +153,9 @@ namespace AsteroidsGame
 		game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
 		game.player->dx = 0;
 		game.player->dy = 0;
+		game.player->isDestroyed = false;
+
+		UpdateHealhBar(game, game.player->health);
 
 		// change music and play
 		game.gameMusic.music.openFromFile(SND_PATH + "through space.ogg");
@@ -214,6 +217,7 @@ namespace AsteroidsGame
 				if (IsCollide(first_obj, second_obj))
 				{
 					TakeDamage(game, second_obj->rad);
+					UpdateHealhBar(game, game.player->health);
 
 					if (!game.player->health)
 					{
@@ -244,6 +248,11 @@ namespace AsteroidsGame
 		explosion->SetParams(expl_animation, first_obj->xcor, first_obj->ycor);
 		explosion->name = "explosion";
 		game.entities.push_back(explosion);
+	}
+
+	void UpdateHealhBar(Game& game, const float health)
+	{
+		game.greenLine.setSize(sf::Vector2f(health, 15.f));
 	}
 
 	void CheckGameOver(Game& game)
