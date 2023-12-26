@@ -83,7 +83,7 @@ namespace AsteroidsGame
 
 	void TakeDamage(Game& game, const float damage)
 	{
-		game.player->health -= damage;
+		game.player->health -= damage * 2.f;
 
 		if (game.player->health < 0.f)
 		{
