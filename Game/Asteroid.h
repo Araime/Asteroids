@@ -12,7 +12,17 @@ namespace AsteroidsGame
 		Asteroid()
 		{
 			dx = float(rand() % 8 - 4);
+			if (dx == 0)
+			{
+				dx = DELTA_XY[rand() % DELTA_XY.size()];
+			}
+
 			dy = float(rand() % 8 - 4);
+			if (dy == 0)
+			{
+				dy = DELTA_XY[rand() % DELTA_XY.size()];
+			}
+
 			name = "asteroid";
 		}
 

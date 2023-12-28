@@ -23,4 +23,5 @@ namespace AsteroidsGame
 	const float TITLE_X_COORD = 370;
 	const float TITLE_Y_COORD = 300;
 	const float GAME_OVER_COOLDOWN = 7.f;
+	const std::vector<float> DELTA_XY{ -2, 2 };
 }
