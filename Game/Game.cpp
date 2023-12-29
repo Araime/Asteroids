@@ -7,7 +7,7 @@ namespace AsteroidsGame
 	void InitGame(Game& game)
 	{
 		// init font
-		game.font.loadFromFile(FONT_PATH + "papyrus-pixel_1.ttf");
+		assert(game.font.loadFromFile(FONT_PATH + "papyrus-pixel_1.ttf"));
 
 		// init game text
 		game.text.setFont(game.font);
@@ -59,23 +59,23 @@ namespace AsteroidsGame
 		game.sFlyingShip.SetAnimation(game.shipTexture, 40, 86, 40, 40, 1, 0.f);
 
 		// init sounds
-		game.timerSnd.buffer.loadFromFile(SND_PATH + "magnet_start.wav");
+		assert(game.timerSnd.buffer.loadFromFile(SND_PATH + "magnet_start.wav"));
 		game.timerSnd.sound.setBuffer(game.timerSnd.buffer);
 
-		game.laserSnd1.buffer.loadFromFile(SND_PATH + "laser1.wav");
+		assert(game.laserSnd1.buffer.loadFromFile(SND_PATH + "laser1.wav"));
 		game.laserSnd1.sound.setBuffer(game.laserSnd1.buffer);
 
-		game.laserSnd2.buffer.loadFromFile(SND_PATH + "laser2.wav");
+		assert(game.laserSnd2.buffer.loadFromFile(SND_PATH + "laser2.wav"));
 		game.laserSnd2.sound.setBuffer(game.laserSnd2.buffer);
 
-		game.laserSnd3.buffer.loadFromFile(SND_PATH + "laser3.wav");
+		assert(game.laserSnd3.buffer.loadFromFile(SND_PATH + "laser3.wav"));
 		game.laserSnd3.sound.setBuffer(game.laserSnd3.buffer);
 
-		game.asteroidExplSnd.buffer.loadFromFile(SND_PATH + "boom2.wav");
+		assert(game.asteroidExplSnd.buffer.loadFromFile(SND_PATH + "boom2.wav"));
 		game.asteroidExplSnd.sound.setBuffer(game.asteroidExplSnd.buffer);
 		game.asteroidExplSnd.sound.setVolume(70.f);
 
-		game.shipExplSnd.buffer.loadFromFile(SND_PATH + "boom9.wav");
+		assert(game.shipExplSnd.buffer.loadFromFile(SND_PATH + "boom9.wav"));
 		game.shipExplSnd.sound.setBuffer(game.shipExplSnd.buffer);
 
 		// init laser snd array
@@ -96,15 +96,15 @@ namespace AsteroidsGame
 		game.healthBar.setFillColor(sf::Color::Transparent);
 		game.healthBar.setOutlineThickness(2.f);
 		game.healthBar.setOutlineColor(sf::Color::White);
-		game.healthBar.setPosition(30.f, 750.f);
+		game.healthBar.setPosition(30.f, 730.f);
 
 		game.greenLine.setSize(sf::Vector2f(100.f, 15.f));
 		game.greenLine.setFillColor(sf::Color::Green);
-		game.greenLine.setPosition(30.f, 750.f);
+		game.greenLine.setPosition(30.f, 730.f);
 
 		game.redLine.setSize(sf::Vector2f(100.f, 15.f));
 		game.redLine.setFillColor(sf::Color::Red);
-		game.redLine.setPosition(30.f, 750.f);
+		game.redLine.setPosition(30.f, 730.f);
 
 		// update past time
 		game.pastTime = game.gameTimer.getElapsedTime().asSeconds();

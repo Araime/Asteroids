@@ -10,13 +10,13 @@ namespace AsteroidsGame
 
 	// init game variables
 	const std::string TITLE = "Asteroids";
-	const int WIDTH = 1200;
-	const int HEIGHT = 800;
+	const int WIDTH = 1366;
+	const int HEIGHT = 768;
 	const int SM_ASTEROIDS = 2;
 	const float DEGTORAD = 0.017453f;
 	const float LASER_COOLDOWN = 0.2f;
 	const int COUNTER = 1;
-	const float COOLDOWN_X_COORD = 500.f;
+	const float COOLDOWN_X_COORD = 600.f;
 	const float COOLDOWN_Y_COORD = 320.f;
 	const int CHAR_SIZE = 55;
 	const int LASER_SND_QTY = 3;
