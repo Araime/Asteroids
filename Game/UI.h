@@ -11,13 +11,13 @@ namespace AsteroidsGame
 		sf::RectangleShape whiteRect;
 		sf::RectangleShape greenLine;
 		sf::RectangleShape redLine;
+
+		sf::Sprite shipLife;
 	};
 
 	void InitUI(Game& game);
 
 	void UpdateUI(Game& game, const float health); // update player health
-
-	void UpdateUI();
 
 	void UpdateUI();
 

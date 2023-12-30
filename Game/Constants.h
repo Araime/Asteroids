@@ -9,22 +9,32 @@ namespace AsteroidsGame
 	const std::string SND_PATH = "Resources/Sounds/";
 
 	// init game variables
+	// texts
 	const std::string GAME_NAME = "Asteroids";
 	const std::string TITLE_TEXT = "ASTEROIDS";
 	const std::string GAME_OVER_TEXT = "GAME OVER";
-	const int WIDTH = 1366;
-	const int HEIGHT = 768;
-	const int SM_ASTEROIDS = 2;
-	const float DEGTORAD = 0.017453f;
-	const float LASER_COOLDOWN = 0.2f;
-	const int COUNTER = 1;
-	const float COOLDOWN_X_COORD = 600.f;
-	const float COOLDOWN_Y_COORD = 320.f;
 	const int COOLDOWN_TEXT_SIZE = 55;
 	const int TITLE_TEXT_SIZE = 128;
-	const int LASER_SND_QTY = 3;
-	const float TITLE_X_COORD = 370;
-	const float TITLE_Y_COORD = 300;
-	const float GAME_OVER_COOLDOWN = 7.f;
+
+	// main game
+	const int WIDTH = 1366;
+	const int HEIGHT = 768;
+	const float GAME_OVER_COOLDOWN = 10.f;
+
+	// asteroids
+	const int SM_ASTEROIDS = 2;
 	const std::vector<float> DELTA_XY{ -2, 2 };
+	
+	// weapon
+	const float LASER_COOLDOWN = 0.2f;
+	const int LASER_SND_QTY = 3;
+	const int COUNTER = 1;
+
+	// ship
+	const float DEGTORAD = 0.017453f;
+
+	//UI
+	const float LIFE_SIZE = 30.f;
+	const float HEALTH_WIDTH = 100.f;
+	const float HEALTH_HEIGHT = 15.f;
 }
