@@ -32,21 +32,21 @@ namespace AsteroidsGame
 			ycor += dy;
 
 			// check if it's beyond the edge of the screen
-			if (xcor > WIDTH)
+			if (xcor > SCREEN_WIDTH)
 			{
 				xcor = 0.f;
 			}
 			if (xcor < 0)
 			{
-				xcor = WIDTH;
+				xcor = SCREEN_WIDTH;
 			}
-			if (ycor > HEIGHT)
+			if (ycor > SCREEN_HEIGHT)
 			{
 				ycor = 0.f;
 			}
 			if (ycor < 0)
 			{
-				ycor = HEIGHT;
+				ycor = SCREEN_HEIGHT;
 			}
 		}
 	};

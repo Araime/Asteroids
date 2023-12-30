@@ -17,8 +17,8 @@ namespace AsteroidsGame
 	const int TITLE_TEXT_SIZE = 128;
 
 	// main game
-	const int WIDTH = 1366;
-	const int HEIGHT = 768;
+	const int SCREEN_WIDTH = 1366;
+	const int SCREEN_HEIGHT = 768;
 	const float GAME_OVER_COOLDOWN = 10.f;
 
 	// asteroids

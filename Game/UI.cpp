@@ -5,6 +5,11 @@ namespace AsteroidsGame
 {
 	void InitUI(Game& game)
 	{
+		// init menu BG
+		game.UI.menuRect.setSize(sf::Vector2f(SCREEN_WIDTH, 40.f));
+		game.UI.menuRect.setFillColor(sf::Color::Black);
+		game.UI.menuRect.setPosition(0.f, 728.f);
+
 		// init health bar
 		game.UI.whiteRect.setSize(sf::Vector2f(HP_WIDTH, HP_HEIGHT));
 		game.UI.whiteRect.setFillColor(sf::Color::Transparent);
@@ -49,6 +54,7 @@ namespace AsteroidsGame
 
 	void DrawUI(Game& game, sf::RenderWindow& window, float xcor)
 	{
+		window.draw(game.UI.menuRect);
 		window.draw(game.UI.redLine);
 		window.draw(game.UI.greenLine);
 		window.draw(game.UI.whiteRect);

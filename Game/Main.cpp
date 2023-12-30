@@ -29,7 +29,7 @@ int main()
 	srand(int(time(nullptr)));
 
 	// init game window
-	sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), GAME_NAME);
+	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), GAME_NAME);
 	window.setFramerateLimit(60);
 	window.setVerticalSyncEnabled(true);
 

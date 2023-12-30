@@ -8,6 +8,9 @@ namespace AsteroidsGame
 
 	struct UserInterface
 	{
+		// create UI BG
+		sf::RectangleShape menuRect;
+
 		// create health bar
 		sf::RectangleShape whiteRect;
 		sf::RectangleShape greenLine;

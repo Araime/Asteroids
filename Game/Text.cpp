@@ -18,7 +18,7 @@ namespace AsteroidsGame
 
 		sf::FloatRect textRect = text.txt.getLocalBounds();
 		text.txt.setOrigin(textRect.width * 0.5f, textRect.height * 0.5f);
-		text.txt.setPosition(float(WIDTH / 2), float(HEIGHT / 2));
+		text.txt.setPosition(float(SCREEN_WIDTH / 2), float(SCREEN_HEIGHT / 2));
 	}
 
 	// update cooldown text
@@ -28,6 +28,6 @@ namespace AsteroidsGame
 
 		sf::FloatRect textRect = game.cooldownText.txt.getLocalBounds();
 		game.cooldownText.txt.setOrigin(textRect.width * 0.5f, textRect.height * 0.5f);
-		game.cooldownText.txt.setPosition(float(WIDTH / 2), float(HEIGHT / 2));
+		game.cooldownText.txt.setPosition(float(SCREEN_WIDTH / 2), float(SCREEN_HEIGHT / 2));
 	}
 }

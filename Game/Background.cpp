@@ -8,6 +8,6 @@ namespace AsteroidsGame
 
 		sf::FloatRect spriteRect = bg.sprite.getLocalBounds();
 		bg.sprite.setOrigin(spriteRect.width * 0.5f, spriteRect.height * 0.5f);
-		bg.sprite.setPosition(float(WIDTH / 2), float(HEIGHT / 2));
+		bg.sprite.setPosition(float(SCREEN_WIDTH / 2), float(SCREEN_HEIGHT / 2));
 	}
 }
