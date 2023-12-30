@@ -126,7 +126,7 @@ namespace AsteroidsGame
 					game.timerSnd.sound.play();
 
 					// update cooldown text
-					UpdateCooldownText(game);
+					UpdateText(game);
 
 					// update past time
 					game.pastTime = game.newTime;

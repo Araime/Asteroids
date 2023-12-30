@@ -12,7 +12,7 @@ namespace AsteroidsGame
 
 		// init game texts
 		InitText(game.cooldownText, game.cooldownFont, COOLDOWN_TEXT_SIZE, sf::Color::Cyan);
-		UpdateCooldownText(game);
+		UpdateText(game);
 		InitText(game.bigText, game.titleFont, TITLE_TEXT_SIZE, sf::Color::Yellow);
 		UpdateText(game.bigText, TITLE_TEXT);
 
@@ -224,7 +224,7 @@ namespace AsteroidsGame
 		{
 			// update cooldown ressurection time
 			game.destroy_cooldown = 3;
-			UpdateCooldownText(game);
+			UpdateText(game);
 		}
 		else
 		{
