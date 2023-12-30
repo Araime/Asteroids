@@ -28,10 +28,10 @@ namespace AsteroidsGame
 	// weapon
 	const float LASER_COOLDOWN = 0.2f;
 	const int LASER_SND_QTY = 3;
-	const int COUNTER = 1;
 
 	// ship
 	const float DEGTORAD = 0.017453f;
+	const int COUNTER = 1;
 
 	//UI
 	const float LIFE_SIZE = 25.f;
@@ -39,4 +39,5 @@ namespace AsteroidsGame
 	const float HEALTH_HEIGHT = 15.f;
 	const float LIFE_STEP = 32.f;
 	const float LIFE_Y = 727.f;
+	const float ROCKET_STEP = 25.f;
 }

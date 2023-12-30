@@ -74,5 +74,8 @@
     <ClInclude Include="Game\UI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Game\Rocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

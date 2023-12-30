@@ -20,6 +20,7 @@ namespace AsteroidsGame
 
 		int ships = 3;
 		float health = 100.f;
+		float rocketX = -45.f;
 
 		bool isAccelerating = false;
 		bool isDestroyed = false;
@@ -77,7 +78,7 @@ namespace AsteroidsGame
 
 	void HandlePlayerInput(Game& game);
 
-	void MakeShot(Game& game);
+	void MakeShot(Game& game, float xcor);
 
 	void UpdateShipSprite(Game& game);
 

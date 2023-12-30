@@ -44,6 +44,7 @@ namespace AsteroidsGame
 
 		// init all objects of animations
 		game.sLaser.SetAnimation(game.laserTexture, 0, 0, 32, 64, 16, 0.8f);
+		game.sRocket.SetAnimation(game.rocketTexture, 0, 0, 16, 28, 5, 0.8f);
 		game.sAsteroidExplosion.SetAnimation(game.explosionTexture1, 0, 0, 192, 192, 64, 1.2f);
 		game.sShipExplosion.SetAnimation(game.explosionTexture2, 0, 0, 256, 256, 48, 0.5f);
 		game.sRock.SetAnimation(game.rockTexture, 0, 0, 64, 64, 16, 0.2f);

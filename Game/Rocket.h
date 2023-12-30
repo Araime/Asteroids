@@ -5,18 +5,18 @@
 
 namespace AsteroidsGame
 {
-	class Laser : public Entity
+	class Rocket : public Entity
 	{
 	public:
-		Laser()
+		Rocket()
 		{
-			name = "laser";
+			name = "rocket";
 		}
 
 		void Update()
 		{
-			dx = cos(angle * DEGTORAD) * 12.f;
-			dy = sin(angle * DEGTORAD) * 12.f;
+			dx = cos(angle * DEGTORAD) * 10.f;
+			dy = sin(angle * DEGTORAD) * 10.f;
 			xcor += dx;
 			ycor += dy;
 

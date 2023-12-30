@@ -4,6 +4,7 @@
 #include "Animation.h"
 #include "Entity.h"
 #include "Laser.h"
+#include "Rocket.h"
 #include "Asteroid.h"
 #include "Ship.h"
 #include "Math.h"
@@ -78,6 +79,7 @@ namespace AsteroidsGame
 
 		// create all objects of animations
 		Animation sLaser;
+		Animation sRocket;
 		Animation sAsteroidExplosion;
 		Animation sShipExplosion;
 		Animation sRock;

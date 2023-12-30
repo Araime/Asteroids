@@ -35,13 +35,7 @@ namespace AsteroidsGame
 				// make shot
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 				{
-					// check if enough time has passed
-					if (game.newTime - game.pastTime > LASER_COOLDOWN)
-					{
-						MakeShot(game);
-
-						game.pastTime = game.newTime;
-					}
+					MakeShot(game, game.player->rocketX);
 				}
 
 				// equip rocket
@@ -52,7 +46,7 @@ namespace AsteroidsGame
 						game.player->weapon = Weapon::Rocket;
 					}
 				}
-				
+
 				// equip laser
 				if (game.player->weapon == Weapon::Rocket)
 				{
@@ -83,16 +77,55 @@ namespace AsteroidsGame
 		}
 	}
 
-	void MakeShot(Game& game)
+	void MakeShot(Game& game, float xcor)
 	{
-		// create new laser
-		Laser* laser = new Laser();
-		laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
-						 game.player->angle + float(rand() % 6 - 3), 10.f);
-		game.entities.push_back(laser);
+		switch (game.player->weapon)
+		{
+		case Weapon::Laser:
+		{
+			// check if enough time has passed
+			if (game.newTime - game.pastTime > LASER_COOLDOWN)
+			{
+				// create new laser
+				Laser* laser = new Laser();
+				laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
+								 game.player->angle + float(rand() % 6 - 3), 10.f);
+				game.entities.push_back(laser);
 
-		// play random laser sound
-		game.laserSndArray[rand() % LASER_SND_QTY].sound.play();
+				// play random laser sound
+				game.laserSndArray[rand() % LASER_SND_QTY].sound.play();
+				// update timer
+				game.pastTime = game.newTime;
+			}
+
+			break;
+		}
+		case Weapon::Rocket:
+		{
+			// create rockets
+			// check if enough time has passed
+			if (game.newTime - game.pastTime > LASER_COOLDOWN)
+			{
+				for (int i = 0; i < 3; i++)
+				{
+					// create new rocket
+					Rocket* rocket = new Rocket();
+					rocket->SetParams(game.sRocket, game.player->xcor, game.player->ycor,
+									 game.player->angle - xcor, 10.f);
+					game.entities.push_back(rocket);
+
+					xcor += ROCKET_STEP;
+				}
+			}
+
+			// update timer
+			game.pastTime = game.newTime;
+			break;
+		}
+		default:
+			break;
+		}
+
 	}
 
 	void UpdateShipSprite(Game& game)
