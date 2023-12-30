@@ -39,14 +39,14 @@ namespace AsteroidsGame
 
 	//UI
 	const float HP_XCOR = 30.f;
-	const float HP_YCOR = 730.f;
+	const float HP_YCOR = 740.f;
 	const float HP_WIDTH = 100.f;
 	const float HP_HEIGHT = 15.f;
 	const float LIFE_SIZE = 25.f;
 	const float LIFE_STEP = 32.f;
-	const float LIFE_YCOR = 727.f;
+	const float LIFE_YCOR = 737.f;
 	const float WEAP_XCOR = 260.f;
-	const float WEAP_YCOR = 738.f;
+	const float WEAP_YCOR = 748.f;
 	const float WEAP_ICON_ANGLE = 90.f;
 	const float LASER_RAD = 10.f;
 	const float ROCKET_RAD = 10.f;
