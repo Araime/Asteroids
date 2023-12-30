@@ -10,6 +10,7 @@
 #include "Sound.h"
 #include "Background.h"
 #include "Text.h"
+#include "HealthBar.h"
 
 namespace AsteroidsGame
 {
@@ -90,9 +91,7 @@ namespace AsteroidsGame
 		Ship* player = new Ship;
 
 		// create health bar rectangles
-		sf::RectangleShape healthBar;
-		sf::RectangleShape greenLine;
-		sf::RectangleShape redLine;
+		HealthBar healthBar;
 	};
 
 	void InitGame(Game& game);
@@ -110,8 +109,6 @@ namespace AsteroidsGame
 	void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj);
 
 	void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation);
-
-	void UpdateHealhBar(Game& game, const float health);
 
 	void CheckGameOver(Game& game);
 

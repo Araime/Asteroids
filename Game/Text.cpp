@@ -3,7 +3,7 @@
 
 namespace AsteroidsGame
 {
-	void AsteroidsGame::InitText(Text& text, const sf::Font& font, const int size, const sf::Color& color)
+	void InitText(Text& text, const sf::Font& font, const int size, const sf::Color& color)
 	{
 		text.txt.setFont(font);
 		text.txt.setCharacterSize(size);
