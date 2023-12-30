@@ -321,7 +321,7 @@ namespace AsteroidsGame
 		UpdateEntities(game);
 	}
 
-	void DrawText(Game& game, sf::RenderWindow& window)
+	void DrawCooldownText(Game& game, sf::RenderWindow& window)
 	{
 		if (game.player->isDestroyed)
 		{
@@ -344,7 +344,7 @@ namespace AsteroidsGame
 			entity->Draw(window);
 		}
 
-		DrawText(game, window);
+		DrawCooldownText(game, window);
 		DrawHealthBar(game, window);
 		
 		window.display();

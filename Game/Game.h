@@ -124,7 +124,7 @@ namespace AsteroidsGame
 
 	void UpdateGame(Game& game, sf::RenderWindow& window, const float& currentTime, float& lastTime);
 
-	void DrawText(Game& game, sf::RenderWindow& window);
+	void DrawCooldownText(Game& game, sf::RenderWindow& window);
 
 	void DrawGame(Game& game, sf::RenderWindow& window);
 
