@@ -65,7 +65,7 @@ namespace AsteroidsGame
 
 		assert(game.asteroidExplSnd.buffer.loadFromFile(SND_PATH + "boom2.wav"));
 		game.asteroidExplSnd.sound.setBuffer(game.asteroidExplSnd.buffer);
-		game.asteroidExplSnd.sound.setVolume(70.f);
+		game.asteroidExplSnd.sound.setVolume(75.f);
 
 		assert(game.shipExplSnd.buffer.loadFromFile(SND_PATH + "boom9.wav"));
 		game.shipExplSnd.sound.setBuffer(game.shipExplSnd.buffer);
@@ -75,10 +75,7 @@ namespace AsteroidsGame
 		game.laserSndArray[1] = game.laserSnd2;
 		game.laserSndArray[2] = game.laserSnd3;
 
-		// init music and play
-		game.gameMusic.music.openFromFile(SND_PATH + "enchanted tiki 86.ogg");
-		game.gameMusic.music.setVolume(60.f);
-		game.gameMusic.music.play();
+		PlayMusic(game, SND_PATH + "enchanted tiki 86.ogg", 60.f);
 
 		// add player ship to list of entities
 		game.entities.push_back(game.player);
@@ -100,6 +97,13 @@ namespace AsteroidsGame
 
 		// update past time
 		game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
+	}
+
+	void PlayMusic(Game& game, std::string path, const float volume)
+	{
+		game.gameMusic.music.openFromFile(path);
+		game.gameMusic.music.setVolume(volume);
+		game.gameMusic.music.play();
 	}
 
 	void DrawMainMenu(Game& game, sf::RenderWindow& window)
@@ -146,11 +150,7 @@ namespace AsteroidsGame
 		game.player->isDestroyed = false;
 
 		UpdateHealhBar(game, game.player->health);
-
-		// change music and play
-		game.gameMusic.music.openFromFile(SND_PATH + "through space.ogg");
-		game.gameMusic.music.setVolume(75);
-		game.gameMusic.music.play();
+		PlayMusic(game, SND_PATH + "through space.ogg", 75.f);
 
 		game.gameState = GameState::Game;
 	}
@@ -248,10 +248,7 @@ namespace AsteroidsGame
 			UpdateText(game.bigText, GAME_OVER_TEXT);
 			game.gameState = GameState::GameOver;
 
-			// change music and play
-			game.gameMusic.music.openFromFile(SND_PATH + "space.ogg");
-			game.gameMusic.music.setVolume(80);
-			game.gameMusic.music.play();
+			PlayMusic(game, SND_PATH + "space.ogg", 80.f);
 		}
 	}
 
@@ -378,10 +375,8 @@ namespace AsteroidsGame
 		game.newTime = game.gameTimer.getElapsedTime().asSeconds();
 
 		window.clear();
-
 		window.draw(game.gameOverBG.sprite);
 		window.draw(game.bigText.txt);
-
 		window.display();
 
 		if (game.newTime - game.pastTime > GAME_OVER_COOLDOWN)
@@ -390,10 +385,7 @@ namespace AsteroidsGame
 			UpdateText(game.bigText, TITLE_TEXT);
 			game.gameState = GameState::Menu;
 
-			// change music and play
-			game.gameMusic.music.openFromFile(SND_PATH + "enchanted tiki 86.ogg");
-			game.gameMusic.music.setVolume(60.f);
-			game.gameMusic.music.play();
+			PlayMusic(game, SND_PATH + "enchanted tiki 86.ogg", 60.f);
 
 			game.pastTime = game.newTime;
 		}
