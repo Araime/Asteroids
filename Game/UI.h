@@ -8,11 +8,14 @@ namespace AsteroidsGame
 
 	struct UserInterface
 	{
+		// create health bar
 		sf::RectangleShape whiteRect;
 		sf::RectangleShape greenLine;
 		sf::RectangleShape redLine;
 
+		// create ship life
 		sf::Sprite shipLife;
+		float lifeX = 150.f;
 	};
 
 	void InitUI(Game& game);

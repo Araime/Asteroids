@@ -23,12 +23,9 @@ namespace AsteroidsGame
 		// init ship lifes
 		game.UI.shipLife.setTexture(game.shipTexture);
 		game.UI.shipLife.setTextureRect(sf::IntRect(40, 0, 40, 39));
-		// change sprite size
+		// change life sprite size
 		game.UI.shipLife.setScale(LIFE_SIZE / game.UI.shipLife.getLocalBounds().width,
 								  LIFE_SIZE / game.UI.shipLife.getLocalBounds().height);
-		// change center point
-		game.UI.shipLife.setOrigin(game.UI.shipLife.getLocalBounds().width * 0.5f,
-								   game.UI.shipLife.getLocalBounds().height * 0.5f);
 	}
 
 	// update player health
@@ -43,10 +40,13 @@ namespace AsteroidsGame
 		window.draw(game.UI.greenLine);
 		window.draw(game.UI.whiteRect);
 
-		game.UI.shipLife.setPosition(30.f, 600.f);
-		window.draw(game.UI.shipLife);
+		game.UI.lifeX = 150.f;
 
-		game.UI.shipLife.setPosition(30.f, 650.f);
-		window.draw(game.UI.shipLife);
+		for (int i = 0; i < game.player->ships; i++)
+		{
+			game.UI.shipLife.setPosition(game.UI.lifeX, LIFE_Y);
+			window.draw(game.UI.shipLife);
+			game.UI.lifeX += LIFE_STEP;
+		}
 	}
 }

@@ -34,7 +34,9 @@ namespace AsteroidsGame
 	const float DEGTORAD = 0.017453f;
 
 	//UI
-	const float LIFE_SIZE = 30.f;
+	const float LIFE_SIZE = 25.f;
 	const float HEALTH_WIDTH = 100.f;
 	const float HEALTH_HEIGHT = 15.f;
+	const float LIFE_STEP = 32.f;
+	const float LIFE_Y = 725.f;
 }
