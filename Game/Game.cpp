@@ -107,10 +107,8 @@ namespace AsteroidsGame
 		game.menuBG.sprite.rotate(-0.2f);
 
 		window.clear();
-
 		window.draw(game.menuBG.sprite);
 		window.draw(game.bigText.txt);
-
 		window.display();
 
 		HandlePlayerInput(game);
@@ -355,7 +353,6 @@ namespace AsteroidsGame
 	void DrawGame(Game& game, sf::RenderWindow& window)
 	{
 		window.clear();
-
 		window.draw(game.levelBG.sprite);
 
 		for (auto& entity : game.entities)
