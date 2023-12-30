@@ -27,7 +27,7 @@ namespace AsteroidsGame
 		assert(game.rocketTexture.loadFromFile(IMG_PATH + "rocket.png"));
 
 		// load bg's textures
-		assert(game.levelTexture.loadFromFile(IMG_PATH + "background2.jpg"));
+		assert(game.levelTexture.loadFromFile(IMG_PATH + "Starfield.jpg"));
 		assert(game.menuTexture.loadFromFile(IMG_PATH + "5438849.jpg"));
 		assert(game.gameOverTexture.loadFromFile(IMG_PATH + "night-sky-glows.jpg"));
 
