@@ -54,7 +54,7 @@ VisualStudio должен быть уже установлен.
 - Музыка:  
 	- `меню` cynicmusic - Enchanted Tiki 86.mp3  
 	- `уровень` maxstack - through space.ogg  
-	- `конец` игры Alexandr Zhelanov - space.mp3  
+	- `конец игры` Alexandr Zhelanov - space.mp3  
 
 - Звуки:  
     - `Лазер` 
