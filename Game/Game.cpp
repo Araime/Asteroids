@@ -6,16 +6,15 @@ namespace AsteroidsGame
 {
 	void InitGame(Game& game)
 	{
-		// init font
-		assert(game.font.loadFromFile(FONT_PATH + "papyrus-pixel_1.ttf"));
+		// load fonts
+		assert(game.cooldownFont.loadFromFile(FONT_PATH + "papyrus-pixel_1.ttf"));
+		assert(game.cooldownFont.loadFromFile(FONT_PATH + "DischargePro.ttf"));
 
-		// init game text
-		game.text.setFont(game.font);
-		game.text.setCharacterSize(CHAR_SIZE);
-		game.text.setStyle(sf::Text::Bold);
-		game.text.setFillColor(sf::Color::Cyan);
-		game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
-		game.text.setPosition(COOLDOWN_X_COORD, COOLDOWN_Y_COORD);
+		// init game texts
+		InitText(game.cooldownText, game.cooldownFont, COOLDOWN_TEXT_SIZE, sf::Color::Cyan);
+		UpdateCooldownText(game);
+
+		//game.cooldownText.txt.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
 
 		// load game textures
 		assert(game.shipTexture.loadFromFile(IMG_PATH + "spaceship.png"));
@@ -262,7 +261,7 @@ namespace AsteroidsGame
 		{
 			// update cooldown ressurection time
 			game.destroy_cooldown = 3;
-			game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
+			UpdateCooldownText(game);
 		}
 		else
 		{
@@ -366,7 +365,7 @@ namespace AsteroidsGame
 	{
 		if (game.player->isDestroyed)
 		{
-			window.draw(game.text);
+			window.draw(game.cooldownText.txt);
 		}
 	}
 

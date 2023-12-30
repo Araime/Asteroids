@@ -9,6 +9,7 @@
 #include "Math.h"
 #include "Sound.h"
 #include "Background.h"
+#include "Text.h"
 
 namespace AsteroidsGame
 {
@@ -28,18 +29,20 @@ namespace AsteroidsGame
 
 		// create cooldown timer value and text
 		int destroy_cooldown = 3;
-		std::string cooldownText = "Get Ready\n\t\t\t";
+		std::string cooldownStr = "Get Ready\n\t\t\t";
 
 		// create game timers
 		sf::Clock gameTimer;
 		float newTime = 0.f;
 		float pastTime = 0.f;
 
-		// create font
-		sf::Font font;
+		// create fonts
+		sf::Font cooldownFont;
 		
-		// create text
-		sf::Text text;
+		// create game texts
+		Text cooldownText;
+		Text bigText;
+		Text smallText;
 
 		// create BG's
 		BG menuBG;
@@ -91,7 +94,7 @@ namespace AsteroidsGame
 		// create player ship
 		Ship* player = new Ship;
 
-		// create health bar
+		// create health bar rectangles
 		sf::RectangleShape healthBar;
 		sf::RectangleShape greenLine;
 		sf::RectangleShape redLine;

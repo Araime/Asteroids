@@ -113,8 +113,8 @@ namespace AsteroidsGame
 					game.destroy_cooldown -= COUNTER;
 					game.timerSnd.sound.play();
 
-					// update game text
-					game.text.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
+					// update cooldown text
+					UpdateCooldownText(game);
 
 					// update past time
 					game.pastTime = game.newTime;

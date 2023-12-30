@@ -1,5 +1,4 @@
 #include "Background.h"
-#include "Game.h"
 
 namespace AsteroidsGame
 {

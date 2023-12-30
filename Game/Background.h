@@ -4,8 +4,6 @@
 
 namespace AsteroidsGame
 {
-	struct Game;
-
 	struct BG
 	{
 		sf::Sprite sprite;
