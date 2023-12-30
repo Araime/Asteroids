@@ -6,9 +6,9 @@ namespace AsteroidsGame
 	void InitUI(Game& game)
 	{
 		// init menu BG
-		game.UI.menuRect.setSize(sf::Vector2f(SCREEN_WIDTH, 40.f));
+		game.UI.menuRect.setSize(sf::Vector2f(SCREEN_WIDTH, MENU_HEIGHT));
 		game.UI.menuRect.setFillColor(sf::Color::Black);
-		game.UI.menuRect.setPosition(0.f, 728.f);
+		game.UI.menuRect.setPosition(MENU_XCOR, MENU_YCOR);
 
 		// init health bar
 		game.UI.whiteRect.setSize(sf::Vector2f(HP_WIDTH, HP_HEIGHT));

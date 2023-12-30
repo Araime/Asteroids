@@ -39,6 +39,9 @@ namespace AsteroidsGame
 	const int COUNTER = 1;
 
 	//UI
+	const float MENU_HEIGHT = 40.f;
+	const float MENU_XCOR = 0.f;
+	const float MENU_YCOR = 728.f;
 	const float HP_XCOR = 30.f;
 	const float HP_YCOR = 740.f;
 	const float HP_WIDTH = 100.f;
