@@ -29,7 +29,17 @@ namespace AsteroidsGame
 
 		// init weapon icons
 		game.UI.laser.setTexture(game.laserTexture);
+		game.UI.laser.setTextureRect(sf::IntRect(0, 0, 32, 64));
+		game.UI.laser.setScale(0.5f, 0.5f);
+		game.UI.laser.setOrigin(game.UI.laser.getLocalBounds().width * 0.5f,
+								game.UI.laser.getLocalBounds().height * 0.5f);
+		game.UI.laser.setRotation(90.f);
+
 		game.UI.rocket.setTexture(game.rocketTexture);
+		game.UI.rocket.setTextureRect(sf::IntRect(0, 0, 12, 23));
+		game.UI.rocket.setOrigin(game.UI.rocket.getLocalBounds().width * 0.5f,
+								game.UI.rocket.getLocalBounds().height * 0.5f);
+		game.UI.rocket.setRotation(90.f);
 	}
 
 	// update player health
@@ -51,6 +61,24 @@ namespace AsteroidsGame
 			game.UI.shipLife.setPosition(game.UI.lifeX, LIFE_Y);
 			window.draw(game.UI.shipLife);
 			game.UI.lifeX += LIFE_STEP;
+		}
+
+		switch (game.player->weapon)
+		{
+		case Weapon::Laser:
+		{
+			game.UI.laser.setPosition(260.f, 735.f);
+			window.draw(game.UI.laser);
+			break;
+		}
+		case Weapon::Rocket:
+		{
+			game.UI.rocket.setPosition(260.f, 735.f);
+			window.draw(game.UI.rocket);
+			break;
+		}
+		default:
+			break;
 		}
 	}
 }
