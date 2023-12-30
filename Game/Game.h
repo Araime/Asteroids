@@ -107,7 +107,7 @@ namespace AsteroidsGame
 
 	void CheckAllCollisions(Game& game);
 
-	void CheckCollisionAsteroidAndLaser(Game& game, Entity* first_obj, Entity* second_obj);
+	void CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* second_obj);
 
 	void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj);
 

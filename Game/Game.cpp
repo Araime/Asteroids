@@ -151,15 +151,31 @@ namespace AsteroidsGame
 		{
 			for (auto& second_obj : game.entities)
 			{
-				CheckCollisionAsteroidAndLaser(game, first_obj, second_obj);
+				CheckAsteroidAndShotCollision(game, first_obj, second_obj);
 				CheckCollisionPlayerAndAsteroid(game, first_obj, second_obj);
 			}
 		}
 	}
 
-	void CheckCollisionAsteroidAndLaser(Game& game, Entity* first_obj, Entity* second_obj)
+	void CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* second_obj)
 	{
 		if (first_obj->name == "asteroid" && second_obj->name == "laser" && second_obj->isAlive)
+		{
+			if (IsCollide(first_obj, second_obj))
+			{
+				second_obj->isAlive = false;
+				first_obj->isAlive = false;
+
+				CreateExplosionAnimation(game, first_obj, game.sAsteroidExplosion);
+
+				// play explosion sound
+				game.asteroidExplSnd.sound.play();
+
+				CreateSmallAsteroids(game, first_obj);
+			}
+		}
+
+		if (first_obj->name == "asteroid" && second_obj->name == "rocket" && second_obj->isAlive)
 		{
 			if (IsCollide(first_obj, second_obj))
 			{
