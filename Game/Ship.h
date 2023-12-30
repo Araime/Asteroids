@@ -68,6 +68,8 @@ namespace AsteroidsGame
 
 	void HandlePlayerInput(Game& game);
 
+	void MakeShot(Game& game);
+
 	void UpdateShipSprite(Game& game);
 
 	void TakeDamage(Game& game, const float damage);

@@ -157,18 +157,6 @@ namespace AsteroidsGame
 		game.gameState = GameState::Game;
 	}
 
-	void MakeShot(Game& game)
-	{
-		// create new laser
-		Laser* laser = new Laser();
-		laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
-						 game.player->angle + float(rand() % 6 - 3), 10.f);
-		game.entities.push_back(laser);
-
-		// play random laser sound
-		game.laserSndArray[rand() % LASER_SND_QTY].sound.play();
-	}
-
 	void CheckAllCollisions(Game& game)
 	{
 		for (auto& first_obj : game.entities)
