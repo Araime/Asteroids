@@ -138,6 +138,7 @@ namespace AsteroidsGame
 				game.player->SetParams(game.sShip, float(WIDTH / 2), float(HEIGHT / 2), 0.f, 20.f);
 				game.player->dx = 0;
 				game.player->dy = 0;
+				game.player->isAccelerating = false;
 				game.player->health = 100.f;
 				game.player->isDestroyed = false;
 
