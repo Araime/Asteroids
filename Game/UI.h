@@ -26,7 +26,5 @@ namespace AsteroidsGame
 
 	void UpdateUI(Game& game, const float health); // update player health
 
-	void UpdateUI();
-
 	void DrawUI(Game& game, sf::RenderWindow& window, float xcor);
 }

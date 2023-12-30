@@ -89,7 +89,7 @@ namespace AsteroidsGame
 				// create new laser
 				Laser* laser = new Laser();
 				laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
-								 game.player->angle + float(rand() % 6 - 3), 10.f);
+								 game.player->angle + float(rand() % 6 - 3), LASER_RAD);
 				game.entities.push_back(laser);
 
 				// play random laser sound
@@ -112,7 +112,7 @@ namespace AsteroidsGame
 					// create new rocket
 					Rocket* rocket = new Rocket();
 					rocket->SetParams(game.sRocket, game.player->xcor, game.player->ycor,
-									 game.player->angle - xcor, 10.f);
+									 game.player->angle - xcor, ROCKET_RAD);
 					game.entities.push_back(rocket);
 					xcor += ROCKET_STEP;
 				}
