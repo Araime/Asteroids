@@ -70,6 +70,7 @@ namespace AsteroidsGame
 		// create game textures
 		sf::Texture shipTexture;
 		sf::Texture laserTexture;
+		sf::Texture rocketTexture;
 		sf::Texture rockTexture;
 		sf::Texture smallRockTexture;
 		sf::Texture explosionTexture1;

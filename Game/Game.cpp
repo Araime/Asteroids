@@ -24,6 +24,7 @@ namespace AsteroidsGame
 		assert(game.rockTexture.loadFromFile(IMG_PATH + "rock.png"));
 		assert(game.smallRockTexture.loadFromFile(IMG_PATH + "rock_small.png"));
 		assert(game.laserTexture.loadFromFile(IMG_PATH + "laser.png"));
+		assert(game.rocketTexture.loadFromFile(IMG_PATH + "rocket.png"));
 
 		// load bg's textures
 		assert(game.levelTexture.loadFromFile(IMG_PATH + "background2.jpg"));

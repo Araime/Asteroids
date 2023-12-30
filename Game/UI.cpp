@@ -26,6 +26,10 @@ namespace AsteroidsGame
 		// change life sprite size
 		game.UI.shipLife.setScale(LIFE_SIZE / game.UI.shipLife.getLocalBounds().width,
 								  LIFE_SIZE / game.UI.shipLife.getLocalBounds().height);
+
+		// init weapon icons
+		game.UI.laser.setTexture(game.laserTexture);
+		game.UI.rocket.setTexture(game.rocketTexture);
 	}
 
 	// update player health

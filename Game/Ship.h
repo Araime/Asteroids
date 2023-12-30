@@ -7,13 +7,22 @@ namespace AsteroidsGame
 {
 	struct Game;
 
+	enum class Weapon
+	{
+		Laser = 0,
+		Rocket,
+	};
+
 	class Ship : public Entity
 	{
 	public:
-		bool isAccelerating = false;
-		bool isDestroyed = false;
+		Weapon weapon = Weapon::Laser;
+
 		int ships = 3;
 		float health = 100.f;
+
+		bool isAccelerating = false;
+		bool isDestroyed = false;
 
 		Ship()
 		{

@@ -6,12 +6,6 @@ namespace AsteroidsGame
 {
 	struct Game;
 
-	enum class Weapon
-	{
-		Laser = 0,
-		Rocket,
-	};
-
 	struct UserInterface
 	{
 		// create health bar
@@ -22,6 +16,10 @@ namespace AsteroidsGame
 		// create ship life
 		sf::Sprite shipLife;
 		float lifeX = 150.f;
+
+		// create weapon icons
+		sf::Sprite laser;
+		sf::Sprite rocket;
 	};
 
 	void InitUI(Game& game);
