@@ -157,6 +157,7 @@ namespace AsteroidsGame
 		game.player->dx = 0;
 		game.player->dy = 0;
 		game.player->isDestroyed = false;
+		game.player->weapon = Weapon::Laser;
 
 		// update player health
 		UpdateUI(game, game.player->health);
