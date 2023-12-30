@@ -11,6 +11,7 @@ namespace AsteroidsGame
 		text.txt.setFillColor(color);
 	}
 
+	// update big text
 	void UpdateText(Text& text, const std::string& str)
 	{
 		text.txt.setString(str);
@@ -20,7 +21,8 @@ namespace AsteroidsGame
 		text.txt.setPosition(float(WIDTH / 2), float(HEIGHT / 2));
 	}
 
-	void UpdateCooldownText(Game& game)
+	// update cooldown text
+	void UpdateText(Game& game)
 	{
 		game.cooldownText.txt.setString(game.cooldownStr + std::to_string(game.destroy_cooldown));
 

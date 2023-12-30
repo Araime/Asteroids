@@ -13,7 +13,7 @@ namespace AsteroidsGame
 	
 	void InitText(Text& text, const sf::Font& font, const int size, const sf::Color& color);
 
-	void UpdateText(Text& text, const std::string& str);
+	void UpdateText(Text& text, const std::string& str); // update big text
 
-	void UpdateCooldownText(Game& game);
+	void UpdateText(Game& game); // update cooldown text
 }
