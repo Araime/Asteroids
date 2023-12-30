@@ -60,13 +60,18 @@ namespace AsteroidsGame
 		Sound laserSnd1;
 		Sound laserSnd2;
 		Sound laserSnd3;
+		Sound RocketSnd1;
+		Sound RocketSnd2;
+		Sound RocketSnd3;
+		Sound RocketSnd4;
 		Sound asteroidExplSnd;
 		Sound shipExplSnd;
 
 		Music gameMusic;
 
-		// create laser snd array
+		// create laser and rocket snd arrays
 		Sound laserSndArray[LASER_SND_QTY];
+		Sound rocketSndArray[ROCKETS_SND_QTY];
 
 		// create game textures
 		sf::Texture shipTexture;

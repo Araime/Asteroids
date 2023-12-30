@@ -117,6 +117,9 @@ namespace AsteroidsGame
 					xcor += ROCKET_STEP;
 				}
 
+				// play random rocket sound
+				game.rocketSndArray[rand() % ROCKETS_SND_QTY].sound.play();
+
 				// update timer
 				game.pastTime = game.newTime;
 			}

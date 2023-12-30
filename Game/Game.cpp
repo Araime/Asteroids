@@ -65,6 +65,18 @@ namespace AsteroidsGame
 		assert(game.laserSnd3.buffer.loadFromFile(SND_PATH + "laser3.wav"));
 		game.laserSnd3.sound.setBuffer(game.laserSnd3.buffer);
 
+		assert(game.RocketSnd1.buffer.loadFromFile(SND_PATH + "rocket_launch_1.wav"));
+		game.RocketSnd1.sound.setBuffer(game.RocketSnd1.buffer);
+
+		assert(game.RocketSnd2.buffer.loadFromFile(SND_PATH + "rocket_launch_2.wav"));
+		game.RocketSnd2.sound.setBuffer(game.RocketSnd2.buffer);
+
+		assert(game.RocketSnd3.buffer.loadFromFile(SND_PATH + "rocket_launch_3.wav"));
+		game.RocketSnd3.sound.setBuffer(game.RocketSnd3.buffer);
+
+		assert(game.RocketSnd4.buffer.loadFromFile(SND_PATH + "rocket_launch_4.wav"));
+		game.RocketSnd4.sound.setBuffer(game.RocketSnd4.buffer);
+
 		assert(game.asteroidExplSnd.buffer.loadFromFile(SND_PATH + "boom2.wav"));
 		game.asteroidExplSnd.sound.setBuffer(game.asteroidExplSnd.buffer);
 		game.asteroidExplSnd.sound.setVolume(75.f);
@@ -72,10 +84,15 @@ namespace AsteroidsGame
 		assert(game.shipExplSnd.buffer.loadFromFile(SND_PATH + "boom9.wav"));
 		game.shipExplSnd.sound.setBuffer(game.shipExplSnd.buffer);
 
-		// init laser snd array
+		// init laser and rocket snd arrays
 		game.laserSndArray[0] = game.laserSnd1;
 		game.laserSndArray[1] = game.laserSnd2;
 		game.laserSndArray[2] = game.laserSnd3;
+
+		game.rocketSndArray[0] = game.RocketSnd1;
+		game.rocketSndArray[1] = game.RocketSnd2;
+		game.rocketSndArray[2] = game.RocketSnd3;
+		game.rocketSndArray[3] = game.RocketSnd4;
 
 		PlayMusic(game, SND_PATH + "enchanted tiki 86.ogg", 60.f);
 

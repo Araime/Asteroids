@@ -28,9 +28,10 @@ namespace AsteroidsGame
 	// weapon
 	const float LASER_COOLDOWN = 0.2f;
 	const int LASER_SND_QTY = 3;
-	const float ROCKETS_QTY = 3;
-	const float ROCKET_STEP = 20.f;
-	const float ROCKET_COOLDOWN = 0.8f;
+	const int ROCKETS_SND_QTY = 4;
+	const float ROCKETS_QTY = 5;
+	const float ROCKET_STEP = 10.f;
+	const float ROCKET_COOLDOWN = 1.3f;
 
 	// ship
 	const float DEGTORAD = 0.017453f;
