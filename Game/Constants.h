@@ -38,5 +38,5 @@ namespace AsteroidsGame
 	const float HEALTH_WIDTH = 100.f;
 	const float HEALTH_HEIGHT = 15.f;
 	const float LIFE_STEP = 32.f;
-	const float LIFE_Y = 725.f;
+	const float LIFE_Y = 727.f;
 }

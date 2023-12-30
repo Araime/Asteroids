@@ -23,7 +23,6 @@ namespace AsteroidsGame
 		// init ship lifes
 		game.UI.shipLife.setTexture(game.shipTexture);
 		game.UI.shipLife.setTextureRect(sf::IntRect(40, 0, 40, 39));
-		// change life sprite size
 		game.UI.shipLife.setScale(LIFE_SIZE / game.UI.shipLife.getLocalBounds().width,
 								  LIFE_SIZE / game.UI.shipLife.getLocalBounds().height);
 
@@ -48,19 +47,17 @@ namespace AsteroidsGame
 		game.UI.greenLine.setSize(sf::Vector2f(health, HEALTH_HEIGHT));
 	}
 
-	void DrawUI(Game& game, sf::RenderWindow& window)
+	void DrawUI(Game& game, sf::RenderWindow& window, float xcor)
 	{
 		window.draw(game.UI.redLine);
 		window.draw(game.UI.greenLine);
 		window.draw(game.UI.whiteRect);
 
-		game.UI.lifeX = 150.f;
-
 		for (int i = 0; i < game.player->ships; i++)
 		{
-			game.UI.shipLife.setPosition(game.UI.lifeX, LIFE_Y);
+			game.UI.shipLife.setPosition(xcor, LIFE_Y);
 			window.draw(game.UI.shipLife);
-			game.UI.lifeX += LIFE_STEP;
+			xcor += LIFE_STEP;
 		}
 
 		switch (game.player->weapon)

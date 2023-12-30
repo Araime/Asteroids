@@ -28,5 +28,5 @@ namespace AsteroidsGame
 
 	void UpdateUI();
 
-	void DrawUI(Game& game, sf::RenderWindow& window);
+	void DrawUI(Game& game, sf::RenderWindow& window, float xcor);
 }

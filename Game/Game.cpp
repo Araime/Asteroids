@@ -348,7 +348,7 @@ namespace AsteroidsGame
 		}
 
 		DrawCooldownText(game, window);
-		DrawUI(game, window);
+		DrawUI(game, window, game.UI.lifeX);
 		
 		window.display();
 	}
