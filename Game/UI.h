@@ -6,6 +6,12 @@ namespace AsteroidsGame
 {
 	struct Game;
 
+	enum class Weapon
+	{
+		Laser = 0,
+		Rocket,
+	};
+
 	struct UserInterface
 	{
 		// create health bar
