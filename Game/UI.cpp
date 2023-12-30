@@ -36,9 +36,9 @@ namespace AsteroidsGame
 		game.UI.laser.setRotation(90.f);
 
 		game.UI.rocket.setTexture(game.rocketTexture);
-		game.UI.rocket.setTextureRect(sf::IntRect(0, 0, 12, 23));
+		game.UI.rocket.setTextureRect(sf::IntRect(0, 0, 16, 28));
 		game.UI.rocket.setOrigin(game.UI.rocket.getLocalBounds().width * 0.5f,
-								game.UI.rocket.getLocalBounds().height * 0.5f);
+								 game.UI.rocket.getLocalBounds().height * 0.5f);
 		game.UI.rocket.setRotation(90.f);
 	}
 
@@ -67,13 +67,13 @@ namespace AsteroidsGame
 		{
 		case Weapon::Laser:
 		{
-			game.UI.laser.setPosition(260.f, 735.f);
+			game.UI.laser.setPosition(260.f, 738.f);
 			window.draw(game.UI.laser);
 			break;
 		}
 		case Weapon::Rocket:
 		{
-			game.UI.rocket.setPosition(260.f, 735.f);
+			game.UI.rocket.setPosition(260.f, 738.f);
 			window.draw(game.UI.rocket);
 			break;
 		}

@@ -44,6 +44,24 @@ namespace AsteroidsGame
 					}
 				}
 
+				// equip rocket
+				if (game.player->weapon == Weapon::Laser)
+				{
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+					{
+						game.player->weapon = Weapon::Rocket;
+					}
+				}
+				
+				// equip laser
+				if (game.player->weapon == Weapon::Rocket)
+				{
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+					{
+						game.player->weapon = Weapon::Laser;
+					}
+				}
+
 				// check if ship is accelerated
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 				{
