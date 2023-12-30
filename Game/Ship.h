@@ -20,7 +20,7 @@ namespace AsteroidsGame
 
 		int ships = 3;
 		float health = 100.f;
-		float rocketX = -45.f;
+		float rocketX = -20.f;
 
 		bool isAccelerating = false;
 		bool isDestroyed = false;

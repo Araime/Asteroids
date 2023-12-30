@@ -94,6 +94,7 @@ namespace AsteroidsGame
 
 				// play random laser sound
 				game.laserSndArray[rand() % LASER_SND_QTY].sound.play();
+
 				// update timer
 				game.pastTime = game.newTime;
 			}
@@ -104,22 +105,22 @@ namespace AsteroidsGame
 		{
 			// create rockets
 			// check if enough time has passed
-			if (game.newTime - game.pastTime > LASER_COOLDOWN)
+			if (game.newTime - game.pastTime > ROCKET_COOLDOWN)
 			{
-				for (int i = 0; i < 3; i++)
+				for (int i = 0; i < ROCKETS_QTY; i++)
 				{
 					// create new rocket
 					Rocket* rocket = new Rocket();
 					rocket->SetParams(game.sRocket, game.player->xcor, game.player->ycor,
 									 game.player->angle - xcor, 10.f);
 					game.entities.push_back(rocket);
-
 					xcor += ROCKET_STEP;
 				}
+
+				// update timer
+				game.pastTime = game.newTime;
 			}
 
-			// update timer
-			game.pastTime = game.newTime;
 			break;
 		}
 		default:

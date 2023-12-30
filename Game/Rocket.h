@@ -15,8 +15,8 @@ namespace AsteroidsGame
 
 		void Update()
 		{
-			dx = cos(angle * DEGTORAD) * 10.f;
-			dy = sin(angle * DEGTORAD) * 10.f;
+			dx = cos(angle * DEGTORAD) * 8.f;
+			dy = sin(angle * DEGTORAD) * 8.f;
 			xcor += dx;
 			ycor += dy;
 
