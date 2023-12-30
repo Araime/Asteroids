@@ -19,6 +19,7 @@ namespace AsteroidsGame
 	// main game
 	const int SCREEN_WIDTH = 1366;
 	const int SCREEN_HEIGHT = 768;
+	const int FIELD_HEIGHT = 728;
 	const float GAME_OVER_COOLDOWN = 10.f;
 
 	// asteroids

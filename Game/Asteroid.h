@@ -40,13 +40,13 @@ namespace AsteroidsGame
 			{
 				xcor = SCREEN_WIDTH;
 			}
-			if (ycor > SCREEN_HEIGHT)
+			if (ycor > FIELD_HEIGHT)
 			{
 				ycor = 0.f;
 			}
 			if (ycor < 0)
 			{
-				ycor = SCREEN_HEIGHT;
+				ycor = FIELD_HEIGHT;
 			}
 		}
 	};

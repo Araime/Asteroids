@@ -21,7 +21,7 @@ namespace AsteroidsGame
 			ycor += dy;
 
 			// check if it's beyond the edge of the screen
-			if (xcor > SCREEN_WIDTH || xcor < 0 || ycor > SCREEN_HEIGHT || ycor < 0)
+			if (xcor > SCREEN_WIDTH || xcor < 0 || ycor > FIELD_HEIGHT || ycor < 0)
 			{
 				isAlive = false;
 			}

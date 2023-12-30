@@ -196,7 +196,7 @@ namespace AsteroidsGame
 			if (game.destroy_cooldown == 0)
 			{
 				// ressurect the player
-				game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(SCREEN_HEIGHT / 2), 0.f, 20.f);
+				game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2), 0.f, 20.f);
 				game.player->dx = 0;
 				game.player->dy = 0;
 				game.player->isAccelerating = false;

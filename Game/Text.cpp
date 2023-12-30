@@ -28,6 +28,6 @@ namespace AsteroidsGame
 
 		sf::FloatRect textRect = game.cooldownText.txt.getLocalBounds();
 		game.cooldownText.txt.setOrigin(textRect.width * 0.5f, textRect.height * 0.5f);
-		game.cooldownText.txt.setPosition(float(SCREEN_WIDTH / 2), float(SCREEN_HEIGHT / 2));
+		game.cooldownText.txt.setPosition(float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2));
 	}
 }
