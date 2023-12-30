@@ -44,6 +44,9 @@ namespace AsteroidsGame
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
 					{
 						game.player->weapon = Weapon::Rocket;
+
+						// play weapon change sound
+						game.weapChangeSnd.sound.play();
 					}
 				}
 
@@ -53,6 +56,9 @@ namespace AsteroidsGame
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
 					{
 						game.player->weapon = Weapon::Laser;
+
+						// play weapon change sound
+						game.weapChangeSnd.sound.play();
 					}
 				}
 

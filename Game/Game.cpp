@@ -77,6 +77,9 @@ namespace AsteroidsGame
 		assert(game.RocketSnd4.buffer.loadFromFile(SND_PATH + "rocket_launch_4.wav"));
 		game.RocketSnd4.sound.setBuffer(game.RocketSnd4.buffer);
 
+		assert(game.weapChangeSnd.buffer.loadFromFile(SND_PATH + "Flashpoint001a.wav"));
+		game.weapChangeSnd.sound.setBuffer(game.weapChangeSnd.buffer);
+
 		assert(game.asteroidExplSnd.buffer.loadFromFile(SND_PATH + "boom2.wav"));
 		game.asteroidExplSnd.sound.setBuffer(game.asteroidExplSnd.buffer);
 		game.asteroidExplSnd.sound.setVolume(75.f);

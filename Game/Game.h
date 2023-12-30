@@ -64,6 +64,7 @@ namespace AsteroidsGame
 		Sound RocketSnd2;
 		Sound RocketSnd3;
 		Sound RocketSnd4;
+		Sound weapChangeSnd;
 		Sound asteroidExplSnd;
 		Sound shipExplSnd;
 
