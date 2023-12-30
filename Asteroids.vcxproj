@@ -21,11 +21,11 @@
   <ItemGroup>
     <ClCompile Include="Game\Background.cpp" />
     <ClCompile Include="Game\Game.cpp" />
-    <ClCompile Include="Game\HealthBar.cpp" />
     <ClCompile Include="Game\Main.cpp" />
     <ClCompile Include="Game\Math.cpp" />
     <ClCompile Include="Game\Ship.cpp" />
     <ClCompile Include="Game\Text.cpp" />
+    <ClCompile Include="Game\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Animation.h" />
@@ -34,12 +34,12 @@
     <ClInclude Include="Game\Constants.h" />
     <ClInclude Include="Game\Entity.h" />
     <ClInclude Include="Game\Game.h" />
-    <ClInclude Include="Game\HealthBar.h" />
     <ClInclude Include="Game\Laser.h" />
     <ClInclude Include="Game\Math.h" />
     <ClInclude Include="Game\Ship.h" />
     <ClInclude Include="Game\Sound.h" />
     <ClInclude Include="Game\Text.h" />
+    <ClInclude Include="Game\UI.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

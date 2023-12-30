@@ -141,7 +141,8 @@ namespace AsteroidsGame
 				game.player->health = 100.f;
 				game.player->isDestroyed = false;
 
-				UpdateHealhBar(game, game.player->health);
+				// update player health
+				UpdateUI(game, game.player->health);
 			}
 		}
 	}

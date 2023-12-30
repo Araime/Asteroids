@@ -80,7 +80,7 @@ namespace AsteroidsGame
 		// add player ship to list of entities
 		game.entities.push_back(game.player);
 
-		InitHealthBar(game);
+		InitUI(game);
 
 		// update past time
 		game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
@@ -136,7 +136,8 @@ namespace AsteroidsGame
 		game.player->dy = 0;
 		game.player->isDestroyed = false;
 
-		UpdateHealhBar(game, game.player->health);
+		// update player health
+		UpdateUI(game, game.player->health);
 		PlayMusic(game, SND_PATH + "through space.ogg", 75.f);
 
 		game.gameState = GameState::Game;
@@ -182,7 +183,8 @@ namespace AsteroidsGame
 				if (IsCollide(first_obj, second_obj))
 				{
 					TakeDamage(game, second_obj->rad);
-					UpdateHealhBar(game, game.player->health);
+					// update player health
+					UpdateUI(game, game.player->health);
 
 					if (!game.player->health)
 					{
@@ -345,7 +347,7 @@ namespace AsteroidsGame
 		}
 
 		DrawCooldownText(game, window);
-		DrawHealthBar(game, window);
+		DrawUI(game, window);
 		
 		window.display();
 	}

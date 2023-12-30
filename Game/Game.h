@@ -10,7 +10,7 @@
 #include "Sound.h"
 #include "Background.h"
 #include "Text.h"
-#include "HealthBar.h"
+#include "UI.h"
 
 namespace AsteroidsGame
 {
@@ -91,7 +91,7 @@ namespace AsteroidsGame
 		Ship* player = new Ship;
 
 		// create health bar rectangles
-		HealthBar healthBar;
+		UserInterface UI;
 	};
 
 	void InitGame(Game& game);

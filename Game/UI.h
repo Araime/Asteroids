@@ -6,16 +6,20 @@ namespace AsteroidsGame
 {
 	struct Game;
 
-	struct HealthBar
+	struct UserInterface
 	{
 		sf::RectangleShape whiteRect;
 		sf::RectangleShape greenLine;
 		sf::RectangleShape redLine;
 	};
 
-	void InitHealthBar(Game& game);
+	void InitUI(Game& game);
 
-	void UpdateHealhBar(Game& game, const float health);
+	void UpdateUI(Game& game, const float health); // update player health
 
-	void DrawHealthBar(Game& game, sf::RenderWindow& window);
+	void UpdateUI();
+
+	void UpdateUI();
+
+	void DrawUI(Game& game, sf::RenderWindow& window);
 }
