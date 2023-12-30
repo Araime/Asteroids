@@ -6,12 +6,12 @@ namespace AsteroidsGame
 	void AsteroidsGame::InitText(Text& text, const sf::Font& font, const int size, const sf::Color& color)
 	{
 		text.txt.setFont(font);
-		text.txt.setCharacterSize(COOLDOWN_TEXT_SIZE);
+		text.txt.setCharacterSize(size);
 		text.txt.setStyle(sf::Text::Bold);
 		text.txt.setFillColor(color);
 	}
 
-	void UpdateText(Text& text, std::string& str)
+	void UpdateText(Text& text, const std::string& str)
 	{
 		text.txt.setString(str);
 

@@ -9,7 +9,9 @@ namespace AsteroidsGame
 	const std::string SND_PATH = "Resources/Sounds/";
 
 	// init game variables
-	const std::string TITLE = "Asteroids";
+	const std::string GAME_NAME = "Asteroids";
+	const std::string TITLE_TEXT = "ASTEROIDS";
+	const std::string GAME_OVER_TEXT = "GAME OVER";
 	const int WIDTH = 1366;
 	const int HEIGHT = 768;
 	const int SM_ASTEROIDS = 2;
@@ -19,6 +21,7 @@ namespace AsteroidsGame
 	const float COOLDOWN_X_COORD = 600.f;
 	const float COOLDOWN_Y_COORD = 320.f;
 	const int COOLDOWN_TEXT_SIZE = 55;
+	const int TITLE_TEXT_SIZE = 128;
 	const int LASER_SND_QTY = 3;
 	const float TITLE_X_COORD = 370;
 	const float TITLE_Y_COORD = 300;

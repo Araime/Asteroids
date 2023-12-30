@@ -38,6 +38,7 @@ namespace AsteroidsGame
 
 		// create fonts
 		sf::Font cooldownFont;
+		sf::Font titleFont;
 		
 		// create game texts
 		Text cooldownText;
@@ -51,12 +52,6 @@ namespace AsteroidsGame
 		sf::Texture menuTexture;
 		sf::Texture levelTexture;
 		sf::Texture gameOverTexture;
-
-		// create screen texts
-		sf::Texture tTitle;
-		sf::Texture tGameOver;
-		sf::Sprite sTitle;
-		sf::Sprite sGameOver;
 
 		// create sounds and music
 		Sound timerSnd;

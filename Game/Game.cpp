@@ -8,13 +8,14 @@ namespace AsteroidsGame
 	{
 		// load fonts
 		assert(game.cooldownFont.loadFromFile(FONT_PATH + "papyrus-pixel_1.ttf"));
-		assert(game.cooldownFont.loadFromFile(FONT_PATH + "DischargePro.ttf"));
+		assert(game.titleFont.loadFromFile(FONT_PATH + "DischargePro.ttf"));
 
 		// init game texts
 		InitText(game.cooldownText, game.cooldownFont, COOLDOWN_TEXT_SIZE, sf::Color::Cyan);
 		UpdateCooldownText(game);
+		InitText(game.bigText, game.titleFont, TITLE_TEXT_SIZE, sf::Color::Yellow);
+		UpdateText(game.bigText, TITLE_TEXT);
 
-		//game.cooldownText.txt.setString(game.cooldownText + std::to_string(game.destroy_cooldown));
 
 		// load game textures
 		assert(game.shipTexture.loadFromFile(IMG_PATH + "spaceship.png"));
@@ -39,14 +40,6 @@ namespace AsteroidsGame
 		InitBG(game.menuBG, game.menuTexture);
 		InitBG(game.levelBG, game.levelTexture);
 		InitBG(game.gameOverBG, game.gameOverTexture);
-
-		// init screen texts
-		assert(game.tTitle.loadFromFile(IMG_PATH + "title.png"));
-		game.sTitle.setTexture(game.tTitle);
-		game.sTitle.setPosition(TITLE_X_COORD, TITLE_Y_COORD);
-		assert(game.tGameOver.loadFromFile(IMG_PATH + "gameover.png"));
-		game.sGameOver.setTexture(game.tGameOver);
-		game.sGameOver.setPosition(TITLE_X_COORD, TITLE_Y_COORD);
 
 		// init all objects of animations
 		game.sLaser.SetAnimation(game.laserTexture, 0, 0, 32, 64, 16, 0.8f);
@@ -116,7 +109,7 @@ namespace AsteroidsGame
 		window.clear();
 
 		window.draw(game.menuBG.sprite);
-		window.draw(game.sTitle);
+		window.draw(game.bigText.txt);
 
 		window.display();
 
@@ -265,6 +258,8 @@ namespace AsteroidsGame
 		}
 		else
 		{
+			// update text and game state
+			UpdateText(game.bigText, GAME_OVER_TEXT);
 			game.gameState = GameState::GameOver;
 
 			// change music and play
@@ -400,12 +395,14 @@ namespace AsteroidsGame
 		window.clear();
 
 		window.draw(game.gameOverBG.sprite);
-		window.draw(game.sGameOver);
+		window.draw(game.bigText.txt);
 
 		window.display();
 
 		if (game.newTime - game.pastTime > GAME_OVER_COOLDOWN)
 		{
+			// update text and game state
+			UpdateText(game.bigText, TITLE_TEXT);
 			game.gameState = GameState::Menu;
 
 			// change music and play
