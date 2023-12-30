@@ -1,4 +1,4 @@
-#include "HealthBar.h"
+#include "Text.h"
 #include "Game.h"
 
 namespace AsteroidsGame
