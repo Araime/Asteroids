@@ -197,8 +197,8 @@ namespace AsteroidsGame
 			{
 				// ressurect the player
 				game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2), 0.f, 20.f);
-				game.player->dx = 0;
-				game.player->dy = 0;
+				game.player->dx = 0.f;
+				game.player->dy = 0.f;
 				game.player->isAccelerating = false;
 				game.player->health = 100.f;
 				game.player->isDestroyed = false;
