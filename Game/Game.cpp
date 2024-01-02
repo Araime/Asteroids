@@ -153,7 +153,7 @@ namespace AsteroidsGame
 		// restart player ship
 		game.player->ships = 3;
 		game.player->health = 100.f;
-		game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2), 0.f, 20.f);
+		game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2), 0.f, SHIP_RAD);
 		game.player->dx = 0;
 		game.player->dy = 0;
 		game.player->isDestroyed = false;
@@ -287,7 +287,7 @@ namespace AsteroidsGame
 
 			// create small asteroids
 			Asteroid* sm_asteroid = new Asteroid();
-			sm_asteroid->SetParams(game.sRockSmall, first_obj->xcor, first_obj->ycor, float(rand() % 360), 15.f);
+			sm_asteroid->SetParams(game.sRockSmall, first_obj->xcor, first_obj->ycor, float(rand() % 360), SM_RAD);
 			game.entities.push_back(sm_asteroid);
 		}
 	}
@@ -311,7 +311,7 @@ namespace AsteroidsGame
 	{
 		// create big asteroid
 		Asteroid* asteroid = new Asteroid();
-		asteroid->SetParams(game.sRock, 0.f, float(rand() % FIELD_HEIGHT), float(rand() % 360), 25.f);
+		asteroid->SetParams(game.sRock, 0.f, float(rand() % FIELD_HEIGHT), float(rand() % 360), BIG_RAD);
 		game.entities.push_back(asteroid);
 	}
 

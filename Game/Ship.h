@@ -18,6 +18,7 @@ namespace AsteroidsGame
 	public:
 		Weapon weapon = Weapon::Laser;
 
+		int maxSpeed = 5;
 		int ships = 3;
 		float health = 100.f;
 		float rocketX = -20.f;
@@ -43,8 +44,6 @@ namespace AsteroidsGame
 				dy *= 0.99f;
 			}
 
-
-			int maxSpeed = 5;
 			float speed = sqrt(dx * dx + dy * dy);
 
 			if (speed > maxSpeed)

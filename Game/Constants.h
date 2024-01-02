@@ -25,6 +25,8 @@ namespace AsteroidsGame
 	// asteroids
 	const int SM_ASTEROIDS = 2;
 	const std::vector<float> DELTA_XY{ -2, 2 };
+	const float SM_RAD = 15.f;
+	const float BIG_RAD = 25.f;
 	
 	// weapons
 	const float LASER_COOLDOWN = 0.2f;
@@ -37,6 +39,7 @@ namespace AsteroidsGame
 	// ship
 	const float DEGTORAD = 0.017453f;
 	const int COUNTER = 1;
+	const float SHIP_RAD = 20.f;
 
 	// UI
 	const float MENU_HEIGHT = 40.f;
