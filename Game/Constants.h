@@ -52,8 +52,14 @@ namespace AsteroidsGame
 	const float LIFE_SIZE = 25.f;
 	const float LIFE_STEP = 32.f;
 	const float LIFE_YCOR = 737.f;
-	const float WEAP_XCOR = 260.f;
-	const float WEAP_YCOR = 748.f;
+	const float ICON1_XCOR = 270.f;
+	const float ICON1_YCOR = 748.f;
+	const float ICON2_XCOR = 300.f;
+	const float ICON2_YCOR = 748.f;
+	const float SELECTOR_SIZE = 28.f;
+	const float SELECT1_XCOR = 260.f;
+	const float SELECT_YCOR = 734.f;
+	const float SELECT2_XCOR = 293.f;
 	const float WEAP_ICON_ANGLE = 90.f;
 	const float LASER_RAD = 10.f;
 	const float ROCKET_RAD = 10.f;

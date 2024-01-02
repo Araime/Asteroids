@@ -16,6 +16,9 @@ namespace AsteroidsGame
 		sf::RectangleShape greenLine;
 		sf::RectangleShape redLine;
 
+		// create weapon highlighter
+		sf::RectangleShape highlighter;
+
 		// create ship life
 		sf::Sprite shipLife;
 		float lifeX = 150.f;

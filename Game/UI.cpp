@@ -25,6 +25,13 @@ namespace AsteroidsGame
 		game.UI.redLine.setFillColor(sf::Color::Red);
 		game.UI.redLine.setPosition(HP_XCOR, HP_YCOR);
 
+		// init highlighter
+		game.UI.highlighter.setSize(sf::Vector2f(SELECTOR_SIZE, SELECTOR_SIZE));
+		game.UI.highlighter.setFillColor(sf::Color::Transparent);
+		game.UI.highlighter.setOutlineThickness(2.f);
+		game.UI.highlighter.setOutlineColor(sf::Color::Green);
+		game.UI.highlighter.setPosition(SELECT1_XCOR, SELECT_YCOR);
+
 		// init ship lifes
 		game.UI.shipLife.setTexture(game.shipTexture);
 		game.UI.shipLife.setTextureRect(sf::IntRect(40, 0, 40, 39));
@@ -38,12 +45,14 @@ namespace AsteroidsGame
 		game.UI.laser.setOrigin(game.UI.laser.getLocalBounds().width * 0.5f,
 								game.UI.laser.getLocalBounds().height * 0.5f);
 		game.UI.laser.setRotation(WEAP_ICON_ANGLE);
+		game.UI.laser.setPosition(ICON1_XCOR, ICON1_YCOR);
 
 		game.UI.rocket.setTexture(game.rocketTexture);
 		game.UI.rocket.setTextureRect(sf::IntRect(0, 0, 16, 28));
 		game.UI.rocket.setOrigin(game.UI.rocket.getLocalBounds().width * 0.5f,
 								 game.UI.rocket.getLocalBounds().height * 0.5f);
 		game.UI.rocket.setRotation(WEAP_ICON_ANGLE);
+		game.UI.rocket.setPosition(ICON2_XCOR, ICON2_YCOR);
 	}
 
 	// update player health
@@ -54,11 +63,13 @@ namespace AsteroidsGame
 
 	void DrawUI(Game& game, sf::RenderWindow& window, float xcor)
 	{
+		// draw HP
 		window.draw(game.UI.menuRect);
 		window.draw(game.UI.redLine);
 		window.draw(game.UI.greenLine);
 		window.draw(game.UI.whiteRect);
 
+		// draw lifes
 		for (int i = 0; i < game.player->ships; i++)
 		{
 			game.UI.shipLife.setPosition(xcor, LIFE_YCOR);
@@ -66,18 +77,23 @@ namespace AsteroidsGame
 			xcor += LIFE_STEP;
 		}
 
+		// draw weapons
+		window.draw(game.UI.laser);
+		window.draw(game.UI.rocket);
+
+		// draw highlihter
+		window.draw(game.UI.highlighter);
+
 		switch (game.player->weapon)
 		{
 		case Weapon::Laser:
 		{
-			game.UI.laser.setPosition(WEAP_XCOR, WEAP_YCOR);
-			window.draw(game.UI.laser);
+			
 			break;
 		}
 		case Weapon::Rocket:
 		{
-			game.UI.rocket.setPosition(WEAP_XCOR, WEAP_YCOR);
-			window.draw(game.UI.rocket);
+			
 			break;
 		}
 		default:

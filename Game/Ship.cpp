@@ -45,6 +45,9 @@ namespace AsteroidsGame
 					{
 						game.player->weapon = Weapon::Rocket;
 
+						// change highlighter coord
+						game.UI.highlighter.setPosition(SELECT2_XCOR, SELECT_YCOR);
+
 						// play weapon change sound
 						game.weapChangeSnd.sound.play();
 					}
@@ -56,6 +59,9 @@ namespace AsteroidsGame
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
 					{
 						game.player->weapon = Weapon::Laser;
+
+						// change highlighter coord
+						game.UI.highlighter.setPosition(SELECT1_XCOR, SELECT_YCOR);
 
 						// play weapon change sound
 						game.weapChangeSnd.sound.play();
