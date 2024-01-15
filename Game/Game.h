@@ -20,8 +20,9 @@ enum class GameState
 	GameOver
 };
 
-struct Game
+class Game
 {
+public:
 	GameState gameState = GameState::Menu;
 
 	// set ateroid num

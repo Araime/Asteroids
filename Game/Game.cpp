@@ -9,10 +9,10 @@ void Game::InitGame(Game& game)
 	assert(game.titleFont.loadFromFile(FONT_PATH + "DischargePro.ttf"));
 
 	// init game texts
-	game.cooldownText.InitText(game.cooldownText, game.cooldownFont, COOLDOWN_TEXT_SIZE, sf::Color::Cyan);
-	game.cooldownText.UpdateText(game.cooldownText, game.cooldownStr + std::to_string(game.destroy_cooldown));
-	game.bigText.InitText(game.bigText, game.titleFont, TITLE_TEXT_SIZE, sf::Color::Yellow);
-	game.bigText.UpdateText(game.bigText, TITLE_TEXT);
+	game.cooldownText.InitText(game.cooldownFont, COOLDOWN_TEXT_SIZE, sf::Color::Cyan);
+	game.cooldownText.UpdateText(game.cooldownStr + std::to_string(game.destroy_cooldown));
+	game.bigText.InitText(game.titleFont, TITLE_TEXT_SIZE, sf::Color::Yellow);
+	game.bigText.UpdateText(TITLE_TEXT);
 
 
 	// load game textures
@@ -252,12 +252,12 @@ void Game::CheckGameOver(Game& game)
 	{
 		// update cooldown ressurection time
 		game.destroy_cooldown = 3;
-		game.cooldownText.UpdateText(game.cooldownText, game.cooldownStr + std::to_string(game.destroy_cooldown));
+		game.cooldownText.UpdateText(game.cooldownStr + std::to_string(game.destroy_cooldown));
 	}
 	else
 	{
 		// update text and game state
-		game.bigText.UpdateText(game.bigText, GAME_OVER_TEXT);
+		game.bigText.UpdateText(GAME_OVER_TEXT);
 		game.gameState = GameState::GameOver;
 
 		game.gameMusic.PlayMusic(SND_PATH + "space.ogg");
@@ -391,7 +391,7 @@ void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 	if (game.newTime - game.pastTime > GAME_OVER_COOLDOWN)
 	{
 		// update text and game state
-		game.bigText.UpdateText(game.bigText, TITLE_TEXT);
+		game.bigText.UpdateText(TITLE_TEXT);
 		game.gameState = GameState::Menu;
 
 		game.gameMusic.PlayMusic(SND_PATH + "enchanted tiki 86.ogg");

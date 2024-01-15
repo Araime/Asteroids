@@ -241,7 +241,7 @@ void Ship::RestartPlayer(Game& game)
 				game.timerSnd.sound.play();
 
 				// update cooldown text
-				game.cooldownText.UpdateText(game.cooldownText, game.cooldownStr + std::to_string(game.destroy_cooldown));
+				game.cooldownText.UpdateText(game.cooldownStr + std::to_string(game.destroy_cooldown));
 
 				// update past time
 				game.pastTime = game.newTime;
