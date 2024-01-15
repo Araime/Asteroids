@@ -32,5 +32,7 @@ public:
 	// update player health
 	void UpdateUIHealthBar(Game& game, const float health);
 
+	void UpdateWeaponHighlighterPos(const float xcor, const float ycor);
+
 	void DrawUI(Game& game, sf::RenderWindow& window, float xcor);
 };

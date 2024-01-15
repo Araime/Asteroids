@@ -92,7 +92,7 @@ void Ship::HandlePlayerInput(Game& game)
 					game.player->weapon = Weapon::Rocket;
 
 					// change highlighter coord
-					game.UI.highlighter.setPosition(SELECT2_XCOR, SELECT_YCOR);
+					game.UI.UpdateWeaponHighlighterPos(SELECT2_XCOR, SELECT_YCOR);
 
 					// play weapon change sound
 					game.weapChangeSnd.sound.play();
@@ -107,7 +107,7 @@ void Ship::HandlePlayerInput(Game& game)
 					game.player->weapon = Weapon::Laser;
 
 					// change highlighter coord
-					game.UI.highlighter.setPosition(SELECT1_XCOR, SELECT_YCOR);
+					game.UI.UpdateWeaponHighlighterPos(SELECT1_XCOR, SELECT_YCOR);
 
 					// play weapon change sound
 					game.weapChangeSnd.sound.play();

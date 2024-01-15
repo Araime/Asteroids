@@ -58,6 +58,12 @@ void UserInterface::UpdateUIHealthBar(Game& game, const float health)
 	game.UI.greenLine.setSize(sf::Vector2f(health, HP_HEIGHT));
 }
 
+void UserInterface::UpdateWeaponHighlighterPos(const float xcor, const float ycor)
+{
+	// change highlighter coord
+	highlighter.setPosition(xcor, ycor);
+}
+
 void UserInterface::DrawUI(Game& game, sf::RenderWindow& window, float xcor)
 {
 	// draw HP
@@ -80,20 +86,4 @@ void UserInterface::DrawUI(Game& game, sf::RenderWindow& window, float xcor)
 
 	// draw highlihter
 	window.draw(game.UI.highlighter);
-
-	switch (game.player->weapon)
-	{
-	case Weapon::Laser:
-	{
-
-		break;
-	}
-	case Weapon::Rocket:
-	{
-
-		break;
-	}
-	default:
-		break;
-	}
 }
