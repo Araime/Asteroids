@@ -1,6 +1,4 @@
 #include <SFML/Graphics.hpp>
-#include <iostream>
-#include <list>
 #include <time.h>
 #include "Constants.h"
 #include "Game.h"
