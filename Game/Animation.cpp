@@ -3,7 +3,7 @@
 void Animation::SetAnimation(sf::Texture& t, int x, int y, int w, int h, int count, float Speed)
 {
 	frame = 0.f;
-	speed = Speed;
+	framesSpeed = Speed;
 
 	for (int i = 0; i < count; i++)
 	{
@@ -17,7 +17,7 @@ void Animation::SetAnimation(sf::Texture& t, int x, int y, int w, int h, int cou
 
 void Animation::Update()
 {
-	frame += speed;
+	frame += framesSpeed;
 	int frames_num = int(frames.size());
 
 	if (frame >= frames_num)
@@ -34,5 +34,5 @@ void Animation::Update()
 
 bool Animation::IsAnimationEnd()
 {
-	return frame + speed >= frames.size();
+	return frame + framesSpeed >= frames.size();
 }

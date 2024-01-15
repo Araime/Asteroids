@@ -5,7 +5,7 @@ class Animation
 {
 public:
 	float frame = 0.f;
-	float speed = 0.f;
+	float framesSpeed = 0.f;
 	bool isFinished = false;
 	sf::Sprite sprite;
 	std::vector<sf::IntRect> frames;
