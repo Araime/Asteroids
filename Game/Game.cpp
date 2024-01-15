@@ -151,7 +151,7 @@ void Game::RestartGame(Game& game)
 	game.player->weapon = Weapon::Laser;
 
 	// update player health
-	game.UI.UpdateUIHealthBar(game, game.player->health);
+	game.UI.UpdateUIHealthBar(game.player->health);
 	game.gameMusic.PlayMusic(SND_PATH + "through space.ogg");
 
 	game.gameState = GameState::Game;
@@ -213,8 +213,6 @@ void Game::CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity
 			if (IsCollide(first_obj, second_obj))
 			{
 				game.player->TakeDamage(game, second_obj->rad);
-				// update player health
-				game.UI.UpdateUIHealthBar(game, game.player->health);
 
 				if (!game.player->health)
 				{

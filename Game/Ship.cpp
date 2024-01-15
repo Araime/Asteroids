@@ -214,6 +214,9 @@ void Ship::TakeDamage(Game& game, const float damage)
 		game.player->health = 0.f;
 	}
 
+	// update player health
+	game.UI.UpdateUIHealthBar(game.player->health);
+
 	if (game.player->health == 0.f)
 	{
 		game.player->isDestroyed = true;
@@ -255,7 +258,7 @@ void Ship::RestartPlayer(Game& game)
 			game.player->isDestroyed = false;
 
 			// update player health
-			game.UI.UpdateUIHealthBar(game, game.player->health);
+			game.UI.UpdateUIHealthBar(game.player->health);
 		}
 	}
 }

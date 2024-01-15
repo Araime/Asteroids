@@ -53,9 +53,9 @@ void UserInterface::InitUI(Game& game)
 	game.UI.rocket.setPosition(ICON2_XCOR, ICON2_YCOR);
 }
 
-void UserInterface::UpdateUIHealthBar(Game& game, const float health)
+void UserInterface::UpdateUIHealthBar(const float health)
 {
-	game.UI.greenLine.setSize(sf::Vector2f(health, HP_HEIGHT));
+	greenLine.setSize(sf::Vector2f(health, HP_HEIGHT));
 }
 
 void UserInterface::UpdateWeaponHighlighterPos(const float xcor, const float ycor)

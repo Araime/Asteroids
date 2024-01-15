@@ -30,7 +30,7 @@ public:
 	void InitUI(Game& game);
 
 	// update player health
-	void UpdateUIHealthBar(Game& game, const float health);
+	void UpdateUIHealthBar(const float health);
 
 	void UpdateWeaponHighlighterPos(const float xcor, const float ycor);
 
