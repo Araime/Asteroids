@@ -95,7 +95,7 @@ void InitGame(Game& game)
 	game.rocketSndArray[2] = game.RocketSnd3;
 	game.rocketSndArray[3] = game.RocketSnd4;
 
-	PlayMusic(game, SND_PATH + "enchanted tiki 86.ogg", 60.f);
+	game.gameMusic.PlayMusic(SND_PATH + "enchanted tiki 86.ogg");
 
 	// add player ship to list of entities
 	game.entities.push_back(game.player);
@@ -104,13 +104,6 @@ void InitGame(Game& game)
 
 	// update past time
 	game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
-}
-
-void PlayMusic(Game& game, std::string path, const float volume)
-{
-	game.gameMusic.music.openFromFile(path);
-	game.gameMusic.music.setVolume(volume);
-	game.gameMusic.music.play();
 }
 
 void DrawMainMenu(Game& game, sf::RenderWindow& window)
@@ -159,7 +152,7 @@ void RestartGame(Game& game)
 
 	// update player health
 	game.UI.UpdateUIHealthBar(game, game.player->health);
-	PlayMusic(game, SND_PATH + "through space.ogg", 75.f);
+	game.gameMusic.PlayMusic(SND_PATH + "through space.ogg");
 
 	game.gameState = GameState::Game;
 }
@@ -269,7 +262,7 @@ void CheckGameOver(Game& game)
 		game.bigText.UpdateText(game.bigText, GAME_OVER_TEXT);
 		game.gameState = GameState::GameOver;
 
-		PlayMusic(game, SND_PATH + "space.ogg", 80.f);
+		game.gameMusic.PlayMusic(SND_PATH + "space.ogg");
 	}
 }
 
@@ -403,7 +396,7 @@ void DrawGameOver(Game& game, sf::RenderWindow& window)
 		game.bigText.UpdateText(game.bigText, TITLE_TEXT);
 		game.gameState = GameState::Menu;
 
-		PlayMusic(game, SND_PATH + "enchanted tiki 86.ogg", 60.f);
+		game.gameMusic.PlayMusic(SND_PATH + "enchanted tiki 86.ogg");
 
 		game.pastTime = game.newTime;
 	}

@@ -1,13 +1,19 @@
 #pragma once
 #include <SFML/Audio.hpp>
 
-struct Sound
+class Sound
 {
+public:
 	sf::SoundBuffer buffer;
 	sf::Sound sound;
 };
 
-struct Music
+class Music
 {
+public:
 	sf::Music music;
+
+	Music();
+
+	void PlayMusic(const std::string path);
 };

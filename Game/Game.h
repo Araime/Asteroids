@@ -103,8 +103,6 @@ struct Game
 
 void InitGame(Game& game);
 
-void PlayMusic(Game& game, std::string path, const float volume);
-
 void DrawMainMenu(Game& game, sf::RenderWindow& window);
 
 void RestartGame(Game& game);
