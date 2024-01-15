@@ -32,7 +32,7 @@ int main()
 	window.setVerticalSyncEnabled(true);
 
 	Game game;
-	InitGame(game);
+	game.InitGame(game);
 
 	// init game timer
 	sf::Clock gameClock;
@@ -50,18 +50,18 @@ int main()
 		{
 		case GameState::Menu:
 		{
-			DrawMainMenu(game, window);
+			game.DrawMainMenu(game, window);
 			break;
 		}
 		case GameState::Game:
 		{
-			UpdateGame(game, window, currentrTime, lastTime);
-			DrawGame(game, window);
+			game.UpdateGame(game, window, currentrTime, lastTime);
+			game.DrawGame(game, window);
 			break;
 		}
 		case GameState::GameOver:
 		{
-			DrawGameOver(game, window);
+			game.DrawGameOver(game, window);
 			break;
 		}
 		default:

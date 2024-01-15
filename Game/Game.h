@@ -99,38 +99,38 @@ struct Game
 
 	// create health bar rectangles
 	UserInterface UI;
+
+	void InitGame(Game& game);
+
+	void DrawMainMenu(Game& game, sf::RenderWindow& window);
+
+	void RestartGame(Game& game);
+
+	void CheckAllCollisions(Game& game);
+
+	void CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* second_obj);
+
+	void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj);
+
+	void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation);
+
+	void CheckGameOver(Game& game);
+
+	void CreateSmallAsteroids(Game& game, Entity* first_obj);
+
+	void CreateAsteroid(Game& game);
+
+	void RandomGenerateNewAsteroid(Game& game);
+
+	void UpdateEntities(Game& game);
+
+	void Check—ompletedAnimations(Game& game);
+
+	void UpdateGame(Game& game, sf::RenderWindow& window, const float& currentTime, float& lastTime);
+
+	void DrawCooldownText(Game& game, sf::RenderWindow& window);
+
+	void DrawGame(Game& game, sf::RenderWindow& window);
+
+	void DrawGameOver(Game& game, sf::RenderWindow& window);
 };
-
-void InitGame(Game& game);
-
-void DrawMainMenu(Game& game, sf::RenderWindow& window);
-
-void RestartGame(Game& game);
-
-void CheckAllCollisions(Game& game);
-
-void CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* second_obj);
-
-void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj);
-
-void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation);
-
-void CheckGameOver(Game& game);
-
-void CreateSmallAsteroids(Game& game, Entity* first_obj);
-
-void CreateAsteroid(Game& game);
-
-void RandomGenerateNewAsteroid(Game& game);
-
-void UpdateEntities(Game& game);
-
-void Check—ompletedAnimations(Game& game);
-
-void UpdateGame(Game& game, sf::RenderWindow& window, const float& currentTime, float& lastTime);
-
-void DrawCooldownText(Game& game, sf::RenderWindow& window);
-
-void DrawGame(Game& game, sf::RenderWindow& window);
-
-void DrawGameOver(Game& game, sf::RenderWindow& window);

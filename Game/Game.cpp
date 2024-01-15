@@ -2,7 +2,7 @@
 #include "Constants.h"
 #include <cassert>
 
-void InitGame(Game& game)
+void Game::InitGame(Game& game)
 {
 	// load fonts
 	assert(game.cooldownFont.loadFromFile(FONT_PATH + "papyrus-pixel_1.ttf"));
@@ -106,7 +106,7 @@ void InitGame(Game& game)
 	game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
 }
 
-void DrawMainMenu(Game& game, sf::RenderWindow& window)
+void Game::DrawMainMenu(Game& game, sf::RenderWindow& window)
 {
 	game.menuBG.sprite.rotate(-0.2f);
 
@@ -118,7 +118,7 @@ void DrawMainMenu(Game& game, sf::RenderWindow& window)
 	game.player->HandlePlayerInput(game);
 }
 
-void RestartGame(Game& game)
+void Game::RestartGame(Game& game)
 {
 	// clear entities list
 	for (auto i = game.entities.begin(); i != game.entities.end();)
@@ -157,7 +157,7 @@ void RestartGame(Game& game)
 	game.gameState = GameState::Game;
 }
 
-void CheckAllCollisions(Game& game)
+void Game::CheckAllCollisions(Game& game)
 {
 	for (auto& first_obj : game.entities)
 	{
@@ -169,7 +169,7 @@ void CheckAllCollisions(Game& game)
 	}
 }
 
-void CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* second_obj)
+void Game::CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* second_obj)
 {
 	if (first_obj->name == "asteroid" && second_obj->name == "laser" && second_obj->isAlive)
 	{
@@ -204,7 +204,7 @@ void CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* second
 	}
 }
 
-void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj)
+void Game::CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj)
 {
 	if (!game.player->isDestroyed)
 	{
@@ -238,7 +238,7 @@ void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* seco
 	}
 }
 
-void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation)
+void Game::CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation)
 {
 	// create new explosion
 	Entity* explosion = new Entity();
@@ -247,7 +247,7 @@ void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_ani
 	game.entities.push_back(explosion);
 }
 
-void CheckGameOver(Game& game)
+void Game::CheckGameOver(Game& game)
 {
 	// check if life is over
 	if (game.player->ships)
@@ -266,7 +266,7 @@ void CheckGameOver(Game& game)
 	}
 }
 
-void CreateSmallAsteroids(Game& game, Entity* first_obj)
+void Game::CreateSmallAsteroids(Game& game, Entity* first_obj)
 {
 	for (int i = 0; i < SM_ASTEROIDS; i++)
 	{
@@ -283,7 +283,7 @@ void CreateSmallAsteroids(Game& game, Entity* first_obj)
 	}
 }
 
-void CheckÑompletedAnimations(Game& game)
+void Game::CheckÑompletedAnimations(Game& game)
 {
 	// turn off completed explosions animations
 	for (auto entity : game.entities)
@@ -298,7 +298,7 @@ void CheckÑompletedAnimations(Game& game)
 	}
 }
 
-void CreateAsteroid(Game& game)
+void Game::CreateAsteroid(Game& game)
 {
 	// create big asteroid
 	Asteroid* asteroid = new Asteroid();
@@ -306,7 +306,7 @@ void CreateAsteroid(Game& game)
 	game.entities.push_back(asteroid);
 }
 
-void RandomGenerateNewAsteroid(Game& game)
+void Game::RandomGenerateNewAsteroid(Game& game)
 {
 	if (rand() % 175 == 0)
 	{
@@ -314,7 +314,7 @@ void RandomGenerateNewAsteroid(Game& game)
 	}
 }
 
-void UpdateEntities(Game& game)
+void Game::UpdateEntities(Game& game)
 {
 	// update all entities
 	for (auto i = game.entities.begin(); i != game.entities.end();)
@@ -336,7 +336,7 @@ void UpdateEntities(Game& game)
 	}
 }
 
-void UpdateGame(Game& game, sf::RenderWindow& window, const float& currentTime, float& lastTime)
+void Game::UpdateGame(Game& game, sf::RenderWindow& window, const float& currentTime, float& lastTime)
 {
 	// player's functions
 	game.player->HandlePlayerInput(game);
@@ -352,7 +352,7 @@ void UpdateGame(Game& game, sf::RenderWindow& window, const float& currentTime, 
 	UpdateEntities(game);
 }
 
-void DrawCooldownText(Game& game, sf::RenderWindow& window)
+void Game::DrawCooldownText(Game& game, sf::RenderWindow& window)
 {
 	if (game.player->isDestroyed)
 	{
@@ -360,7 +360,7 @@ void DrawCooldownText(Game& game, sf::RenderWindow& window)
 	}
 }
 
-void DrawGame(Game& game, sf::RenderWindow& window)
+void Game::DrawGame(Game& game, sf::RenderWindow& window)
 {
 	window.clear();
 	window.draw(game.levelBG.sprite);
@@ -381,7 +381,7 @@ void DrawGame(Game& game, sf::RenderWindow& window)
 	window.display();
 }
 
-void DrawGameOver(Game& game, sf::RenderWindow& window)
+void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 {
 	game.newTime = game.gameTimer.getElapsedTime().asSeconds();
 
