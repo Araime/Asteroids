@@ -7,5 +7,5 @@ class BG
 public:
 	sf::Sprite sprite;
 
-	void InitBG(BG& bg, const sf::Texture& texture);
+	void InitBG(const sf::Texture& texture);
 };

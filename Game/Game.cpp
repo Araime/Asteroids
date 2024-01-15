@@ -36,9 +36,9 @@ void Game::InitGame(Game& game)
 	game.gameOverTexture.setSmooth(true);
 
 	// init BG's sprites
-	game.menuBG.InitBG(game.menuBG, game.menuTexture);
-	game.levelBG.InitBG(game.levelBG, game.levelTexture);
-	game.gameOverBG.InitBG(game.gameOverBG, game.gameOverTexture);
+	game.menuBG.InitBG(game.menuTexture);
+	game.levelBG.InitBG(game.levelTexture);
+	game.gameOverBG.InitBG(game.gameOverTexture);
 
 	// init all objects of animations
 	game.sLaser.SetAnimation(game.laserTexture, 0, 0, 32, 64, 16, 0.8f);

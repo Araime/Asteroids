@@ -1,10 +1,10 @@
 #include "Background.h"
 
-void BG::InitBG(BG& bg, const sf::Texture& texture)
+void BG::InitBG(const sf::Texture& texture)
 {
-	bg.sprite.setTexture(texture);
+	sprite.setTexture(texture);
 
-	sf::FloatRect spriteRect = bg.sprite.getLocalBounds();
-	bg.sprite.setOrigin(spriteRect.width * 0.5f, spriteRect.height * 0.5f);
-	bg.sprite.setPosition(float(SCREEN_WIDTH / 2), float(SCREEN_HEIGHT / 2));
+	sf::FloatRect spriteRect = sprite.getLocalBounds();
+	sprite.setOrigin(spriteRect.width * 0.5f, spriteRect.height * 0.5f);
+	sprite.setPosition(float(SCREEN_WIDTH / 2), float(SCREEN_HEIGHT / 2));
 }
