@@ -2,6 +2,8 @@
 
 Asteroid::Asteroid()
 {
+	name = "asteroid";
+
 	dx = float(rand() % 8 - 4);
 	if (dx == 0)
 	{
@@ -13,8 +15,6 @@ Asteroid::Asteroid()
 	{
 		dy = DELTA_XY[rand() % DELTA_XY.size()];
 	}
-
-	name = "asteroid";
 }
 
 void Asteroid::Update()
