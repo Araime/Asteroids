@@ -4,13 +4,13 @@ Asteroid::Asteroid()
 {
 	name = "asteroid";
 
-	dx = float(rand() % 8 - 4);
+	dx = float(rand() % ASTEROID_MAX_SPEED - ASTEROID_MIN_SPEED);
 	if (dx == 0)
 	{
 		dx = DELTA_XY[rand() % DELTA_XY.size()];
 	}
 
-	dy = float(rand() % 8 - 4);
+	dy = float(rand() % ASTEROID_MAX_SPEED - ASTEROID_MIN_SPEED);
 	if (dy == 0)
 	{
 		dy = DELTA_XY[rand() % DELTA_XY.size()];

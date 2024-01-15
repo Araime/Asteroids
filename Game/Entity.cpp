@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "Constants.h"
 
 Entity::Entity()
 {
@@ -17,6 +18,6 @@ void Entity::SetParams(Animation& a, float x, float y, float Angle, float radius
 void Entity::Draw(sf::RenderWindow& win)
 {
 	anim.sprite.setPosition(xcor, ycor);
-	anim.sprite.setRotation(angle + 90.f);
+	anim.sprite.setRotation(angle + ADDITIONAL_ANGLE);
 	win.draw(anim.sprite);
 }

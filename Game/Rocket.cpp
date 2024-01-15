@@ -7,8 +7,8 @@ Rocket::Rocket()
 
 void Rocket::Update()
 {
-	dx = cos(angle * DEGTORAD) * 6.f;
-	dy = sin(angle * DEGTORAD) * 6.f;
+	dx = cos(angle * DEGTORAD) * ROCKET_SPEED;
+	dy = sin(angle * DEGTORAD) * ROCKET_SPEED;
 	xcor += dx;
 	ycor += dy;
 

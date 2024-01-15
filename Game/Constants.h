@@ -20,18 +20,25 @@ const int SCREEN_HEIGHT = 768;
 const int FIELD_HEIGHT = 728;
 const float GAME_OVER_COOLDOWN = 10.f;
 
+// sprites
+const float ADDITIONAL_ANGLE = 90.f;
+
 // asteroids
 const int SM_ASTEROIDS = 2;
 const std::vector<float> DELTA_XY{ -2, 2 };
 const float SM_RAD = 15.f;
 const float BIG_RAD = 25.f;
+const int ASTEROID_MIN_SPEED = 4;
+const int ASTEROID_MAX_SPEED = 8;
 
 // weapons
 const float LASER_COOLDOWN = 0.2f;
+const float LASER_SPEED = 12.f;
 const int LASER_SND_QTY = 3;
 const int ROCKETS_SND_QTY = 4;
 const float ROCKETS_QTY = 5;
-const float ROCKET_STEP = 10.f;
+const float ROCKET_SPEED = 6.f;
+const float ROCKET_ANGLE_STEP = 10.f;
 const float ROCKET_COOLDOWN = 1.3f;
 
 // ship

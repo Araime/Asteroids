@@ -172,7 +172,7 @@ void Ship::MakeShot(Game& game, float xcor)
 				rocket->SetParams(game.sRocket, game.player->xcor, game.player->ycor,
 								  game.player->angle - xcor, ROCKET_RAD);
 				game.entities.push_back(rocket);
-				xcor += ROCKET_STEP;
+				xcor += ROCKET_ANGLE_STEP;
 			}
 
 			// play random rocket sound
