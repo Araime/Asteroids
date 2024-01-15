@@ -29,7 +29,8 @@ public:
 public:
 	void InitUI(Game& game);
 
-	void UpdateUIHealthBar(Game& game, const float health); // update player health
+	// update player health
+	void UpdateUIHealthBar(Game& game, const float health);
 
 	void DrawUI(Game& game, sf::RenderWindow& window, float xcor);
 };

@@ -53,7 +53,6 @@ void UserInterface::InitUI(Game& game)
 	game.UI.rocket.setPosition(ICON2_XCOR, ICON2_YCOR);
 }
 
-// update player health
 void UserInterface::UpdateUIHealthBar(Game& game, const float health)
 {
 	game.UI.greenLine.setSize(sf::Vector2f(health, HP_HEIGHT));

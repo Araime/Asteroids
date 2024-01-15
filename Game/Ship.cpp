@@ -191,7 +191,7 @@ void RestartPlayer(Game& game)
 				game.timerSnd.sound.play();
 
 				// update cooldown text
-				UpdateText(game);
+				game.cooldownText.UpdateText(game);
 
 				// update past time
 				game.pastTime = game.newTime;
