@@ -208,7 +208,7 @@ void RestartPlayer(Game& game)
 			game.player->isDestroyed = false;
 
 			// update player health
-			UpdateUI(game, game.player->health);
+			game.UI.UpdateUIHealthBar(game, game.player->health);
 		}
 	}
 }

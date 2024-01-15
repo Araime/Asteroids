@@ -4,8 +4,9 @@
 
 struct Game;
 
-struct UserInterface
+class UserInterface
 {
+public:
 	// create UI BG
 	sf::RectangleShape menuRect;
 
@@ -24,10 +25,11 @@ struct UserInterface
 	// create weapon icons
 	sf::Sprite laser;
 	sf::Sprite rocket;
+
+public:
+	void InitUI(Game& game);
+
+	void UpdateUIHealthBar(Game& game, const float health); // update player health
+
+	void DrawUI(Game& game, sf::RenderWindow& window, float xcor);
 };
-
-void InitUI(Game& game);
-
-void UpdateUI(Game& game, const float health); // update player health
-
-void DrawUI(Game& game, sf::RenderWindow& window, float xcor);

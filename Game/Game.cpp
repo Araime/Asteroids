@@ -100,7 +100,7 @@ void InitGame(Game& game)
 	// add player ship to list of entities
 	game.entities.push_back(game.player);
 
-	InitUI(game);
+	game.UI.InitUI(game);
 
 	// update past time
 	game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
@@ -158,7 +158,7 @@ void RestartGame(Game& game)
 	game.player->weapon = Weapon::Laser;
 
 	// update player health
-	UpdateUI(game, game.player->health);
+	game.UI.UpdateUIHealthBar(game, game.player->health);
 	PlayMusic(game, SND_PATH + "through space.ogg", 75.f);
 
 	game.gameState = GameState::Game;
@@ -221,7 +221,7 @@ void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* seco
 			{
 				TakeDamage(game, second_obj->rad);
 				// update player health
-				UpdateUI(game, game.player->health);
+				game.UI.UpdateUIHealthBar(game, game.player->health);
 
 				if (!game.player->health)
 				{
@@ -384,7 +384,7 @@ void DrawGame(Game& game, sf::RenderWindow& window)
 	}
 
 	DrawCooldownText(game, window);
-	DrawUI(game, window, game.UI.lifeX);
+	game.UI.DrawUI(game, window, game.UI.lifeX);
 
 	window.display();
 }

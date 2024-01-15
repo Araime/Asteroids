@@ -1,7 +1,7 @@
 #include "UI.h"
 #include "Game.h"
 
-void InitUI(Game& game)
+void UserInterface::InitUI(Game& game)
 {
 	// init menu BG
 	game.UI.menuRect.setSize(sf::Vector2f(SCREEN_WIDTH, MENU_HEIGHT));
@@ -54,12 +54,12 @@ void InitUI(Game& game)
 }
 
 // update player health
-void UpdateUI(Game& game, const float health)
+void UserInterface::UpdateUIHealthBar(Game& game, const float health)
 {
 	game.UI.greenLine.setSize(sf::Vector2f(health, HP_HEIGHT));
 }
 
-void DrawUI(Game& game, sf::RenderWindow& window, float xcor)
+void UserInterface::DrawUI(Game& game, sf::RenderWindow& window, float xcor)
 {
 	// draw HP
 	window.draw(game.UI.menuRect);
