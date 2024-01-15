@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Animation.cpp" />
     <ClCompile Include="Game\Background.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\Main.cpp" />
