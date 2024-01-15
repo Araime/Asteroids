@@ -3,51 +3,47 @@
 #include "Constants.h"
 #include "Entity.h"
 
-
-namespace AsteroidsGame
+class Asteroid : public Entity
 {
-	class Asteroid : public Entity
+public:
+	Asteroid()
 	{
-	public:
-		Asteroid()
+		dx = float(rand() % 8 - 4);
+		if (dx == 0)
 		{
-			dx = float(rand() % 8 - 4);
-			if (dx == 0)
-			{
-				dx = DELTA_XY[rand() % DELTA_XY.size()];
-			}
-
-			dy = float(rand() % 8 - 4);
-			if (dy == 0)
-			{
-				dy = DELTA_XY[rand() % DELTA_XY.size()];
-			}
-
-			name = "asteroid";
+			dx = DELTA_XY[rand() % DELTA_XY.size()];
 		}
 
-		void Update()
+		dy = float(rand() % 8 - 4);
+		if (dy == 0)
 		{
-			xcor += dx;
-			ycor += dy;
-
-			// check if it's beyond the edge of the screen
-			if (xcor > SCREEN_WIDTH)
-			{
-				xcor = 0.f;
-			}
-			if (xcor < 0)
-			{
-				xcor = SCREEN_WIDTH;
-			}
-			if (ycor > FIELD_HEIGHT)
-			{
-				ycor = 0.f;
-			}
-			if (ycor < 0)
-			{
-				ycor = FIELD_HEIGHT;
-			}
+			dy = DELTA_XY[rand() % DELTA_XY.size()];
 		}
-	};
-}
+
+		name = "asteroid";
+	}
+
+	void Update()
+	{
+		xcor += dx;
+		ycor += dy;
+
+		// check if it's beyond the edge of the screen
+		if (xcor > SCREEN_WIDTH)
+		{
+			xcor = 0.f;
+		}
+		if (xcor < 0)
+		{
+			xcor = SCREEN_WIDTH;
+		}
+		if (ycor > FIELD_HEIGHT)
+		{
+			ycor = 0.f;
+		}
+		if (ycor < 0)
+		{
+			ycor = FIELD_HEIGHT;
+		}
+	}
+};

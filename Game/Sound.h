@@ -1,16 +1,13 @@
 #pragma once
 #include <SFML/Audio.hpp>
 
-namespace AsteroidsGame
+struct Sound
 {
-	struct Sound
-	{
-		sf::SoundBuffer buffer;
-		sf::Sound sound;
-	};
+	sf::SoundBuffer buffer;
+	sf::Sound sound;
+};
 
-	struct Music
-	{
-		sf::Music music;
-	};
-}
+struct Music
+{
+	sf::Music music;
+};

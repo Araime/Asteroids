@@ -13,129 +13,126 @@
 #include "Text.h"
 #include "UI.h"
 
-namespace AsteroidsGame
+enum class GameState
 {
-	enum class GameState
-	{
-		Menu = 0,
-		Game,
-		GameOver
-	};
+	Menu = 0,
+	Game,
+	GameOver
+};
 
-	struct Game
-	{
-		GameState gameState = GameState::Menu;
+struct Game
+{
+	GameState gameState = GameState::Menu;
 
-		// set ateroid num
-		int asteroids_num = 12;
+	// set ateroid num
+	int asteroids_num = 12;
 
-		// create cooldown timer value and text
-		int destroy_cooldown = 3;
-		std::string cooldownStr = "Get Ready\n\t\t\t";
+	// create cooldown timer value and text
+	int destroy_cooldown = 3;
+	std::string cooldownStr = "Get Ready\n\t\t\t";
 
-		// create game timers
-		sf::Clock gameTimer;
-		float newTime = 0.f;
-		float pastTime = 0.f;
+	// create game timers
+	sf::Clock gameTimer;
+	float newTime = 0.f;
+	float pastTime = 0.f;
 
-		// create fonts
-		sf::Font cooldownFont;
-		sf::Font titleFont;
-		
-		// create game texts
-		Text cooldownText;
-		Text bigText;
-		Text smallText;
+	// create fonts
+	sf::Font cooldownFont;
+	sf::Font titleFont;
 
-		// create BG's
-		BG menuBG;
-		BG levelBG;
-		BG gameOverBG;
-		sf::Texture menuTexture;
-		sf::Texture levelTexture;
-		sf::Texture gameOverTexture;
+	// create game texts
+	Text cooldownText;
+	Text bigText;
+	Text smallText;
 
-		// create sounds and music
-		Sound timerSnd;
-		Sound laserSnd1;
-		Sound laserSnd2;
-		Sound laserSnd3;
-		Sound RocketSnd1;
-		Sound RocketSnd2;
-		Sound RocketSnd3;
-		Sound RocketSnd4;
-		Sound weapChangeSnd;
-		Sound asteroidExplSnd;
-		Sound shipExplSnd;
+	// create BG's
+	BG menuBG;
+	BG levelBG;
+	BG gameOverBG;
+	sf::Texture menuTexture;
+	sf::Texture levelTexture;
+	sf::Texture gameOverTexture;
 
-		Music gameMusic;
+	// create sounds and music
+	Sound timerSnd;
+	Sound laserSnd1;
+	Sound laserSnd2;
+	Sound laserSnd3;
+	Sound RocketSnd1;
+	Sound RocketSnd2;
+	Sound RocketSnd3;
+	Sound RocketSnd4;
+	Sound weapChangeSnd;
+	Sound asteroidExplSnd;
+	Sound shipExplSnd;
 
-		// create laser and rocket snd arrays
-		Sound laserSndArray[LASER_SND_QTY];
-		Sound rocketSndArray[ROCKETS_SND_QTY];
+	Music gameMusic;
 
-		// create game textures
-		sf::Texture shipTexture;
-		sf::Texture laserTexture;
-		sf::Texture rocketTexture;
-		sf::Texture rockTexture;
-		sf::Texture smallRockTexture;
-		sf::Texture explosionTexture1;
-		sf::Texture explosionTexture2;
+	// create laser and rocket snd arrays
+	Sound laserSndArray[LASER_SND_QTY];
+	Sound rocketSndArray[ROCKETS_SND_QTY];
 
-		// create all objects of animations
-		Animation sLaser;
-		Animation sRocket;
-		Animation sAsteroidExplosion;
-		Animation sShipExplosion;
-		Animation sRock;
-		Animation sRockSmall;
-		Animation sShip;
-		Animation sFlyingShip;
+	// create game textures
+	sf::Texture shipTexture;
+	sf::Texture laserTexture;
+	sf::Texture rocketTexture;
+	sf::Texture rockTexture;
+	sf::Texture smallRockTexture;
+	sf::Texture explosionTexture1;
+	sf::Texture explosionTexture2;
 
-		// create list of all objects
-		std::list<Entity*> entities;
+	// create all objects of animations
+	Animation sLaser;
+	Animation sRocket;
+	Animation sAsteroidExplosion;
+	Animation sShipExplosion;
+	Animation sRock;
+	Animation sRockSmall;
+	Animation sShip;
+	Animation sFlyingShip;
 
-		// create player ship
-		Ship* player = new Ship;
+	// create list of all objects
+	std::list<Entity*> entities;
 
-		// create health bar rectangles
-		UserInterface UI;
-	};
+	// create player ship
+	Ship* player = new Ship;
 
-	void InitGame(Game& game);
+	// create health bar rectangles
+	UserInterface UI;
+};
 
-	void PlayMusic(Game& game, std::string path, const float volume);
+void InitGame(Game& game);
 
-	void DrawMainMenu(Game& game, sf::RenderWindow& window);
+void PlayMusic(Game& game, std::string path, const float volume);
 
-	void RestartGame(Game& game);
+void DrawMainMenu(Game& game, sf::RenderWindow& window);
 
-	void CheckAllCollisions(Game& game);
+void RestartGame(Game& game);
 
-	void CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* second_obj);
+void CheckAllCollisions(Game& game);
 
-	void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj);
+void CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* second_obj);
 
-	void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation);
+void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj);
 
-	void CheckGameOver(Game& game);
+void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation);
 
-	void CreateSmallAsteroids(Game& game, Entity* first_obj);
+void CheckGameOver(Game& game);
 
-	void CreateAsteroid(Game& game);
+void CreateSmallAsteroids(Game& game, Entity* first_obj);
 
-	void RandomGenerateNewAsteroid(Game& game);
+void CreateAsteroid(Game& game);
 
-	void UpdateEntities(Game& game);
+void RandomGenerateNewAsteroid(Game& game);
 
-	void Check—ompletedAnimations(Game& game);
+void UpdateEntities(Game& game);
 
-	void UpdateGame(Game& game, sf::RenderWindow& window, const float& currentTime, float& lastTime);
+void Check—ompletedAnimations(Game& game);
 
-	void DrawCooldownText(Game& game, sf::RenderWindow& window);
+void UpdateGame(Game& game, sf::RenderWindow& window, const float& currentTime, float& lastTime);
 
-	void DrawGame(Game& game, sf::RenderWindow& window);
+void DrawCooldownText(Game& game, sf::RenderWindow& window);
 
-	void DrawGameOver(Game& game, sf::RenderWindow& window);
-}
+void DrawGame(Game& game, sf::RenderWindow& window);
+
+void DrawGameOver(Game& game, sf::RenderWindow& window);

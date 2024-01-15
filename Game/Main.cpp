@@ -23,8 +23,6 @@ void HanldeWindowEvents(sf::RenderWindow& window)
 
 int main()
 {
-	using namespace AsteroidsGame;
-
 	// init randomizer with random seed
 	srand(int(time(nullptr)));
 

@@ -2,12 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include "Constants.h"
 
-namespace AsteroidsGame
+struct BG
 {
-	struct BG
-	{
-		sf::Sprite sprite;
-	};
+	sf::Sprite sprite;
+};
 
-	void InitBG(BG& bg, const sf::Texture& texture);
-}
+void InitBG(BG& bg, const sf::Texture& texture);
