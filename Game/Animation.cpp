@@ -23,7 +23,6 @@ void Animation::Update()
 	if (frame >= frames_num)
 	{
 		frame -= frames_num;
-		isFinished = true;
 	}
 
 	if (frames_num > 0)
