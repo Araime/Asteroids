@@ -15,29 +15,14 @@ public:
 	std::string name;
 	Animation anim;
 
-	Entity()
-	{
-		isAlive = true;
-	}
+	Entity();
 
-	void SetParams(Animation& a, float x, float y, float Angle = 0.f, float radius = 1.f)
-	{
-		xcor = x;
-		ycor = y;
-		anim = a;
-		angle = Angle;
-		rad = radius;
-	}
+	void SetParams(Animation& a, float x, float y, float Angle = 0.f, float radius = 1.f);
 
 	virtual void Update() {};
 
 	// rotate and draw the sprite 
-	void Draw(sf::RenderWindow& win)
-	{
-		anim.sprite.setPosition(xcor, ycor);
-		anim.sprite.setRotation(angle + 90.f);
-		win.draw(anim.sprite);
-	}
+	void Draw(sf::RenderWindow& win);
 
 	virtual ~Entity() {};
 };
