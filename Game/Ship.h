@@ -16,9 +16,9 @@ class Ship : public Entity
 public:
 	Weapon weapon = Weapon::Laser;
 
-	int maxSpeed = 5;
-	int ships = 3;
-	float health = 100.f;
+	int maxSpeed = SHIP_MAX_SPEED;
+	int ships = SHIP_LIFES;
+	float health = SHIP_HEALTH;
 	float rocketX = -20.f;
 
 	bool isAccelerating = false;

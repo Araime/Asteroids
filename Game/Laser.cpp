@@ -7,8 +7,8 @@ Laser::Laser()
 
 void Laser::Update()
 {
-	dx = cos(angle * DEGTORAD) * LASER_SPEED;
-	dy = sin(angle * DEGTORAD) * LASER_SPEED;
+	dx = cos(angle * DEGTORAD) * LASER_ACCELERATION;
+	dy = sin(angle * DEGTORAD) * LASER_ACCELERATION;
 	xcor += dx;
 	ycor += dy;
 

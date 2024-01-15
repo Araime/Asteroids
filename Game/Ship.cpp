@@ -10,13 +10,13 @@ void Ship::Update()
 {
 	if (isAccelerating)
 	{
-		dx += cos(angle * DEGTORAD) * 0.2f;
-		dy += sin(angle * DEGTORAD) * 0.2f;
+		dx += cos(angle * DEGTORAD) * SHIP_ACCELERATION;
+		dy += sin(angle * DEGTORAD) * SHIP_ACCELERATION;
 	}
 	else
 	{
-		dx *= 0.99f;
-		dy *= 0.99f;
+		dx *= DECELERATION_FACTOR;
+		dy *= DECELERATION_FACTOR;
 	}
 
 	float speed = sqrt(dx * dx + dy * dy);
@@ -71,11 +71,11 @@ void Ship::HandlePlayerInput(Game& game)
 			// handle rotation
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 			{
-				game.player->angle += 3.f;
+				game.player->angle += ROTATION_SPEED;
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 			{
-				game.player->angle -= 3.f;
+				game.player->angle -= ROTATION_SPEED;
 			}
 
 			// make shot
@@ -207,7 +207,7 @@ void Ship::UpdateShipSprite(Game& game)
 
 void Ship::TakeDamage(Game& game, const float damage)
 {
-	game.player->health -= damage * 2.f;
+	game.player->health -= damage * DAMAGE_MULTIPLIER;
 
 	if (game.player->health < 0.f)
 	{
@@ -250,11 +250,11 @@ void Ship::RestartPlayer(Game& game)
 		if (game.destroy_cooldown == 0)
 		{
 			// ressurect the player
-			game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2), 0.f, 20.f);
+			game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2), 0.f, SHIP_RAD);
 			game.player->dx = 0.f;
 			game.player->dy = 0.f;
 			game.player->isAccelerating = false;
-			game.player->health = 100.f;
+			game.player->health = SHIP_HEALTH;
 			game.player->isDestroyed = false;
 
 			// update player health

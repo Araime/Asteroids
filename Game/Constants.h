@@ -19,6 +19,7 @@ const int SCREEN_WIDTH = 1366;
 const int SCREEN_HEIGHT = 768;
 const int FIELD_HEIGHT = 728;
 const float GAME_OVER_COOLDOWN = 10.f;
+const float MUSIC_VOLUME = 70.f;
 
 // sprites
 const float ADDITIONAL_ANGLE = 90.f;
@@ -33,11 +34,11 @@ const int ASTEROID_MAX_SPEED = 8;
 
 // weapons
 const float LASER_COOLDOWN = 0.2f;
-const float LASER_SPEED = 12.f;
+const float LASER_ACCELERATION = 12.f;
 const int LASER_SND_QTY = 3;
 const int ROCKETS_SND_QTY = 4;
 const float ROCKETS_QTY = 5;
-const float ROCKET_SPEED = 6.f;
+const float ROCKET_ACCELERATION = 6.f;
 const float ROCKET_ANGLE_STEP = 10.f;
 const float ROCKET_COOLDOWN = 1.3f;
 
@@ -45,6 +46,13 @@ const float ROCKET_COOLDOWN = 1.3f;
 const float DEGTORAD = 0.017453f;
 const int COUNTER = 1;
 const float SHIP_RAD = 20.f;
+const float SHIP_ACCELERATION = 0.2f;
+const float DECELERATION_FACTOR = 0.99f; // The lower the value, the faster the ship stops
+const float ROTATION_SPEED = 3.f;
+const int SHIP_LIFES = 3;
+const int SHIP_MAX_SPEED = 5;
+const float SHIP_HEALTH = 100.f;
+const float DAMAGE_MULTIPLIER = 2.f;
 
 // UI
 const float MENU_HEIGHT = 40.f;
