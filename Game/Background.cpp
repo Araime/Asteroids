@@ -1,6 +1,6 @@
 #include "Background.h"
 
-void InitBG(BG& bg, const sf::Texture& texture)
+void BG::InitBG(BG& bg, const sf::Texture& texture)
 {
 	bg.sprite.setTexture(texture);
 

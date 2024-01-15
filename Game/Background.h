@@ -2,9 +2,10 @@
 #include <SFML/Graphics.hpp>
 #include "Constants.h"
 
-struct BG
+class BG
 {
+public:
 	sf::Sprite sprite;
-};
 
-void InitBG(BG& bg, const sf::Texture& texture);
+	void InitBG(BG& bg, const sf::Texture& texture);
+};
