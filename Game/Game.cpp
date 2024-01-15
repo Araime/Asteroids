@@ -10,7 +10,7 @@ void Game::InitGame(Game& game)
 
 	// init game texts
 	game.cooldownText.InitText(game.cooldownText, game.cooldownFont, COOLDOWN_TEXT_SIZE, sf::Color::Cyan);
-	game.cooldownText.UpdateText(game);
+	game.cooldownText.UpdateText(game.cooldownText, game.cooldownStr + std::to_string(game.destroy_cooldown));
 	game.bigText.InitText(game.bigText, game.titleFont, TITLE_TEXT_SIZE, sf::Color::Yellow);
 	game.bigText.UpdateText(game.bigText, TITLE_TEXT);
 
@@ -254,7 +254,7 @@ void Game::CheckGameOver(Game& game)
 	{
 		// update cooldown ressurection time
 		game.destroy_cooldown = 3;
-		game.cooldownText.UpdateText(game);
+		game.cooldownText.UpdateText(game.cooldownText, game.cooldownStr + std::to_string(game.destroy_cooldown));
 	}
 	else
 	{
