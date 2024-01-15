@@ -122,7 +122,7 @@ void DrawMainMenu(Game& game, sf::RenderWindow& window)
 	window.draw(game.bigText.txt);
 	window.display();
 
-	HandlePlayerInput(game);
+	game.player->HandlePlayerInput(game);
 }
 
 void RestartGame(Game& game)
@@ -219,7 +219,7 @@ void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* seco
 		{
 			if (IsCollide(first_obj, second_obj))
 			{
-				TakeDamage(game, second_obj->rad);
+				game.player->TakeDamage(game, second_obj->rad);
 				// update player health
 				game.UI.UpdateUIHealthBar(game, game.player->health);
 
@@ -345,11 +345,10 @@ void UpdateEntities(Game& game)
 
 void UpdateGame(Game& game, sf::RenderWindow& window, const float& currentTime, float& lastTime)
 {
-	HandlePlayerInput(game);
-
-	UpdateShipSprite(game);
-
-	RestartPlayer(game);
+	// player's functions
+	game.player->HandlePlayerInput(game);
+	game.player->UpdateShipSprite(game);
+	game.player->RestartPlayer(game);
 
 	CheckAllCollisions(game);
 

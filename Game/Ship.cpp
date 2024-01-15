@@ -1,7 +1,55 @@
 #include "Ship.h"
 #include "Game.h"
 
-void HandlePlayerInput(Game& game)
+Ship::Ship()
+{
+	name = "player";
+}
+
+void Ship::Update()
+{
+	if (isAccelerating)
+	{
+		dx += cos(angle * DEGTORAD) * 0.2f;
+		dy += sin(angle * DEGTORAD) * 0.2f;
+	}
+	else
+	{
+		dx *= 0.99f;
+		dy *= 0.99f;
+	}
+
+	float speed = sqrt(dx * dx + dy * dy);
+
+	if (speed > maxSpeed)
+	{
+		dx *= maxSpeed / speed;
+		dy *= maxSpeed / speed;
+	}
+
+	xcor += dx;
+	ycor += dy;
+
+	// check if it's beyond the edge of the screen
+	if (xcor > SCREEN_WIDTH)
+	{
+		xcor = 0.f;
+	}
+	if (xcor < 0)
+	{
+		xcor = SCREEN_WIDTH;
+	}
+	if (ycor > FIELD_HEIGHT)
+	{
+		ycor = 0.f;
+	}
+	if (ycor < 0)
+	{
+		ycor = FIELD_HEIGHT;
+	}
+}
+
+void Ship::HandlePlayerInput(Game& game)
 {
 	switch (game.gameState)
 	{
@@ -87,7 +135,7 @@ void HandlePlayerInput(Game& game)
 	}
 }
 
-void MakeShot(Game& game, float xcor)
+void Ship::MakeShot(Game& game, float xcor)
 {
 	switch (game.player->weapon)
 	{
@@ -139,10 +187,9 @@ void MakeShot(Game& game, float xcor)
 	default:
 		break;
 	}
-
 }
 
-void UpdateShipSprite(Game& game)
+void Ship::UpdateShipSprite(Game& game)
 {
 	if (!game.player->isDestroyed)
 	{
@@ -158,7 +205,7 @@ void UpdateShipSprite(Game& game)
 	}
 }
 
-void TakeDamage(Game& game, const float damage)
+void Ship::TakeDamage(Game& game, const float damage)
 {
 	game.player->health -= damage * 2.f;
 
@@ -175,7 +222,7 @@ void TakeDamage(Game& game, const float damage)
 	}
 }
 
-void RestartPlayer(Game& game)
+void Ship::RestartPlayer(Game& game)
 {
 	if (game.player->isDestroyed)
 	{

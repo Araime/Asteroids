@@ -24,61 +24,17 @@ public:
 	bool isAccelerating = false;
 	bool isDestroyed = false;
 
-	Ship()
-	{
-		name = "player";
-	}
+	Ship();
 
-	void Update()
-	{
-		if (isAccelerating)
-		{
-			dx += cos(angle * DEGTORAD) * 0.2f;
-			dy += sin(angle * DEGTORAD) * 0.2f;
-		}
-		else
-		{
-			dx *= 0.99f;
-			dy *= 0.99f;
-		}
+	void Update();
 
-		float speed = sqrt(dx * dx + dy * dy);
+	void HandlePlayerInput(Game& game);
 
-		if (speed > maxSpeed)
-		{
-			dx *= maxSpeed / speed;
-			dy *= maxSpeed / speed;
-		}
+	void MakeShot(Game& game, float xcor);
 
-		xcor += dx;
-		ycor += dy;
+	void UpdateShipSprite(Game& game);
 
-		// check if it's beyond the edge of the screen
-		if (xcor > SCREEN_WIDTH)
-		{
-			xcor = 0.f;
-		}
-		if (xcor < 0)
-		{
-			xcor = SCREEN_WIDTH;
-		}
-		if (ycor > FIELD_HEIGHT)
-		{
-			ycor = 0.f;
-		}
-		if (ycor < 0)
-		{
-			ycor = FIELD_HEIGHT;
-		}
-	}
+	void TakeDamage(Game& game, const float damage);
+
+	void RestartPlayer(Game& game);
 };
-
-void HandlePlayerInput(Game& game);
-
-void MakeShot(Game& game, float xcor);
-
-void UpdateShipSprite(Game& game);
-
-void TakeDamage(Game& game, const float damage);
-
-void RestartPlayer(Game& game);
