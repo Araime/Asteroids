@@ -3,7 +3,7 @@
 #include "Constants.h"
 #include "Entity.h"
 
-struct Game;
+class Game;
 
 enum class Weapon
 {

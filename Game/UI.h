@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Constants.h"
 
-struct Game;
+class Game;
 
 class UserInterface
 {
