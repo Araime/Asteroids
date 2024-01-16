@@ -104,6 +104,8 @@ public:
 
 	void LoadTexture(sf::Texture& object, const std::string path);
 
+	void LoadSound(Sound& snd, const std::string path, float volume = 0);
+
 	void InitGame(Game& game);
 
 	void DrawMainMenu(Game& game, sf::RenderWindow& window);

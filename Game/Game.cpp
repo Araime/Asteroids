@@ -7,6 +7,14 @@ void Game::LoadTexture(sf::Texture& object, const std::string path)
 	assert(object.loadFromFile(path));
 }
 
+void Game::LoadSound(Sound& snd, const std::string path, float volume)
+{
+	snd.buffer.loadFromFile(path);
+	snd.sound.setBuffer(snd.buffer);
+
+	if (volume) snd.sound.setVolume(volume);
+}
+
 void Game::InitGame(Game& game)
 {
 	// load fonts
@@ -55,40 +63,18 @@ void Game::InitGame(Game& game)
 	game.sShip.SetAnimation(game.shipTexture, 40, 0, 40, 39, 1, 0.f);
 	game.sFlyingShip.SetAnimation(game.shipTexture, 40, 86, 40, 40, 1, 0.f);
 
-	// init sounds
-	assert(game.timerSnd.buffer.loadFromFile(SND_PATH + "magnet_start.wav"));
-	game.timerSnd.sound.setBuffer(game.timerSnd.buffer);
-
-	assert(game.laserSnd1.buffer.loadFromFile(SND_PATH + "laser1.wav"));
-	game.laserSnd1.sound.setBuffer(game.laserSnd1.buffer);
-
-	assert(game.laserSnd2.buffer.loadFromFile(SND_PATH + "laser2.wav"));
-	game.laserSnd2.sound.setBuffer(game.laserSnd2.buffer);
-
-	assert(game.laserSnd3.buffer.loadFromFile(SND_PATH + "laser3.wav"));
-	game.laserSnd3.sound.setBuffer(game.laserSnd3.buffer);
-
-	assert(game.RocketSnd1.buffer.loadFromFile(SND_PATH + "rocket_launch_1.wav"));
-	game.RocketSnd1.sound.setBuffer(game.RocketSnd1.buffer);
-
-	assert(game.RocketSnd2.buffer.loadFromFile(SND_PATH + "rocket_launch_2.wav"));
-	game.RocketSnd2.sound.setBuffer(game.RocketSnd2.buffer);
-
-	assert(game.RocketSnd3.buffer.loadFromFile(SND_PATH + "rocket_launch_3.wav"));
-	game.RocketSnd3.sound.setBuffer(game.RocketSnd3.buffer);
-
-	assert(game.RocketSnd4.buffer.loadFromFile(SND_PATH + "rocket_launch_4.wav"));
-	game.RocketSnd4.sound.setBuffer(game.RocketSnd4.buffer);
-
-	assert(game.weapChangeSnd.buffer.loadFromFile(SND_PATH + "Flashpoint001a.wav"));
-	game.weapChangeSnd.sound.setBuffer(game.weapChangeSnd.buffer);
-
-	assert(game.asteroidExplSnd.buffer.loadFromFile(SND_PATH + "boom2.wav"));
-	game.asteroidExplSnd.sound.setBuffer(game.asteroidExplSnd.buffer);
-	game.asteroidExplSnd.sound.setVolume(75.f);
-
-	assert(game.shipExplSnd.buffer.loadFromFile(SND_PATH + "boom9.wav"));
-	game.shipExplSnd.sound.setBuffer(game.shipExplSnd.buffer);
+	// load sounds
+	LoadSound(game.timerSnd, SND_PATH + "magnet_start.wav");
+	LoadSound(game.laserSnd1, SND_PATH + "laser1.wav");
+	LoadSound(game.laserSnd2, SND_PATH + "laser2.wav");
+	LoadSound(game.laserSnd3, SND_PATH + "laser3.wav");
+	LoadSound(game.RocketSnd1, SND_PATH + "rocket_launch_1.wav");
+	LoadSound(game.RocketSnd2, SND_PATH + "rocket_launch_2.wav");
+	LoadSound(game.RocketSnd3, SND_PATH + "rocket_launch_3.wav");
+	LoadSound(game.RocketSnd4, SND_PATH + "rocket_launch_4.wav");
+	LoadSound(game.weapChangeSnd, SND_PATH + "Flashpoint001a.wav");
+	LoadSound(game.asteroidExplSnd, SND_PATH + "boom2.wav", 75.f);
+	LoadSound(game.shipExplSnd, SND_PATH + "boom9.wav");
 
 	// init laser and rocket snd arrays
 	game.laserSndArray[0] = game.laserSnd1;
