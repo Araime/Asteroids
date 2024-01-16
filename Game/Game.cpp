@@ -2,6 +2,11 @@
 #include "Constants.h"
 #include <cassert>
 
+void Game::LoadTexture(sf::Texture& object, const std::string path)
+{
+	assert(object.loadFromFile(path));
+}
+
 void Game::InitGame(Game& game)
 {
 	// load fonts
@@ -16,18 +21,18 @@ void Game::InitGame(Game& game)
 
 
 	// load game textures
-	assert(game.shipTexture.loadFromFile(IMG_PATH + "spaceship.png"));
-	assert(game.explosionTexture1.loadFromFile(IMG_PATH + "type_B.png"));
-	assert(game.explosionTexture2.loadFromFile(IMG_PATH + "type_C.png"));
-	assert(game.rockTexture.loadFromFile(IMG_PATH + "rock.png"));
-	assert(game.smallRockTexture.loadFromFile(IMG_PATH + "rock_small.png"));
-	assert(game.laserTexture.loadFromFile(IMG_PATH + "laser.png"));
-	assert(game.rocketTexture.loadFromFile(IMG_PATH + "rocket.png"));
+	LoadTexture(game.shipTexture, IMG_PATH + "spaceship.png");
+	LoadTexture(game.explosionTexture1, IMG_PATH + "type_B.png");
+	LoadTexture(game.explosionTexture2, IMG_PATH + "type_C.png");
+	LoadTexture(game.rockTexture, IMG_PATH + "rock.png");
+	LoadTexture(game.smallRockTexture, IMG_PATH + "rock_small.png");
+	LoadTexture(game.laserTexture, IMG_PATH + "laser.png");
+	LoadTexture(game.rocketTexture, IMG_PATH + "rocket.png");
 
 	// load bg's textures
-	assert(game.levelTexture.loadFromFile(IMG_PATH + "Starfield.jpg"));
-	assert(game.menuTexture.loadFromFile(IMG_PATH + "5438849.jpg"));
-	assert(game.gameOverTexture.loadFromFile(IMG_PATH + "night-sky-glows.jpg"));
+	LoadTexture(game.levelTexture, IMG_PATH + "Starfield.jpg");
+	LoadTexture(game.menuTexture, IMG_PATH + "5438849.jpg");
+	LoadTexture(game.gameOverTexture, IMG_PATH + "night-sky-glows.jpg");
 
 	// enable smooth filter
 	game.shipTexture.setSmooth(true);

@@ -12,6 +12,7 @@
 #include "Background.h"
 #include "Text.h"
 #include "UI.h"
+#include <string>
 
 enum class GameState
 {
@@ -100,6 +101,8 @@ public:
 
 	// create health bar rectangles
 	UserInterface UI;
+
+	void LoadTexture(sf::Texture& object, const std::string path);
 
 	void InitGame(Game& game);
 
