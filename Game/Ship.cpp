@@ -253,7 +253,7 @@ void Ship::RestartPlayer(Game& game)
 			// ressurect the player
 			float angle = 0.f;
 
-			game.player->SetParams(game.sShip, float(SCREEN_WIDTH * 0.5), float(FIELD_HEIGHT * 0.5),
+			game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2),
 								   angle, SHIP_RAD);
 			game.player->dx = 0.f;
 			game.player->dy = 0.f;

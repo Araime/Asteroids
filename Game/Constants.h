@@ -21,6 +21,7 @@ const int FPS = 60;
 const int FIELD_HEIGHT = 728;
 const float GAME_OVER_COOLDOWN = 10.f;
 const float MUSIC_VOLUME = 70.f;
+const float IMAGE_ROTATION_ANGLE = -0.2f;
 
 // sprites
 const float ADDITIONAL_ANGLE = 90.f;

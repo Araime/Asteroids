@@ -140,16 +140,17 @@ void Game::RestartGame(Game& game)
 	// restart player ship
 	game.player->ships = 3;
 	game.player->health = 100.f;
-	game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2), 0.f, SHIP_RAD);
+
+	float angle = 0.f;
+	game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2), angle, SHIP_RAD);
 	game.player->dx = 0;
 	game.player->dy = 0;
 	game.player->isDestroyed = false;
 	game.player->weapon = Weapon::Laser;
 
-	// update player health
 	game.UI.UpdateUIHealthBar(game.player->health);
-	game.gameMusic.PlayMusic(SND_PATH + "through space.ogg");
 
+	game.gameMusic.PlayMusic(SND_PATH + "through space.ogg");
 	game.gameState = GameState::Game;
 }
 

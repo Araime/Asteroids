@@ -13,6 +13,6 @@ void Text::UpdateText(const std::string& str)
 	txt.setString(str);
 
 	sf::FloatRect textRect = txt.getLocalBounds();
-	txt.setOrigin(textRect.width * 0.5f, textRect.height * 0.5f);
+	txt.setOrigin(textRect.width / 2, textRect.height / 2);
 	txt.setPosition(float(SCREEN_WIDTH / 2), float(SCREEN_HEIGHT / 2));
 }

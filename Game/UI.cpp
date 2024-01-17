@@ -40,15 +40,15 @@ void UserInterface::InitUI(Game& game)
 	game.UI.laser.setTexture(game.laserTexture);
 	game.UI.laser.setTextureRect(sf::IntRect(0, 0, 32, 64));
 	game.UI.laser.setScale(0.5f, 0.5f);
-	game.UI.laser.setOrigin(game.UI.laser.getLocalBounds().width * 0.5f,
-							game.UI.laser.getLocalBounds().height * 0.5f);
+	game.UI.laser.setOrigin(game.UI.laser.getLocalBounds().width / 2,
+							game.UI.laser.getLocalBounds().height / 2);
 	game.UI.laser.setRotation(WEAP_ICON_ANGLE);
 	game.UI.laser.setPosition(ICON1_XCOR, ICON1_YCOR);
 
 	game.UI.rocket.setTexture(game.rocketTexture);
 	game.UI.rocket.setTextureRect(sf::IntRect(0, 0, 16, 28));
-	game.UI.rocket.setOrigin(game.UI.rocket.getLocalBounds().width * 0.5f,
-							 game.UI.rocket.getLocalBounds().height * 0.5f);
+	game.UI.rocket.setOrigin(game.UI.rocket.getLocalBounds().width / 2,
+							 game.UI.rocket.getLocalBounds().height / 2);
 	game.UI.rocket.setRotation(WEAP_ICON_ANGLE);
 	game.UI.rocket.setPosition(ICON2_XCOR, ICON2_YCOR);
 }
