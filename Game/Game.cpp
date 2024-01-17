@@ -2,6 +2,11 @@
 #include "Constants.h"
 #include <cassert>
 
+void Game::LoadFont(sf::Font& text, const std::string path)
+{
+	assert(text.loadFromFile(path));
+}
+
 void Game::LoadTexture(sf::Texture& object, const std::string path)
 {
 	assert(object.loadFromFile(path));
@@ -9,7 +14,7 @@ void Game::LoadTexture(sf::Texture& object, const std::string path)
 
 void Game::LoadSound(Sound& snd, const std::string path, float volume)
 {
-	snd.buffer.loadFromFile(path);
+	assert(snd.buffer.loadFromFile(path));
 	snd.sound.setBuffer(snd.buffer);
 
 	if (volume) snd.sound.setVolume(volume);
@@ -18,8 +23,8 @@ void Game::LoadSound(Sound& snd, const std::string path, float volume)
 void Game::InitGame(Game& game)
 {
 	// load fonts
-	assert(game.cooldownFont.loadFromFile(FONT_PATH + "papyrus-pixel_1.ttf"));
-	assert(game.titleFont.loadFromFile(FONT_PATH + "DischargePro.ttf"));
+	LoadFont(game.cooldownFont, FONT_PATH + "papyrus-pixel_1.ttf");
+	LoadFont(game.titleFont, FONT_PATH + "DischargePro.ttf");
 
 	// init game texts
 	game.cooldownText.InitText(game.cooldownFont, COOLDOWN_TEXT_SIZE, sf::Color::Cyan);

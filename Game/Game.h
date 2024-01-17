@@ -102,6 +102,8 @@ public:
 	// create health bar rectangles
 	UserInterface UI;
 
+	void LoadFont(sf::Font& text, const std::string path);
+
 	void LoadTexture(sf::Texture& object, const std::string path);
 
 	void LoadSound(Sound& snd, const std::string path, float volume = 0);
