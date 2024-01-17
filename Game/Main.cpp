@@ -26,7 +26,7 @@ int main()
 
 	// init game window
 	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), GAME_NAME);
-	window.setFramerateLimit(60);
+	window.setFramerateLimit(FPS);
 	window.setVerticalSyncEnabled(true);
 
 	Game game;

@@ -117,11 +117,11 @@ void Ship::HandlePlayerInput(Game& game)
 			// check if ship is accelerated
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 			{
-				game.player->isAccelerating = true;
+				isAccelerating = true;
 			}
 			else
 			{
-				game.player->isAccelerating = false;
+				isAccelerating = false;
 			}
 		}
 		break;
@@ -146,8 +146,10 @@ void Ship::MakeShot(Game& game, float xcor)
 		{
 			// create new laser
 			Laser* laser = new Laser();
+
+			float rand_angle = float(rand() % 6 - 3);
 			laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
-							 game.player->angle + float(rand() % 6 - 3), LASER_RAD);
+							 game.player->angle + rand_angle, LASER_RAD);
 			game.entities.push_back(laser);
 
 			// play random laser sound
@@ -231,7 +233,7 @@ void Ship::RestartPlayer(Game& game)
 		// update current time
 		game.newTime = game.gameTimer.getElapsedTime().asSeconds();
 
-		if (game.destroy_cooldown > 0)
+		if (game.destroy_cooldown)
 		{
 			if (game.newTime - game.pastTime > COUNTER)
 			{
@@ -246,10 +248,13 @@ void Ship::RestartPlayer(Game& game)
 				game.pastTime = game.newTime;
 			}
 		}
-		if (game.destroy_cooldown == 0)
+		if (!game.destroy_cooldown)
 		{
 			// ressurect the player
-			game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2), 0.f, SHIP_RAD);
+			float angle = 0.f;
+
+			game.player->SetParams(game.sShip, float(SCREEN_WIDTH * 0.5), float(FIELD_HEIGHT * 0.5),
+								   angle, SHIP_RAD);
 			game.player->dx = 0.f;
 			game.player->dy = 0.f;
 			game.player->isAccelerating = false;

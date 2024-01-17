@@ -296,13 +296,16 @@ void Game::CreateAsteroid(Game& game)
 {
 	// create big asteroid
 	Asteroid* asteroid = new Asteroid();
-	asteroid->SetParams(game.sRock, 0.f, float(rand() % FIELD_HEIGHT), float(rand() % 360), BIG_RAD);
+
+	float xcor = 0;
+	float angle = float(rand() % 360);
+	asteroid->SetParams(game.sRock, xcor, float(rand() % FIELD_HEIGHT), angle, BIG_RAD);
 	game.entities.push_back(asteroid);
 }
 
 void Game::RandomGenerateNewAsteroid(Game& game)
 {
-	if (rand() % 175 == 0)
+	if (rand() % DIVIDER == 0)
 	{
 		CreateAsteroid(game);
 	}

@@ -17,6 +17,7 @@ const int TITLE_TEXT_SIZE = 128;
 // main game
 const int SCREEN_WIDTH = 1366;
 const int SCREEN_HEIGHT = 768;
+const int FPS = 60;
 const int FIELD_HEIGHT = 728;
 const float GAME_OVER_COOLDOWN = 10.f;
 const float MUSIC_VOLUME = 70.f;
@@ -31,11 +32,15 @@ const float SM_RAD = 15.f;
 const float BIG_RAD = 25.f;
 const int ASTEROID_MIN_SPEED = 4;
 const int ASTEROID_MAX_SPEED = 8;
+const int DIVIDER = 175;
 
 // weapons
+// laser
 const float LASER_COOLDOWN = 0.2f;
 const float LASER_ACCELERATION = 12.f;
 const int LASER_SND_QTY = 3;
+
+// rocket
 const int ROCKETS_SND_QTY = 4;
 const float ROCKETS_QTY = 5;
 const float ROCKET_ACCELERATION = 6.f;
