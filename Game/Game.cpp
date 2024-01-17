@@ -127,7 +127,7 @@ void Game::RestartGame(Game& game)
 		}
 		else
 		{
-			i++;
+			++i;
 		}
 	}
 
@@ -325,7 +325,7 @@ void Game::UpdateEntities(Game& game)
 		}
 		else
 		{
-			i++;
+			++i;
 		}
 	}
 }

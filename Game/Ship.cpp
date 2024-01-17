@@ -161,7 +161,6 @@ void Ship::MakeShot(Game& game, float xcor)
 	}
 	case Weapon::Rocket:
 	{
-		// create rockets
 		// check if enough time has passed
 		if (game.newTime - game.pastTime > ROCKET_COOLDOWN)
 		{
