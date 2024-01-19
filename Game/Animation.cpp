@@ -11,7 +11,7 @@ void Animation::SetAnimation(sf::Texture& t, int x, int y, int w, int h, int cou
 	}
 
 	sprite.setTexture(t);
-	sprite.setOrigin(float(w / 2), float(h / 2));
+	sprite.setOrigin(static_cast<float>(w / 2), static_cast<float>(h / 2));
 	sprite.setTextureRect(frames[0]);
 }
 

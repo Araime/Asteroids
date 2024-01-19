@@ -142,7 +142,8 @@ void Game::RestartGame(Game& game)
 	game.player->health = 100.f;
 
 	float angle = 0.f;
-	game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2), angle, SHIP_RAD);
+	game.player->SetParams(game.sShip, static_cast<float>(SCREEN_WIDTH / 2),
+						   static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
 	game.player->dx = 0;
 	game.player->dy = 0;
 	game.player->isDestroyed = false;
@@ -272,7 +273,8 @@ void Game::CreateSmallAsteroids(Game& game, Entity* first_obj)
 
 		// create small asteroids
 		Asteroid* sm_asteroid = new Asteroid();
-		sm_asteroid->SetParams(game.sRockSmall, first_obj->xcor, first_obj->ycor, float(rand() % 360), SM_RAD);
+		sm_asteroid->SetParams(game.sRockSmall, first_obj->xcor, first_obj->ycor,
+							   static_cast<float>(rand() % 360), SM_RAD);
 		game.entities.push_back(sm_asteroid);
 	}
 }
@@ -298,8 +300,8 @@ void Game::CreateAsteroid(Game& game)
 	Asteroid* asteroid = new Asteroid();
 
 	float xcor = 0;
-	float angle = float(rand() % 360);
-	asteroid->SetParams(game.sRock, xcor, float(rand() % FIELD_HEIGHT), angle, BIG_RAD);
+	float angle = static_cast<float>(rand() % 360);
+	asteroid->SetParams(game.sRock, xcor, static_cast<float>(rand() % FIELD_HEIGHT), angle, BIG_RAD);
 	game.entities.push_back(asteroid);
 }
 

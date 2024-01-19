@@ -146,7 +146,7 @@ void Ship::MakeShot(Game& game, float xcor)
 			// create new laser
 			Laser* laser = new Laser();
 
-			float rand_angle = float(rand() % 6 - 3);
+			float rand_angle = static_cast<float>(rand() % 6 - 3);
 			laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
 							 game.player->angle + rand_angle, LASER_RAD);
 			game.entities.push_back(laser);
@@ -252,8 +252,8 @@ void Ship::RestartPlayer(Game& game)
 		// ressurect the player
 		float angle = 0.f;
 
-		game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2),
-							   angle, SHIP_RAD);
+		game.player->SetParams(game.sShip, static_cast<float>(SCREEN_WIDTH / 2),
+							   static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
 		game.player->dx = 0.f;
 		game.player->dy = 0.f;
 		game.player->isAccelerating = false;

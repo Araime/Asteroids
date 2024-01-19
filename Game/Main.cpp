@@ -22,7 +22,7 @@ void HanldeWindowEvents(sf::RenderWindow& window)
 int main()
 {
 	// init randomizer with random seed
-	srand(int(time(nullptr)));
+	srand(static_cast<int>(time(nullptr)));
 
 	// init game window
 	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), GAME_NAME);

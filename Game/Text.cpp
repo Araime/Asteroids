@@ -14,5 +14,5 @@ void Text::UpdateText(const std::string& str)
 
 	sf::FloatRect textRect = txt.getLocalBounds();
 	txt.setOrigin(textRect.width / 2, textRect.height / 2);
-	txt.setPosition(float(SCREEN_WIDTH / 2), float(SCREEN_HEIGHT / 2));
+	txt.setPosition(static_cast<float>(SCREEN_WIDTH / 2), static_cast<float>(SCREEN_HEIGHT / 2));
 }
