@@ -63,66 +63,65 @@ void Ship::HandlePlayerInput(Game& game)
 	}
 	case GameState::Game:
 	{
-		if (!game.player->isDestroyed)
+		if (game.player->isDestroyed) return;
+
+		// update current time
+		game.newTime = game.gameTimer.getElapsedTime().asSeconds();
+
+		// handle rotation
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
-			// update current time
-			game.newTime = game.gameTimer.getElapsedTime().asSeconds();
+			game.player->angle += ROTATION_SPEED;
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		{
+			game.player->angle -= ROTATION_SPEED;
+		}
 
-			// handle rotation
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		// make shot
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			MakeShot(game, game.player->rocketX);
+		}
+
+		// equip rocket
+		if (game.player->weapon == Weapon::Laser)
+		{
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
 			{
-				game.player->angle += ROTATION_SPEED;
+				game.player->weapon = Weapon::Rocket;
+
+				// change highlighter coord
+				game.UI.UpdateWeaponHighlighterPos(SELECT2_XCOR, SELECT_YCOR);
+
+				// play weapon change sound
+				game.weapChangeSnd.sound.play();
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		}
+
+		// equip laser
+		if (game.player->weapon == Weapon::Rocket)
+		{
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
 			{
-				game.player->angle -= ROTATION_SPEED;
+				game.player->weapon = Weapon::Laser;
+
+				// change highlighter coord
+				game.UI.UpdateWeaponHighlighterPos(SELECT1_XCOR, SELECT_YCOR);
+
+				// play weapon change sound
+				game.weapChangeSnd.sound.play();
 			}
+		}
 
-			// make shot
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-			{
-				MakeShot(game, game.player->rocketX);
-			}
-
-			// equip rocket
-			if (game.player->weapon == Weapon::Laser)
-			{
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
-				{
-					game.player->weapon = Weapon::Rocket;
-
-					// change highlighter coord
-					game.UI.UpdateWeaponHighlighterPos(SELECT2_XCOR, SELECT_YCOR);
-
-					// play weapon change sound
-					game.weapChangeSnd.sound.play();
-				}
-			}
-
-			// equip laser
-			if (game.player->weapon == Weapon::Rocket)
-			{
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
-				{
-					game.player->weapon = Weapon::Laser;
-
-					// change highlighter coord
-					game.UI.UpdateWeaponHighlighterPos(SELECT1_XCOR, SELECT_YCOR);
-
-					// play weapon change sound
-					game.weapChangeSnd.sound.play();
-				}
-			}
-
-			// check if ship is accelerated
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			{
-				isAccelerating = true;
-			}
-			else
-			{
-				isAccelerating = false;
-			}
+		// check if ship is accelerated
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		{
+			isAccelerating = true;
+		}
+		else
+		{
+			isAccelerating = false;
 		}
 		break;
 	}
@@ -228,41 +227,40 @@ void Ship::TakeDamage(Game& game, const float damage)
 
 void Ship::RestartPlayer(Game& game)
 {
-	if (game.player->isDestroyed)
+	if (!game.player->isDestroyed) return;
+
+	// update current time
+	game.newTime = game.gameTimer.getElapsedTime().asSeconds();
+
+	if (game.destroy_cooldown)
 	{
-		// update current time
-		game.newTime = game.gameTimer.getElapsedTime().asSeconds();
-
-		if (game.destroy_cooldown)
+		if (game.newTime - game.pastTime > COUNTER)
 		{
-			if (game.newTime - game.pastTime > COUNTER)
-			{
-				// update cooldown counter
-				game.destroy_cooldown -= COUNTER;
-				game.timerSnd.sound.play();
+			// update cooldown counter
+			game.destroy_cooldown -= COUNTER;
+			game.timerSnd.sound.play();
 
-				// update cooldown text
-				game.cooldownText.UpdateText(game.cooldownStr + std::to_string(game.destroy_cooldown));
+			// update cooldown text
+			game.cooldownText.UpdateText(game.cooldownStr + std::to_string(game.destroy_cooldown));
 
-				// update past time
-				game.pastTime = game.newTime;
-			}
+			// update past time
+			game.pastTime = game.newTime;
 		}
-		if (!game.destroy_cooldown)
-		{
-			// ressurect the player
-			float angle = 0.f;
+	}
+	if (!game.destroy_cooldown)
+	{
+		// ressurect the player
+		float angle = 0.f;
 
-			game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2),
-								   angle, SHIP_RAD);
-			game.player->dx = 0.f;
-			game.player->dy = 0.f;
-			game.player->isAccelerating = false;
-			game.player->health = SHIP_HEALTH;
-			game.player->isDestroyed = false;
+		game.player->SetParams(game.sShip, float(SCREEN_WIDTH / 2), float(FIELD_HEIGHT / 2),
+							   angle, SHIP_RAD);
+		game.player->dx = 0.f;
+		game.player->dy = 0.f;
+		game.player->isAccelerating = false;
+		game.player->health = SHIP_HEALTH;
+		game.player->isDestroyed = false;
 
-			// update player health
-			game.UI.UpdateUIHealthBar(game.player->health);
-		}
+		// update player health
+		game.UI.UpdateUIHealthBar(game.player->health);
 	}
 }

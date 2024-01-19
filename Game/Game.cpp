@@ -203,32 +203,31 @@ void Game::CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* 
 
 void Game::CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj)
 {
-	if (!game.player->isDestroyed)
+	if (game.player->isDestroyed) return;
+
+	if (first_obj->name == "player" && second_obj->name == "asteroid")
 	{
-		if (first_obj->name == "player" && second_obj->name == "asteroid")
+		if (IsCollide(first_obj, second_obj))
 		{
-			if (IsCollide(first_obj, second_obj))
+			game.player->TakeDamage(game, second_obj->rad);
+
+			if (!game.player->health)
 			{
-				game.player->TakeDamage(game, second_obj->rad);
+				CreateExplosionAnimation(game, first_obj, game.sShipExplosion);
 
-				if (!game.player->health)
-				{
-					CreateExplosionAnimation(game, first_obj, game.sShipExplosion);
-
-					// update past time
-					game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
-				}
-				else
-				{
-					second_obj->isAlive = false;
-
-					CreateExplosionAnimation(game, second_obj, game.sAsteroidExplosion);
-
-					game.asteroidExplSnd.sound.play();
-				}
-
-				CheckGameOver(game);
+				// update past time
+				game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
 			}
+			else
+			{
+				second_obj->isAlive = false;
+
+				CreateExplosionAnimation(game, second_obj, game.sAsteroidExplosion);
+
+				game.asteroidExplSnd.sound.play();
+			}
+
+			CheckGameOver(game);
 		}
 	}
 }
@@ -366,10 +365,8 @@ void Game::DrawGame(Game& game, sf::RenderWindow& window)
 	for (auto& entity : game.entities)
 	{
 		// check if player is destroyed
-		if (entity->name == "player" && game.player->isDestroyed)
-		{
-			continue;
-		}
+		if (entity->name == "player" && game.player->isDestroyed) continue;
+
 		entity->Draw(window);
 	}
 
