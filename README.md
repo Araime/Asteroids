@@ -6,6 +6,11 @@
 <kbd>[<img title="Русский язык" alt="Русский язык" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ru.svg" width="22">](translations/README.ru.md)</kbd>
 
 
+# Quick Preview 1_23_2024
+https://github.com/Araime/Asteroids/assets/19285919/5b868eb9-550c-4540-a31c-d10c9e01307b
+
+-Updating Documentation, Player Input Control's,  & README.md for both Languages
+=======================
 # Asteroids
 
 Игра про космос, в которой корабль уничтожает астеройды. При столкновении 
