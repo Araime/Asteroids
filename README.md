@@ -1,3 +1,11 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
+# Translation with Documentation in Progress--
+
+<kbd>[<img title="English (United States)" alt="English (United States)" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/us.svg" width="22">](translations/README.en.md)</kbd>
+<kbd>[<img title="Русский язык" alt="Русский язык" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ru.svg" width="22">](translations/README.ru.md)</kbd>
+
+
 # Asteroids
 
 Игра про космос, в которой корабль уничтожает астеройды. При столкновении 
