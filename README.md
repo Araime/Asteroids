@@ -118,8 +118,7 @@ Open the `Asteroids.sln` file in the repository folder and launch it.
  `ChatGPT/Google`
        		- English/Russian
 -  Code Educator/On Site 24/7 Review:
-     - `ChatGPT/C++ Primer Plus (5th Edition)/SFML-Game-Developme-By-Example.pdf`
-       		-  [AstroRoost](https://github.com/AstroRoost/Contrib_Asteroids_Araime/tree/master) 
+     - `ChatGPT/C++ Primer Plus (5th Edition)/SFML-Game-Developme-By-Example.pdf`       		
        
 -  Repo Contrib:
      - `Current Repo`
