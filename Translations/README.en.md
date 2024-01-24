@@ -1,10 +1,10 @@
-[![Лицензия: MIT](https://img.shields.io/badge/Лицензия-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 # Asteroids SFML
-Космическая игра, где корабль уничтожает астероиды. При столкновении с астероидами корабль уничтожается.
+A space game where a ship destroys asteroids. The ship is destroyed upon collision with asteroids.
 
-<kbd>[<img title="Английский (США)" alt="Английский (США)" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/us.svg" width="22">](Translations/README.en.md)</kbd>
-<kbd>[<img title="Русский язык" alt="Русский язык" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ru.svg" width="22">](Translations/README.ru.md)</kbd>
+<kbd>[<img title="English (United States)" alt="English (United States)" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/us.svg" width="22">](Translations/README.en.md)</kbd>
+<kbd>[<img title="Russian language" alt="Russian language" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ru.svg" width="22">](Translations/README.ru.md)</kbd>
 
 https://github.com/Araime/Asteroids/assets/19285919/5b868eb9-550c-4540-a31c-d10c9e01307b
 
@@ -12,118 +12,120 @@ https://github.com/Araime/Asteroids/assets/19285919/5b868eb9-550c-4540-a31c-d10c
 
 https://github.com/Araime/Asteroids/assets/82653875/d6041447-6f65-42df-abe9-74a24cb894ba
 
-# ЗАВЕРШЕНО:
-~~разное оружие/смена оружия,~~
+# COMPLETED:
+~~different weapon/weapon change,~~
 
-~~полная реализация единого игрового шрифта,~~
-
-======
-
-~~Поддержка клавиатуры WASD~~
-
-~~+ = Увеличить громкость~~
-
-~~- = Уменьшить громкость~~
-
-~~Numpad8 = Включить/выключить звук~~
-
-~~Ускорение игрока с помощью клавиши Shift и возможность "Токийского дрифта"~~
-
-~~Сигнал тревоги при понижении прочности корабля ниже 50%~~
-
-~~Экран мигает красным/вкл-выкл для имитации красной тревоги~~
-
-~~Таймер, отображающий, сколько времени игрок выжил~~
-
-~~Столкновения астероидов друг с другом для создания более динамичной среды~~
-
-~~Предложения по POWERUP добавлены в ship.cpp~~
-
-## К ВЫПОЛНЕНИЮ:
-
-Падение PowerUp,
-
-возможно, прокачка уровней (маловероятно).
+~~fully implement a unified game font,~~
 
 ======
-ГЛАВНОЕ МЕНЮ на стартовой странице игры, включая ИГРАТЬ, ТИТРЫ, GITHUB, ВЫХОД
 
-- IMGUI чит: предоставляет игроку GUI-опцию для настройки игры во время игры
-        * бесконечное HP
-        * опция ускорения или замедления атаки
-        * использование ускорителей
-        * и т.д.
+~~WASD Keyboard support~~
+
+~~+ = Increase Volume~~
+
+~~- = Decrease Volume~~
+
+~~Numpad8 = Mute/Unmute~~
+
+~~Player speed boost via Shift Key and "Tokyo Drift" ability~~
+
+~~ALARM signal if ship hull below 50%~~
+
+~~Screen flashes red on/off to simulate red alert~~
+
+~~Timer showing how long the player has survived~~
+
+~~Asteroid collisions with one another for a more dynamic environment~~
+
+~~POWERUP suggestions added in ship.cpp~~
+
+## TO DO:
+
+PowerUp drops,
+
+possibly level upgrades (unlikely).
+
+======
+MAIN MENU on the start page of the game, including PLAY, CREDITS, GITHUB, EXIT
+
+- IMGUI cheat: provides the player a GUI option to adjust game settings in-game
+        * infinite HP
+        * option to speed up or slow down their attack
+        * Use boosts
+        * etc.
   
-После смерти игрока отображается его счет, основанный на количестве уничтоженных астероидов и времени выживания с общим итогом
+Upon player's death, their score will be displayed, based on how many asteroids they have destroyed & how long they have survived, with a combined Total
 
-Добавить поддержку контроллера
+Add Controller support
 
 ======
 
-## Установка
+## Installation
 
-### Скачать исходный код
+### Download Source Code
 
-VisualStudio должен быть уже установлен.
+VisualStudio should already be installed.
 
-[Скачать - Оригинал](https://github.com/Araime/Asteroids/archive/master.zip) этот репозиторий на ваш компьютер. 
-Репозиторий включает все необходимые ресурсы, а также библиотеку SFML.
+[Download - Original](https://github.com/Araime/Asteroids/archive/master.zip) this repository to your computer. 
+The repository includes all necessary resources, as well as the SFML library.
 
-[Скачать - Вилка](https://github.com/AstroRoost/Contrib_Asteroids_Araime/tree/master) это вилка оригинала: скачайте её на ваш компьютер. 
-Репозиторий включает все необходимые ресурсы, а также библиотеку SFML.
+[Download - Forked](https://github.com/AstroRoost/Contrib_Asteroids_Araime/tree/master) this is the forked version: download it to your computer. 
+The repository includes all necessary resources, as well as the SFML library.
 
-### Скачать Отладочную Сборку
-[Скачать - Вилка](https://github.com/AstroRoost/Contrib_Asteroids_Araime/tree/master) здесь содержится отладочная сборка, которую можно сразу запустить и играть. Папка и название проекта - 0_DEBUG_BUILD/Asteroids.exe
+### Download Debug Build
+[Download - Forked](https://github.com/AstroRoost/Contrib_Asteroids_Araime/tree/master) this contains the debug build that you can just play out of the box. Folder & Project name is called 0_DEBUG_BUILD/Asteroids.exe
 
-### Запуск
+### Launch
 
-Откройте файл `Asteroids.sln` в папке репозитория и запустите его.
+Open the `Asteroids.sln` file in the repository folder and launch it.
 
-## Благодарности
-- Музыка:  
-	- `меню` cynicmusic - Enchanted Tiki 86.mp3
-	- `уровень` maxstack - through space.ogg  
-	- `конец игры` Alexandr Zhelanov - space.mp3  
+## Credits
+- Music:  
+	- `menu` cynicmusic - Enchanted Tiki 86.mp3
+	- `level` maxstack - through space.ogg  
+	- `end of game` Alexandr Zhelanov - space.mp3  
 
-- Звуки:
+- Sounds:
   
-    - `Критическое предупреждение игрока` 
+    - `Player Critical Warning` 
 		- @Mknai225 - Advanced Digital/Samples/Loops/Bass 160 BPM 2 -> Player_critical sound/Player_critical_damage_warning/Player_critical.wav
    		- https://twitter.com/Mknai225 
   
-    - `Лазер` 
+    - `Laser` 
 		- Kenney - 63 Digital sound effects/laser1.wav  
 		- Kenney - 63 Digital sound effects/laser2.wav  
 		- Kenney - 63 Digital sound effects/laser3.wav
 
-	- `Ракета`
+	- `Rocket`
  		- dklon - Rocket Launch Pack/rocket_launch1.wav  
 		- dklon - Rocket Launch Pack/rocket_launch2.wav  
 		- dklon - Rocket Launch Pack/rocket_launch3.wav  
 		- dklon - Rocket Launch Pack/rocket_launch4.wav  
 
-	- `Смена оружия`
+	- `Weapon change`
 		- Tim Mortimer - 4 sci-fi menu sounds/Flashpoint001a.flac  
 
-	- `Обратный отсчет`
+	- `Countdown`
 		- legoluft - Krank_sounds/magnet_start.wav  
 
-	- `Взрывы`
+	- `Explosions`
 		- dklon - Boom Pack 1/boom2.wav  
 		- dklon - Boom Pack 1/boom9.wav
     
- -  Переводы языков:
-     - `ChatGPT/Google`
-       		- Английский/Русский
--  Образователь по коду/Постоянный обзор на месте:
-     - `ChatGPT/C++ Primer Plus (5-е издание)/SFML-Game-Developme-By-Example.pdf`
+ -  Language Translations:
+     -
+
+ `ChatGPT/Google`
+       		- English/Russian
+-  Code Educator/On Site 24/7 Review:
+     - `ChatGPT/C++ Primer Plus (5th Edition)/SFML-Game-Developme-By-Example.pdf`
        		-  [AstroRoost](https://github.com/AstroRoost/Contrib_Asteroids_Araime/tree/master) 
        
--  Участник репозитория:
-     - `Текущий репозиторий`
+-  Repo Contrib:
+     - `Current Repo`
        		- [Araime](https://github.com/AstroRoost/Contrib_Asteroids_Araime/tree/master)
        		- [AstroRoost](https://github.com/AstroRoost/Contrib_Asteroids_Araime/tree/master) 
 
-## Цель проекта
+## Project Goal
 
-Создание игры на C++ с использованием библиотеки SFML.
+Creating a game in C++ using the SFML library.
