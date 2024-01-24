@@ -3,8 +3,8 @@
 # Asteroids SFML
 Космическая игра, где корабль уничтожает астероиды. При столкновении с астероидами корабль уничтожается.
 
-<kbd>[<img title="Английский (США)" alt="Английский (США)" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/us.svg" width="22">](Translations/README.en.md)</kbd>
-<kbd>[<img title="Русский язык" alt="Русский язык" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ru.svg" width="22">](Translations/README.ru.md)</kbd>
+<kbd>[<img title="Английский (США)" alt="Английский (США)" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/us.svg" width="22">](README.en.md)</kbd>
+<kbd>[<img title="Русский язык" alt="Русский язык" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ru.svg" width="22">](README.ru.md)</kbd>
 
 https://github.com/Araime/Asteroids/assets/19285919/5b868eb9-550c-4540-a31c-d10c9e01307b
 
