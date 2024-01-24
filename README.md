@@ -2,8 +2,8 @@
 
 # Translation with Documentation in Progress--
 
-<kbd>[<img title="English (United States)" alt="English (United States)" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/us.svg" width="22">](translations/README.en.md)</kbd>
-<kbd>[<img title="Русский язык" alt="Русский язык" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ru.svg" width="22">](translations/README.ru.md)</kbd>
+<kbd>[<img title="English (United States)" alt="English (United States)" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/us.svg" width="22">](Translations/README.en.md)</kbd>
+<kbd>[<img title="Русский язык" alt="Русский язык" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ru.svg" width="22">](Translations/README.ru.md)</kbd>
 
 
 # Quick Preview 1_23_2024
