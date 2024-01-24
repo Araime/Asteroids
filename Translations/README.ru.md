@@ -117,7 +117,7 @@ VisualStudio должен быть уже установлен.
        		- Английский/Русский
 -  Образователь по коду/Постоянный обзор на месте:
      - `ChatGPT/C++ Primer Plus (5-е издание)/SFML-Game-Developme-By-Example.pdf`
-       		-  [AstroRoost](https://github.com/AstroRoost/Contrib_Asteroids_Araime/tree/master) 
+       		
        
 -  Участник репозитория:
      - `Текущий репозиторий`
