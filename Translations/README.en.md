@@ -1,7 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-# Translation with Documentation in Progress--
-
 <kbd>[<img title="English (United States)" alt="English (United States)" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/us.svg" width="22">](Translations/README.en.md)</kbd>
 <kbd>[<img title="Русский язык" alt="Русский язык" src="https://cdn.statically.io/gh/hjnilsson/country-flags/master/svg/ru.svg" width="22">](Translations/README.ru.md)</kbd>
 
