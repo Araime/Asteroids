@@ -13,4 +13,5 @@
                     * Updated src with additional features & comments in regarding to the progress
               - In progress: Updating translations/
 
-  --1/24/2024 12AM: Deleted un_used resource for game icon
+  -1/24/2024 12AM: Deleted un_used resource for game icon
+  --1/24/2024 2AM: Updated Languages
