@@ -352,7 +352,7 @@ void Game::CreateSmallAsteroids(Game& game, Entity* first_obj)
 }
 
 
-void Game::CheckÑompletedAnimations(Game& game)
+void Game::CheckСompletedAnimations(Game& game)
 {
 	// turn off completed explosions animations
 	for (auto entity : game.entities)
@@ -419,7 +419,7 @@ void Game::UpdateGame(Game& game, sf::RenderWindow& window, const float& current
 	//
 	CheckAsteroidCollisions(game);
 
-	CheckÑompletedAnimations(game);
+	CheckСompletedAnimations(game);
 
 	RandomGenerateNewAsteroid(game);
 
