@@ -50,20 +50,6 @@
     <ClInclude Include="Game\header\Sound.h" />
     <ClInclude Include="Game\header\Text.h" />
     <ClInclude Include="Game\header\UI.h" />
-    <ClInclude Include="header\Animation.h" />
-    <ClInclude Include="header\Asteroid.h" />
-    <ClInclude Include="header\Background.h" />
-    <ClInclude Include="header\Constants.h" />
-    <ClInclude Include="header\Entity.h" />
-    <ClInclude Include="header\Game.h" />
-    <ClInclude Include="header\Laser.h" />
-    <ClInclude Include="header\Math.h" />
-    <ClInclude Include="header\PCH.h" />
-    <ClInclude Include="header\Rocket.h" />
-    <ClInclude Include="header\Ship.h" />
-    <ClInclude Include="header\Sound.h" />
-    <ClInclude Include="header\Text.h" />
-    <ClInclude Include="header\UI.h" />
     <ClInclude Include="resource6.h" />
   </ItemGroup>
   <ItemGroup>
