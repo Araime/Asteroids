@@ -417,7 +417,7 @@ void Game::UpdateGame(Game& game, sf::RenderWindow& window, const float& current
 
 	CheckAllCollisions(game);
 	//
-	//CheckAsteroidCollisions(game);
+	CheckAsteroidCollisions(game);
 
 	CheckСompletedAnimations(game);
 
