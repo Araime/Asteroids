@@ -15,149 +15,85 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Game\src\Main.cpp">
+    <ClCompile Include="Game\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\src\Game.cpp">
+    <ClCompile Include="Game\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\src\Ship.cpp">
+    <ClCompile Include="Game\Ship.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\src\Math.cpp">
+    <ClCompile Include="Game\Math.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\src\Background.cpp">
+    <ClCompile Include="Game\Background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\src\Text.cpp">
+    <ClCompile Include="Game\Text.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\src\UI.cpp">
+    <ClCompile Include="Game\UI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\src\Animation.cpp">
+    <ClCompile Include="Game\Animation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\src\Asteroid.cpp">
+    <ClCompile Include="Game\Asteroid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\src\Entity.cpp">
+    <ClCompile Include="Game\Entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\src\Laser.cpp">
+    <ClCompile Include="Game\Laser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\src\Rocket.cpp">
+    <ClCompile Include="Game\Rocket.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\src\Sound.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game\src\Input.cpp">
+    <ClCompile Include="Game\Sound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header\Constants.h">
+    <ClInclude Include="Game\Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Game.h">
+    <ClInclude Include="Game\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Animation.h">
+    <ClInclude Include="Game\Animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Asteroid.h">
+    <ClInclude Include="Game\Asteroid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Entity.h">
+    <ClInclude Include="Game\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Laser.h">
+    <ClInclude Include="Game\Laser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Ship.h">
+    <ClInclude Include="Game\Ship.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Math.h">
+    <ClInclude Include="Game\Math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Sound.h">
+    <ClInclude Include="Game\Sound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Background.h">
+    <ClInclude Include="Game\Background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Text.h">
+    <ClInclude Include="Game\Text.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\UI.h">
+    <ClInclude Include="Game\UI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\Rocket.h">
+    <ClInclude Include="Game\Rocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="header\PCH.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\Animation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\Asteroid.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\Background.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\Constants.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\Entity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\Laser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\Math.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\PCH.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\Rocket.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\Ship.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\Sound.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\Text.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\header\UI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="resource6.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="icon.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Resources\Icon\ico\Asteroid.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
   </ItemGroup>
 </Project>
