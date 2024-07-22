@@ -69,11 +69,11 @@ void Ship::HandlePlayerInput(Game& game)
 		game.newTime = game.gameTimer.getElapsedTime().asSeconds();
 
 		// handle rotation
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
 			game.player->angle += ROTATION_SPEED;
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
 			game.player->angle -= ROTATION_SPEED;
 		}
@@ -115,7 +115,7 @@ void Ship::HandlePlayerInput(Game& game)
 		}
 
 		// check if ship is accelerated
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
 			isAccelerating = true;
 		}
