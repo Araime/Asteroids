@@ -76,6 +76,8 @@ public:
 	Sound weapChangeSnd;
 	Sound asteroidExplSnd;
 	Sound shipExplSnd;
+	Sound buttonHover;
+	Sound buttonClick;
 
 	Music gameMusic;
 

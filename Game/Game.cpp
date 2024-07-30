@@ -84,6 +84,8 @@ void Game::InitGame(Game& game)
 	LoadSound(game.weapChangeSnd, SND_PATH + "Flashpoint001a.wav");
 	LoadSound(game.asteroidExplSnd, SND_PATH + "boom2.wav", 75.f);
 	LoadSound(game.shipExplSnd, SND_PATH + "boom9.wav");
+	LoadSound(game.buttonHover, SND_PATH + "beep_03.ogg");
+	LoadSound(game.buttonClick, SND_PATH + "terminal_09.ogg");
 
 	// init laser and rocket snd arrays
 	game.laserSndArray[0] = game.laserSnd1;
@@ -117,8 +119,8 @@ void Game::DrawMainMenu(Game& game, sf::RenderWindow& window)
 
 	UpdateMousePosition(game, window);
 
-	game.startButton.Update(mousePos);
-	game.quitButton.Update(mousePos);
+	game.startButton.Update(game, mousePos);
+	game.quitButton.Update(game, mousePos);
 	game.startButton.Draw(window);
 	game.quitButton.Draw(window);
 
@@ -411,8 +413,8 @@ void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 
 	UpdateMousePosition(game, window);
 
-	game.restartButton.Update(mousePos);
-	game.quitButton.Update(mousePos);
+	game.restartButton.Update(game, mousePos);
+	game.quitButton.Update(game, mousePos);
 	game.restartButton.Draw(window);
 	game.quitButton.Draw(window);
 

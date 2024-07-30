@@ -1,10 +1,14 @@
 #include "Button.h"
+#include "Game.h"
 
 void Button::Init(const sf::Font& font, const std::string& text, const float& btnWidth, const float& xcor, const float& ycor)
 {
 	idleColor = sf::Color(255, 255, 0, 255);
 	hoverColor = sf::Color(255, 0, 0, 255);
 	activeColor = sf::Color(128, 0, 0, 255);
+
+	isHighlighted = false;
+	isClicked = false;
 
 	txt.setFont(font);
 	txt.setCharacterSize(BUTTON_TEXT_SIZE);
@@ -23,7 +27,7 @@ void Button::Init(const sf::Font& font, const std::string& text, const float& bt
 	shape.setFillColor(hoverColor);
 }
 
-void Button::Update(const sf::Vector2f& mousePos)
+void Button::Update(Game& game, const sf::Vector2f& mousePos)
 {
 	// changing the state of the button: at rest, the cursor is hovered, the button is pressed
 	buttonState = BTN_IDLE;
@@ -52,6 +56,22 @@ void Button::Update(const sf::Vector2f& mousePos)
 		break;
 	default:
 		break;
+	}
+
+	if (!isHighlighted && buttonState == BTN_HOVER)
+	{
+		isHighlighted = true;
+		game.buttonHover.sound.play();
+	}
+	else if (isHighlighted && buttonState == BTN_ACTIVE)
+	{
+		isClicked = true;
+		game.buttonClick.sound.play();
+	}
+	else if (buttonState == BTN_IDLE)
+	{
+		isHighlighted = false;
+		isClicked = false;
 	}
 }
 
