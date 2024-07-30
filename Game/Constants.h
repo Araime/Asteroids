@@ -13,6 +13,7 @@ const std::string TITLE_TEXT = "ASTEROIDS";
 const std::string GAME_OVER_TEXT = "GAME OVER";
 const int COOLDOWN_TEXT_SIZE = 55;
 const int TITLE_TEXT_SIZE = 128;
+const int BUTTON_TEXT_SIZE = 60;
 
 // main game
 const int SCREEN_WIDTH = 1366;
@@ -22,6 +23,14 @@ const int FIELD_HEIGHT = 728;
 const float GAME_OVER_COOLDOWN = 10.f;
 const float MUSIC_VOLUME = 70.f;
 const float IMAGE_ROTATION_ANGLE = -0.2f;
+
+// buttons
+const std::string START_BTN_TXT = "START";
+const std::string QUIT_BTN_TXT = "QUIT";
+const std::string RESTART_BTN_TXT = "RESTART";
+const float LEFT_BTN_XCOR = 350.f;
+const float RIGHT_BTN_XCOR = 1000.f;
+const float BTNS_YCOR = 600.f;
 
 // sprites
 const float ADDITIONAL_ANGLE = 90.f;

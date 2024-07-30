@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <list>
+#include <string>
 #include "Animation.h"
 #include "Entity.h"
 #include "Laser.h"
@@ -12,7 +13,7 @@
 #include "Background.h"
 #include "Text.h"
 #include "UI.h"
-#include <string>
+#include "Button.h"
 
 enum class GameState
 {
@@ -46,6 +47,11 @@ public:
 	Text cooldownText;
 	Text bigText;
 	Text smallText;
+
+	// create buttons
+	Button startButton;
+	Button quitButton;
+	Button restartButton;
 
 	// create BG's
 	BG menuBG;

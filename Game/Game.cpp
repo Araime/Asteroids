@@ -32,6 +32,10 @@ void Game::InitGame(Game& game)
 	game.bigText.InitText(game.titleFont, TITLE_TEXT_SIZE, sf::Color::Yellow);
 	game.bigText.UpdateText(TITLE_TEXT);
 
+	// init game buttons
+	game.startButton.Init(titleFont, START_BTN_TXT, LEFT_BTN_XCOR, BTNS_YCOR);
+	game.quitButton.Init(titleFont, QUIT_BTN_TXT, RIGHT_BTN_XCOR, BTNS_YCOR);
+	game.restartButton.Init(titleFont, RESTART_BTN_TXT, LEFT_BTN_XCOR, BTNS_YCOR);
 
 	// load game textures
 	LoadTexture(game.shipTexture, IMG_PATH + "spaceship.png");
@@ -109,6 +113,8 @@ void Game::DrawMainMenu(Game& game, sf::RenderWindow& window)
 	window.clear();
 	window.draw(game.menuBG.sprite);
 	window.draw(game.bigText.txt);
+	window.draw(game.startButton.txt);
+	window.draw(game.quitButton.txt);
 	window.display();
 
 	game.player->HandlePlayerInput(game);
@@ -385,6 +391,8 @@ void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 	window.clear();
 	window.draw(game.gameOverBG.sprite);
 	window.draw(game.bigText.txt);
+	window.draw(game.restartButton.txt);
+	window.draw(game.quitButton.txt);
 	window.display();
 
 	if (game.newTime - game.pastTime > GAME_OVER_COOLDOWN)
