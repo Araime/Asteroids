@@ -123,17 +123,17 @@ void Game::DrawMainMenu(Game& game, sf::RenderWindow& window)
 void Game::RestartGame(Game& game)
 {
 	// clear entities list
-	for (auto i = game.entities.begin(); i != game.entities.end();)
+	for (auto iter = game.entities.begin(); iter != game.entities.end();)
 	{
-		Entity* entity = *i;
+		Entity* entity = *iter;
 		if (entity->name != "player")
 		{
-			i = game.entities.erase(i);
+			iter = game.entities.erase(iter);
 			delete entity;
 		}
 		else
 		{
-			++i;
+			++iter;
 		}
 	}
 
