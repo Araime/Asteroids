@@ -53,6 +53,9 @@ public:
 	Button quitButton;
 	Button restartButton;
 
+	// mouse position coord
+	sf::Vector2f mousePos;
+
 	// create BG's
 	BG menuBG;
 	BG levelBG;
@@ -147,4 +150,6 @@ public:
 	void DrawGame(Game& game, sf::RenderWindow& window);
 
 	void DrawGameOver(Game& game, sf::RenderWindow& window);
+
+	void UpdateMousePosition(Game& game, sf::RenderWindow& window);
 };

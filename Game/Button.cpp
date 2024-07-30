@@ -1,10 +1,10 @@
 #include "Button.h"
 
-void Button::Init(const sf::Font& font, const std::string& text, const float& xcor, const float& ycor)
+void Button::Init(const sf::Font& font, const std::string& text, const float& btnWidth, const float& xcor, const float& ycor)
 {
 	idleColor = sf::Color(255, 255, 0, 255);
-	hoverColor = sf::Color(169, 169, 169, 255);
-	activeColor = sf::Color(47, 79, 79, 200);
+	hoverColor = sf::Color(255, 0, 0, 255);
+	activeColor = sf::Color(128, 0, 0, 255);
 
 	txt.setFont(font);
 	txt.setCharacterSize(BUTTON_TEXT_SIZE);
@@ -15,9 +15,47 @@ void Button::Init(const sf::Font& font, const std::string& text, const float& xc
 	sf::FloatRect textRect = txt.getGlobalBounds();
 	txt.setOrigin(textRect.width / 2, textRect.height / 2);
 	txt.setPosition(xcor, ycor);
+
+	shape.setSize({btnWidth, BTNS_HEIGHT});
+	sf::FloatRect shapeRect = shape.getGlobalBounds();
+	shape.setOrigin(shapeRect.width / 2, shapeRect.height / 2);
+	shape.setPosition(xcor, ycor + 20.f);
+	shape.setFillColor(hoverColor);
 }
 
-void Button::Update()
+void Button::Update(const sf::Vector2f& mousePos)
 {
+	// changing the state of the button: at rest, the cursor is hovered, the button is pressed
+	buttonState = BTN_IDLE;
 
+	if (shape.getGlobalBounds().contains(mousePos))
+	{
+		buttonState = BTN_HOVER;
+
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+			buttonState = BTN_ACTIVE;
+		}
+	}
+
+	// change button text color by state
+	switch (buttonState)
+	{
+	case BTN_IDLE:
+		txt.setFillColor(idleColor);
+		break;
+	case BTN_HOVER:
+		txt.setFillColor(hoverColor);
+		break;
+	case BTN_ACTIVE:
+		txt.setFillColor(activeColor);
+		break;
+	default:
+		break;
+	}
+}
+
+void Button::Draw(sf::RenderWindow& window)
+{
+	window.draw(txt);
 }

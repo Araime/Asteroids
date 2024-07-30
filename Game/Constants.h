@@ -31,6 +31,10 @@ const std::string RESTART_BTN_TXT = "RESTART";
 const float LEFT_BTN_XCOR = 350.f;
 const float RIGHT_BTN_XCOR = 1000.f;
 const float BTNS_YCOR = 600.f;
+const float START_BTN_WIDTH = 145.f;
+const float QUIT_BTN_WIDTH = 105.f;
+const float RESTART_BTN_WIDTH = 195.f;
+const float BTNS_HEIGHT = 45.f;
 
 // sprites
 const float ADDITIONAL_ANGLE = 90.f;

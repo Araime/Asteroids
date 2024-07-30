@@ -33,9 +33,9 @@ void Game::InitGame(Game& game)
 	game.bigText.UpdateText(TITLE_TEXT);
 
 	// init game buttons
-	game.startButton.Init(titleFont, START_BTN_TXT, LEFT_BTN_XCOR, BTNS_YCOR);
-	game.quitButton.Init(titleFont, QUIT_BTN_TXT, RIGHT_BTN_XCOR, BTNS_YCOR);
-	game.restartButton.Init(titleFont, RESTART_BTN_TXT, LEFT_BTN_XCOR, BTNS_YCOR);
+	game.startButton.Init(titleFont, START_BTN_TXT, START_BTN_WIDTH, LEFT_BTN_XCOR, BTNS_YCOR);
+	game.quitButton.Init(titleFont, QUIT_BTN_TXT, QUIT_BTN_WIDTH, RIGHT_BTN_XCOR, BTNS_YCOR);
+	game.restartButton.Init(titleFont, RESTART_BTN_TXT, RESTART_BTN_WIDTH, LEFT_BTN_XCOR, BTNS_YCOR);
 
 	// load game textures
 	LoadTexture(game.shipTexture, IMG_PATH + "spaceship.png");
@@ -111,10 +111,17 @@ void Game::DrawMainMenu(Game& game, sf::RenderWindow& window)
 	game.menuBG.sprite.rotate(-0.2f);
 
 	window.clear();
+
 	window.draw(game.menuBG.sprite);
 	window.draw(game.bigText.txt);
-	window.draw(game.startButton.txt);
-	window.draw(game.quitButton.txt);
+
+	UpdateMousePosition(game, window);
+
+	game.startButton.Update(mousePos);
+	game.quitButton.Update(mousePos);
+	game.startButton.Draw(window);
+	game.quitButton.Draw(window);
+
 	window.display();
 
 	game.player->HandlePlayerInput(game);
@@ -149,7 +156,7 @@ void Game::RestartGame(Game& game)
 
 	float angle = 0.f;
 	game.player->SetParams(game.sShip, static_cast<float>(SCREEN_WIDTH / 2),
-						   static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
+		static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
 	game.player->dx = 0;
 	game.player->dy = 0;
 	game.player->isDestroyed = false;
@@ -280,7 +287,7 @@ void Game::CreateSmallAsteroids(Game& game, Entity* first_obj)
 		// create small asteroids
 		Asteroid* sm_asteroid = new Asteroid();
 		sm_asteroid->SetParams(game.sRockSmall, first_obj->xcor, first_obj->ycor,
-							   static_cast<float>(rand() % 360), SM_RAD);
+			static_cast<float>(rand() % 360), SM_RAD);
 		game.entities.push_back(sm_asteroid);
 	}
 }
@@ -389,10 +396,17 @@ void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 	game.newTime = game.gameTimer.getElapsedTime().asSeconds();
 
 	window.clear();
+
 	window.draw(game.gameOverBG.sprite);
 	window.draw(game.bigText.txt);
-	window.draw(game.restartButton.txt);
-	window.draw(game.quitButton.txt);
+
+	UpdateMousePosition(game, window);
+
+	game.restartButton.Update(mousePos);
+	game.quitButton.Update(mousePos);
+	game.restartButton.Draw(window);
+	game.quitButton.Draw(window);
+
 	window.display();
 
 	if (game.newTime - game.pastTime > GAME_OVER_COOLDOWN)
@@ -405,4 +419,9 @@ void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 
 		game.pastTime = game.newTime;
 	}
+}
+
+void Game::UpdateMousePosition(Game& game, sf::RenderWindow& window)
+{
+	game.mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
 }
