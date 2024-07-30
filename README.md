@@ -6,10 +6,8 @@
 https://github.com/Araime/Asteroids/assets/82653875/d6041447-6f65-42df-abe9-74a24cb894ba
 
 ## TO DO:
-~~другое оружие/смена оружия,~~  
 выпадение PowerUps,  
-~~реализовать полноценно игровой единый шрифт,~~  
-возможно прокачка уровней (врядли).  
+возможно, прокачка уровней (врядли).  
 
 ## Установка
 
@@ -52,6 +50,10 @@ VisualStudio должен быть уже установлен.
 	- `Взрывы`
 		- dklon - Boom Pack 1/boom2.wav  
 		- dklon - Boom Pack 1/boom9.wav  
+	
+	- `Кнопки`
+		- rubberduck - Sci-Fi SFX/beep_03.ogg  
+		- rubberduck - Sci-Fi SFX/terminal_09.ogg  
 
 ## Цель проекта
 
