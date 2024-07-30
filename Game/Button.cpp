@@ -58,6 +58,7 @@ void Button::Update(Game& game, const sf::Vector2f& mousePos)
 		break;
 	}
 
+	// play sound when the buttons are active
 	if (!isHighlighted && buttonState == BTN_HOVER)
 	{
 		isHighlighted = true;
