@@ -17,7 +17,7 @@
 
 enum class GameState
 {
-	Menu = 0,
+	TitleScreen = 0,
 	Game,
 	GameOver
 };
@@ -25,7 +25,7 @@ enum class GameState
 class Game
 {
 public:
-	GameState gameState = GameState::Menu;
+	GameState gameState = GameState::TitleScreen;
 
 	// set ateroid num
 	int asteroids_num = 12;

@@ -53,7 +53,7 @@ void Ship::HandlePlayerInput(Game& game)
 {
 	switch (game.gameState)
 	{
-	case GameState::Menu:
+	case GameState::TitleScreen:
 	{
 		break;
 	}

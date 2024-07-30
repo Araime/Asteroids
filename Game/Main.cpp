@@ -46,7 +46,7 @@ int main()
 
 		switch (game.gameState)
 		{
-		case GameState::Menu:
+		case GameState::TitleScreen:
 		{
 			game.DrawMainMenu(game, window);
 			break;

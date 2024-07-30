@@ -433,7 +433,7 @@ void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 	{
 		// update text and game state
 		game.bigText.UpdateText(TITLE_TEXT);
-		game.gameState = GameState::Menu;
+		game.gameState = GameState::TitleScreen;
 
 		game.gameMusic.PlayMusic(SND_PATH + "enchanted tiki 86.ogg");
 
