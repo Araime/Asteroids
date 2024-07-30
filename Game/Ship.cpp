@@ -55,10 +55,6 @@ void Ship::HandlePlayerInput(Game& game)
 	{
 	case GameState::Menu:
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
-		{
-			game.RestartGame(game);
-		}
 		break;
 	}
 	case GameState::Game:

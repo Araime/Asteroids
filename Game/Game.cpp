@@ -122,9 +122,18 @@ void Game::DrawMainMenu(Game& game, sf::RenderWindow& window)
 	game.startButton.Draw(window);
 	game.quitButton.Draw(window);
 
-	window.display();
+	// check if the button is pressed
+	if (game.startButton.IsPressed())
+	{
+		game.RestartGame(game);
+	}
 
-	game.player->HandlePlayerInput(game);
+	if (game.quitButton.IsPressed())
+	{
+		window.close();
+	}
+
+	window.display();
 }
 
 void Game::RestartGame(Game& game)
@@ -406,6 +415,17 @@ void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 	game.quitButton.Update(mousePos);
 	game.restartButton.Draw(window);
 	game.quitButton.Draw(window);
+
+	// check if the button is pressed
+	if (game.restartButton.IsPressed())
+	{
+		game.RestartGame(game);
+	}
+
+	if (game.quitButton.IsPressed())
+	{
+		window.close();
+	}
 
 	window.display();
 

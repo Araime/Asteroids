@@ -20,5 +20,7 @@ public:
 
 	void Update(const sf::Vector2f& mousePos);
 
+	const bool IsPressed() const;
+
 	void Draw(sf::RenderWindow& window);
 };

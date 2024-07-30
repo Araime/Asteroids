@@ -55,6 +55,13 @@ void Button::Update(const sf::Vector2f& mousePos)
 	}
 }
 
+const bool Button::IsPressed() const
+{
+	if (buttonState == BTN_ACTIVE) return true;
+
+	return false;
+}
+
 void Button::Draw(sf::RenderWindow& window)
 {
 	window.draw(txt);
