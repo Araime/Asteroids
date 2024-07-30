@@ -10,25 +10,25 @@ void Ship::Update()
 {
 	if (isAccelerating)
 	{
-		dx += cos(angle * DEGTORAD) * SHIP_ACCELERATION;
-		dy += sin(angle * DEGTORAD) * SHIP_ACCELERATION;
+		deltaX += cos(angle * DEGREES_TO_RADIANS) * SHIP_ACCELERATION;
+		deltaY += sin(angle * DEGREES_TO_RADIANS) * SHIP_ACCELERATION;
 	}
 	else
 	{
-		dx *= DECELERATION_FACTOR;
-		dy *= DECELERATION_FACTOR;
+		deltaX *= DECELERATION_FACTOR;
+		deltaY *= DECELERATION_FACTOR;
 	}
 
-	float speed = sqrt(dx * dx + dy * dy);
+	float speed = sqrt(deltaX * deltaX + deltaY * deltaY);
 
 	if (speed > maxSpeed)
 	{
-		dx *= maxSpeed / speed;
-		dy *= maxSpeed / speed;
+		deltaX *= maxSpeed / speed;
+		deltaY *= maxSpeed / speed;
 	}
 
-	xcor += dx;
-	ycor += dy;
+	xcor += deltaX;
+	ycor += deltaY;
 
 	// check if it's beyond the edge of the screen
 	if (xcor > SCREEN_WIDTH)
@@ -250,8 +250,8 @@ void Ship::RestartPlayer(Game& game)
 
 		game.player->SetParams(game.sShip, static_cast<float>(SCREEN_WIDTH / 2),
 							   static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
-		game.player->dx = 0.f;
-		game.player->dy = 0.f;
+		game.player->deltaX = 0.f;
+		game.player->deltaY = 0.f;
 		game.player->isAccelerating = false;
 		game.player->health = SHIP_HEALTH;
 		game.player->isDestroyed = false;

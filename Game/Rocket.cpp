@@ -7,10 +7,10 @@ Rocket::Rocket()
 
 void Rocket::Update()
 {
-	dx = cos(angle * DEGTORAD) * ROCKET_ACCELERATION;
-	dy = sin(angle * DEGTORAD) * ROCKET_ACCELERATION;
-	xcor += dx;
-	ycor += dy;
+	deltaX = cos(angle * DEGREES_TO_RADIANS) * ROCKET_ACCELERATION;
+	deltaY = sin(angle * DEGREES_TO_RADIANS) * ROCKET_ACCELERATION;
+	xcor += deltaX;
+	ycor += deltaY;
 
 	// check if it's beyond the edge of the screen
 	if (xcor > SCREEN_WIDTH || xcor < 0 || ycor > FIELD_HEIGHT || ycor < 0)

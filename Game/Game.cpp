@@ -166,8 +166,8 @@ void Game::RestartGame(Game& game)
 	float angle = 0.f;
 	game.player->SetParams(game.sShip, static_cast<float>(SCREEN_WIDTH / 2),
 		static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
-	game.player->dx = 0;
-	game.player->dy = 0;
+	game.player->deltaX = 0;
+	game.player->deltaY = 0;
 	game.player->isDestroyed = false;
 	game.player->weapon = Weapon::Laser;
 

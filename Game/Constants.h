@@ -62,7 +62,7 @@ const float ROCKET_ANGLE_STEP = 10.f;
 const float ROCKET_COOLDOWN = 1.3f;
 
 // ship
-const float DEGTORAD = 0.017453f;
+const float DEGREES_TO_RADIANS = 0.017453f;
 const int COUNTER = 1;
 const float SHIP_RAD = 20.f;
 const float SHIP_ACCELERATION = 0.2f;

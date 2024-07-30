@@ -4,23 +4,23 @@ Asteroid::Asteroid()
 {
 	name = "asteroid";
 
-	dx = static_cast<float>(rand() % ASTEROID_MAX_SPEED - ASTEROID_MIN_SPEED);
-	if (dx == 0)
+	deltaX = static_cast<float>(rand() % ASTEROID_MAX_SPEED - ASTEROID_MIN_SPEED);
+	if (deltaX == 0)
 	{
-		dx = DELTA_XY[rand() % DELTA_XY.size()];
+		deltaX = DELTA_XY[rand() % DELTA_XY.size()];
 	}
 
-	dy = static_cast<float>(rand() % ASTEROID_MAX_SPEED - ASTEROID_MIN_SPEED);
-	if (dy == 0)
+	deltaY = static_cast<float>(rand() % ASTEROID_MAX_SPEED - ASTEROID_MIN_SPEED);
+	if (deltaY == 0)
 	{
-		dy = DELTA_XY[rand() % DELTA_XY.size()];
+		deltaY = DELTA_XY[rand() % DELTA_XY.size()];
 	}
 }
 
 void Asteroid::Update()
 {
-	xcor += dx;
-	ycor += dy;
+	xcor += deltaX;
+	ycor += deltaY;
 
 	// check if it's beyond the edge of the screen
 	if (xcor > SCREEN_WIDTH)
