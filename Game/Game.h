@@ -87,6 +87,7 @@ public:
 
 	// create game textures
 	sf::Texture shipTexture;
+	sf::Texture flyingShipTexture;
 	sf::Texture laserTexture;
 	sf::Texture rocketTexture;
 	sf::Texture rockTexture;

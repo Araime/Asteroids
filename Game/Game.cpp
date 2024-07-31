@@ -38,7 +38,8 @@ void Game::InitGame(Game& game)
 	game.restartButton.Init(titleFont, RESTART_BTN_TXT, RESTART_BTN_WIDTH, LEFT_BTN_XCOR, BTNS_YCOR);
 
 	// load game textures
-	LoadTexture(game.shipTexture, IMG_PATH + "spaceship.png");
+	LoadTexture(game.shipTexture, IMG_PATH + "Spaceship.png");
+	LoadTexture(game.flyingShipTexture, IMG_PATH + "Spaceship2.png");
 	LoadTexture(game.explosionTexture1, IMG_PATH + "type_B.png");
 	LoadTexture(game.explosionTexture2, IMG_PATH + "type_C.png");
 	LoadTexture(game.rockTexture, IMG_PATH + "rock.png");
@@ -69,8 +70,8 @@ void Game::InitGame(Game& game)
 	game.sShipExplosion.SetAnimation(game.explosionTexture2, 0, 0, 256, 256, 48, 0.5f);
 	game.sRock.SetAnimation(game.rockTexture, 0, 0, 64, 64, 16, 0.2f);
 	game.sRockSmall.SetAnimation(game.smallRockTexture, 0, 0, 64, 64, 16, 0.2f);
-	game.sShip.SetAnimation(game.shipTexture, 40, 0, 40, 39, 1, 0.f);
-	game.sFlyingShip.SetAnimation(game.shipTexture, 40, 86, 40, 40, 1, 0.f);
+	game.sShip.SetAnimation(game.shipTexture, 0, 0, 62, 68, 1, 0.f);
+	game.sFlyingShip.SetAnimation(game.flyingShipTexture, 0, 0, 62, 68, 1, 0.f);
 
 	// load sounds
 	LoadSound(game.timerSnd, SND_PATH + "magnet_start.wav");

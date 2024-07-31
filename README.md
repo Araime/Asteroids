@@ -24,6 +24,9 @@ VisualStudio должен быть уже установлен.
 В папке репозитория открыть файл `Asteroids.sln`, запустить.
 
 ## Credits
+- Спрайы:
+	- `корабль` Skorpio - Space Ship Construction Kit
+
 - Музыка:  
 	- `меню` cynicmusic - Enchanted Tiki 86.mp3  
 	- `уровень` maxstack - through space.ogg  
