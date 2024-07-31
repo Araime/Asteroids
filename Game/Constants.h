@@ -64,7 +64,7 @@ const float ROCKET_COOLDOWN = 1.3f;
 // ship
 const float DEGREES_TO_RADIANS = 0.017453f;
 const int COUNTER = 1;
-const float SHIP_RAD = 20.f;
+const float SHIP_RAD = 25.f;
 const float SHIP_ACCELERATION = 0.2f;
 const float DECELERATION_FACTOR = 0.99f; // The lower the value, the faster the ship stops
 const float ROTATION_SPEED = 3.f;
