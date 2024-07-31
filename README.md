@@ -3,7 +3,7 @@
 Игра про космос, в которой корабль уничтожает астеройды. При столкновении 
 с астеройдами корабль уничтожается.
 
-https://github.com/Araime/Asteroids/assets/82653875/d6041447-6f65-42df-abe9-74a24cb894ba
+https://github.com/user-attachments/assets/1f01fd86-5b60-46dd-9aa1-0b4cc7b675e4
 
 ## TO DO:
 выпадение PowerUps,  
