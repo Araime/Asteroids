@@ -40,6 +40,7 @@ void Game::InitGame(Game& game)
 	// load game textures
 	LoadTexture(game.shipTexture, IMG_PATH + "Spaceship.png");
 	LoadTexture(game.flyingShipTexture, IMG_PATH + "Spaceship2.png");
+	LoadTexture(game.shipLife, IMG_PATH + "MiniSpaceship.png");
 	LoadTexture(game.explosionTexture1, IMG_PATH + "type_B.png");
 	LoadTexture(game.explosionTexture2, IMG_PATH + "type_C.png");
 	LoadTexture(game.rockTexture, IMG_PATH + "rock.png");

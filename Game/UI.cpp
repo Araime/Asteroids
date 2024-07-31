@@ -31,8 +31,8 @@ void UserInterface::InitUI(Game& game)
 	game.UI.highlighter.setPosition(SELECT1_XCOR, SELECT_YCOR);
 
 	// init ship lifes
-	game.UI.shipLife.setTexture(game.shipTexture);
-	game.UI.shipLife.setTextureRect(sf::IntRect(40, 0, 40, 39));
+	game.UI.shipLife.setTexture(game.shipLife);
+	game.UI.shipLife.setTextureRect(sf::IntRect(0, 0, 36, 40));
 	game.UI.shipLife.setScale(LIFE_SIZE / game.UI.shipLife.getLocalBounds().width,
 							  LIFE_SIZE / game.UI.shipLife.getLocalBounds().height);
 
