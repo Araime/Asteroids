@@ -27,7 +27,7 @@ class Game
 public:
 	GameState gameState = GameState::TitleScreen;
 
-	// set ateroid num
+	// set max asteroids num
 	int asteroids_num = 12;
 
 	// create cooldown timer value and text
