@@ -29,7 +29,7 @@
     <ClCompile Include="Game\Main.cpp" />
     <ClCompile Include="Game\Math.cpp" />
     <ClCompile Include="Game\Rocket.cpp" />
-    <ClCompile Include="Game\Score.cpp" />
+    <ClCompile Include="Game\ScoreTable.cpp" />
     <ClCompile Include="Game\Ship.cpp" />
     <ClCompile Include="Game\Sound.cpp" />
     <ClCompile Include="Game\Text.cpp" />
@@ -46,7 +46,7 @@
     <ClInclude Include="Game\Laser.h" />
     <ClInclude Include="Game\Math.h" />
     <ClInclude Include="Game\Rocket.h" />
-    <ClInclude Include="Game\Score.h" />
+    <ClInclude Include="Game\ScoreTable.h" />
     <ClInclude Include="Game\Ship.h" />
     <ClInclude Include="Game\Sound.h" />
     <ClInclude Include="Game\Text.h" />
