@@ -10,4 +10,6 @@ public:
 	void InitText(const sf::Font& font, const int size, const sf::Color& color);
 
 	void UpdateText(const std::string& str);
+
+	void UpdatePosition(const float& xcor, const float& ycor);
 };

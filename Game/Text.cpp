@@ -16,3 +16,8 @@ void Text::UpdateText(const std::string& str)
 	txt.setOrigin(textRect.width / 2, textRect.height / 2);
 	txt.setPosition(static_cast<float>(SCREEN_WIDTH / 2), static_cast<float>(SCREEN_HEIGHT / 2));
 }
+
+void Text::UpdatePosition(const float& xcor, const float& ycor)
+{
+	txt.setPosition(xcor, ycor);
+}

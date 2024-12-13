@@ -15,6 +15,8 @@ const int COOLDOWN_TEXT_SIZE = 55;
 const int TITLE_TEXT_SIZE = 128;
 const int BUTTON_TEXT_SIZE = 60;
 const int UI_TEXT_SIZE = 20;
+const float GO_TEXT_XCOR = 683.f;
+const float GO_TEXT_YCOR = 100.f;
 
 // main game
 const int SCREEN_WIDTH = 1366;
@@ -31,7 +33,7 @@ const std::string QUIT_BTN_TXT = "QUIT";
 const std::string RESTART_BTN_TXT = "RESTART";
 const float LEFT_BTN_XCOR = 350.f;
 const float RIGHT_BTN_XCOR = 1000.f;
-const float BTNS_YCOR = 600.f;
+const float BTNS_YCOR = 650.f;
 const float START_BTN_WIDTH = 145.f;
 const float QUIT_BTN_WIDTH = 105.f;
 const float RESTART_BTN_WIDTH = 195.f;

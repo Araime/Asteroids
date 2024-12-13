@@ -293,6 +293,7 @@ void Game::CheckGameOver(Game& game)
 	{
 		// update text and game state
 		game.bigText.UpdateText(GAME_OVER_TEXT);
+		game.bigText.UpdatePosition(GO_TEXT_XCOR, GO_TEXT_YCOR);
 		game.gameState = GameState::GameOver;
 
 		game.gameMusic.PlayMusic(SND_PATH + "space.ogg");
