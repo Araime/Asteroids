@@ -8,5 +8,5 @@ class Laser : public Entity
 public:
 	Laser();
 
-	void Update();
+	virtual void Update() override;
 };

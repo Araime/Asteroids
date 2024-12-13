@@ -147,7 +147,7 @@ public:
 
 	void Check—ompletedAnimations(Game& game);
 
-	void UpdateGame(Game& game, sf::RenderWindow& window, const float& currentTime, float& lastTime);
+	void UpdateGame(Game& game, sf::RenderWindow& window, const float& deltaTime);
 
 	void DrawCooldownText(Game& game, sf::RenderWindow& window);
 

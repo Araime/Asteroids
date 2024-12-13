@@ -8,5 +8,5 @@ class Rocket : public Entity
 public:
 	Rocket();
 
-	void Update();
+	virtual void Update() override;
 };

@@ -26,7 +26,7 @@ public:
 
 	Ship();
 
-	void Update();
+	virtual void Update() override;
 
 	void HandlePlayerInput(Game& game);
 

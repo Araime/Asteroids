@@ -34,13 +34,13 @@ int main()
 
 	// init game timer
 	sf::Clock gameClock;
-	float lastTime = gameClock.getElapsedTime().asSeconds();
+	float deltaTime = 0.f;
 
 	// main loop
 	while (window.isOpen())
 	{
 		// get current time
-		const float currentrTime = gameClock.getElapsedTime().asSeconds();
+		const float deltaTime = gameClock.restart().asSeconds();
 
 		HanldeWindowEvents(window);
 
@@ -53,7 +53,7 @@ int main()
 		}
 		case GameState::Game:
 		{
-			game.UpdateGame(game, window, currentrTime, lastTime);
+			game.UpdateGame(game, window, deltaTime);
 			game.DrawGame(game, window);
 			break;
 		}

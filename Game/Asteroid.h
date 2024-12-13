@@ -8,5 +8,5 @@ class Asteroid : public Entity
 public:
 	Asteroid();
 
-	void Update();
+	virtual void Update() override;
 };
