@@ -34,6 +34,9 @@ public:
 	int destroy_cooldown = 3;
 	std::string cooldownStr = "Get Ready\n\t\t\t";
 
+	// create player score:
+	int playerScore = 0;
+
 	// create game timers
 	sf::Clock gameTimer;
 	float newTime = 0.f;
@@ -156,4 +159,6 @@ public:
 	void DrawGameOver(Game& game, sf::RenderWindow& window);
 
 	void UpdateMousePosition(Game& game, sf::RenderWindow& window);
+
+	void UpdatePlayerScore(Game& game, const int& score);
 };

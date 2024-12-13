@@ -14,6 +14,7 @@ const std::string GAME_OVER_TEXT = "GAME OVER";
 const int COOLDOWN_TEXT_SIZE = 55;
 const int TITLE_TEXT_SIZE = 128;
 const int BUTTON_TEXT_SIZE = 60;
+const int UI_TEXT_SIZE = 20;
 
 // main game
 const int SCREEN_WIDTH = 1366;
@@ -95,3 +96,5 @@ const float SELECT2_XCOR = 293.f;
 const float WEAP_ICON_ANGLE = 90.f;
 const float LASER_RAD = 10.f;
 const float ROCKET_RAD = 10.f;
+const float UI_XCOR = 1100.f;
+const float UI_YCOR = 735.f;

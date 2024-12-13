@@ -51,8 +51,6 @@ void UserInterface::InitUI(Game& game)
 							 game.UI.rocket.getLocalBounds().height / 2);
 	game.UI.rocket.setRotation(WEAP_ICON_ANGLE);
 	game.UI.rocket.setPosition(ICON2_XCOR, ICON2_YCOR);
-
-
 }
 
 void UserInterface::UpdateUIHealthBar(const float health)
@@ -88,4 +86,24 @@ void UserInterface::DrawUI(Game& game, sf::RenderWindow& window, float xcor)
 
 	// draw highlihter
 	window.draw(game.UI.highlighter);
+
+	// draw UI score
+	if (game.gameState == GameState::Game)
+	{
+		window.draw(game.UI.UIScore);
+	}
+}
+
+void UserInterface::InitUIScore(const sf::Font& font, const int size, const sf::Color& color)
+{
+	UIScore.setFont(font);
+	UIScore.setCharacterSize(size);
+	UIScore.setStyle(sf::Text::Bold);
+	UIScore.setFillColor(color);
+	UIScore.setPosition(UI_XCOR, UI_YCOR);
+}
+
+void UserInterface::UpdateUIScore(const int& score)
+{
+	UIScore.setString(scoreStr + std::to_string(score));
 }

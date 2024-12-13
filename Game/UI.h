@@ -7,6 +7,10 @@ class Game;
 class UserInterface
 {
 public:
+	// create UI score text
+	sf::Text UIScore;
+	std::string scoreStr = "SCORE: ";
+
 	// create UI BG
 	sf::RectangleShape menuRect;
 
@@ -26,9 +30,6 @@ public:
 	sf::Sprite laser;
 	sf::Sprite rocket;
 
-	// create UI score text
-	Text UIText;
-
 public:
 	void InitUI(Game& game);
 
@@ -38,4 +39,8 @@ public:
 	void UpdateWeaponHighlighterPos(const float xcor, const float ycor);
 
 	void DrawUI(Game& game, sf::RenderWindow& window, float xcor);
+
+	void InitUIScore(const sf::Font& font, const int size, const sf::Color& color);
+
+	void UpdateUIScore(const int& score);
 };

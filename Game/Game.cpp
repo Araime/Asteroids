@@ -104,7 +104,10 @@ void Game::InitGame(Game& game)
 	// add player ship to list of entities
 	game.entities.push_back(game.player);
 
+	// init UI
 	game.UI.InitUI(game);
+	game.UI.InitUIScore(game.cooldownFont, UI_TEXT_SIZE, sf::Color::Yellow);
+	game.UI.UpdateUIScore(game.playerScore);
 
 	// update past time
 	game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
@@ -178,6 +181,10 @@ void Game::RestartGame(Game& game)
 	game.UI.UpdateUIHealthBar(game.player->health);
 
 	game.gameMusic.PlayMusic(SND_PATH + "through space.ogg");
+
+	game.playerScore = 0;
+	game.UI.UpdateUIScore(game.playerScore);
+
 	game.gameState = GameState::Game;
 }
 
@@ -208,6 +215,8 @@ void Game::CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* 
 			game.asteroidExplSnd.sound.play();
 
 			CreateSmallAsteroids(game, first_obj);
+
+			UpdatePlayerScore(game, static_cast<int>(first_obj->rad));
 		}
 	}
 
@@ -224,6 +233,8 @@ void Game::CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* 
 			game.asteroidExplSnd.sound.play();
 
 			CreateSmallAsteroids(game, first_obj);
+
+			UpdatePlayerScore(game, static_cast<int>(first_obj->rad));
 		}
 	}
 }
@@ -448,4 +459,10 @@ void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 void Game::UpdateMousePosition(Game& game, sf::RenderWindow& window)
 {
 	game.mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+}
+
+void Game::UpdatePlayerScore(Game& game, const int& score)
+{
+	game.playerScore += score;
+	game.UI.UpdateUIScore(game.playerScore);
 }
