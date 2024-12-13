@@ -44,7 +44,7 @@ const float ADDITIONAL_ANGLE = 90.f;
 
 // asteroids
 const int SM_ASTEROIDS = 2;
-const std::vector<float> DELTA_XY{ -2, 2 };
+const std::vector<float> DELTA_XY{-2, 2};
 const float SM_RAD = 15.f;
 const float BIG_RAD = 25.f;
 const int ASTEROID_MIN_SPEED = 4;
@@ -100,3 +100,15 @@ const float LASER_RAD = 10.f;
 const float ROCKET_RAD = 10.f;
 const float UI_XCOR = 1100.f;
 const float UI_YCOR = 735.f;
+
+// ScoreTable
+const std::string PLAYER_NAME = ("Player");
+const std::string NAMES[] = {"Omega", "Rico", "Micro", "Alpha", "CyBot", "Pilot", "Cassandra", "Blossom", "Otto",
+"Duster", "Kronos", "Ultron", "Blade", "Eyebot", "Agnes", "Zen", "Automata", "Olympus", "Titan", "Cerberus"};
+const int MAX_RAND_SCORE = 1000;
+const int TABLE_ROWS = 9;
+const float TABLE_INDENT = 200.f;
+const float TABLE_STEP = 30.f;
+const float HIGHLIGHTER_WIDTH = 290.f;
+const float HIGHLIGHTER_HEIGHT = 30.f;
+const float HIGHLIGHTER_STEP = 5.f;
