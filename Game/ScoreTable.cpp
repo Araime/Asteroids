@@ -2,7 +2,7 @@
 #include "ScoreTable.h"
 #include "Constants.h"
 
-void ScoreTable::InitScoreTable(const int playerScore)
+void ScoreTable::InitScoreTable(const int playerScore, sf::Font& scoreFont)
 {
 	// init highlighter
 	highlighter.setSize(sf::Vector2f(HIGHLIGHTER_WIDTH, HIGHLIGHTER_HEIGHT));
@@ -15,6 +15,11 @@ void ScoreTable::InitScoreTable(const int playerScore)
 	{
 		data[NAMES[rand() % static_cast<int>(sizeof(NAMES) / sizeof(NAMES[0]))]] = rand() % MAX_RAND_SCORE;
 	}
+
+	// init score table text
+	scoreText.setFont(scoreFont);
+	scoreText.setCharacterSize(SCORETABLE_TEXT_SIZE);
+	scoreText.setFillColor(sf::Color::Yellow);
 }
 
 void ScoreTable::UpdateScoreTable(const int playerScore)
@@ -22,7 +27,7 @@ void ScoreTable::UpdateScoreTable(const int playerScore)
 	data[PLAYER_NAME] = std::max(data[PLAYER_NAME], playerScore);
 }
 
-void ScoreTable::DrawScoreTable(sf::Text& scoresText, sf::RenderWindow& window, float xcor, float ycor)
+void ScoreTable::DrawScoreTable(sf::RenderWindow& window, float xcor, float ycor)
 {
 	// create multimap for sorting by scores
 	std::multimap<int, std::string, std::greater<int>> sortedData;
@@ -42,13 +47,13 @@ void ScoreTable::DrawScoreTable(sf::Text& scoresText, sf::RenderWindow& window, 
 			window.draw(highlighter);
 		}
 
-		scoresText.setString(item.second);
-		scoresText.setPosition(xcor, ycor);
-		window.draw(scoresText);
+		scoreText.setString(item.second);
+		scoreText.setPosition(xcor, ycor);
+		window.draw(scoreText);
 
-		scoresText.setString(std::to_string(item.first));
-		scoresText.setPosition(xcor + TABLE_INDENT, ycor);
-		window.draw(scoresText);
+		scoreText.setString(std::to_string(item.first));
+		scoreText.setPosition(xcor + TABLE_INDENT, ycor);
+		window.draw(scoreText);
 
 		ycor += TABLE_STEP;
 	}

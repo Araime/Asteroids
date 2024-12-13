@@ -14,6 +14,7 @@
 #include "Text.h"
 #include "UI.h"
 #include "Button.h"
+#include "ScoreTable.h"
 
 enum class GameState
 {
@@ -118,6 +119,9 @@ public:
 
 	// create health bar rectangles
 	UserInterface UI;
+
+	// create score table
+	ScoreTable scoreTable;
 
 	void LoadFont(sf::Font& text, const std::string path);
 

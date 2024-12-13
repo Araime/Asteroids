@@ -9,12 +9,11 @@ public:
 
 	std::unordered_map<std::string, int> data;
 
-	float xcor = 280.f;
-	float ycor = 250.f;
+	sf::Text scoreText;
 
-	void InitScoreTable(const int playerScore);
+	void InitScoreTable(const int playerScore, sf::Font& scoreFont);
 
 	void UpdateScoreTable(const int playerScore);
 
-	void DrawScoreTable(sf::Text& scoresText, sf::RenderWindow& window, float xcor, float ycor);
+	void DrawScoreTable(sf::RenderWindow& window, float xcor, float ycor);
 };

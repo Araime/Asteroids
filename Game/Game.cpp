@@ -110,6 +110,9 @@ void Game::InitGame(Game& game)
 	game.UI.InitUIScore(game.UIFont, UI_TEXT_SIZE, sf::Color::Yellow);
 	game.UI.UpdateUIScore(game.playerScore);
 
+	// init ScoreTable
+	game.scoreTable.InitScoreTable(game.playerScore, game.UIFont);
+
 	// update past time
 	game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
 }
@@ -186,6 +189,8 @@ void Game::RestartGame(Game& game)
 	game.playerScore = 0;
 	game.UI.UpdateUIScore(game.playerScore);
 
+	game.scoreTable.InitScoreTable(game.playerScore, game.UIFont);
+
 	game.gameState = GameState::Game;
 }
 
@@ -253,6 +258,8 @@ void Game::CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity
 			if (!game.player->health)
 			{
 				CreateExplosionAnimation(game, first_obj, game.sShipExplosion);
+
+				game.scoreTable.UpdateScoreTable(game.playerScore);
 
 				// update past time
 				game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
@@ -432,6 +439,8 @@ void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 	game.quitButton.Update(game, mousePos);
 	game.restartButton.Draw(window);
 	game.quitButton.Draw(window);
+
+	game.scoreTable.DrawScoreTable(window, SCORETABLE_XCOR, SCORETABLE_YCOR);
 
 	// check if the button is pressed
 	if (game.restartButton.IsPressed())

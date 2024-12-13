@@ -112,3 +112,6 @@ const float TABLE_STEP = 30.f;
 const float HIGHLIGHTER_WIDTH = 290.f;
 const float HIGHLIGHTER_HEIGHT = 30.f;
 const float HIGHLIGHTER_STEP = 5.f;
+const float SCORETABLE_XCOR = 570.f;
+const float SCORETABLE_YCOR = 240.f;
+const int SCORETABLE_TEXT_SIZE = 30;
