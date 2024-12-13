@@ -26,6 +26,9 @@ public:
 	sf::Sprite laser;
 	sf::Sprite rocket;
 
+	// create UI score text
+	Text UIText;
+
 public:
 	void InitUI(Game& game);
 

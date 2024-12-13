@@ -51,6 +51,8 @@ void UserInterface::InitUI(Game& game)
 							 game.UI.rocket.getLocalBounds().height / 2);
 	game.UI.rocket.setRotation(WEAP_ICON_ANGLE);
 	game.UI.rocket.setPosition(ICON2_XCOR, ICON2_YCOR);
+
+
 }
 
 void UserInterface::UpdateUIHealthBar(const float health)
