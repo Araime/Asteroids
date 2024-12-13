@@ -25,6 +25,7 @@ void Game::InitGame(Game& game)
 	// load fonts
 	LoadFont(game.cooldownFont, FONT_PATH + "papyrus-pixel_1.ttf");
 	LoadFont(game.titleFont, FONT_PATH + "DischargePro.ttf");
+	LoadFont(game.UIFont, FONT_PATH + "accid___(Ru)_0.ttf");
 
 	// init game texts
 	game.cooldownText.InitText(game.cooldownFont, COOLDOWN_TEXT_SIZE, sf::Color::Cyan);
@@ -106,7 +107,7 @@ void Game::InitGame(Game& game)
 
 	// init UI
 	game.UI.InitUI(game);
-	game.UI.InitUIScore(game.cooldownFont, UI_TEXT_SIZE, sf::Color::Yellow);
+	game.UI.InitUIScore(game.UIFont, UI_TEXT_SIZE, sf::Color::Yellow);
 	game.UI.UpdateUIScore(game.playerScore);
 
 	// update past time

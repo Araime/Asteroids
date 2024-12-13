@@ -45,6 +45,7 @@ public:
 	// create fonts
 	sf::Font cooldownFont;
 	sf::Font titleFont;
+	sf::Font UIFont;
 
 	// create game texts
 	Text cooldownText;
