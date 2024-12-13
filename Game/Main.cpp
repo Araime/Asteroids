@@ -32,16 +32,9 @@ int main()
 	Game game;
 	game.InitGame(game);
 
-	// init game timer
-	sf::Clock gameClock;
-	float deltaTime = 0.f;
-
 	// main loop
 	while (window.isOpen())
 	{
-		// get current time
-		const float deltaTime = gameClock.restart().asSeconds();
-
 		HanldeWindowEvents(window);
 
 		switch (game.gameState)
@@ -53,7 +46,7 @@ int main()
 		}
 		case GameState::Game:
 		{
-			game.UpdateGame(game, window, deltaTime);
+			game.UpdateGame(game, window);
 			game.DrawGame(game, window);
 			break;
 		}

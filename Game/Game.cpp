@@ -361,7 +361,7 @@ void Game::UpdateEntities(Game& game)
 	}
 }
 
-void Game::UpdateGame(Game& game, sf::RenderWindow& window, const float& deltaTime)
+void Game::UpdateGame(Game& game, sf::RenderWindow& window)
 {
 	// player's functions
 	game.player->HandlePlayerInput(game);
