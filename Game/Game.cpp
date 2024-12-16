@@ -183,6 +183,7 @@ void Game::RestartGame(Game& game)
 	game.player->weapon = Weapon::Laser;
 
 	game.UI.UpdateUIHealthBar(game.player->health);
+	game.UI.UpdateWeaponHighlighterPos(SELECT1_XCOR, SELECT_YCOR);
 
 	game.gameMusic.PlayMusic(SND_PATH + "through space.ogg");
 
