@@ -181,13 +181,13 @@ void Game::RestartGame(Game& game)
 	game.player->deltaY = 0;
 	game.player->isDestroyed = false;
 	game.player->weapon = Weapon::Laser;
-
-	game.UI.UpdateUIHealthBar(game.player->health);
-	game.UI.UpdateWeaponHighlighterPos(SELECT1_XCOR, SELECT_YCOR);
+	game.playerScore = 0;
 
 	game.gameMusic.PlayMusic(SND_PATH + "through space.ogg");
 
-	game.playerScore = 0;
+	// reset UI and GameState
+	game.UI.UpdateUIHealthBar(game.player->health);
+	game.UI.UpdateWeaponHighlighterPos(SELECT1_XCOR, SELECT_YCOR);
 	game.UI.UpdateUIScore(game.playerScore);
 
 	game.scoreTable.InitScoreTable(game.playerScore, game.UIFont);
