@@ -9,6 +9,9 @@ public:
 
 	std::unordered_map<std::string, int> data;
 
+	// create multimap for sorting by scores
+	std::multimap<int, std::string, std::greater<int>> sortedData;
+
 	sf::Text scoreText;
 
 	void InitScoreTable(const int playerScore, sf::Font& scoreFont);

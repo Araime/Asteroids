@@ -8,12 +8,22 @@ void ScoreTable::InitScoreTable(const int playerScore, sf::Font& scoreFont)
 	highlighter.setSize(sf::Vector2f(HIGHLIGHTER_WIDTH, HIGHLIGHTER_HEIGHT));
 	highlighter.setFillColor(sf::Color::Magenta);
 
+	// clear and initialize map
+	data.clear();
 	data[PLAYER_NAME] = 0;
 
 	// generate random scores and names and add it to score table
+	int massiveLength = static_cast<int>(sizeof(NAMES) / sizeof(NAMES[0]));
+	int randomIndex = rand() % massiveLength - 1;
+
 	for (int i = 0; i < TABLE_ROWS; i++)
 	{
-		data[NAMES[rand() % static_cast<int>(sizeof(NAMES) / sizeof(NAMES[0]))]] = rand() % MAX_RAND_SCORE;
+		data[NAMES[randomIndex]] = rand() % MAX_RAND_SCORE;
+		randomIndex++;
+		if (randomIndex > massiveLength)
+		{
+			randomIndex = 0;
+		}
 	}
 
 	// init score table text
@@ -25,19 +35,19 @@ void ScoreTable::InitScoreTable(const int playerScore, sf::Font& scoreFont)
 void ScoreTable::UpdateScoreTable(const int playerScore)
 {
 	data[PLAYER_NAME] = std::max(data[PLAYER_NAME], playerScore);
-}
 
-void ScoreTable::DrawScoreTable(sf::RenderWindow& window, float xcor, float ycor)
-{
-	// create multimap for sorting by scores
-	std::multimap<int, std::string, std::greater<int>> sortedData;
+	sortedData.clear();
 
 	// add scores in multimap
 	for (const auto& item : data)
 	{
 		sortedData.insert(make_pair(item.second, item.first));
 	}
+}
 
+void ScoreTable::DrawScoreTable(sf::RenderWindow& window, float xcor, float ycor)
+{
+	int place = 1;
 	for (const auto& item : sortedData)
 	{
 		if (item.second == PLAYER_NAME)
@@ -47,7 +57,7 @@ void ScoreTable::DrawScoreTable(sf::RenderWindow& window, float xcor, float ycor
 			window.draw(highlighter);
 		}
 
-		scoreText.setString(item.second);
+		scoreText.setString(std::to_string(place) + "  " + item.second);
 		scoreText.setPosition(xcor, ycor);
 		window.draw(scoreText);
 
@@ -56,5 +66,6 @@ void ScoreTable::DrawScoreTable(sf::RenderWindow& window, float xcor, float ycor
 		window.draw(scoreText);
 
 		ycor += TABLE_STEP;
+		place++;
 	}
 }
