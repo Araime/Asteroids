@@ -34,11 +34,12 @@ void ScoreTable::InitScoreTable(const int playerScore, sf::Font& scoreFont)
 
 void ScoreTable::UpdateScoreTable(const int playerScore)
 {
+	// update player score in map
 	data[PLAYER_NAME] = std::max(data[PLAYER_NAME], playerScore);
 
+	// add scores in update multimap and add scores
 	sortedData.clear();
 
-	// add scores in multimap
 	for (const auto& item : data)
 	{
 		sortedData.insert(make_pair(item.second, item.first));
@@ -57,10 +58,12 @@ void ScoreTable::DrawScoreTable(sf::RenderWindow& window, float xcor, float ycor
 			window.draw(highlighter);
 		}
 
+		// draw player name
 		scoreText.setString(std::to_string(place) + "  " + item.second);
 		scoreText.setPosition(xcor, ycor);
 		window.draw(scoreText);
 
+		// draw player score
 		scoreText.setString(std::to_string(item.first));
 		scoreText.setPosition(xcor + TABLE_INDENT, ycor);
 		window.draw(scoreText);
