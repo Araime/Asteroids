@@ -30,6 +30,8 @@ public:
 
 	void HandlePlayerInput(Game& game);
 
+	void ChangeWeapon(Game& game);
+
 	void MakeShot(Game& game, float xcor);
 
 	void UpdateShipSprite(Game& game);

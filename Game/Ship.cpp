@@ -81,33 +81,15 @@ void Ship::HandlePlayerInput(Game& game)
 		}
 
 		// equip rocket
-		if (game.player->weapon == Weapon::Laser)
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2) && game.player->weapon == Weapon::Laser)
 		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
-			{
-				game.player->weapon = Weapon::Rocket;
-
-				// change highlighter coord
-				game.UI.UpdateWeaponHighlighterPos(SELECT2_XCOR, SELECT_YCOR);
-
-				// play weapon change sound
-				game.weapChangeSnd.sound.play();
-			}
+			ChangeWeapon(game);
 		}
 
 		// equip laser
-		if (game.player->weapon == Weapon::Rocket)
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1) && game.player->weapon == Weapon::Rocket)
 		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
-			{
-				game.player->weapon = Weapon::Laser;
-
-				// change highlighter coord
-				game.UI.UpdateWeaponHighlighterPos(SELECT1_XCOR, SELECT_YCOR);
-
-				// play weapon change sound
-				game.weapChangeSnd.sound.play();
-			}
+			ChangeWeapon(game);
 		}
 
 		// check if ship is accelerated
@@ -130,6 +112,25 @@ void Ship::HandlePlayerInput(Game& game)
 	}
 }
 
+void Ship::ChangeWeapon(Game& game)
+{
+	switch (game.player->weapon)
+	{
+	case Weapon::Laser:
+		game.player->weapon = Weapon::Rocket;
+		game.UI.UpdateWeaponHighlighterPos(SELECT2_XCOR, SELECT_YCOR);
+		game.weapChangeSnd.sound.play();
+		break;
+	case Weapon::Rocket:
+		game.player->weapon = Weapon::Laser;
+		game.UI.UpdateWeaponHighlighterPos(SELECT1_XCOR, SELECT_YCOR);
+		game.weapChangeSnd.sound.play();
+		break;
+	default:
+		break;
+	}
+}
+
 void Ship::MakeShot(Game& game, float xcor)
 {
 	switch (game.player->weapon)
@@ -144,7 +145,7 @@ void Ship::MakeShot(Game& game, float xcor)
 
 			float rand_angle = static_cast<float>(rand() % 6 - 3);
 			laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
-							 game.player->angle + rand_angle, LASER_RAD);
+				game.player->angle + rand_angle, LASER_RAD);
 			game.entities.push_back(laser);
 
 			// play random laser sound
@@ -166,7 +167,7 @@ void Ship::MakeShot(Game& game, float xcor)
 				// create new rocket
 				Rocket* rocket = new Rocket();
 				rocket->SetParams(game.sRocket, game.player->xcor, game.player->ycor,
-								  game.player->angle - xcor, ROCKET_RAD);
+					game.player->angle - xcor, ROCKET_RAD);
 				game.entities.push_back(rocket);
 				xcor += ROCKET_ANGLE_STEP;
 			}
@@ -249,7 +250,7 @@ void Ship::RestartPlayer(Game& game)
 		float angle = 0.f;
 
 		game.player->SetParams(game.sShip, static_cast<float>(SCREEN_WIDTH / 2),
-							   static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
+			static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
 		game.player->deltaX = 0.f;
 		game.player->deltaY = 0.f;
 		game.player->isAccelerating = false;
