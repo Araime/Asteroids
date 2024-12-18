@@ -1,4 +1,5 @@
 #include "Button.h"
+
 #include "Game.h"
 
 void Button::Init(const sf::Font& font, const std::string& text, const float& btnWidth, const float& xcor, const float& ycor)

@@ -1,20 +1,23 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
+
 #include <list>
 #include <string>
+
 #include "Animation.h"
+#include "Asteroid.h"
+#include "Background.h"
+#include "Button.h"
 #include "Entity.h"
 #include "Laser.h"
-#include "Rocket.h"
-#include "Asteroid.h"
-#include "Ship.h"
 #include "Math.h"
+#include "Rocket.h"
+#include "Ship.h"
 #include "Sound.h"
-#include "Background.h"
+#include "ScoreTable.h"
 #include "Text.h"
 #include "UI.h"
-#include "Button.h"
-#include "ScoreTable.h"
 
 enum class GameState
 {

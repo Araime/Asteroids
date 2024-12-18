@@ -1,5 +1,7 @@
-#include <algorithm>
 #include "ScoreTable.h"
+
+#include <algorithm>
+
 #include "Constants.h"
 
 void ScoreTable::InitScoreTable(const int playerScore, sf::Font& scoreFont)

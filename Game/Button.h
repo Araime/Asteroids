@@ -1,5 +1,7 @@
 #pragma once
+
 #include<SFML/Graphics.hpp>
+
 #include "Constants.h"
 
 enum ButtonState{BTN_IDLE = 0, BTN_HOVER, BTN_ACTIVE};

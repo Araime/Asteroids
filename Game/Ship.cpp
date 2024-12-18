@@ -1,4 +1,5 @@
 #include "Ship.h"
+
 #include "Game.h"
 
 Ship::Ship()

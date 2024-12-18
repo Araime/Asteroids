@@ -1,6 +1,8 @@
 #include "Game.h"
-#include "Constants.h"
+
 #include <cassert>
+
+#include "Constants.h"
 
 void Game::LoadFont(sf::Font& text, const std::string path)
 {

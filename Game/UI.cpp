@@ -1,4 +1,5 @@
 #include "UI.h"
+
 #include "Game.h"
 
 void UserInterface::InitUI(Game& game)
