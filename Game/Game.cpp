@@ -52,9 +52,9 @@ void Game::InitGame(Game& game)
 	LoadTexture(game.rocketTexture, IMG_PATH + "rocket.png");
 
 	// load bg's textures
-	LoadTexture(game.levelTexture, IMG_PATH + "Starfield.jpg");
-	LoadTexture(game.menuTexture, IMG_PATH + "5438849.jpg");
-	LoadTexture(game.gameOverTexture, IMG_PATH + "night-sky-glows.jpg");
+	LoadTexture(game.levelTexture, IMG_PATH + "bg.jpg");
+	LoadTexture(game.menuTexture, IMG_PATH + "mainmenu.jpg");
+	LoadTexture(game.gameOverTexture, IMG_PATH + "gameover.jpg");
 
 	// enable smooth filter
 	game.shipTexture.setSmooth(true);
