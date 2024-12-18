@@ -15,9 +15,9 @@ const std::string GAME_OVER_TEXT = "GAME OVER";
 const int COOLDOWN_TEXT_SIZE = 55;
 const int TITLE_TEXT_SIZE = 128;
 const int BUTTON_TEXT_SIZE = 60;
-const int UI_TEXT_SIZE = 20;
+const int UI_TEXT_SIZE = 25;
 const float GO_TEXT_XCOR = 683.f;
-const float GO_TEXT_YCOR = 100.f;
+const float GO_TEXT_YCOR = 60.f;
 
 // main game
 const int SCREEN_WIDTH = 1366;
@@ -100,7 +100,7 @@ const float WEAP_ICON_ANGLE = 90.f;
 const float LASER_RAD = 10.f;
 const float ROCKET_RAD = 10.f;
 const float UI_XCOR = 1100.f;
-const float UI_YCOR = 735.f;
+const float UI_YCOR = 730.f;
 
 // ScoreTable
 const std::string PLAYER_NAME = ("Player");
@@ -109,10 +109,10 @@ const std::string NAMES[] = {"Omega", "Rico", "Micro", "Alpha", "CyBot", "Pilot"
 const int MAX_RAND_SCORE = 1000;
 const int TABLE_ROWS = 9;
 const float TABLE_INDENT = 200.f;
-const float TABLE_STEP = 30.f;
+const float TABLE_STEP = 40.f;
 const float HIGHLIGHTER_WIDTH = 290.f;
-const float HIGHLIGHTER_HEIGHT = 30.f;
-const float HIGHLIGHTER_STEP = 5.f;
+const float HIGHLIGHTER_HEIGHT = 40.f;
+const float HIGHLIGHTER_STEP = 10.f;
 const float SCORETABLE_XCOR = 570.f;
-const float SCORETABLE_YCOR = 240.f;
-const int SCORETABLE_TEXT_SIZE = 30;
+const float SCORETABLE_YCOR = 200.f;
+const int SCORETABLE_TEXT_SIZE = 40;
