@@ -113,6 +113,6 @@ const float TABLE_STEP = 40.f;
 const float HIGHLIGHTER_WIDTH = 290.f;
 const float HIGHLIGHTER_HEIGHT = 40.f;
 const float HIGHLIGHTER_STEP = 10.f;
-const float SCORETABLE_XCOR = 570.f;
+const float SCORETABLE_XCOR = 580.f;
 const float SCORETABLE_YCOR = 200.f;
 const int SCORETABLE_TEXT_SIZE = 40;
