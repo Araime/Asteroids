@@ -247,18 +247,23 @@ void Ship::HandlePlayerRessurection(Game& game)
 	}
 	if (!game.destroy_cooldown)
 	{
-		// ressurect the player
-		float angle = 0.f;
-
-		game.player->SetParams(game.sShip, static_cast<float>(SCREEN_WIDTH / 2),
-			static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
-		game.player->deltaX = 0.f;
-		game.player->deltaY = 0.f;
-		game.player->isAccelerating = false;
-		game.player->health = SHIP_HEALTH;
-		game.player->isDestroyed = false;
+		RessurectPlayer(game);
 
 		// update player health
 		game.UI.UpdateUIHealthBar(game.player->health);
 	}
+}
+
+void Ship::RessurectPlayer(Game& game)
+{
+	// ressurect the player
+	float angle = 0.f;
+
+	game.player->SetParams(game.sShip, static_cast<float>(SCREEN_WIDTH / 2),
+		static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
+	game.player->deltaX = 0.f;
+	game.player->deltaY = 0.f;
+	game.player->isDestroyed = false;
+	game.player->isAccelerating = false;
+	game.player->health = SHIP_HEALTH;
 }

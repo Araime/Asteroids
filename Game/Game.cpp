@@ -176,16 +176,10 @@ void Game::RestartGame(Game& game)
 	game.player->ships = 3;
 	game.player->health = 100.f;
 
-	float angle = 0.f;
-	game.player->SetParams(game.sShip, static_cast<float>(SCREEN_WIDTH / 2),
-		static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
-	game.player->deltaX = 0;
-	game.player->deltaY = 0;
-	game.player->isDestroyed = false;
+	game.player->RessurectPlayer(game);
+
 	game.player->weapon = Weapon::Laser;
 	game.playerScore = 0;
-
-	game.gameMusic.PlayMusic(SND_PATH + "through space.ogg");
 
 	// reset UI and GameState
 	game.UI.UpdateUIHealthBar(game.player->health);
@@ -193,6 +187,8 @@ void Game::RestartGame(Game& game)
 	game.UI.UpdateUIScore(game.playerScore);
 
 	game.scoreTable.InitScoreTable(game.UIFont);
+
+	game.gameMusic.PlayMusic(SND_PATH + "through space.ogg");
 
 	game.gameState = GameState::Game;
 }
