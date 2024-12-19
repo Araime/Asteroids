@@ -389,7 +389,7 @@ void Game::UpdateGame(Game& game, sf::RenderWindow& window)
 	// player's functions
 	game.player->HandlePlayerInput(game);
 	game.player->UpdateShipSprite(game);
-	game.player->RestartPlayer(game);
+	game.player->HandlePlayerRessurection(game);
 
 	CheckAllCollisions(game);
 

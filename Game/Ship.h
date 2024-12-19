@@ -40,5 +40,5 @@ public:
 
 	void TakeDamage(Game& game, const float damage);
 
-	void RestartPlayer(Game& game);
+	void HandlePlayerRessurection(Game& game);
 };

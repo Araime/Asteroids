@@ -223,7 +223,7 @@ void Ship::TakeDamage(Game& game, const float damage)
 	}
 }
 
-void Ship::RestartPlayer(Game& game)
+void Ship::HandlePlayerRessurection(Game& game)
 {
 	if (!game.player->isDestroyed) return;
 
