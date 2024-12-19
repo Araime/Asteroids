@@ -4,7 +4,7 @@
 
 #include "Constants.h"
 
-void ScoreTable::InitScoreTable(const int playerScore, sf::Font& scoreFont)
+void ScoreTable::InitScoreTable(sf::Font& scoreFont)
 {
 	// init highlighter
 	highlighter.setSize(sf::Vector2f(HIGHLIGHTER_WIDTH, HIGHLIGHTER_HEIGHT));

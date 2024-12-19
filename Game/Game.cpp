@@ -113,7 +113,7 @@ void Game::InitGame(Game& game)
 	game.UI.UpdateUIScore(game.playerScore);
 
 	// init ScoreTable
-	game.scoreTable.InitScoreTable(game.playerScore, game.UIFont);
+	game.scoreTable.InitScoreTable(game.UIFont);
 
 	// update past time
 	game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
@@ -192,7 +192,7 @@ void Game::RestartGame(Game& game)
 	game.UI.UpdateWeaponHighlighterPos(SELECT1_XCOR, SELECT_YCOR);
 	game.UI.UpdateUIScore(game.playerScore);
 
-	game.scoreTable.InitScoreTable(game.playerScore, game.UIFont);
+	game.scoreTable.InitScoreTable(game.UIFont);
 
 	game.gameState = GameState::Game;
 }

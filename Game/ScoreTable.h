@@ -16,7 +16,7 @@ public:
 
 	sf::Text scoreText;
 
-	void InitScoreTable(const int playerScore, sf::Font& scoreFont);
+	void InitScoreTable(sf::Font& scoreFont);
 
 	void UpdateScoreTable(const int playerScore);
 
