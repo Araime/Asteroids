@@ -233,21 +233,6 @@ void Game::CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* 
 
 		UpdatePlayerScore(game, static_cast<int>(first_obj->rad));
 	}
-
-	if (IsCollide(first_obj, second_obj))
-	{
-		second_obj->isAlive = false;
-		first_obj->isAlive = false;
-
-		CreateExplosionAnimation(game, first_obj, game.sAsteroidExplosion);
-
-		// play explosion sound
-		game.asteroidExplSnd.sound.play();
-
-		CreateSmallAsteroids(game, first_obj);
-
-		UpdatePlayerScore(game, static_cast<int>(first_obj->rad));
-	}
 }
 
 void Game::CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj)
