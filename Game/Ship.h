@@ -43,4 +43,6 @@ public:
 	void HandlePlayerRessurection(Game& game);
 
 	void RessurectPlayer(Game& game);
+
+	void ResetPlayerParams(Game& game);
 };

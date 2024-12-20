@@ -104,9 +104,6 @@ void Game::InitGame(Game& game)
 
 	game.gameMusic.PlayMusic(SND_PATH + "enchanted tiki 86.ogg");
 
-	// add player ship to list of entities
-	game.entities.push_back(game.player);
-
 	// init UI
 	game.UI.InitUI(game);
 	game.UI.InitUIScore(game.UIFont, UI_TEXT_SIZE, sf::Color::Yellow);
@@ -151,20 +148,18 @@ void Game::DrawMainMenu(Game& game, sf::RenderWindow& window)
 
 void Game::RestartGame(Game& game)
 {
-	// clear the list of entities except for the first player
+	// clear the list of entities
 	for (auto iter = game.entities.begin(); iter != game.entities.end();)
 	{
 		Entity* entity = *iter;
-		if (entity->name != "player")
-		{
-			iter = game.entities.erase(iter);
-			delete entity;
-		}
-		else
-		{
-			++iter;
-		}
+		iter = game.entities.erase(iter);
+		delete entity;
 	}
+
+	// create the player ship and add to the list of entities
+	game.player = new Ship;
+	game.entities.push_back(game.player);
+	game.player->ResetPlayerParams(game);
 
 	// create asteroids
 	for (int i = 0; i < game.asteroids_num; i++)
@@ -172,16 +167,8 @@ void Game::RestartGame(Game& game)
 		CreateAsteroid(game);
 	}
 
-	// restart player ship
-	game.player->ships = 3;
-	game.player->health = 100.f;
-
-	game.player->RessurectPlayer(game);
-
-	game.player->weapon = Weapon::Laser;
-	game.playerScore = 0;
-
 	// reset UI and GameState
+	game.playerScore = 0;
 	game.UI.UpdateUIHealthBar(game.player->health);
 	game.UI.UpdateWeaponHighlighterPos(SELECT1_XCOR, SELECT_YCOR);
 	game.UI.UpdateUIScore(game.playerScore);

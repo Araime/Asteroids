@@ -118,7 +118,8 @@ public:
 	std::list<Entity*> entities;
 
 	// create player ship
-	Ship* player = new Ship;
+	//Ship* player = new Ship;
+	Ship* player;
 
 	// create health bar rectangles
 	UserInterface UI;
