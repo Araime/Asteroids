@@ -409,8 +409,6 @@ void Game::DrawGame(Game& game, sf::RenderWindow& window)
 
 void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 {
-	game.newTime = game.gameTimer.getElapsedTime().asSeconds();
-
 	window.clear();
 
 	window.draw(game.gameOverBG.sprite);
@@ -437,17 +435,6 @@ void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 	}
 
 	window.display();
-
-	if (game.newTime - game.pastTime > GAME_OVER_COOLDOWN)
-	{
-		// update text and game state
-		game.bigText.UpdateText(TITLE_TEXT);
-		game.gameState = GameState::TitleScreen;
-
-		game.gameMusic.PlayMusic(SND_PATH + "enchanted tiki 86.ogg");
-
-		game.pastTime = game.newTime;
-	}
 }
 
 void Game::UpdateMousePosition(Game& game, sf::RenderWindow& window)
