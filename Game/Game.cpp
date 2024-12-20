@@ -199,12 +199,8 @@ void Game::CheckAllCollisions(Game& game)
 	{
 		for (auto& second_obj : game.entities)
 		{
-			if (first_obj->name == "asteroid" && second_obj->name == "laser" && second_obj->isAlive)
-			{
-				CheckAsteroidAndShotCollision(game, first_obj, second_obj);
-			}
-
-			if (first_obj->name == "asteroid" && second_obj->name == "rocket" && second_obj->isAlive)
+			if (first_obj->name == "asteroid" && second_obj->name == "laser" && second_obj->isAlive ||
+				first_obj->name == "asteroid" && second_obj->name == "rocket" && second_obj->isAlive)
 			{
 				CheckAsteroidAndShotCollision(game, first_obj, second_obj);
 			}
