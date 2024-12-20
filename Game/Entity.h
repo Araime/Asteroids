@@ -23,7 +23,7 @@ public:
 
 	virtual void Update() {};
 
-	// rotate and draw the sprite 
+	// rotate and draw the sprite
 	void Draw(sf::RenderWindow& win);
 
 	virtual ~Entity() {};

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 // init paths variables
 const std::string IMG_PATH = "Resources/Images/";
