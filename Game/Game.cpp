@@ -199,7 +199,15 @@ void Game::CheckAllCollisions(Game& game)
 	{
 		for (auto& second_obj : game.entities)
 		{
-			CheckAsteroidAndShotCollision(game, first_obj, second_obj);
+			if (first_obj->name == "asteroid" && second_obj->name == "laser" && second_obj->isAlive)
+			{
+				CheckAsteroidAndShotCollision(game, first_obj, second_obj);
+			}
+
+			if (first_obj->name == "asteroid" && second_obj->name == "rocket" && second_obj->isAlive)
+			{
+				CheckAsteroidAndShotCollision(game, first_obj, second_obj);
+			}
 
 			if (first_obj->name == "player" && second_obj->name == "asteroid")
 			{
@@ -211,40 +219,34 @@ void Game::CheckAllCollisions(Game& game)
 
 void Game::CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* second_obj)
 {
-	if (first_obj->name == "asteroid" && second_obj->name == "laser" && second_obj->isAlive)
+	if (IsCollide(first_obj, second_obj))
 	{
-		if (IsCollide(first_obj, second_obj))
-		{
-			second_obj->isAlive = false;
-			first_obj->isAlive = false;
+		second_obj->isAlive = false;
+		first_obj->isAlive = false;
 
-			CreateExplosionAnimation(game, first_obj, game.sAsteroidExplosion);
+		CreateExplosionAnimation(game, first_obj, game.sAsteroidExplosion);
 
-			// play explosion sound
-			game.asteroidExplSnd.sound.play();
+		// play explosion sound
+		game.asteroidExplSnd.sound.play();
 
-			CreateSmallAsteroids(game, first_obj);
+		CreateSmallAsteroids(game, first_obj);
 
-			UpdatePlayerScore(game, static_cast<int>(first_obj->rad));
-		}
+		UpdatePlayerScore(game, static_cast<int>(first_obj->rad));
 	}
 
-	if (first_obj->name == "asteroid" && second_obj->name == "rocket" && second_obj->isAlive)
+	if (IsCollide(first_obj, second_obj))
 	{
-		if (IsCollide(first_obj, second_obj))
-		{
-			second_obj->isAlive = false;
-			first_obj->isAlive = false;
+		second_obj->isAlive = false;
+		first_obj->isAlive = false;
 
-			CreateExplosionAnimation(game, first_obj, game.sAsteroidExplosion);
+		CreateExplosionAnimation(game, first_obj, game.sAsteroidExplosion);
 
-			// play explosion sound
-			game.asteroidExplSnd.sound.play();
+		// play explosion sound
+		game.asteroidExplSnd.sound.play();
 
-			CreateSmallAsteroids(game, first_obj);
+		CreateSmallAsteroids(game, first_obj);
 
-			UpdatePlayerScore(game, static_cast<int>(first_obj->rad));
-		}
+		UpdatePlayerScore(game, static_cast<int>(first_obj->rad));
 	}
 }
 
