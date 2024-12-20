@@ -151,7 +151,7 @@ void Game::DrawMainMenu(Game& game, sf::RenderWindow& window)
 
 void Game::RestartGame(Game& game)
 {
-	// clear entities list
+	// clear the list of entities except for the first player
 	for (auto iter = game.entities.begin(); iter != game.entities.end();)
 	{
 		Entity* entity = *iter;
@@ -199,12 +199,15 @@ void Game::CheckAllCollisions(Game& game)
 	{
 		for (auto& second_obj : game.entities)
 		{
+			/* if the name of the first object is a "asteroid" and the second is an "laser" or "rocket"
+			and the second object is alive*/
 			if (first_obj->name == "asteroid" && second_obj->name == "laser" && second_obj->isAlive ||
 				first_obj->name == "asteroid" && second_obj->name == "rocket" && second_obj->isAlive)
 			{
 				CheckAsteroidAndShotCollision(game, first_obj, second_obj);
 			}
 
+			// if the name of the first object is a "player" and the second is an "asteroid"
 			if (first_obj->name == "player" && second_obj->name == "asteroid")
 			{
 				CheckCollisionPlayerAndAsteroid(game, first_obj, second_obj);
