@@ -50,6 +50,10 @@ void Game::InitGame(Game& game)
 	LoadTexture(game.smallRockTexture, IMG_PATH + "rock_small.png");
 	LoadTexture(game.laserTexture, IMG_PATH + "laser.png");
 	LoadTexture(game.rocketTexture, IMG_PATH + "rocket.png");
+	LoadTexture(game.laserPickup, IMG_PATH + "Laser_Pickup.png");
+	LoadTexture(game.healthPickup, IMG_PATH + "Health_Pickup.png");
+	LoadTexture(game.rocketPickup, IMG_PATH + "Rocket_Pickup.png");
+	LoadTexture(game.shieldPickup, IMG_PATH + "Armor_Pickup.png");
 
 	// load bg's textures
 	LoadTexture(game.levelTexture, IMG_PATH + "bg.jpg");
@@ -76,6 +80,10 @@ void Game::InitGame(Game& game)
 	game.sRockSmall.SetAnimation(game.smallRockTexture, 0, 0, 64, 64, 16, 0.2f);
 	game.sShip.SetAnimation(game.shipTexture, 0, 0, 62, 68, 1, 0.f);
 	game.sFlyingShip.SetAnimation(game.flyingShipTexture, 0, 0, 62, 68, 1, 0.f);
+	game.sLaserPickup.SetAnimation(game.laserPickup, 0, 0, 75, 75, 1, 0.f);
+	game.sHealthPickup.SetAnimation(game.healthPickup, 0, 0, 75, 75, 1, 0.f);
+	game.sRocketPickup.SetAnimation(game.rocketPickup, 0, 0, 75, 75, 1, 0.f);
+	game.sShieldPickup.SetAnimation(game.shieldPickup, 0, 0, 75, 75, 1, 0.f);
 
 	// load sounds
 	LoadSound(game.timerSnd, SND_PATH + "magnet_start.wav");
@@ -220,6 +228,11 @@ void Game::CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* 
 		CreateSmallAsteroids(game, first_obj);
 
 		UpdatePlayerScore(game, static_cast<int>(first_obj->rad));
+
+		if ((rand() % 10 + 1) > 9)
+		{
+			CreateRandomPickup(game, second_obj);
+		}
 	}
 }
 
@@ -247,11 +260,6 @@ void Game::CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity
 			CreateExplosionAnimation(game, second_obj, game.sAsteroidExplosion);
 
 			game.asteroidExplSnd.sound.play();
-
-			if ((rand() % 10 + 1) > 9)
-			{
-				CreateRandomPickup(game, second_obj);
-			}
 		}
 
 		CheckGameOver(game);
@@ -341,7 +349,36 @@ void Game::RandomGenerateNewAsteroid(Game& game)
 
 void Game::CreateRandomPickup(Game& game, Entity* obj)
 {
+	int pickupNumber = rand() % 100 + 1;
 
+	if (pickupNumber < 26)
+	{
+		HealthPickup* pickup = new HealthPickup();
+		pickup->SetParams(sHealthPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE);
+		pickup->name = "pickup";
+		game.entities.push_back(pickup);
+	}
+	else if (pickupNumber > 25 && pickupNumber < 51)
+	{
+		ShieldPickup* pickup = new ShieldPickup();
+		pickup->SetParams(sShieldPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE);
+		pickup->name = "pickup";
+		game.entities.push_back(pickup);
+	}
+	else if (pickupNumber > 50 && pickupNumber < 76)
+	{
+		LaserPickup* pickup = new LaserPickup();
+		pickup->SetParams(sLaserPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE);
+		pickup->name = "pickup";
+		game.entities.push_back(pickup);
+	}
+	else if (pickupNumber > 75 && pickupNumber <= 100)
+	{
+		RocketPickup* pickup = new RocketPickup();
+		pickup->SetParams(sRocketPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE);
+		pickup->name = "pickup";
+		game.entities.push_back(pickup);
+	}
 }
 
 void Game::UpdateEntities(Game& game)

@@ -18,6 +18,10 @@
 #include "ScoreTable.h"
 #include "Text.h"
 #include "UI.h"
+#include "RocketPickup.h"
+#include "LaserPickup.h"
+#include "HealthPickup.h"
+#include "ShieldPickup.h"
 
 enum class GameState
 {
@@ -103,6 +107,10 @@ public:
 	sf::Texture smallRockTexture;
 	sf::Texture explosionTexture1;
 	sf::Texture explosionTexture2;
+	sf::Texture laserPickup;
+	sf::Texture healthPickup;
+	sf::Texture rocketPickup;
+	sf::Texture shieldPickup;
 
 	// create all objects of animations
 	Animation sLaser;
@@ -113,6 +121,10 @@ public:
 	Animation sRockSmall;
 	Animation sShip;
 	Animation sFlyingShip;
+	Animation sLaserPickup;
+	Animation sHealthPickup;
+	Animation sRocketPickup;
+	Animation sShieldPickup;
 
 	// create list of all objects
 	std::list<Entity*> entities;
