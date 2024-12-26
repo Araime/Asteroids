@@ -247,6 +247,11 @@ void Game::CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity
 			CreateExplosionAnimation(game, second_obj, game.sAsteroidExplosion);
 
 			game.asteroidExplSnd.sound.play();
+
+			if ((rand() % 10 + 1) > 9)
+			{
+				CreateRandomPickup(game, second_obj);
+			}
 		}
 
 		CheckGameOver(game);
@@ -334,17 +339,7 @@ void Game::RandomGenerateNewAsteroid(Game& game)
 	}
 }
 
-void Game::CalculatePickupDropChance(Game& game)
-{
-
-
-	/*if (rand() % 100)
-	{
-
-	}*/
-}
-
-void Game::CreateRandomPickup(Game& game)
+void Game::CreateRandomPickup(Game& game, Entity* obj)
 {
 
 }
