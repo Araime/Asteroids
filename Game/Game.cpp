@@ -349,6 +349,7 @@ void Game::RandomGenerateNewAsteroid(Game& game)
 
 void Game::CreateRandomPickup(Game& game, Entity* obj)
 {
+	// creating a random number that will be used to determine which bonus will appear
 	int pickupNumber = rand() % 100 + 1;
 
 	if (pickupNumber < 26)
