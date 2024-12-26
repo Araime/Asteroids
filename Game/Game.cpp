@@ -199,6 +199,8 @@ void Game::CheckAllCollisions(Game& game)
 			{
 				CheckCollisionPlayerAndAsteroid(game, first_obj, second_obj);
 			}
+
+			// TODO: check collision player with pickup
 		}
 	}
 }
@@ -330,6 +332,21 @@ void Game::RandomGenerateNewAsteroid(Game& game)
 	{
 		CreateAsteroid(game);
 	}
+}
+
+void Game::CalculatePickupDropChance(Game& game)
+{
+
+
+	/*if (rand() % 100)
+	{
+
+	}*/
+}
+
+void Game::CreateRandomPickup(Game& game)
+{
+
 }
 
 void Game::UpdateEntities(Game& game)

@@ -4,6 +4,7 @@
 
 #include <list>
 #include <string>
+#include <stdio.h>
 
 #include "Animation.h"
 #include "Asteroid.h"
@@ -18,6 +19,9 @@
 #include "ScoreTable.h"
 #include "Text.h"
 #include "UI.h"
+
+// a macro
+#define LOG(M, ...) printf(M "\n", ##__VA_ARGS__)
 
 enum class GameState
 {
@@ -154,6 +158,10 @@ public:
 	void CreateAsteroid(Game& game);
 
 	void RandomGenerateNewAsteroid(Game& game);
+
+	void CalculatePickupDropChance(Game& game);
+
+	void CreateRandomPickup(Game& game);
 
 	void UpdateEntities(Game& game);
 
