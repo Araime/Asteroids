@@ -53,6 +53,9 @@ const int ASTEROID_MIN_SPEED = 4;
 const int ASTEROID_MAX_SPEED = 8;
 const int DIVIDER = 175;
 
+// pickup
+const float PICKUP_RAD = 20.f;
+
 // weapons
 // laser
 const float LASER_COOLDOWN = 0.2f;

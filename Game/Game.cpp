@@ -326,28 +326,28 @@ void Game::CreateRandomPickup(Game& game, Entity* obj)
 	if (pickupNumber < 26)
 	{
 		HealthPickup* pickup = new HealthPickup();
-		pickup->SetParams(sHealthPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE);
+		pickup->SetParams(sHealthPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE, PICKUP_RAD);
 		pickup->name = "pickup";
 		game.entities.push_back(pickup);
 	}
 	else if (pickupNumber > 25 && pickupNumber < 51)
 	{
 		ShieldPickup* pickup = new ShieldPickup();
-		pickup->SetParams(sShieldPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE);
+		pickup->SetParams(sShieldPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE, PICKUP_RAD);
 		pickup->name = "pickup";
 		game.entities.push_back(pickup);
 	}
 	else if (pickupNumber > 50 && pickupNumber < 76)
 	{
 		LaserPickup* pickup = new LaserPickup();
-		pickup->SetParams(sLaserPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE);
+		pickup->SetParams(sLaserPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE, PICKUP_RAD);
 		pickup->name = "pickup";
 		game.entities.push_back(pickup);
 	}
 	else if (pickupNumber > 75 && pickupNumber <= 100)
 	{
 		RocketPickup* pickup = new RocketPickup();
-		pickup->SetParams(sRocketPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE);
+		pickup->SetParams(sRocketPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE, PICKUP_RAD);
 		pickup->name = "pickup";
 		game.entities.push_back(pickup);
 	}
