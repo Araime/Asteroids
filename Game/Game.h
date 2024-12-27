@@ -149,6 +149,7 @@ public:
 	void CheckAllCollisions(Game& game);
 	void CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* second_obj);
 	void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj);
+	void CheckCollisionPlayerAndPickup(Game& game, Entity* first_obj, Entity* second_obj);
 	void CheckGameOver(Game& game);
 	void Check—ompletedAnimations(Game& game);
 

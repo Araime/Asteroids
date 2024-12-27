@@ -164,21 +164,30 @@ void Game::CheckAllCollisions(Game& game)
 	{
 		for (auto& second_obj : game.entities)
 		{
+			// if the name of the first object is a "player" and the second is an "asteroid"
+			if (first_obj->name == "player")
+			{
+				if (second_obj->name == "asteroid")
+				{
+					CheckCollisionPlayerAndAsteroid(game, first_obj, second_obj);
+				}
+
+				// check collision player with pickup
+				if (second_obj->name == "pickup" && second_obj->isAlive)
+				{
+					CheckCollisionPlayerAndPickup(game, first_obj, second_obj);
+				}
+			}
+
 			/* if the name of the first object is a "asteroid" and the second is an "laser" or "rocket"
 			and the second object is alive*/
-			if (first_obj->name == "asteroid" && second_obj->name == "laser" && second_obj->isAlive ||
-				first_obj->name == "asteroid" && second_obj->name == "rocket" && second_obj->isAlive)
+			if (first_obj->name == "asteroid")
 			{
-				CheckAsteroidAndShotCollision(game, first_obj, second_obj);
+				if (second_obj->name == "laser" && second_obj->isAlive || second_obj->name == "rocket" && second_obj->isAlive)
+				{
+					CheckAsteroidAndShotCollision(game, first_obj, second_obj);
+				}
 			}
-
-			// if the name of the first object is a "player" and the second is an "asteroid"
-			if (first_obj->name == "player" && second_obj->name == "asteroid")
-			{
-				CheckCollisionPlayerAndAsteroid(game, first_obj, second_obj);
-			}
-
-			// TODO: check collision player with pickup
 		}
 	}
 }
@@ -196,7 +205,6 @@ void Game::CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* 
 		game.asteroidExplSnd.sound.play();
 
 		CreateSmallAsteroids(game, first_obj);
-
 		UpdatePlayerScore(game, static_cast<int>(first_obj->rad));
 
 		if ((rand() % 10 + 1) > 9)
@@ -236,7 +244,12 @@ void Game::CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity
 	}
 }
 
+void Game::CheckCollisionPlayerAndPickup(Game& game, Entity* first_obj, Entity* second_obj)
+{
+	if (game.player->isDestroyed) return;
 
+	second_obj->isAlive = false;
+}
 
 void Game::CheckGameOver(Game& game)
 {
