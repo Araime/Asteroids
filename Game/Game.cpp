@@ -80,10 +80,10 @@ void Game::InitGame(Game& game)
 	game.sRockSmall.SetAnimation(game.smallRockTexture, 0, 0, 64, 64, 16, 0.2f);
 	game.sShip.SetAnimation(game.shipTexture, 0, 0, 62, 68, 1, 0.f);
 	game.sFlyingShip.SetAnimation(game.flyingShipTexture, 0, 0, 62, 68, 1, 0.f);
-	game.sLaserPickup.SetAnimation(game.laserPickup, 0, 0, 75, 75, 1, 0.f);
-	game.sHealthPickup.SetAnimation(game.healthPickup, 0, 0, 75, 75, 1, 0.f);
-	game.sRocketPickup.SetAnimation(game.rocketPickup, 0, 0, 75, 75, 1, 0.f);
-	game.sShieldPickup.SetAnimation(game.shieldPickup, 0, 0, 75, 75, 1, 0.f);
+	game.sLaserPickup.SetAnimation(game.laserPickup, 0, 0, 50, 50, 1, 0.f);
+	game.sHealthPickup.SetAnimation(game.healthPickup, 0, 0, 50, 50, 1, 0.f);
+	game.sRocketPickup.SetAnimation(game.rocketPickup, 0, 0, 50, 50, 1, 0.f);
+	game.sShieldPickup.SetAnimation(game.shieldPickup, 0, 0, 50, 50, 1, 0.f);
 
 	// load sounds
 	LoadSound(game.timerSnd, SND_PATH + "magnet_start.wav");
@@ -248,7 +248,10 @@ void Game::CheckCollisionPlayerAndPickup(Game& game, Entity* first_obj, Entity* 
 {
 	if (game.player->isDestroyed) return;
 
-	second_obj->isAlive = false;
+	if (IsCollide(first_obj, second_obj))
+	{
+		second_obj->isAlive = false;
+	}
 }
 
 void Game::CheckGameOver(Game& game)
