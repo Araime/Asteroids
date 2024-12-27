@@ -10,18 +10,18 @@
 #include "Background.h"
 #include "Button.h"
 #include "Entity.h"
+#include "HealthPickup.h"
 #include "Laser.h"
+#include "LaserPickup.h"
 #include "Math.h"
 #include "Rocket.h"
+#include "RocketPickup.h"
 #include "Ship.h"
 #include "Sound.h"
 #include "ScoreTable.h"
+#include "ShieldPickup.h"
 #include "Text.h"
 #include "UI.h"
-#include "RocketPickup.h"
-#include "LaserPickup.h"
-#include "HealthPickup.h"
-#include "ShieldPickup.h"
 
 enum class GameState
 {
@@ -140,48 +140,32 @@ public:
 	ScoreTable scoreTable;
 
 	void LoadFont(sf::Font& text, const std::string path);
-
 	void LoadTexture(sf::Texture& object, const std::string path);
-
 	void LoadSound(Sound& snd, const std::string path, float volume = 0);
 
 	void InitGame(Game& game);
-
-	void DrawMainMenu(Game& game, sf::RenderWindow& window);
-
 	void RestartGame(Game& game);
 
 	void CheckAllCollisions(Game& game);
-
 	void CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* second_obj);
-
 	void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj);
-
-	void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation);
-
 	void CheckGameOver(Game& game);
+	void Check—ompletedAnimations(Game& game);
 
 	void CreateSmallAsteroids(Game& game, Entity* first_obj);
-
 	void CreateAsteroid(Game& game);
+	void CreateRandomPickup(Game& game, Entity* obj);
+	void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation);
 
 	void RandomGenerateNewAsteroid(Game& game);
 
-	void CreateRandomPickup(Game& game, Entity* obj);
-
 	void UpdateEntities(Game& game);
-
-	void Check—ompletedAnimations(Game& game);
-
 	void UpdateGame(Game& game, sf::RenderWindow& window);
+	void UpdateMousePosition(Game& game, sf::RenderWindow& window);
+	void UpdatePlayerScore(Game& game, const int& score);
 
 	void DrawCooldownText(Game& game, sf::RenderWindow& window);
-
+	void DrawMainMenu(Game& game, sf::RenderWindow& window);
 	void DrawGame(Game& game, sf::RenderWindow& window);
-
 	void DrawGameOver(Game& game, sf::RenderWindow& window);
-
-	void UpdateMousePosition(Game& game, sf::RenderWindow& window);
-
-	void UpdatePlayerScore(Game& game, const int& score);
 };

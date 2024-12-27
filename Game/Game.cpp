@@ -124,36 +124,6 @@ void Game::InitGame(Game& game)
 	game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
 }
 
-void Game::DrawMainMenu(Game& game, sf::RenderWindow& window)
-{
-	game.menuBG.sprite.rotate(-0.2f);
-
-	window.clear();
-
-	window.draw(game.menuBG.sprite);
-	window.draw(game.bigText.txt);
-
-	UpdateMousePosition(game, window);
-
-	game.startButton.Update(game, mousePos);
-	game.quitButton.Update(game, mousePos);
-	game.startButton.Draw(window);
-	game.quitButton.Draw(window);
-
-	// check if the button is pressed
-	if (game.startButton.IsPressed())
-	{
-		game.RestartGame(game);
-	}
-
-	if (game.quitButton.IsPressed())
-	{
-		window.close();
-	}
-
-	window.display();
-}
-
 void Game::RestartGame(Game& game)
 {
 	// clear the list of entities
@@ -266,14 +236,7 @@ void Game::CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity
 	}
 }
 
-void Game::CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation)
-{
-	// create new explosion
-	Entity* explosion = new Entity();
-	explosion->SetParams(expl_animation, first_obj->xcor, first_obj->ycor);
-	explosion->name = "explosion";
-	game.entities.push_back(explosion);
-}
+
 
 void Game::CheckGameOver(Game& game)
 {
@@ -295,6 +258,21 @@ void Game::CheckGameOver(Game& game)
 	}
 }
 
+void Game::CheckÑompletedAnimations(Game& game)
+{
+	// turn off completed explosions animations
+	for (auto entity : game.entities)
+	{
+		if (entity->name == "explosion")
+		{
+			if (entity->anim.IsAnimationEnd())
+			{
+				entity->isAlive = false;
+			}
+		}
+	}
+}
+
 void Game::CreateSmallAsteroids(Game& game, Entity* first_obj)
 {
 	for (int i = 0; i < SM_ASTEROIDS; i++)
@@ -313,21 +291,6 @@ void Game::CreateSmallAsteroids(Game& game, Entity* first_obj)
 	}
 }
 
-void Game::CheckÑompletedAnimations(Game& game)
-{
-	// turn off completed explosions animations
-	for (auto entity : game.entities)
-	{
-		if (entity->name == "explosion")
-		{
-			if (entity->anim.IsAnimationEnd())
-			{
-				entity->isAlive = false;
-			}
-		}
-	}
-}
-
 void Game::CreateAsteroid(Game& game)
 {
 	// create big asteroid
@@ -337,14 +300,6 @@ void Game::CreateAsteroid(Game& game)
 	float angle = static_cast<float>(rand() % 360);
 	asteroid->SetParams(game.sRock, xcor, static_cast<float>(rand() % FIELD_HEIGHT), angle, BIG_RAD);
 	game.entities.push_back(asteroid);
-}
-
-void Game::RandomGenerateNewAsteroid(Game& game)
-{
-	if (rand() % DIVIDER == 0)
-	{
-		CreateAsteroid(game);
-	}
 }
 
 void Game::CreateRandomPickup(Game& game, Entity* obj)
@@ -379,6 +334,23 @@ void Game::CreateRandomPickup(Game& game, Entity* obj)
 		pickup->SetParams(sRocketPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE);
 		pickup->name = "pickup";
 		game.entities.push_back(pickup);
+	}
+}
+
+void Game::CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation)
+{
+	// create new explosion
+	Entity* explosion = new Entity();
+	explosion->SetParams(expl_animation, first_obj->xcor, first_obj->ycor);
+	explosion->name = "explosion";
+	game.entities.push_back(explosion);
+}
+
+void Game::RandomGenerateNewAsteroid(Game& game)
+{
+	if (rand() % DIVIDER == 0)
+	{
+		CreateAsteroid(game);
 	}
 }
 
@@ -420,12 +392,53 @@ void Game::UpdateGame(Game& game, sf::RenderWindow& window)
 	UpdateEntities(game);
 }
 
+void Game::UpdateMousePosition(Game& game, sf::RenderWindow& window)
+{
+	game.mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+}
+
+void Game::UpdatePlayerScore(Game& game, const int& score)
+{
+	game.playerScore += score;
+	game.UI.UpdateUIScore(game.playerScore);
+}
+
 void Game::DrawCooldownText(Game& game, sf::RenderWindow& window)
 {
 	if (game.player->isDestroyed)
 	{
 		window.draw(game.cooldownText.txt);
 	}
+}
+
+void Game::DrawMainMenu(Game& game, sf::RenderWindow& window)
+{
+	game.menuBG.sprite.rotate(-0.2f);
+
+	window.clear();
+
+	window.draw(game.menuBG.sprite);
+	window.draw(game.bigText.txt);
+
+	UpdateMousePosition(game, window);
+
+	game.startButton.Update(game, mousePos);
+	game.quitButton.Update(game, mousePos);
+	game.startButton.Draw(window);
+	game.quitButton.Draw(window);
+
+	// check if the button is pressed
+	if (game.startButton.IsPressed())
+	{
+		game.RestartGame(game);
+	}
+
+	if (game.quitButton.IsPressed())
+	{
+		window.close();
+	}
+
+	window.display();
 }
 
 void Game::DrawGame(Game& game, sf::RenderWindow& window)
@@ -475,15 +488,4 @@ void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 	}
 
 	window.display();
-}
-
-void Game::UpdateMousePosition(Game& game, sf::RenderWindow& window)
-{
-	game.mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-}
-
-void Game::UpdatePlayerScore(Game& game, const int& score)
-{
-	game.playerScore += score;
-	game.UI.UpdateUIScore(game.playerScore);
 }
