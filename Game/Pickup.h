@@ -6,5 +6,7 @@
 class Pickup : public Entity
 {
 public:
+	Pickup();
+
 	virtual void ApplyEffect() {};
 };
