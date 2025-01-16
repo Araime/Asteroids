@@ -99,6 +99,10 @@ void Game::InitGame(Game& game)
 	LoadSound(game.shipExplSnd, SND_PATH + "boom9.wav");
 	LoadSound(game.buttonHover, SND_PATH + "beep_03.ogg");
 	LoadSound(game.buttonClick, SND_PATH + "terminal_09.ogg");
+	LoadSound(game.healthPickupSnd, SND_PATH + "misc_03.mp3");
+	LoadSound(game.laserPickupSnd, SND_PATH + "weird_02.mp3", 75.f);
+	LoadSound(game.rocketPickupSnd, SND_PATH + "retro_beep_04.mp3");
+	LoadSound(game.shieldPickupSnd, SND_PATH + "teleport_02.mp3");
 
 	// init laser and rocket snd arrays
 	game.laserSndArray[0] = game.laserSnd1;
@@ -330,7 +334,7 @@ void Game::CreateRandomPickup(Game& game, Entity* obj)
 		pickup->SetParams(sHealthPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE, PICKUP_RAD);
 		game.entities.push_back(pickup);
 	}
-	/*else if (pickupNumber > 25 && pickupNumber < 51)
+	else if (pickupNumber > 25 && pickupNumber < 51)
 	{
 		ShieldPickup* pickup = new ShieldPickup();
 		pickup->SetParams(sShieldPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE, PICKUP_RAD);
@@ -347,7 +351,7 @@ void Game::CreateRandomPickup(Game& game, Entity* obj)
 		RocketPickup* pickup = new RocketPickup();
 		pickup->SetParams(sRocketPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE, PICKUP_RAD);
 		game.entities.push_back(pickup);
-	}*/
+	}
 }
 
 void Game::CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation)

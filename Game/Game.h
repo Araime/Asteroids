@@ -90,6 +90,10 @@ public:
 	Sound shipExplSnd;
 	Sound buttonHover;
 	Sound buttonClick;
+	Sound healthPickupSnd;
+	Sound laserPickupSnd;
+	Sound rocketPickupSnd;
+	Sound shieldPickupSnd;
 
 	Music gameMusic;
 
