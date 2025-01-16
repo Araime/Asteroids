@@ -1,6 +1,9 @@
 #include "HealthPickup.h"
 
-void HealthPickup::ApplyEffect()
-{
+#include "Game.h"
 
+void HealthPickup::ApplyEffect(Game& game)
+{
+	game.player->health = 100.f;
+	game.UI.UpdateUIHealthBar(game.player->health);
 }

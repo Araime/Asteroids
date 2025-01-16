@@ -5,5 +5,5 @@
 class LaserPickup : public Pickup
 {
 public:
-	virtual void ApplyEffect() override;
+	virtual void ApplyEffect(Game& game) override;
 };

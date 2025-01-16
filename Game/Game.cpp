@@ -250,6 +250,7 @@ void Game::CheckCollisionPlayerAndPickup(Game& game, Entity* first_obj, Entity* 
 
 	if (IsCollide(first_obj, second_obj))
 	{
+		second_obj->ApplyEffect(game);
 		second_obj->isAlive = false;
 	}
 }
@@ -329,7 +330,7 @@ void Game::CreateRandomPickup(Game& game, Entity* obj)
 		pickup->SetParams(sHealthPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE, PICKUP_RAD);
 		game.entities.push_back(pickup);
 	}
-	else if (pickupNumber > 25 && pickupNumber < 51)
+	/*else if (pickupNumber > 25 && pickupNumber < 51)
 	{
 		ShieldPickup* pickup = new ShieldPickup();
 		pickup->SetParams(sShieldPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE, PICKUP_RAD);
@@ -346,7 +347,7 @@ void Game::CreateRandomPickup(Game& game, Entity* obj)
 		RocketPickup* pickup = new RocketPickup();
 		pickup->SetParams(sRocketPickup, obj->xcor, obj->ycor, -ADDITIONAL_ANGLE, PICKUP_RAD);
 		game.entities.push_back(pickup);
-	}
+	}*/
 }
 
 void Game::CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation)

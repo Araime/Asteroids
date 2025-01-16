@@ -1,6 +1,6 @@
 #include "LaserPickup.h"
 
-void LaserPickup::ApplyEffect()
+void LaserPickup::ApplyEffect(Game& game)
 {
 
 }

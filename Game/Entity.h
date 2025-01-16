@@ -4,6 +4,8 @@
 
 #include "Animation.h"
 
+class Game;
+
 class Entity
 {
 public:
@@ -25,6 +27,8 @@ public:
 
 	// rotate and draw the sprite
 	void Draw(sf::RenderWindow& win);
+
+	virtual void ApplyEffect(Game& game) {};
 
 	virtual ~Entity() {};
 };

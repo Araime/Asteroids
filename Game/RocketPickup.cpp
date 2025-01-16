@@ -1,6 +1,6 @@
 #include "RocketPickup.h"
 
-void RocketPickup::ApplyEffect()
+void RocketPickup::ApplyEffect(Game& game)
 {
 
 }

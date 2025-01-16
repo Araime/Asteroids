@@ -1,6 +1,6 @@
 #include "ShieldPickup.h"
 
-void ShieldPickup::ApplyEffect()
+void ShieldPickup::ApplyEffect(Game& game)
 {
 
 }
