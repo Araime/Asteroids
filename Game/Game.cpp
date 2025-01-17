@@ -54,6 +54,7 @@ void Game::InitGame(Game& game)
 	LoadTexture(game.healthPickup, IMG_PATH + "Health_Pickup.png");
 	LoadTexture(game.rocketPickup, IMG_PATH + "Rocket_Pickup.png");
 	LoadTexture(game.shieldPickup, IMG_PATH + "Armor_Pickup.png");
+	LoadTexture(game.pickupEffectTexture, IMG_PATH + "PickupEffect.png");
 
 	// load bg's textures
 	LoadTexture(game.levelTexture, IMG_PATH + "bg.jpg");
@@ -84,6 +85,7 @@ void Game::InitGame(Game& game)
 	game.sHealthPickup.SetAnimation(game.healthPickup, 0, 0, 50, 50, 1, 0.f);
 	game.sRocketPickup.SetAnimation(game.rocketPickup, 0, 0, 50, 50, 1, 0.f);
 	game.sShieldPickup.SetAnimation(game.shieldPickup, 0, 0, 50, 50, 1, 0.f);
+	game.sPickupEffect.SetAnimation(game.pickupEffectTexture, 0, 0, 100, 100, 30, 1.f);
 
 	// load sounds
 	LoadSound(game.timerSnd, SND_PATH + "magnet_start.wav");
@@ -256,6 +258,8 @@ void Game::CheckCollisionPlayerAndPickup(Game& game, Entity* first_obj, Entity* 
 	{
 		second_obj->ApplyEffect(game);
 		second_obj->isAlive = false;
+
+		CreatePickupEffectAnimation(game, second_obj, game.sPickupEffect);
 	}
 }
 
@@ -284,7 +288,7 @@ void Game::CheckÑompletedAnimations(Game& game)
 	// turn off completed explosions animations
 	for (auto entity : game.entities)
 	{
-		if (entity->name == "explosion")
+		if (entity->name == "explosion" || entity->name == "pickupEffect")
 		{
 			if (entity->anim.IsAnimationEnd())
 			{
@@ -361,6 +365,15 @@ void Game::CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& ex
 	explosion->SetParams(expl_animation, first_obj->xcor, first_obj->ycor);
 	explosion->name = "explosion";
 	game.entities.push_back(explosion);
+}
+
+void Game::CreatePickupEffectAnimation(Game& game, Entity* second_obj, Animation& pickup_animation)
+{
+	// create pickup effect
+	Entity* pickupEffect = new Entity();
+	pickupEffect->SetParams(pickup_animation, second_obj->xcor, second_obj->ycor);
+	pickupEffect->name = "pickupEffect";
+	game.entities.push_back(pickupEffect);
 }
 
 void Game::RandomGenerateNewAsteroid(Game& game)

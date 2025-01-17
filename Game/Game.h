@@ -115,6 +115,7 @@ public:
 	sf::Texture healthPickup;
 	sf::Texture rocketPickup;
 	sf::Texture shieldPickup;
+	sf::Texture pickupEffectTexture;
 
 	// create all objects of animations
 	Animation sLaser;
@@ -129,6 +130,7 @@ public:
 	Animation sHealthPickup;
 	Animation sRocketPickup;
 	Animation sShieldPickup;
+	Animation sPickupEffect;
 
 	// create list of all objects
 	std::list<Entity*> entities;
@@ -161,6 +163,7 @@ public:
 	void CreateAsteroid(Game& game);
 	void CreateRandomPickup(Game& game, Entity* obj);
 	void CreateExplosionAnimation(Game& game, Entity* first_obj, Animation& expl_animation);
+	void CreatePickupEffectAnimation(Game& game, Entity* second_obj, Animation& pickup_animation);
 
 	void RandomGenerateNewAsteroid(Game& game);
 
