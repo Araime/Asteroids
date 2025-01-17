@@ -49,7 +49,7 @@ const int SM_ASTEROIDS = 2;
 const std::vector<float> DELTA_XY{-2, 2};
 const float SM_RAD = 15.f;
 const float BIG_RAD = 25.f;
-const int ASTEROID_MIN_SPEED = 250;
+const int ASTEROID_MIN_SPEED = 300;
 const int ASTEROID_MAX_SPEED = 500;
 const int DIVIDER = 175;
 
@@ -65,7 +65,7 @@ const int LASER_SND_QTY = 3;
 // rocket
 const int ROCKETS_SND_QTY = 4;
 const float ROCKETS_QTY = 5;
-const float ROCKET_ACCELERATION = 6.f;
+const float ROCKET_ACCELERATION = 300.f;
 const float ROCKET_ANGLE_STEP = 10.f;
 const float ROCKET_COOLDOWN = 1.3f;
 
