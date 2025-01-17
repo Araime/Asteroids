@@ -390,7 +390,7 @@ void Game::UpdateEntities(Game& game)
 	for (auto i = game.entities.begin(); i != game.entities.end();)
 	{
 		Entity* entity = *i;
-		entity->Update();
+		entity->Update(game.deltaTime);
 		entity->anim.Update();
 
 		// delete dead objects from entities
@@ -406,10 +406,17 @@ void Game::UpdateEntities(Game& game)
 	}
 }
 
+void Game::UpdateDeltaTime(Game& game)
+{
+	game.deltaTime = game.Clock.restart().asSeconds();
+}
+
 void Game::UpdateGame(Game& game, sf::RenderWindow& window)
 {
+	UpdateDeltaTime(game);
+
 	// player's functions
-	game.player->HandlePlayerInput(game);
+	game.player->HandlePlayerInput(game, game.deltaTime);
 	game.player->UpdateShipSprite(game);
 	game.player->HandlePlayerRessurection(game);
 

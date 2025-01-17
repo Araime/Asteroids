@@ -10,5 +10,5 @@ class Asteroid : public Entity
 public:
 	Asteroid();
 
-	virtual void Update() override;
+	virtual void Update(float deltaTime) override;
 };

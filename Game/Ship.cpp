@@ -7,7 +7,7 @@ Ship::Ship()
 	name = "player";
 }
 
-void Ship::Update()
+void Ship::Update(float deltaTime)
 {
 	if (isAccelerating)
 	{
@@ -28,8 +28,8 @@ void Ship::Update()
 		deltaY *= maxSpeed / speed;
 	}
 
-	xcor += deltaX;
-	ycor += deltaY;
+	xcor += deltaX * deltaTime;
+	ycor += deltaY * deltaTime;
 
 	// check if it's beyond the edge of the screen
 	if (xcor > SCREEN_WIDTH)
@@ -50,7 +50,7 @@ void Ship::Update()
 	}
 }
 
-void Ship::HandlePlayerInput(Game& game)
+void Ship::HandlePlayerInput(Game& game, float deltaTime)
 {
 	switch (game.gameState)
 	{
@@ -68,11 +68,11 @@ void Ship::HandlePlayerInput(Game& game)
 		// handle rotation
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
-			game.player->angle += ROTATION_SPEED;
+			game.player->angle += ROTATION_SPEED * deltaTime;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
-			game.player->angle -= ROTATION_SPEED;
+			game.player->angle -= ROTATION_SPEED * deltaTime;
 		}
 
 		// make shot

@@ -5,7 +5,7 @@ Rocket::Rocket()
 	name = "rocket";
 }
 
-void Rocket::Update()
+void Rocket::Update(float deltaTime)
 {
 	deltaX = cos(angle * DEGREES_TO_RADIANS) * ROCKET_ACCELERATION;
 	deltaY = sin(angle * DEGREES_TO_RADIANS) * ROCKET_ACCELERATION;

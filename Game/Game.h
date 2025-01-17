@@ -47,8 +47,10 @@ public:
 
 	// create game timers
 	sf::Clock gameTimer;
+	sf::Clock Clock;
 	float newTime = 0.f;
 	float pastTime = 0.f;
+	float deltaTime = 0.f;
 
 	// create fonts
 	sf::Font cooldownFont;
@@ -168,6 +170,7 @@ public:
 	void RandomGenerateNewAsteroid(Game& game);
 
 	void UpdateEntities(Game& game);
+	void UpdateDeltaTime(Game& game);
 	void UpdateGame(Game& game, sf::RenderWindow& window);
 	void UpdateMousePosition(Game& game, sf::RenderWindow& window);
 	void UpdatePlayerScore(Game& game, const int& score);

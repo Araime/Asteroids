@@ -17,7 +17,7 @@ Asteroid::Asteroid()
 	}
 }
 
-void Asteroid::Update()
+void Asteroid::Update(float deltaTime)
 {
 	xcor += deltaX;
 	ycor += deltaY;

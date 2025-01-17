@@ -10,5 +10,5 @@ class Laser : public Entity
 public:
 	Laser();
 
-	virtual void Update() override;
+	virtual void Update(float deltaTime) override;
 };

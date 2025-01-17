@@ -28,9 +28,9 @@ public:
 
 	Ship();
 
-	virtual void Update() override;
+	virtual void Update(float deltaTime) override;
 
-	void HandlePlayerInput(Game& game);
+	void HandlePlayerInput(Game& game, float deltaTime);
 
 	void ChangeWeapon(Game& game);
 

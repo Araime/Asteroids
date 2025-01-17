@@ -5,7 +5,7 @@ Laser::Laser()
 	name = "laser";
 }
 
-void Laser::Update()
+void Laser::Update(float deltaTime)
 {
 	deltaX = cos(angle * DEGREES_TO_RADIANS) * LASER_ACCELERATION;
 	deltaY = sin(angle * DEGREES_TO_RADIANS) * LASER_ACCELERATION;

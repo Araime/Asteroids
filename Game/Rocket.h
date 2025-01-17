@@ -10,5 +10,5 @@ class Rocket : public Entity
 public:
 	Rocket();
 
-	virtual void Update() override;
+	virtual void Update(float deltaTime) override;
 };
