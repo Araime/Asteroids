@@ -59,7 +59,7 @@ const float PICKUP_RAD = 20.f;
 // weapons
 // laser
 const float LASER_COOLDOWN = 0.2f;
-const float LASER_ACCELERATION = 12.f;
+const float LASER_ACCELERATION = 600.f;
 const int LASER_SND_QTY = 3;
 
 // rocket
@@ -74,7 +74,7 @@ const float DEGREES_TO_RADIANS = 0.017453f;
 const int COUNTER = 1;
 const float SHIP_RAD = 25.f;
 const float SHIP_ACCELERATION = 30.f;
-const float DECELERATION_FACTOR = 0.95f; // The lower the value, the faster the ship stops
+const float DECELERATION_FACTOR = 0.96f; // The lower the value, the faster the ship stops
 const float ROTATION_SPEED = 110.f;
 const int SHIP_LIFES = 3;
 const int SHIP_MAX_SPEED = 300;
