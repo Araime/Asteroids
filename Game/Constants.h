@@ -49,8 +49,8 @@ const int SM_ASTEROIDS = 2;
 const std::vector<float> DELTA_XY{-2, 2};
 const float SM_RAD = 15.f;
 const float BIG_RAD = 25.f;
-const int ASTEROID_MIN_SPEED = 4;
-const int ASTEROID_MAX_SPEED = 8;
+const int ASTEROID_MIN_SPEED = 250;
+const int ASTEROID_MAX_SPEED = 500;
 const int DIVIDER = 175;
 
 // pickup
@@ -75,7 +75,7 @@ const int COUNTER = 1;
 const float SHIP_RAD = 25.f;
 const float SHIP_ACCELERATION = 30.f;
 const float DECELERATION_FACTOR = 0.95f; // The lower the value, the faster the ship stops
-const float ROTATION_SPEED = 125.f;
+const float ROTATION_SPEED = 110.f;
 const int SHIP_LIFES = 3;
 const int SHIP_MAX_SPEED = 300;
 const float SHIP_HEALTH = 100.f;

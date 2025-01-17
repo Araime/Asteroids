@@ -19,8 +19,8 @@ Asteroid::Asteroid()
 
 void Asteroid::Update(float deltaTime)
 {
-	xcor += deltaX;
-	ycor += deltaY;
+	xcor += deltaX * deltaTime;
+	ycor += deltaY * deltaTime;
 
 	// check if it's beyond the edge of the screen
 	if (xcor > SCREEN_WIDTH)
