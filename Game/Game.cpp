@@ -269,7 +269,7 @@ void Game::CheckGameOver(Game& game)
 	if (game.player->ships)
 	{
 		// update cooldown ressurection time
-		game.destroy_cooldown = 3;
+		game.destroy_cooldown = DESTROY_COOLDOWN;
 		game.cooldownText.UpdateText(game.cooldownStr + std::to_string(game.destroy_cooldown));
 	}
 	else
@@ -450,7 +450,7 @@ void Game::DrawCooldownText(Game& game, sf::RenderWindow& window)
 
 void Game::DrawMainMenu(Game& game, sf::RenderWindow& window)
 {
-	game.menuBG.sprite.rotate(-0.2f);
+	game.menuBG.sprite.rotate(IMAGE_ROTATION_ANGLE);
 
 	window.clear();
 

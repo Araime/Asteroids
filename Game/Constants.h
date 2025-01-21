@@ -28,6 +28,7 @@ const int FIELD_HEIGHT = 728;
 const float GAME_OVER_COOLDOWN = 10.f;
 const float MUSIC_VOLUME = 70.f;
 const float IMAGE_ROTATION_ANGLE = -0.2f;
+const int DESTROY_COOLDOWN = 3;
 
 // buttons
 const std::string START_BTN_TXT = "START";

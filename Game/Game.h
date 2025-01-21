@@ -39,7 +39,7 @@ public:
 	int asteroids_num = 12;
 
 	// create cooldown timer value and text
-	int destroy_cooldown = 3;
+	int destroy_cooldown = DESTROY_COOLDOWN;
 	std::string cooldownStr = "Get Ready\n\t\t\t";
 
 	// create player score:
