@@ -1,9 +1,10 @@
 #include "Animation.h"
 
-void Animation::SetAnimation(sf::Texture& t, int x, int y, int w, int h, int count, float Speed)
+void Animation::SetAnimation(sf::Texture& t, int x, int y, int w, int h, const int count, const float Speed)
 {
 	frame = 0.f;
 	framesSpeed = Speed;
+	framesNum = count;
 
 	for (int i = 0; i < count; i++)
 	{
@@ -18,16 +19,15 @@ void Animation::SetAnimation(sf::Texture& t, int x, int y, int w, int h, int cou
 void Animation::Update()
 {
 	frame += framesSpeed;
-	int frames_num = int(frames.size());
 
-	if (frame >= frames_num)
+	if (frame >= framesNum)
 	{
-		frame -= frames_num;
+		frame -= framesNum;
 	}
 
-	if (frames_num > 0)
+	if (framesNum > 0)
 	{
-		sprite.setTextureRect(frames[int(frame)]);
+		sprite.setTextureRect(frames[static_cast<int>(frame)]);
 	}
 }
 
