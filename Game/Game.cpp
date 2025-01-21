@@ -236,6 +236,19 @@ void Game::CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity
 
 			// update past time
 			game.pastTime = game.gameTimer.getElapsedTime().asSeconds();
+
+			// update cooldown ressurection time
+			game.destroy_cooldown = DESTROY_COOLDOWN;
+
+			if (game.player->ships == 1) // if the player no longer has any ships
+			{
+				game.cooldownText.UpdateText(game.gameoverStr);
+				game.gameMusic.PlayMusic(SND_PATH + "space.ogg");
+			}
+			else
+			{
+				game.cooldownText.UpdateText(game.cooldownStr + std::to_string(game.destroy_cooldown));
+			}
 		}
 		else
 		{
@@ -245,8 +258,6 @@ void Game::CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity
 
 			game.asteroidExplSnd.sound.play();
 		}
-
-		CheckGameOver(game);
 	}
 }
 
@@ -263,24 +274,12 @@ void Game::CheckCollisionPlayerAndPickup(Game& game, Entity* first_obj, Entity* 
 	}
 }
 
-void Game::CheckGameOver(Game& game)
+void Game::GameOver(Game& game)
 {
-	// check if life is over
-	if (game.player->ships)
-	{
-		// update cooldown ressurection time
-		game.destroy_cooldown = DESTROY_COOLDOWN;
-		game.cooldownText.UpdateText(game.cooldownStr + std::to_string(game.destroy_cooldown));
-	}
-	else
-	{
-		// update text and game state
-		game.bigText.UpdateText(GAME_OVER_TEXT);
-		game.bigText.UpdatePosition(GO_TEXT_XCOR, GO_TEXT_YCOR);
-		game.gameState = GameState::GameOver;
-
-		game.gameMusic.PlayMusic(SND_PATH + "space.ogg");
-	}
+	// update text and game state
+	game.bigText.UpdateText(GAME_OVER_TEXT);
+	game.bigText.UpdatePosition(GO_TEXT_XCOR, GO_TEXT_YCOR);
+	game.gameState = GameState::GameOver;
 }
 
 void Game::CheckÑompletedAnimations(Game& game)
@@ -419,6 +418,11 @@ void Game::UpdateGame(Game& game, sf::RenderWindow& window)
 	game.player->HandlePlayerInput(game, game.deltaTime);
 	game.player->UpdateShipSprite(game);
 	game.player->HandlePlayerRessurection(game);
+
+	if (!game.player->ships)
+	{
+		GameOver(game);
+	}
 
 	CheckAllCollisions(game);
 

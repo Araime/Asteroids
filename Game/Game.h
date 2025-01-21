@@ -41,6 +41,7 @@ public:
 	// create cooldown timer value and text
 	int destroy_cooldown = DESTROY_COOLDOWN;
 	std::string cooldownStr = "Get Ready\n\t\t\t";
+	std::string gameoverStr = "GAME OVER";
 
 	// create player score:
 	int playerScore = 0;
@@ -158,7 +159,7 @@ public:
 	void CheckAsteroidAndShotCollision(Game& game, Entity* first_obj, Entity* second_obj);
 	void CheckCollisionPlayerAndAsteroid(Game& game, Entity* first_obj, Entity* second_obj);
 	void CheckCollisionPlayerAndPickup(Game& game, Entity* first_obj, Entity* second_obj);
-	void CheckGameOver(Game& game);
+	void GameOver(Game& game);
 	void Check—ompletedAnimations(Game& game);
 
 	void CreateSmallAsteroids(Game& game, Entity* first_obj);

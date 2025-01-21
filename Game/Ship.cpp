@@ -221,7 +221,6 @@ void Ship::TakeDamage(Game& game, const float damage)
 	if (game.player->health == 0.f)
 	{
 		game.player->isDestroyed = true;
-		game.player->ships--;
 		game.shipExplSnd.sound.play();
 	}
 }
@@ -237,15 +236,26 @@ void Ship::HandlePlayerRessurection(Game& game)
 	{
 		if (game.newTime - game.pastTime > COUNTER)
 		{
-			// update cooldown counter
-			game.destroy_cooldown -= COUNTER;
-			game.timerSnd.sound.play();
+			if (game.player->ships == 1)
+			{
+				// update cooldown counter
+				game.destroy_cooldown -= COUNTER;
 
-			// update cooldown text
-			game.cooldownText.UpdateText(game.cooldownStr + std::to_string(game.destroy_cooldown));
+				// update past time
+				game.pastTime = game.newTime;
+			}
+			else
+			{
+				// update cooldown counter
+				game.destroy_cooldown -= COUNTER;
+				game.timerSnd.sound.play();
 
-			// update past time
-			game.pastTime = game.newTime;
+				// update cooldown text
+				game.cooldownText.UpdateText(game.cooldownStr + std::to_string(game.destroy_cooldown));
+
+				// update past time
+				game.pastTime = game.newTime;
+			}
 		}
 	}
 	if (!game.destroy_cooldown)
@@ -259,6 +269,10 @@ void Ship::HandlePlayerRessurection(Game& game)
 
 void Ship::RessurectPlayer(Game& game)
 {
+	game.player->ships--;
+
+	if (!game.player->ships) return;
+
 	// ressurect the player
 	ResetPlayerParams(game);
 
