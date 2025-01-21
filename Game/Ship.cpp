@@ -78,7 +78,7 @@ void Ship::HandlePlayerInput(Game& game, float deltaTime)
 		// make shot
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 		{
-			MakeShot(game, game.player->rocketX);
+			MakeShot(game);
 		}
 
 		// equip rocket
@@ -132,7 +132,7 @@ void Ship::ChangeWeapon(Game& game)
 	}
 }
 
-void Ship::MakeShot(Game& game, float xcor)
+void Ship::MakeShot(Game& game)
 {
 	switch (game.player->weapon)
 	{
@@ -141,10 +141,11 @@ void Ship::MakeShot(Game& game, float xcor)
 		// check if enough time has passed
 		if (game.newTime - game.pastTime > LASER_COOLDOWN)
 		{
+			// create random angle
+			float rand_angle = static_cast<float>(rand() % 6 - 3);
+
 			// create new laser
 			Laser* laser = new Laser();
-
-			float rand_angle = static_cast<float>(rand() % 6 - 3);
 			laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
 				game.player->angle + rand_angle, LASER_RAD);
 			game.entities.push_back(laser);
@@ -163,14 +164,16 @@ void Ship::MakeShot(Game& game, float xcor)
 		// check if enough time has passed
 		if (game.newTime - game.pastTime > ROCKET_COOLDOWN)
 		{
-			for (int i = 0; i < ROCKETS_QTY; i++)
+			for (int i = 0; i < ROCKETS_QTY; ++i)
 			{
+				// create new rocket angle
+				float rand_angle = ROCKET_X_ANGLE + ROCKET_ANGLE_STEP * i;
+
 				// create new rocket
 				Rocket* rocket = new Rocket();
 				rocket->SetParams(game.sRocket, game.player->xcor, game.player->ycor,
-					game.player->angle - xcor, ROCKET_RAD);
+					game.player->angle - rand_angle, ROCKET_RAD);
 				game.entities.push_back(rocket);
-				xcor += ROCKET_ANGLE_STEP;
 			}
 
 			// play random rocket sound

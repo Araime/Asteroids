@@ -21,7 +21,6 @@ public:
 	int maxSpeed = SHIP_MAX_SPEED;
 	int ships = SHIP_LIFES;
 	float health = SHIP_HEALTH;
-	float rocketX = -20.f;
 
 	bool isAccelerating = false;
 	bool isDestroyed = false;
@@ -34,7 +33,7 @@ public:
 
 	void ChangeWeapon(Game& game);
 
-	void MakeShot(Game& game, float xcor);
+	void MakeShot(Game& game);
 
 	void UpdateShipSprite(Game& game);
 

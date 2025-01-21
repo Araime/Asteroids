@@ -492,7 +492,7 @@ void Game::DrawGame(Game& game, sf::RenderWindow& window)
 	}
 
 	DrawCooldownText(game, window);
-	game.UI.DrawUI(game, window, game.UI.lifeX);
+	game.UI.DrawUI(game, window);
 
 	window.display();
 }

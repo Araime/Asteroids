@@ -26,7 +26,6 @@ public:
 
 	// create ship life
 	sf::Sprite shipLife;
-	float lifeX = 150.f;
 
 	// create weapon icons
 	sf::Sprite laser;
@@ -40,7 +39,7 @@ public:
 
 	void UpdateWeaponHighlighterPos(const float xcor, const float ycor);
 
-	void DrawUI(Game& game, sf::RenderWindow& window, float xcor);
+	void DrawUI(Game& game, sf::RenderWindow& window);
 
 	void InitUIScore(const sf::Font& font, const int size, const sf::Color& color);
 

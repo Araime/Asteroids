@@ -33,13 +33,13 @@ void UserInterface::InitUI(Game& game)
 
 	// init ship lifes
 	game.UI.shipLife.setTexture(game.shipLife);
-	game.UI.shipLife.setTextureRect(sf::IntRect(0, 0, 36, 40));
+	game.UI.shipLife.setTextureRect(sf::IntRect(0, 0, LIFE_WIDTH, LIFE_HEIGHT));
 	game.UI.shipLife.setScale(LIFE_SIZE / game.UI.shipLife.getLocalBounds().width,
 							  LIFE_SIZE / game.UI.shipLife.getLocalBounds().height);
 
 	// init weapon icons
 	game.UI.laser.setTexture(game.laserTexture);
-	game.UI.laser.setTextureRect(sf::IntRect(0, 0, 32, 64));
+	game.UI.laser.setTextureRect(sf::IntRect(0, 0, UI_LASER_WIDTH, UI_LASER_HEIGHT));
 	game.UI.laser.setScale(0.5f, 0.5f);
 	game.UI.laser.setOrigin(game.UI.laser.getLocalBounds().width / 2,
 							game.UI.laser.getLocalBounds().height / 2);
@@ -47,7 +47,7 @@ void UserInterface::InitUI(Game& game)
 	game.UI.laser.setPosition(ICON1_XCOR, ICON1_YCOR);
 
 	game.UI.rocket.setTexture(game.rocketTexture);
-	game.UI.rocket.setTextureRect(sf::IntRect(0, 0, 16, 28));
+	game.UI.rocket.setTextureRect(sf::IntRect(0, 0, UI_ROCKET_WIDTH, UI_ROCKET_HEIGHT));
 	game.UI.rocket.setOrigin(game.UI.rocket.getLocalBounds().width / 2,
 							 game.UI.rocket.getLocalBounds().height / 2);
 	game.UI.rocket.setRotation(WEAP_ICON_ANGLE);
@@ -65,7 +65,7 @@ void UserInterface::UpdateWeaponHighlighterPos(const float xcor, const float yco
 	highlighter.setPosition(xcor, ycor);
 }
 
-void UserInterface::DrawUI(Game& game, sf::RenderWindow& window, float xcor)
+void UserInterface::DrawUI(Game& game, sf::RenderWindow& window)
 {
 	// draw HP
 	window.draw(game.UI.menuRect);
@@ -74,11 +74,11 @@ void UserInterface::DrawUI(Game& game, sf::RenderWindow& window, float xcor)
 	window.draw(game.UI.whiteRect);
 
 	// draw lifes
-	for (int i = 0; i < game.player->ships; i++)
+	for (int i = 0; i < game.player->ships; ++i)
 	{
-		game.UI.shipLife.setPosition(xcor, LIFE_YCOR);
+		float lifeXcor = LIFE_XCOR + LIFE_STEP * i;
+		game.UI.shipLife.setPosition(lifeXcor, LIFE_YCOR);
 		window.draw(game.UI.shipLife);
-		xcor += LIFE_STEP;
 	}
 
 	// draw weapons

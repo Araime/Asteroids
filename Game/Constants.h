@@ -40,6 +40,7 @@ const float START_BTN_WIDTH = 145.f;
 const float QUIT_BTN_WIDTH = 105.f;
 const float RESTART_BTN_WIDTH = 195.f;
 const float BTNS_HEIGHT = 45.f;
+const float BUTTON_Y_OFFSET = 20.f;
 
 // sprites
 const float ADDITIONAL_ANGLE = 90.f;
@@ -65,6 +66,7 @@ const int LASER_SND_QTY = 3;
 // rocket
 const int ROCKETS_SND_QTY = 4;
 const float ROCKETS_QTY = 5;
+const float ROCKET_X_ANGLE = -20.f;
 const float ROCKET_ACCELERATION = 300.f;
 const float ROCKET_ANGLE_STEP = 10.f;
 const float ROCKET_COOLDOWN = 1.3f;
@@ -90,7 +92,10 @@ const float HP_YCOR = 740.f;
 const float HP_WIDTH = 100.f;
 const float HP_HEIGHT = 15.f;
 const float LIFE_SIZE = 25.f;
+const int LIFE_WIDTH = 36;
+const int LIFE_HEIGHT = 40;
 const float LIFE_STEP = 36.f;
+const float LIFE_XCOR = 150.f;
 const float LIFE_YCOR = 737.f;
 const float ICON1_XCOR = 270.f;
 const float ICON1_YCOR = 748.f;
@@ -102,7 +107,11 @@ const float SELECT_YCOR = 734.f;
 const float SELECT2_XCOR = 293.f;
 const float WEAP_ICON_ANGLE = 90.f;
 const float LASER_RAD = 10.f;
+const int UI_LASER_WIDTH = 32;
+const int UI_LASER_HEIGHT = 64;
 const float ROCKET_RAD = 10.f;
+const int UI_ROCKET_WIDTH = 16;
+const int UI_ROCKET_HEIGHT = 28;
 const float UI_XCOR = 1100.f;
 const float UI_YCOR = 730.f;
 
@@ -114,7 +123,7 @@ const int MAX_RAND_SCORE = 1000;
 const int TABLE_ROWS = 9;
 const float TABLE_INDENT = 200.f;
 const float TABLE_STEP = 40.f;
-const float HIGHLIGHTER_WIDTH = 300.f;
+const float HIGHLIGHTER_WIDTH = 310.f;
 const float HIGHLIGHTER_HEIGHT = 40.f;
 const float HIGHLIGHTER_STEP = 10.f;
 const float SCORETABLE_XCOR = 580.f;

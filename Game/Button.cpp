@@ -24,7 +24,7 @@ void Button::Init(const sf::Font& font, const std::string& text, const float& bt
 	shape.setSize({btnWidth, BTNS_HEIGHT});
 	sf::FloatRect shapeRect = shape.getGlobalBounds();
 	shape.setOrigin(shapeRect.width / 2, shapeRect.height / 2);
-	shape.setPosition(xcor, ycor + 20.f);
+	shape.setPosition(xcor, ycor + BUTTON_Y_OFFSET);
 	shape.setFillColor(hoverColor);
 }
 

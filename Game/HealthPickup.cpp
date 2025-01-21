@@ -5,7 +5,7 @@
 void HealthPickup::ApplyEffect(Game& game)
 {
 	// restore the player's health and update the UI
-	game.player->health = 100.f;
+	game.player->health = SHIP_HEALTH;
 	game.UI.UpdateUIHealthBar(game.player->health);
 
 	// play pickup sound
