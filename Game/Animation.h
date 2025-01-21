@@ -18,5 +18,5 @@ public:
 	// update animation
 	void Update();
 
-	bool IsAnimationEnd();
+	bool IsAnimationEnd() const;
 };

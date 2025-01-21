@@ -17,7 +17,7 @@ Asteroid::Asteroid()
 	}
 }
 
-void Asteroid::Update(float deltaTime)
+void Asteroid::Update(const float deltaTime)
 {
 	xcor += deltaX * deltaTime;
 	ycor += deltaY * deltaTime;

@@ -31,7 +31,7 @@ void Animation::Update()
 	}
 }
 
-bool Animation::IsAnimationEnd()
+bool Animation::IsAnimationEnd() const
 {
 	return frame + framesSpeed >= frames.size();
 }

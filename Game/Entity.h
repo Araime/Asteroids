@@ -23,7 +23,7 @@ public:
 
 	void SetParams(Animation& a, float x, float y, float Angle = 0.f, float radius = 1.f);
 
-	virtual void Update(float deltaTime) {};
+	virtual void Update(const float deltaTime) {};
 
 	// rotate and draw the sprite
 	void Draw(sf::RenderWindow& win);
