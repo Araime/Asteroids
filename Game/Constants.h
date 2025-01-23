@@ -57,6 +57,7 @@ const int DIVIDER = 175;
 
 // pickup
 const float PICKUP_RAD = 20.f;
+const float PICKUP_LIFETIME = 10.f;
 
 // weapons
 // laser

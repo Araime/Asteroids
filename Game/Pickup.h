@@ -6,5 +6,9 @@
 class Pickup : public Entity
 {
 public:
+	float lifetime = 0.f;
+
 	Pickup();
+
+	virtual void Update(const float deltaTime) override;
 };

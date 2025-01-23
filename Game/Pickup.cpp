@@ -4,3 +4,13 @@ Pickup::Pickup()
 {
 	name = "pickup";
 }
+
+void Pickup::Update(const float deltaTime)
+{
+	lifetime += deltaTime;
+
+	if (lifetime >= PICKUP_LIFETIME)
+	{
+		isAlive = false;
+	}
+}
