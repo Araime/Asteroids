@@ -60,6 +60,12 @@ Debug, запустить.
 		- rubberduck - Sci-Fi SFX/beep_03.ogg  
 		- rubberduck - Sci-Fi SFX/terminal_09.ogg  
 
+	- `Пикапы`
+		- rubberduck - Sci-Fi SFX/misc_03.mp3  
+		- rubberduck - Sci-Fi SFX/weird_02.mp3  
+		- rubberduck - Sci-Fi SFX/retro_beep_04.mp3  
+		- rubberduck - Sci-Fi SFX/teleport_02.mp3  
+
 ## Цель проекта
 
 Создание игры на C++ с использованием библиотеки SFML.
