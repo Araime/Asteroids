@@ -304,5 +304,10 @@ void Ship::RunShield(Game& game)
 
 void Ship::UpdateShield(Game& game, float deltaTime)
 {
+	game.player->protectionTimer += deltaTime;
 
+	if (game.player->protectionTimer > SHIELD_MAXLIFETIME)
+	{
+		game.player->isProtected = false;
+	}
 }

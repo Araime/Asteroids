@@ -419,6 +419,11 @@ void Game::UpdateGame(Game& game, sf::RenderWindow& window)
 	game.player->UpdateShipSprite(game);
 	game.player->HandlePlayerRessurection(game);
 
+	if (game.player->isProtected)
+	{
+		game.player->UpdateShield(game, deltaTime);
+	}
+
 	if (!game.player->ships)
 	{
 		GameOver(game);
