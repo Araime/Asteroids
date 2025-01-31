@@ -48,11 +48,11 @@ const float ADDITIONAL_ANGLE = 90.f;
 
 // asteroids
 const int SM_ASTEROIDS = 2;
-const std::vector<float> DELTA_XY{-2, 2};
+const std::vector<float> DELTA_XY{-100, 100};
 const float SM_RAD = 15.f;
 const float BIG_RAD = 25.f;
-const int ASTEROID_MIN_SPEED = 300;
-const int ASTEROID_MAX_SPEED = 500;
+const int ASTEROID_MIN_SPEED = 200;
+const int ASTEROID_MAX_SPEED = 400;
 const int DIVIDER = 175;
 
 // pickup
