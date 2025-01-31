@@ -46,4 +46,8 @@ public:
 	void RessurectPlayer(Game& game);
 
 	void ResetPlayerParams(Game& game);
+
+	void RunShield(Game& game);
+
+	void UpdateShield(Game& game, float deltaTime);
 };

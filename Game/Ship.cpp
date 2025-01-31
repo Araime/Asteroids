@@ -208,6 +208,8 @@ void Ship::UpdateShipSprite(Game& game)
 
 void Ship::TakeDamage(Game& game, const float damage)
 {
+	if (game.player->isProtected) return;
+
 	game.player->health -= damage * DAMAGE_MULTIPLIER;
 
 	if (game.player->health < 0.f)
@@ -278,6 +280,9 @@ void Ship::RessurectPlayer(Game& game)
 
 	game.player->deltaX = 0.f;
 	game.player->deltaY = 0.f;
+	game.player->protectionTimer = 0.f;
+
+	game.player->isProtected = false;
 	game.player->isDestroyed = false;
 	game.player->isAccelerating = false;
 	game.player->health = SHIP_HEALTH;
@@ -289,4 +294,15 @@ void Ship::ResetPlayerParams(Game& game)
 
 	game.player->SetParams(game.sShip, static_cast<float>(SCREEN_WIDTH / 2),
 		static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
+}
+
+void Ship::RunShield(Game& game)
+{
+	game.player->protectionTimer = 0.f;
+	game.player->isProtected = true;
+}
+
+void Ship::UpdateShield(Game& game, float deltaTime)
+{
+
 }
