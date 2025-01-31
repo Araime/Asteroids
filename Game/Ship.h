@@ -21,7 +21,9 @@ public:
 	int maxSpeed = SHIP_MAX_SPEED;
 	int ships = SHIP_LIFES;
 	float health = SHIP_HEALTH;
+	float protectionTimer = 0.f;
 
+	bool isProtected = false;
 	bool isAccelerating = false;
 	bool isDestroyed = false;
 

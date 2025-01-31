@@ -57,7 +57,7 @@ const int DIVIDER = 175;
 
 // pickup
 const float PICKUP_RAD = 20.f;
-const float PICKUP_LIFETIME = 10.f;
+const float PICKUP_MAXLIFETIME = 10.f;
 
 // weapons
 // laser
@@ -84,6 +84,7 @@ const int SHIP_LIFES = 3;
 const int SHIP_MAX_SPEED = 300;
 const float SHIP_HEALTH = 100.f;
 const float DAMAGE_MULTIPLIER = 2.f;
+const float SHIELD_MAXLIFETIME = 20.f;
 
 // UI
 const float MENU_HEIGHT = 40.f;
