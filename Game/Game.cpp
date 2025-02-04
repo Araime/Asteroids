@@ -55,6 +55,7 @@ void Game::InitGame(Game& game)
 	LoadTexture(game.rocketPickup, IMG_PATH + "Rocket_Pickup.png");
 	LoadTexture(game.shieldPickup, IMG_PATH + "Armor_Pickup.png");
 	LoadTexture(game.pickupEffectTexture, IMG_PATH + "PickupEffect.png");
+	LoadTexture(game.shieldEffectTexture, IMG_PATH + "shield.png");
 
 	// load bg's textures
 	LoadTexture(game.levelTexture, IMG_PATH + "bg.jpg");
@@ -86,6 +87,7 @@ void Game::InitGame(Game& game)
 	game.sRocketPickup.SetAnimation(game.rocketPickup, 0, 0, 50, 50, 1, 0.f);
 	game.sShieldPickup.SetAnimation(game.shieldPickup, 0, 0, 50, 50, 1, 0.f);
 	game.sPickupEffect.SetAnimation(game.pickupEffectTexture, 0, 0, 100, 100, 30, 1.f);
+	game.sShieldEffect.SetAnimation(game.shieldEffectTexture, 0, 0, 72, 72, 8, 1.f);
 
 	// load sounds
 	LoadSound(game.timerSnd, SND_PATH + "magnet_start.wav");

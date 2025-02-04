@@ -119,6 +119,7 @@ public:
 	sf::Texture rocketPickup;
 	sf::Texture shieldPickup;
 	sf::Texture pickupEffectTexture;
+	sf::Texture shieldEffectTexture;
 
 	// create all objects of animations
 	Animation sLaser;
@@ -134,6 +135,7 @@ public:
 	Animation sRocketPickup;
 	Animation sShieldPickup;
 	Animation sPickupEffect;
+	Animation sShieldEffect;
 
 	// create list of all objects
 	std::list<Entity*> entities;
