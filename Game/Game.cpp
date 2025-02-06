@@ -87,7 +87,7 @@ void Game::InitGame(Game& game)
 	game.sRocketPickup.SetAnimation(game.rocketPickup, 0, 0, 50, 50, 1, 0.f);
 	game.sShieldPickup.SetAnimation(game.shieldPickup, 0, 0, 50, 50, 1, 0.f);
 	game.sPickupEffect.SetAnimation(game.pickupEffectTexture, 0, 0, 100, 100, 30, 1.f);
-	game.sShieldEffect.SetAnimation(game.shieldEffectTexture, 0, 0, 72, 72, 8, 1.f);
+	game.sShieldEffect.SetAnimation(game.shieldEffectTexture, 0, 0, 72, 72, 8, 0.25f);
 
 	// load sounds
 	LoadSound(game.timerSnd, SND_PATH + "magnet_start.wav");
@@ -500,6 +500,11 @@ void Game::DrawGame(Game& game, sf::RenderWindow& window)
 		if (entity->name == "player" && game.player->isDestroyed) continue;
 
 		entity->Draw(window);
+	}
+
+	if (game.player->isProtected)
+	{
+		game.player->DrawShieldSprite(window);
 	}
 
 	DrawCooldownText(game, window);

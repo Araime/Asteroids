@@ -294,6 +294,8 @@ void Ship::ResetPlayerParams(Game& game)
 
 	game.player->SetParams(game.sShip, static_cast<float>(SCREEN_WIDTH / 2),
 		static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
+
+	game.player->shieldAnim = game.sShieldEffect;
 }
 
 void Ship::RunShield(Game& game)
@@ -307,7 +309,7 @@ void Ship::UpdateShield(Game& game, float deltaTime)
 	game.player->protectionTimer += deltaTime;
 
 	// update shield sprite position
-	game.player->shieldAnim.sprite.setPosition(game.player->xcor, game.player->ycor);
+	shieldAnim.sprite.setPosition(game.player->xcor, game.player->ycor);
 
 	UpdateShieldSprite();
 
