@@ -3,7 +3,7 @@
 Игра про космос, в которой корабль уничтожает астеройды. При столкновении 
 с астеройдами корабль уничтожается.
 
-https://github.com/user-attachments/assets/1f01fd86-5b60-46dd-9aa1-0b4cc7b675e4
+https://github.com/user-attachments/assets/b52681b8-ed7d-405d-b6aa-51043d4225f9
 
 ## TO DO:
 выпадение PowerUps,  
