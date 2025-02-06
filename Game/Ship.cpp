@@ -298,8 +298,11 @@ void Ship::ResetPlayerParams(Game& game)
 	game.player->shieldAnim = game.sShieldEffect;
 }
 
-void Ship::RunShield(Game& game)
+void Ship::ActivateShield(Game& game)
 {
+	// update shield sprite position
+	shieldAnim.sprite.setPosition(game.player->xcor, game.player->ycor);
+
 	game.player->protectionTimer = 0.f;
 	game.player->isProtected = true;
 }

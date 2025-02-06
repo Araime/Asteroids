@@ -49,7 +49,7 @@ public:
 
 	void ResetPlayerParams(Game& game);
 
-	void RunShield(Game& game);
+	void ActivateShield(Game& game);
 
 	void UpdateShield(Game& game, float deltaTime);
 
