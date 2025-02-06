@@ -28,6 +28,7 @@ Debug, запустить.
 - Спрайы:
 	- `корабль` Skorpio - Space Ship Construction Kit
 	- `задний фон Game Over` Dimacks
+	- `щит` cgman
 
 - Музыка:  
 	- `меню` cynicmusic - Enchanted Tiki 86.mp3  
