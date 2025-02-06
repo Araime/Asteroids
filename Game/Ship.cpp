@@ -306,8 +306,23 @@ void Ship::UpdateShield(Game& game, float deltaTime)
 {
 	game.player->protectionTimer += deltaTime;
 
+	// update shield sprite position
+	game.player->shieldAnim.sprite.setPosition(game.player->xcor, game.player->ycor);
+
+	UpdateShieldSprite();
+
 	if (game.player->protectionTimer > SHIELD_MAXLIFETIME)
 	{
 		game.player->isProtected = false;
 	}
+}
+
+void Ship::UpdateShieldSprite()
+{
+	shieldAnim.Update();
+}
+
+void Ship::DrawShieldSprite(sf::RenderWindow& win)
+{
+	win.draw(shieldAnim.sprite);
 }

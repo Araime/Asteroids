@@ -27,6 +27,8 @@ public:
 	bool isAccelerating = false;
 	bool isDestroyed = false;
 
+	Animation shieldAnim;
+
 	Ship();
 
 	virtual void Update(float deltaTime) override;
@@ -50,4 +52,8 @@ public:
 	void RunShield(Game& game);
 
 	void UpdateShield(Game& game, float deltaTime);
+
+	void UpdateShieldSprite();
+
+	void DrawShieldSprite(sf::RenderWindow& win);
 };
