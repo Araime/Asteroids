@@ -275,8 +275,12 @@ void Ship::RessurectPlayer(Game& game)
 
 	if (!game.player->ships) return;
 
-	// ressurect the player
 	ResetPlayerParams(game);
+}
+
+void Ship::ResetPlayerParams(Game& game)
+{
+	float angle = 0.f;
 
 	game.player->deltaX = 0.f;
 	game.player->deltaY = 0.f;
@@ -286,11 +290,6 @@ void Ship::RessurectPlayer(Game& game)
 	game.player->isDestroyed = false;
 	game.player->isAccelerating = false;
 	game.player->health = SHIP_HEALTH;
-}
-
-void Ship::ResetPlayerParams(Game& game)
-{
-	float angle = 0.f;
 
 	game.player->SetParams(game.sShip, static_cast<float>(SCREEN_WIDTH / 2),
 		static_cast<float>(FIELD_HEIGHT / 2), angle, SHIP_RAD);
