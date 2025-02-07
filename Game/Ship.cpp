@@ -194,15 +194,28 @@ void Ship::RocketFire(Game& game)
 	// check if enough time has passed
 	if (game.newTime - game.pastTime > ROCKET_COOLDOWN)
 	{
-		for (int i = 0; i < ROCKETS_QTY; ++i)
+		float new_angle = 0.f;
+
+		for (int i = 0; i < rocketWeaponLvl * ROCKETS_QTY_MULTIPLIER; ++i)
 		{
-			// create new rocket angle
-			float rand_angle = ROCKET_ANGLE + ROCKET_ANGLE_STEP * i;
+			// create new angle for next shot
+			if (rocketWeaponLvl == 1)
+			{
+				new_angle = ROCKET_ANGLE_LVL_ONE + ROCKET_ANGLE_STEP_LVL_ONE * i;
+			}
+			else if (rocketWeaponLvl == 2)
+			{
+				new_angle = ROCKET_ANGLE_LVL_TWO + ROCKET_ANGLE_STEP_LVL_TWO * i;
+			}
+			else if (rocketWeaponLvl == 3)
+			{
+				new_angle = ROCKET_ANGLE_LVL_THREE + ROCKET_ANGLE_STEP_LVL_TWO * i;
+			}
 
 			// create new rocket
 			Rocket* rocket = new Rocket();
 			rocket->SetParams(game.sRocket, game.player->xcor, game.player->ycor,
-				game.player->angle - rand_angle, ROCKET_RAD);
+				game.player->angle - new_angle, ROCKET_RAD);
 			game.entities.push_back(rocket);
 		}
 
