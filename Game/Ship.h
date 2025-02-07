@@ -23,6 +23,9 @@ public:
 	float health = SHIP_HEALTH;
 	float protectionTimer = 0.f;
 
+	int rocketWeaponLvl = 1;
+	int laserWeaponLvl = 1;
+
 	bool isProtected = false;
 	bool isAccelerating = false;
 	bool isDestroyed = false;

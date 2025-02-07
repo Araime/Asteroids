@@ -294,6 +294,9 @@ void Ship::ResetPlayerParams(Game& game)
 	game.player->deltaY = 0.f;
 	game.player->protectionTimer = 0.f;
 
+	game.player->rocketWeaponLvl = 1;
+	game.player->laserWeaponLvl = 1;
+
 	game.player->isProtected = false;
 	game.player->isDestroyed = false;
 	game.player->isAccelerating = false;
