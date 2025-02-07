@@ -61,18 +61,21 @@ const float PICKUP_MAXLIFETIME = 10.f;
 
 // weapons
 // laser
-const float LASER_COOLDOWN = 0.2f;
+const float LASER_COOLDOWN = 0.3f;
 const float LASER_ACCELERATION = 600.f;
 const int LASER_SND_QTY = 3;
+const float LASER_ANGLE_LVL_TWO = -5.f;
+const float LASER_ANGLE_LVL_THREE = -10.f;
+const float LASER_ANGLE_STEP = 10.f;
 const int DEFAULT_LASER_LVL = 1;
 const int MAX_LASER_LVL = 3;
 
 // rocket
 const int ROCKETS_SND_QTY = 4;
 const float ROCKETS_QTY = 5;
-const float ROCKET_X_ANGLE = -20.f;
-const float ROCKET_ACCELERATION = 300.f;
+const float ROCKET_ANGLE = -20.f;
 const float ROCKET_ANGLE_STEP = 10.f;
+const float ROCKET_ACCELERATION = 300.f;
 const float ROCKET_COOLDOWN = 1.3f;
 const int DEFAULT_ROCKET_LVL = 1;
 const int MAX_ROCKET_LVL = 3;

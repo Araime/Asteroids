@@ -156,14 +156,30 @@ void Ship::LaserFire(Game& game)
 	// check if enough time has passed
 	if (game.newTime - game.pastTime > LASER_COOLDOWN)
 	{
-		// create random angle
-		float rand_angle = static_cast<float>(rand() % 6 - 3);
+		float new_angle = 0.f;
 
-		// create new laser
-		Laser* laser = new Laser();
-		laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
-			game.player->angle + rand_angle, LASER_RAD);
-		game.entities.push_back(laser);
+		for (int i = 0; i < laserWeaponLvl; ++i)
+		{
+			// create new angle for next shot
+			if (laserWeaponLvl == 1)
+			{
+				new_angle = static_cast<float>(rand() % 6 - 3);
+			}
+			else if (laserWeaponLvl == 2)
+			{
+				new_angle = LASER_ANGLE_LVL_TWO + LASER_ANGLE_STEP * i;
+			}
+			else if (laserWeaponLvl == 3)
+			{
+				new_angle = LASER_ANGLE_LVL_THREE + LASER_ANGLE_STEP * i;
+			}
+
+			// create new laser
+			Laser* laser = new Laser();
+			laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
+				game.player->angle + new_angle, LASER_RAD);
+			game.entities.push_back(laser);
+		}
 
 		// play random laser sound
 		game.laserSndArray[rand() % LASER_SND_QTY].sound.play();
@@ -181,7 +197,7 @@ void Ship::RocketFire(Game& game)
 		for (int i = 0; i < ROCKETS_QTY; ++i)
 		{
 			// create new rocket angle
-			float rand_angle = ROCKET_X_ANGLE + ROCKET_ANGLE_STEP * i;
+			float rand_angle = ROCKET_ANGLE + ROCKET_ANGLE_STEP * i;
 
 			// create new rocket
 			Rocket* rocket = new Rocket();
