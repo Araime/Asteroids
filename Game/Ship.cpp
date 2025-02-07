@@ -138,55 +138,63 @@ void Ship::MakeShot(Game& game)
 	{
 	case Weapon::Laser:
 	{
-		// check if enough time has passed
-		if (game.newTime - game.pastTime > LASER_COOLDOWN)
-		{
-			// create random angle
-			float rand_angle = static_cast<float>(rand() % 6 - 3);
-
-			// create new laser
-			Laser* laser = new Laser();
-			laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
-				game.player->angle + rand_angle, LASER_RAD);
-			game.entities.push_back(laser);
-
-			// play random laser sound
-			game.laserSndArray[rand() % LASER_SND_QTY].sound.play();
-
-			// update timer
-			game.pastTime = game.newTime;
-		}
-
+		LaserFire(game);
 		break;
 	}
 	case Weapon::Rocket:
 	{
-		// check if enough time has passed
-		if (game.newTime - game.pastTime > ROCKET_COOLDOWN)
-		{
-			for (int i = 0; i < ROCKETS_QTY; ++i)
-			{
-				// create new rocket angle
-				float rand_angle = ROCKET_X_ANGLE + ROCKET_ANGLE_STEP * i;
-
-				// create new rocket
-				Rocket* rocket = new Rocket();
-				rocket->SetParams(game.sRocket, game.player->xcor, game.player->ycor,
-					game.player->angle - rand_angle, ROCKET_RAD);
-				game.entities.push_back(rocket);
-			}
-
-			// play random rocket sound
-			game.rocketSndArray[rand() % ROCKETS_SND_QTY].sound.play();
-
-			// update timer
-			game.pastTime = game.newTime;
-		}
-
+		RocketFire(game);
 		break;
 	}
 	default:
 		break;
+	}
+}
+
+void Ship::LaserFire(Game& game)
+{
+	// check if enough time has passed
+	if (game.newTime - game.pastTime > LASER_COOLDOWN)
+	{
+		// create random angle
+		float rand_angle = static_cast<float>(rand() % 6 - 3);
+
+		// create new laser
+		Laser* laser = new Laser();
+		laser->SetParams(game.sLaser, game.player->xcor, game.player->ycor,
+			game.player->angle + rand_angle, LASER_RAD);
+		game.entities.push_back(laser);
+
+		// play random laser sound
+		game.laserSndArray[rand() % LASER_SND_QTY].sound.play();
+
+		// update timer
+		game.pastTime = game.newTime;
+	}
+}
+
+void Ship::RocketFire(Game& game)
+{
+	// check if enough time has passed
+	if (game.newTime - game.pastTime > ROCKET_COOLDOWN)
+	{
+		for (int i = 0; i < ROCKETS_QTY; ++i)
+		{
+			// create new rocket angle
+			float rand_angle = ROCKET_X_ANGLE + ROCKET_ANGLE_STEP * i;
+
+			// create new rocket
+			Rocket* rocket = new Rocket();
+			rocket->SetParams(game.sRocket, game.player->xcor, game.player->ycor,
+				game.player->angle - rand_angle, ROCKET_RAD);
+			game.entities.push_back(rocket);
+		}
+
+		// play random rocket sound
+		game.rocketSndArray[rand() % ROCKETS_SND_QTY].sound.play();
+
+		// update timer
+		game.pastTime = game.newTime;
 	}
 }
 

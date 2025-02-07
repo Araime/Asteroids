@@ -39,6 +39,10 @@ public:
 
 	void MakeShot(Game& game);
 
+	void LaserFire(Game& game);
+
+	void RocketFire(Game& game);
+
 	void UpdateShipSprite(Game& game);
 
 	void TakeDamage(Game& game, const float damage);
