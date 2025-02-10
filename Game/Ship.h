@@ -63,4 +63,6 @@ public:
 	void UpdateShieldSprite();
 
 	void DrawShieldSprite(sf::RenderWindow& win);
+
+	void DeactivateShield(Game& game);
 };

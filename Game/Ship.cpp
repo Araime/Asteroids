@@ -360,10 +360,7 @@ void Ship::UpdateShield(Game& game, float deltaTime)
 
 	if (game.player->protectionTimer > SHIELD_MAXLIFETIME)
 	{
-		game.player->isProtected = false;
-
-		// change health bar color
-		game.UI.ChangeUIHealthBarColor(game, game.player->isProtected);
+		DeactivateShield(game);
 	}
 }
 
@@ -375,4 +372,12 @@ void Ship::UpdateShieldSprite()
 void Ship::DrawShieldSprite(sf::RenderWindow& win)
 {
 	win.draw(shieldAnim.sprite);
+}
+
+void Ship::DeactivateShield(Game& game)
+{
+	game.player->isProtected = false;
+
+	// change health bar color
+	game.UI.ChangeUIHealthBarColor(game, game.player->isProtected);
 }
