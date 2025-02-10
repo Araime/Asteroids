@@ -37,6 +37,9 @@ public:
 	// update player health
 	void UpdateUIHealthBar(const float health);
 
+	// change the color of the health bar depending on the condition of the shield
+	void ChangeUIHealthBarColor(Game& game, bool is_protected);
+
 	void UpdateWeaponHighlighterPos(const float xcor, const float ycor);
 
 	void DrawUI(Game& game, sf::RenderWindow& window);

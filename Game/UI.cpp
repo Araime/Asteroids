@@ -59,6 +59,20 @@ void UserInterface::UpdateUIHealthBar(const float health)
 	greenLine.setSize(sf::Vector2f(health, HP_HEIGHT));
 }
 
+void UserInterface::ChangeUIHealthBarColor(Game& game, bool is_protected)
+{
+	if (is_protected)
+	{
+		game.UI.greenLine.setFillColor(sf::Color::Yellow);
+		game.UI.redLine.setFillColor(sf::Color::Yellow);
+	}
+	else
+	{
+		game.UI.greenLine.setFillColor(sf::Color::Green);
+		game.UI.redLine.setFillColor(sf::Color::Red);
+	}
+}
+
 void UserInterface::UpdateWeaponHighlighterPos(const float xcor, const float ycor)
 {
 	// change highlighter coord
