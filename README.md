@@ -5,10 +5,6 @@
 
 https://github.com/user-attachments/assets/b52681b8-ed7d-405d-b6aa-51043d4225f9
 
-## TO DO:
-выпадение PowerUps,  
-возможно, прокачка уровней (врядли).  
-
 ## Установка
 
 ### Скачать
@@ -29,6 +25,7 @@ Debug, запустить.
 	- `корабль` Skorpio - Space Ship Construction Kit
 	- `задний фон Game Over` Dimacks
 	- `щит` cgman
+	- `сила оружия` Kenney - SpaceShooterRedux/powerupYellow.png
 
 - Музыка:  
 	- `меню` cynicmusic - Enchanted Tiki 86.mp3  
