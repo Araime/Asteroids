@@ -26,9 +26,7 @@ void UserInterface::InitUI(Game& game)
 
 	// init highlighter
 	game.UI.highlighter.setSize(sf::Vector2f(SELECTOR_WIDTH, SELECTOR_HEIGHT));
-	game.UI.highlighter.setFillColor(sf::Color::Transparent);
-	game.UI.highlighter.setOutlineThickness(2.f);
-	game.UI.highlighter.setOutlineColor(sf::Color::Green);
+	game.UI.highlighter.setFillColor(sf::Color(30, 144, 255, 150));
 	game.UI.highlighter.setPosition(SELECT1_XCOR, SELECT_YCOR);
 
 	// init ship lifes
@@ -101,6 +99,9 @@ void UserInterface::DrawUI(Game& game, sf::RenderWindow& window)
 		window.draw(game.UI.shipLife);
 	}
 
+	// draw highlihter
+	window.draw(game.UI.highlighter);
+
 	// draw weapons
 	window.draw(game.UI.laser);
 	window.draw(game.UI.rocket);
@@ -121,10 +122,6 @@ void UserInterface::DrawUI(Game& game, sf::RenderWindow& window)
 		game.UI.weaponPower.setPosition(rocketPowerXcor, UI_WEAPON_YCOR);
 		window.draw(game.UI.weaponPower);
 	}
-
-
-	// draw highlihter
-	window.draw(game.UI.highlighter);
 
 	// draw UI score
 	if (game.gameState == GameState::Game)
