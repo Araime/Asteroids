@@ -122,6 +122,7 @@ public:
 	sf::Texture shieldEffectTexture;
 	sf::Texture laserIcon;
 	sf::Texture rocketIcon;
+	sf::Texture powerLevelTexture;
 
 	// create all objects of animations
 	Animation sLaser;

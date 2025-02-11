@@ -31,6 +31,9 @@ public:
 	sf::Sprite laser;
 	sf::Sprite rocket;
 
+	// create wepon power sprite
+	sf::Sprite weaponPower;
+
 public:
 	void InitUI(Game& game);
 

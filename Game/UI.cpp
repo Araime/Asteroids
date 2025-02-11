@@ -52,6 +52,9 @@ void UserInterface::InitUI(Game& game)
 	game.UI.rocket.setOrigin(game.UI.rocket.getLocalBounds().width / 2,
 							 game.UI.rocket.getLocalBounds().height / 2);
 	game.UI.rocket.setPosition(ICON2_XCOR, ICON2_YCOR);
+
+	// init weapon power sprite
+	game.UI.weaponPower.setTexture(game.powerLevelTexture);
 }
 
 void UserInterface::UpdateUIHealthBar(const float health)
