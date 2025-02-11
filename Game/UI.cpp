@@ -105,7 +105,7 @@ void UserInterface::DrawUI(Game& game, sf::RenderWindow& window)
 	window.draw(game.UI.laser);
 	window.draw(game.UI.rocket);
 
-	// draw highlighter
+	// draw power sprite
 	// laser
 	for (int i = 0; i < game.player->laserWeaponLvl; ++i)
 	{
@@ -115,6 +115,12 @@ void UserInterface::DrawUI(Game& game, sf::RenderWindow& window)
 	}
 
 	// rocket
+	for (int i = 0; i < game.player->rocketWeaponLvl; ++i)
+	{
+		float rocketPowerXcor = POWER2_XCOR + POWER_STEP * i;
+		game.UI.weaponPower.setPosition(rocketPowerXcor, POWER_YCOR);
+		window.draw(game.UI.weaponPower);
+	}
 
 
 	// draw highlihter
