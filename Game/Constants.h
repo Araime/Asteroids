@@ -118,13 +118,9 @@ const float SELECTOR_SIZE = 28.f;
 const float SELECT1_XCOR = 260.f;
 const float SELECT_YCOR = 734.f;
 const float SELECT2_XCOR = 293.f;
-const float WEAP_ICON_ANGLE = 90.f;
+const float WEAP_ICON_ANGLE = 180.f;
 const float LASER_RAD = 10.f;
-const int UI_LASER_WIDTH = 32;
-const int UI_LASER_HEIGHT = 64;
 const float ROCKET_RAD = 10.f;
-const int UI_ROCKET_WIDTH = 16;
-const int UI_ROCKET_HEIGHT = 28;
 const float UI_XCOR = 1100.f;
 const float UI_YCOR = 730.f;
 
