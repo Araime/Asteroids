@@ -120,6 +120,8 @@ public:
 	sf::Texture shieldPickup;
 	sf::Texture pickupEffectTexture;
 	sf::Texture shieldEffectTexture;
+	sf::Texture laserIcon;
+	sf::Texture rocketIcon;
 
 	// create all objects of animations
 	Animation sLaser;

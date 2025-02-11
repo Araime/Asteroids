@@ -56,6 +56,8 @@ void Game::InitGame(Game& game)
 	LoadTexture(game.shieldPickup, IMG_PATH + "Armor_Pickup.png");
 	LoadTexture(game.pickupEffectTexture, IMG_PATH + "PickupEffect.png");
 	LoadTexture(game.shieldEffectTexture, IMG_PATH + "shield.png");
+	LoadTexture(game.laserIcon, IMG_PATH + "MiniLaser.png");
+	LoadTexture(game.rocketIcon, IMG_PATH + "MiniRocket.png");
 
 	// load bg's textures
 	LoadTexture(game.levelTexture, IMG_PATH + "bg.jpg");
