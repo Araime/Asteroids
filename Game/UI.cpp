@@ -55,6 +55,9 @@ void UserInterface::InitUI(Game& game)
 
 	// init weapon power sprite
 	game.UI.weaponPower.setTexture(game.powerLevelTexture);
+	game.UI.weaponPower.setScale(0.4f, 0.4f);
+	game.UI.weaponPower.setOrigin(game.UI.weaponPower.getLocalBounds().width / 2,
+								  game.UI.weaponPower.getLocalBounds().height / 2);
 }
 
 void UserInterface::UpdateUIHealthBar(const float health)
@@ -101,6 +104,18 @@ void UserInterface::DrawUI(Game& game, sf::RenderWindow& window)
 	// draw weapons
 	window.draw(game.UI.laser);
 	window.draw(game.UI.rocket);
+
+	// draw highlighter
+	// laser
+	for (int i = 0; i < game.player->laserWeaponLvl; ++i)
+	{
+		float laserPowerXcor = POWER1_XCOR + POWER_STEP * i;
+		game.UI.weaponPower.setPosition(laserPowerXcor, POWER_YCOR);
+		window.draw(game.UI.weaponPower);
+	}
+
+	// rocket
+
 
 	// draw highlihter
 	window.draw(game.UI.highlighter);
