@@ -44,14 +44,14 @@ void UserInterface::InitUI(Game& game)
 	game.UI.laser.setOrigin(game.UI.laser.getLocalBounds().width / 2,
 							game.UI.laser.getLocalBounds().height / 2);
 	game.UI.laser.setRotation(180.f);
-	game.UI.laser.setPosition(ICON1_XCOR, ICON1_YCOR);
+	game.UI.laser.setPosition(ICON1_XCOR, UI_WEAPON_YCOR);
 
 	// rocket
 	game.UI.rocket.setTexture(game.rocketPickup);
 	game.UI.rocket.setScale(0.6f, 0.6f);
 	game.UI.rocket.setOrigin(game.UI.rocket.getLocalBounds().width / 2,
 							 game.UI.rocket.getLocalBounds().height / 2);
-	game.UI.rocket.setPosition(ICON2_XCOR, ICON2_YCOR);
+	game.UI.rocket.setPosition(ICON2_XCOR, UI_WEAPON_YCOR);
 
 	// init weapon power sprite
 	game.UI.weaponPower.setTexture(game.powerLevelTexture);
@@ -110,7 +110,7 @@ void UserInterface::DrawUI(Game& game, sf::RenderWindow& window)
 	for (int i = 0; i < game.player->laserWeaponLvl; ++i)
 	{
 		float laserPowerXcor = POWER1_XCOR + POWER_STEP * i;
-		game.UI.weaponPower.setPosition(laserPowerXcor, POWER_YCOR);
+		game.UI.weaponPower.setPosition(laserPowerXcor, UI_WEAPON_YCOR);
 		window.draw(game.UI.weaponPower);
 	}
 
@@ -118,7 +118,7 @@ void UserInterface::DrawUI(Game& game, sf::RenderWindow& window)
 	for (int i = 0; i < game.player->rocketWeaponLvl; ++i)
 	{
 		float rocketPowerXcor = POWER2_XCOR + POWER_STEP * i;
-		game.UI.weaponPower.setPosition(rocketPowerXcor, POWER_YCOR);
+		game.UI.weaponPower.setPosition(rocketPowerXcor, UI_WEAPON_YCOR);
 		window.draw(game.UI.weaponPower);
 	}
 
