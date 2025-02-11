@@ -25,7 +25,7 @@ void UserInterface::InitUI(Game& game)
 	game.UI.redLine.setPosition(HP_XCOR, HP_YCOR);
 
 	// init highlighter
-	game.UI.highlighter.setSize(sf::Vector2f(SELECTOR_SIZE, SELECTOR_SIZE));
+	game.UI.highlighter.setSize(sf::Vector2f(SELECTOR_WIDTH, SELECTOR_HEIGHT));
 	game.UI.highlighter.setFillColor(sf::Color::Transparent);
 	game.UI.highlighter.setOutlineThickness(2.f);
 	game.UI.highlighter.setOutlineColor(sf::Color::Green);
@@ -38,15 +38,17 @@ void UserInterface::InitUI(Game& game)
 							  LIFE_SIZE / game.UI.shipLife.getLocalBounds().height);
 
 	// init weapon icons
+	// laser
 	game.UI.laser.setTexture(game.laserPickup);
-	game.UI.laser.setScale(0.5f, 0.5f);
+	game.UI.laser.setScale(0.6f, 0.6f);
 	game.UI.laser.setOrigin(game.UI.laser.getLocalBounds().width / 2,
 							game.UI.laser.getLocalBounds().height / 2);
 	game.UI.laser.setRotation(180.f);
 	game.UI.laser.setPosition(ICON1_XCOR, ICON1_YCOR);
 
+	// rocket
 	game.UI.rocket.setTexture(game.rocketPickup);
-	game.UI.rocket.setScale(0.5f, 0.5f);
+	game.UI.rocket.setScale(0.6f, 0.6f);
 	game.UI.rocket.setOrigin(game.UI.rocket.getLocalBounds().width / 2,
 							 game.UI.rocket.getLocalBounds().height / 2);
 	game.UI.rocket.setPosition(ICON2_XCOR, ICON2_YCOR);
