@@ -60,8 +60,8 @@ void Game::InitGame(Game& game)
 
 	// load bg's textures
 	LoadTexture(game.levelTexture, IMG_PATH + "bg.jpg");
-	LoadTexture(game.menuTexture, IMG_PATH + "mainmenu.jpg");
 	LoadTexture(game.gameOverTexture, IMG_PATH + "gameover.jpg");
+	LoadTexture(game.menuTexture, IMG_PATH + "titlescreen.png");
 
 	// enable smooth filter
 	game.shipTexture.setSmooth(true);
@@ -462,8 +462,6 @@ void Game::DrawCooldownText(Game& game, sf::RenderWindow& window)
 
 void Game::DrawMainMenu(Game& game, sf::RenderWindow& window)
 {
-	game.menuBG.sprite.rotate(IMAGE_ROTATION_ANGLE);
-
 	window.clear();
 
 	window.draw(game.menuBG.sprite);
