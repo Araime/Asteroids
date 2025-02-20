@@ -33,9 +33,11 @@ const int DESTROY_COOLDOWN = 3;
 // buttons
 const std::string START_BTN_TXT = "START";
 const std::string QUIT_BTN_TXT = "QUIT";
-const std::string RESTART_BTN_TXT = "RESTART";
+const std::string RESTART_BTN_TXT = "MAIN";
 const float LEFT_BTN_XCOR = 350.f;
 const float RIGHT_BTN_XCOR = 1000.f;
+const float LEFT_BTN_GO_XCOR = 550.f;
+const float RIGHT_BTN_GO_XCOR = 800.f;
 const float BTNS_YCOR = 650.f;
 const float START_BTN_WIDTH = 145.f;
 const float QUIT_BTN_WIDTH = 105.f;

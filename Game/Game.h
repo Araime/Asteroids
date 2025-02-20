@@ -66,6 +66,7 @@ public:
 	// create buttons
 	Button startButton;
 	Button quitButton;
+	Button quitGOButton;
 	Button restartButton;
 
 	// mouse position coord

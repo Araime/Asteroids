@@ -38,7 +38,8 @@ void Game::InitGame(Game& game)
 	// init game buttons
 	game.startButton.Init(titleFont, START_BTN_TXT, START_BTN_WIDTH, LEFT_BTN_XCOR, BTNS_YCOR);
 	game.quitButton.Init(titleFont, QUIT_BTN_TXT, QUIT_BTN_WIDTH, RIGHT_BTN_XCOR, BTNS_YCOR);
-	game.restartButton.Init(titleFont, RESTART_BTN_TXT, RESTART_BTN_WIDTH, LEFT_BTN_XCOR, BTNS_YCOR);
+	game.quitGOButton.Init(titleFont, QUIT_BTN_TXT, QUIT_BTN_WIDTH, RIGHT_BTN_GO_XCOR, BTNS_YCOR);
+	game.restartButton.Init(titleFont, RESTART_BTN_TXT, RESTART_BTN_WIDTH, LEFT_BTN_GO_XCOR, BTNS_YCOR);
 
 	// load game textures
 	LoadTexture(game.shipTexture, IMG_PATH + "Spaceship.png");
@@ -522,16 +523,19 @@ void Game::DrawGameOver(Game& game, sf::RenderWindow& window)
 	UpdateMousePosition(game, window);
 
 	game.restartButton.Update(game, mousePos);
-	game.quitButton.Update(game, mousePos);
+	game.quitGOButton.Update(game, mousePos);
 	game.restartButton.Draw(window);
-	game.quitButton.Draw(window);
+	game.quitGOButton.Draw(window);
 
 	game.scoreTable.DrawScoreTable(window, SCORETABLE_XCOR, SCORETABLE_YCOR);
 
 	// check if the button is pressed
 	if (game.restartButton.IsPressed())
 	{
-		game.RestartGame(game);
+		game.gameMusic.PlayMusic(SND_PATH + "enchanted tiki 86.ogg");
+
+		game.bigText.UpdateText(TITLE_TEXT);
+		game.gameState = GameState::TitleScreen;
 	}
 
 	if (game.quitButton.IsPressed())
