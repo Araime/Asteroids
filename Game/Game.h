@@ -98,6 +98,12 @@ public:
 	Sound rocketPickupSnd;
 	Sound shieldPickupSnd;
 
+	// create pickup voices
+	Sound laserPickupVoice;
+	Sound rocketPickupVoice;
+	Sound healthPickupVoice;
+	Sound shieldPickupVoice;
+
 	Music gameMusic;
 
 	// create laser and rocket snd arrays

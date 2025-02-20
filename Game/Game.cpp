@@ -109,6 +109,12 @@ void Game::InitGame(Game& game)
 	LoadSound(game.rocketPickupSnd, SND_PATH + "retro_beep_04.mp3");
 	LoadSound(game.shieldPickupSnd, SND_PATH + "teleport_02.mp3");
 
+	// load pickup voices
+	LoadSound(game.laserPickupVoice, SND_PATH + "laser_pickup.wav");
+	LoadSound(game.rocketPickupVoice, SND_PATH + "rocket_pickup.wav");
+	LoadSound(game.healthPickupVoice, SND_PATH + "health_pickup.wav");
+	LoadSound(game.shieldPickupVoice, SND_PATH + "shield_pickup.wav");
+
 	// init laser and rocket snd arrays
 	game.laserSndArray[0] = game.laserSnd1;
 	game.laserSndArray[1] = game.laserSnd2;
